@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import org.javatraining.action.Action;
 import org.javatraining.action.ActionFactory;
 
-//クライアントからの入力を受け付け、必要に応じて他のクラスysJSPへ処理を振り分ける制御クラス
+//クライアントからの入力を受け付け、必要に応じて他のクラスJSPへ処理を振り分ける制御クラス
 @WebServlet(urlPatterns = { "/control" })
 public class Controller extends HttpServlet {
 

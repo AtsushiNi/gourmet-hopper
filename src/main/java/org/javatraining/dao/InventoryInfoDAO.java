@@ -41,7 +41,7 @@ public class InventoryInfoDAO {
     public Inventory findById(int productId) throws SQLException, NamingException {
 
         // INVENTORY_INFO テーブルを商品 ID の条件で検索する SQL 文
-        String sql = "SELECT PROD_ID,PROD_NAME,PRICE, AMOUNT,LOCATION,DESCRIPTION FROM INVENTORY_INFO WHERE PROD ID = ?";
+        String sql = "SELECT PROD_ID,PROD_NAME,PRICE, AMOUNT,LOCATION,DESCRIPTION FROM INVENTORY_INFO WHERE PROD_ID = ?";
 
         // データソースを取得
         DataSource ds = DataSourceSupplier.getDataSource();
@@ -97,7 +97,7 @@ public class InventoryInfoDAO {
     public boolean merge(Inventory inventory) throws SQLException, NamingException {
 
         // INSERT INFO テーブルのデータを更新する SQL文
-        String sql = "UPDATE INVENTORY_INFO SET PROD NAME = ? ,PRICE = ? , AMOUNT = ?, LOCATION = ? , DESCRIPTION = ?  WHERE PROD_ID = ? ";
+        String sql = "UPDATE INVENTORY_INFO SET PROD_NAME = ? ,PRICE = ? , AMOUNT = ?, LOCATION = ? , DESCRIPTION = ?  WHERE PROD_ID = ? ";
 
         // データソースを取得
         DataSource ds = DataSourceSupplier.getDataSource();

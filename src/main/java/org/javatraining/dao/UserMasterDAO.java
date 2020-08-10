@@ -1,6 +1,7 @@
 package org.javatraining.dao;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,12 +15,21 @@ public class UserMasterDAO {
     // ログイン情報に対応するユーザ情報を検索する
     public User findByCredential(String userName, String password) throws SQLException, NamingException {
 
-        String sql = "SELECT USER_ID,USER NAME,PASSWORD FROM USER MASTER WHERE USER NAME = ? AND PASSWORD = ? ";
+        String sql = "SELECT USER_ID,USER_NAME,PASSWORD FROM USER_MASTER WHERE USER_NAME = ? AND PASSWORD = ? ";
 
         // データソースを取得
         DataSource ds = DataSourceSupplier.getDataSource();
+   //     try {
+   //         Class.forName("com.mysql.jdbc.Driver");
+   //       }catch (ClassNotFoundException e){
+   //       }catch (Exception e){
+   //       }
+
+
 
         try (Connection con = ds.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
+ //       try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost/java_training", "root", "");
+ //           PreparedStatement ps = con.prepareStatement(sql)) {
 
             // SQL文のプレースホルダに値をセット
             ps.setString(1, userName);
@@ -36,7 +46,7 @@ public class UserMasterDAO {
                 // Userオブジェクトを作成して返す
                 User user = new User();
                 user.setUserId(rs.getInt("USER_ID"));
-                user.setUserName(rs.getString("USER NAME"));
+                user.setUserName(rs.getString("USER_NAME"));
                 user.setPassword(rs.getString("PASSWORD"));
                 return user;
             }

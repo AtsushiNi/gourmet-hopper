@@ -9,10 +9,10 @@ pageEncoding="UTF-8"%>
     <link type="text/css" rel="stylesheet" href="resources/cssLayout.css" />
   </head>
   <body>
-    <div id="top" class="top"><jsp:include page="templete/top.jsp" /></div>
+    <div id="top" class="top"><jsp:include page="template/top.jsp" /></div>
     <div>
       <div id="left">
-        <jsp:include page="templete/side.jsp" />
+        <jsp:include page="template/side.jsp" />
       </div>
       <div id="content">
         <div class="content_title">

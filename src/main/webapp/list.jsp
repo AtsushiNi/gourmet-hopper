@@ -15,11 +15,11 @@ pageEncoding="UTF-8"%>
   </head>
   <body>
     <div id="top" class="top">
-      <jsp:include page="templete/top.jsp" />
+      <jsp:include page="template/top.jsp" />
     </div>
     <div>
       <div id="left">
-        <jsp:include page="templete/side.jsp" />
+        <jsp:include page="template/side.jsp" />
       </div>
       <div id="content">
         <div class="content_title">
