@@ -2,7 +2,6 @@ plugins {
 	id 'java'
 	id 'eclipse'
 	id 'war'
-
 }
 
 group = 'org.javatraining'
@@ -15,7 +14,7 @@ repositories {
 
 dependencies {
     providedCompile 'javax.servlet:javax.servlet-api:3.0.1'
-	//compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.13'
+	compile files('mysql-connector-java-8.0.21.jar')
 }
 
 test {

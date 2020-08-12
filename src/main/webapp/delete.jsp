@@ -51,7 +51,7 @@ pageEncoding="UTF-8"%>
               <th><label for="amt">在庫数量</label></th>
               <td>
                 <span id="amt">
-                  <jsp:get Property name="inventory" property="amount" />
+                  <jsp:getProperty name="inventory" property="amount" />
                 </span>
               </td>
             </tr>
@@ -59,26 +59,24 @@ pageEncoding="UTF-8"%>
               <th><label for="loc">保管場所</label></th>
               <td>
                 <span id="loc">
-                  <jsp:get Property name="inventory" property="location" />
+                  <jsp:getProperty name="inventory" property="location" />
                 </span>
               </td>
             </tr>
             <tr>
-              <th><label for="desc">商品説明 </label></th>
+              <th><label for="desc">商品説明</label></th>
               <td>
                 <span id="desc">
-                  <jsp:getProperty name="inventory" property="description" />
+                  <jsp:getProperty name="inventory" property="description"/>
                 </span>
               </td>
             </tr>
           </table>
           <p class="button">
             <input type="hidden" name="action_name" value="delete" />
-            <input type="submit" value=" EXT" class="submit button" />
+            <input type="submit" value="削除" class="submit button" />
             <input type="button"
-            onclick="window.location.href='control?action_name=edit&prod_id=
-            <jsp:getProperty name="inventory" property="productId" />'; return
-            false;" value="詳細に戻る" class="submit button" />
+            onclick="window.location.href='control?action_name=edit&prod_id=<jsp:getProperty name="inventory" property="productId"/>'; return false;" value="詳細に戻る" class="submit_button" />
           </p>
         </form>
       </div>

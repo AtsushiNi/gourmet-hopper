@@ -31,13 +31,13 @@
 <tr> 
 <th><label for="prc">単価</label></th>
 <td> 
-<input id="prc" name="price" type="number" value="<jsp:getProperty name="inventory" property="price" /> class="number_input" required />
+<input id="prc" name="price" type="number" value="<jsp:getProperty name="inventory" property="price" />" class="number_input" required />
 </td>
 </tr>
 <tr> 
 <th><label for="amt">数量</label></th>
 <td> 
-<input id="amt" name="amount" type="number" value="<jsp:get Property name="inventory" property="amount" />" class="number_input" required /> 
+<input id="amt" name="amount" type="number" value="<jsp:getProperty name="inventory" property="amount" />" class="number_input" required /> 
 </td>
 </tr>
 <tr> 
@@ -57,9 +57,7 @@
     <th><label for="desc">商品説明</label>
     </th>
     <td> 
-    <textarea id="desc" name="description"> 
-    <jsp:getProperty name="inventory" property="description" />
-</textarea>
+    <textarea id="desc" name="description"><jsp:getProperty name="inventory" property="description"/></textarea>
 </td>
 </tr>
 </table>
@@ -69,14 +67,12 @@
     <% } else { %> 
     <input type="submit" value="更新" class="submit_button" /> 
     <input type="submit" value="削除"
-    onclick="window.location.href='control?action_name=delete_confirm&prod_id=
-    <jsp:getProperty name="inventory" property="productId"/>'; return false;" 
-    class="submit button" />
+    onclick="window.location.href='control?action_name=delete_confirm&prod_id=<jsp:getProperty name="inventory" property="productId"/>'; return false;" class="submit_button" />
     <% } %> 
     <input type="hidden" name="action_name" value="registration" />
 </p>
 </form>
-<% -- エラー・メッセージがある場合は表示 --%>
+<!-- エラー・メッセージがある場合は表示 -->
 <% if (request.getAttribute("errorMsg") != null) { %> 
     <ul class="error"> 
     <li> 

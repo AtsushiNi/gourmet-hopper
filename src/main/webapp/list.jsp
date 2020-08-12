@@ -36,10 +36,10 @@ pageEncoding="UTF-8"%>
             </tr>
           </thead>
           <tbody>
-            <8 for(int i = 0; i < inventories.size(); i++) {%> <% if (i % 2 ==
+            <% for(int i = 0; i < inventories.size(); i++) {%> <% if (i % 2 ==
             0) { %>
             <tr class="odd">
-              <% } else { $>
+              <% } else { %>
             </tr>
             <tr class="even">
               <% } %>
@@ -55,9 +55,8 @@ pageEncoding="UTF-8"%>
               <td class="cent"><%= inventories.get(i).getLocation() %></td>
               <td class="cent">
                 <a
-                  href="control?action_name=delete_confirm&prod_id= 
-<%= inventories.get(i).getProductId() %>"
-                >
+                  href="control?action_name=delete_confirm&prod_id=<%= inventories.get(i).getProductId() %>"
+                >削除
                 </a>
               </td>
             </tr>

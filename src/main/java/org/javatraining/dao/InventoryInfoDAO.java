@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
+import java.sql.DriverManager;
 import org.javatraining.entity.Inventory;
 
 // 在庫情報テーブルへのアクセスを行うクラス
@@ -19,8 +20,7 @@ public class InventoryInfoDAO {
         String sql = "SELECT PROD_ID,PROD_NAME,PRICE,AMOUNT,LOCATION,DESCRIPTION FROM INVENTORY_INFO";
 
         // データソースを取得
-        DataSource ds = DataSourceSupplier.getDataSource();
-        try (Connection con = ds.getConnection();
+        try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/java_training", "root", "");
                 PreparedStatement ps = con.prepareStatement(sql);
                 ResultSet rs = ps.executeQuery()) {
             // 在庫情報オブジェクトの List を生成
@@ -44,8 +44,8 @@ public class InventoryInfoDAO {
         String sql = "SELECT PROD_ID,PROD_NAME,PRICE, AMOUNT,LOCATION,DESCRIPTION FROM INVENTORY_INFO WHERE PROD_ID = ?";
 
         // データソースを取得
-        DataSource ds = DataSourceSupplier.getDataSource();
-        try (Connection con = ds.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
+        try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/java_training", "root", "");
+                PreparedStatement ps = con.prepareStatement(sql)){
 
             // プレース・ホルダに値を設定
             ps.setInt(1, productId);
@@ -70,9 +70,8 @@ public class InventoryInfoDAO {
         String sql = "INSERT INTO INVENTORY_INFO (PROD_NAME,PRICE,AMOUNT,LOCATION,DESCRIPTION ) VALUES (?, ?, ?, ?, ?)";
 
         // データソースを取得
-        DataSource ds = DataSourceSupplier.getDataSource();
-
-        try (Connection con = ds.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
+        try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/java_training", "root", "");
+                PreparedStatement ps = con.prepareStatement(sql)){
             // プレース・ホルダに値を設定
             ps.setString(1, inventory.getProductName());
             ps.setInt(2, inventory.getPrice());
@@ -100,9 +99,8 @@ public class InventoryInfoDAO {
         String sql = "UPDATE INVENTORY_INFO SET PROD_NAME = ? ,PRICE = ? , AMOUNT = ?, LOCATION = ? , DESCRIPTION = ?  WHERE PROD_ID = ? ";
 
         // データソースを取得
-        DataSource ds = DataSourceSupplier.getDataSource();
-
-        try (Connection con = ds.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
+        try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/java_training", "root", "");
+                PreparedStatement ps = con.prepareStatement(sql)){
             // プレース・ホルダに値を設定
             ps.setString(1, inventory.getProductName());
             ps.setInt(2, inventory.getPrice());
@@ -129,9 +127,8 @@ public class InventoryInfoDAO {
         // INVENTORY INFO テーブルからデータを削除する SQL 文
         String sql = "DELETE FROM INVENTORY_INFO WHERE PROD_ID = ?";
         // データソースを取得
-        DataSource ds = DataSourceSupplier.getDataSource();
-
-        try (Connection con = ds.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
+        try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/java_training", "root", "");
+                PreparedStatement ps = con.prepareStatement(sql)){
             // プレース・ホルダに値を設定
             ps.setInt(1, inventory.getProductId());
             // SQL 文を実行
