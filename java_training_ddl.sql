@@ -1,5 +1,6 @@
-CREATE DATABASE java_training;
-USE java_training;
+DROP DATABASE training;
+CREATE DATABASE training;
+USE training;
 
 CREATE TABLE INVENTORY_INFO(
     PROD_ID INT(10) AUTO_INCREMENT NOT NULL, 

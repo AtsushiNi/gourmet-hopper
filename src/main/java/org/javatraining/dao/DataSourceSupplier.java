@@ -12,7 +12,7 @@ public class DataSourceSupplier {
 
         // 初回の呼び出し時のみ、データソースをインスタンス化
         if (ds == null) {
-            ds = (DataSource) new InitialContext().lookup("jdbc/inventory");
+            ds = (DataSource) new InitialContext().lookup("jdbc/tx");
         }
         return ds;
     }

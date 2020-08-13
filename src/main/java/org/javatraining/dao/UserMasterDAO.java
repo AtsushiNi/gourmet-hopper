@@ -1,7 +1,6 @@
 package org.javatraining.dao;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,8 +17,9 @@ public class UserMasterDAO {
         String sql = "SELECT USER_ID,USER_NAME,PASSWORD FROM USER_MASTER WHERE USER_NAME = ? AND PASSWORD = ? ";
 
         // データソースを取得
-        try (Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/java_training", "root", "");
-            PreparedStatement ps = con.prepareStatement(sql)) {
+        DataSource ds = DataSourceSupplier.getDataSource();
+        try (Connection con = ds.getConnection();
+                PreparedStatement ps = con.prepareStatement(sql)){
 
             // SQL文のプレースホルダに値をセット
             ps.setString(1, userName);
