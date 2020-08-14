@@ -7,20 +7,15 @@ pageEncoding="UTF-8"%>
     scope="request"
     class="org.javatraining.entity.Inventory"
   />
-  <head>
+<header id="header">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>在庫管理システム</title>
-    <link type="text/css" rel="stylesheet" href="resources/style.css" />
-    <link type="text/css" rel="stylesheet" href="resources/cssLayout.css" />
-  </head>
-  <body>
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+</header>
+<main id="main">
     <div id="top" class="top">
       <jsp:include page="template/top.jsp" />
     </div>
-    <div>
-      <div id="left">
-        <jsp:include page="template/side.jsp" />
-      </div>
       <div id="content">
         <div class="content_title">
           <h1>削除確認</h1>
@@ -32,7 +27,7 @@ pageEncoding="UTF-8"%>
           />" />
           <table>
             <tr>
-              <th><label for="prod name"> </label></th>
+              <th><label for="prod name">商品名</label></th>
               <td>
                 <span id="prod_name">
                   <jsp:getProperty name="inventory" property="productName" />
@@ -81,5 +76,11 @@ pageEncoding="UTF-8"%>
         </form>
       </div>
     </div>
-  </body>
+  </main>
+  <aside id="sub">
+    <div>
+      <div id="left">
+        <jsp:include page="template/side.jsp" />
+      </div>
+</aside>
 </html>

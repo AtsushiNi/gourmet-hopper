@@ -7,20 +7,15 @@ pageEncoding="UTF-8"%>
   type="java.util.List<org.javatraining.entity.Inventory>"
 />
 <html>
-  <head>
+<header id="header">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>在庫管理システム</title>
-    <link type="text/css" rel="stylesheet" href="resources/style.css" />
-    <link type="text/css" rel="stylesheet" href="resources/cssLayout.css" />
-  </head>
-  <body>
     <div id="top" class="top">
       <jsp:include page="template/top.jsp" />
     </div>
-    <div>
-      <div id="left">
-        <jsp:include page="template/side.jsp" />
-      </div>
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+</header>
+<main id="main">
       <div id="content">
         <div class="content_title">
           <h1>商品一覧</h1>
@@ -65,5 +60,11 @@ pageEncoding="UTF-8"%>
         </table>
       </div>
     </div>
-  </body>
+</main>
+<aside id="sub">
+    <div>
+      <div id="left">
+        <jsp:include page="template/side.jsp" />
+      </div>
+</aside>
 </html>

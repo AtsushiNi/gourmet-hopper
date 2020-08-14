@@ -2,11 +2,12 @@
 pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-  <head>
+<header id="header">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <title>在庫管理システム</title>
-    <link type="text/css" rel="stylesheet" href="resources/style.css" />
-  </head>
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+</header>
+<main id="main">
   <body class="login_body">
     <form action="control" method="post" class="login">
       <input type="hidden" name="action_name" value="login" />
@@ -27,4 +28,5 @@ pageEncoding="UTF-8"%>
       <% } %>
     </form>
   </body>
+  </main>
 </html>

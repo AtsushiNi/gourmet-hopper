@@ -2,20 +2,16 @@
 <!DOCTYPE html>
 <jsp:useBean id="inventory" scope="request" class="org.javatraining.entity.Inventory" />
 <html>
-    <head> 
+<header id="header">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>在庫管理システム</title>
-<link type="text/css" rel="stylesheet" href="resources/style.css">
-<link type="text/css" rel="stylesheet" href="resources/cssLayout.css">
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
 </head>
-<body> 
+<main id="main">
 <div id="top" class="top"> 
 <jsp:include page="template/top.jsp" />
 </div>
-<div> 
-<div id="left"> 
-<jsp:include page="template/side.jsp" /> 
-</div><div id="content"> 
+<div id="content"> 
 <div class="content_title"> 
 <h1>商品詳細</h1>
 </div> 
@@ -82,5 +78,11 @@
 <% } %>
 </div>
 </div>
-</body>
+  </main>
+    <aside id="sub">
+    <div>
+      <div id="left">
+        <jsp:include page="template/side.jsp" />
+      </div>
+</aside>
 </html>
