@@ -4,12 +4,12 @@ pageEncoding="UTF-8"%> <!DOCTYPE html>
 <header id="header">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>在庫管理システム</title>
-    <link type="text/css" rel="stylesheet" href="css/style.css" />
-</header>
-<main id="main">
     <div id="top" class="top">
       <jsp:include page="template/top.jsp" />
     </div>
+    <link type="text/css" rel="stylesheet" href="css/style.css" />
+</header>
+<main id="main">
       <div id="content">
         <div class="content_title">
           <h1>商品登録</h1>

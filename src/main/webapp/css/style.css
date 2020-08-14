@@ -23,6 +23,25 @@ body {
   padding: 20px;
 }
 
+.top_logo {
+    position: relative;
+}
+
+.top_logo p {
+  color: white;
+  font-size: 15pt;
+  font-weight:bolder;
+  position: absolute;
+  top: 0;
+  left: 0;
+  }
+
+.top_logo img{
+    width: 100%;
+    height: 100px;
+    display:block;
+}
+
 table{
   border-collapse:separate;
   border-spacing: 0;

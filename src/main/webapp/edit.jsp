@@ -3,14 +3,14 @@
 <jsp:useBean id="inventory" scope="request" class="org.javatraining.entity.Inventory" />
 <html>
 <header id="header">
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>在庫管理システム</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>在庫管理システム</title>
+    <div id="top" class="top">
+      <jsp:include page="template/top.jsp" />
+    </div>
     <link type="text/css" rel="stylesheet" href="css/style.css" />
-</head>
+</header>
 <main id="main">
-<div id="top" class="top"> 
-<jsp:include page="template/top.jsp" />
-</div>
 <div id="content"> 
 <div class="content_title"> 
 <h1>商品詳細</h1>

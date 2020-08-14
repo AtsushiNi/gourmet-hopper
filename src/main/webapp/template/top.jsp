@@ -5,14 +5,11 @@ pageEncoding="UTF-8"%>
 <div class="top_title">
   <div class="top_logo">
     <a href="control?action_name=show">
-      <img src="resources/logo.jpg" />
+      <img src="template/logo.png" />
     </a>
+      <p>在庫管理システム<br>
+      ログイン:<span class="login_user_name"><jsp:getProperty name="user" property="userName" /></span>さん</p>
   </div>
-  <h1>在庫管理システム</h1>
 </div>
 <div class="login_user_area">
-  ログイン:
-  <span class="login_user_name">
-    <jsp:getProperty name="user" property="userName" /></span
-  >さん
 </div>
