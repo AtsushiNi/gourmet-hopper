@@ -23,6 +23,9 @@ public class ActionFactory {
                 return new DeleteConfirmAction();
             case "delete":
                 return new DeleteAction();
+            case "apicall":
+                return new ApiCallAction();
+    
             default:
                 return null;
 
