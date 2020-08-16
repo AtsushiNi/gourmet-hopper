@@ -1,16 +1,12 @@
 package org.javatraining.action;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import org.javatraining.entity.Station;
 import org.javatraining.service.ApiCallService;
 import java.sql.SQLException;
 import javax.naming.NamingException;
+import java.util.List;
 
 public class ApiCallAction extends Action{
     private final ApiCallService service = new ApiCallService();
@@ -20,9 +16,13 @@ public class ApiCallAction extends Action{
 
         // ユーザIDとパスワードを取得
         String postalCode = request.getParameter("postal_code");
-        Station station = service.search(postalCode);
+        List<Station> stations = service.search(postalCode);
 
-        return "control?action_name=show";
+        request.setAttribute("stations", stations);
+
+        // 遷移先のページを返す
+        return "stations.jsp";
+        
 }
 
 }

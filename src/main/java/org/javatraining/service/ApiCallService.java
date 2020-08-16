@@ -6,34 +6,51 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import org.javatraining.entity.Station;
 import org.json.JSONObject;
+import org.json.JSONArray;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 
-//ログイン処理 ビジネスロジック
+//API処理 ビジネスロジック
 public class ApiCallService {
     
-    public Station search(String postalCode) throws IOException {
+    public List<Station> search(String postalCode) throws IOException {
+        
         //外部APIに接続
-        URL url = new URL("http://geoapi.heartrails.com/api/json?method=searchByPostal&postal=" + postalCode );
+        URL url = new URL("http://geoapi.heartrails.com/api/json?method=getStations&postal=" + postalCode );
         HttpURLConnection conn = (HttpURLConnection)url.openConnection();
 
+        //値の取得＆出力
 		StringBuilder output = new StringBuilder();
-		String line;
 		
-        //値の取得＆出力(パース無し）
-        try(BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream(), "Windows-31J"))){
-        while ((line = reader.readLine()) != null) {
-                output.append(line);
+        try(BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()))){
+            while (reader.ready()) {
+                output.append(reader.readLine());
+            }
         }
+
+    //結果のJSON整形
+    JSONObject json = new JSONObject(output.toString()); 
+    JSONArray locations = json.getJSONObject("response").getJSONArray("station");
+        
+    //駅情報オブジェクトの List を生成
+    List<Station> stations = new ArrayList<>();
+    
+    for (int i = 0; i < locations.length(); i++) {
+
+        JSONObject data = locations.getJSONObject(i);
+        // 駅名、路線名を取得
+        String StationName = data.getString("name");
+        String lineName = data.getString("line");
+
+        // Stationオブジェクトを作成しリスト追加
+        Station station = new Station();
+        station.setStationName(StationName);
+        station.setLineName(lineName);
+        stations.add(station);        
         }
-    JSONObject json = new JSONObject(output); 
-    String StationName = json.getJSONObject("body").getString("name");
-    String lineName = json.getJSONObject("body").getString("line");
- 
-                 // Userオブジェクトを作成して返す
-                Station station = new Station();
-                station.setStationName(StationName);
-                station.setLineName(lineName);
-                return station;    
+                
+        return stations; 
     }
 }

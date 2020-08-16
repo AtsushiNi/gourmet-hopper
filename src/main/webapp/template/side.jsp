@@ -7,5 +7,6 @@ pageEncoding="UTF-8"%>
 <ul class="menu_area">
   <li><a href="control?action_name=show">在庫一覧</a></li>
   <li><a href="control?action_name=edit">登録</a></li>
+  <li><a href="postal.jsp">最寄駅検索</a></li>
   <li><a href="control?action_name=logout">ログアウト</a></li>
 </ul>

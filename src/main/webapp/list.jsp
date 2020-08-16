@@ -58,23 +58,6 @@ pageEncoding="UTF-8"%>
             <% } %>
           </tbody>
         </table>
-
-    <form action="control" method="post" class="postal">
-      <input type="hidden" name="action_name" value="apicall" />
-      <h2>最寄駅検索</h2>
-      <p><input type="text" placeholder="1040053" name="postal_code" /></p>
-      <p><input type="submit" value="最寄駅検索" class="submit_button" /></p>
-
-      <%-- エラー・メッセージがある場合は表示 --%> <% if
-      (request.getAttribute("errorMsg") != null) { %>
-      <ul class="error">
-        <li>
-          <%= request.getAttribute("errorMsg") %>
-        </li>
-      </ul>
-      <% } %>
-    </form>
-
       </div>
     </div>
 </main>
