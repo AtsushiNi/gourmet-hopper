@@ -1,8 +1,8 @@
 package org.javatraining.action;
 
 import java.sql.SQLException;
-
 import javax.naming.NamingException;
+import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 
 //アクションの抽象クラス
@@ -10,12 +10,11 @@ public abstract class Action {
 
     // 業務処理を呼び出し、その結果を元に遷移先を返す
     public String execute(HttpServletRequest request) {
-
         try {
             // リクエストに対するActionごとの個別の処理
             return processRequest(request);
 
-        } catch (SQLException | NamingException e) {
+        } catch (SQLException | NamingException | IOException e) {
             // 例外のスタックトレースを出力
             e.printStackTrace();
 
@@ -26,5 +25,5 @@ public abstract class Action {
     }
 
     // リクエストに対するActionごとの個別の処理を実行
-    protected abstract String processRequest(HttpServletRequest request) throws SQLException, NamingException;
+    protected abstract String processRequest(HttpServletRequest request) throws SQLException, NamingException,IOException;
 }

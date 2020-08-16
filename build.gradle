@@ -24,7 +24,7 @@ repositories {
 
 dependencies {
     providedCompile 'javax.servlet:javax.servlet-api:3.0.1'
-    compile files('mysql-connector-java-8.0.21.jar')
+    compile group: 'org.json', name: 'json', version: '20200518'
 }
 
 test {

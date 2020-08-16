@@ -1,0 +1,28 @@
+package org.javatraining.action;
+
+import java.io.IOException;
+import javax.servlet.http.HttpServletRequest;
+import org.javatraining.entity.Station;
+import org.javatraining.service.ApiCallService;
+import java.sql.SQLException;
+import javax.naming.NamingException;
+import java.util.List;
+
+public class ApiCallAction extends Action{
+    private final ApiCallService service = new ApiCallService();
+
+    @Override
+    protected String processRequest(HttpServletRequest request) throws SQLException, NamingException,IOException {
+
+        // ユーザIDとパスワードを取得
+        String postalCode = request.getParameter("postal_code");
+        List<Station> stations = service.search(postalCode);
+
+        request.setAttribute("stations", stations);
+
+        // 遷移先のページを返す
+        return "stations.jsp";
+        
+}
+
+}
