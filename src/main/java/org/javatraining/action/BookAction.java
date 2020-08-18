@@ -5,13 +5,13 @@ import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.javatraining.entity.User;
-import org.javatraining.service.InventoryService;
+import org.javatraining.service.BookService;
 
-// 在庫情報管理の抽象アクションクラス
-public abstract class InventoryAction extends Action {
+// 書籍情報管理の抽象アクションクラス
+public abstract class BookAction extends Action {
 
-    // 在庫情報管理サービス
-    protected final InventoryService service = new InventoryService();
+    // 書籍情報管理サービス
+    protected final BookService service = new BookService();
 
     @Override
     protected String processRequest(HttpServletRequest request) throws SQLException, NamingException {
@@ -23,12 +23,12 @@ public abstract class InventoryAction extends Action {
             return "login.jsp";
         }
 
-        // 在庫情報管理の処理を実行
-        return processInventoryManagement(request);
+        // 書籍情報管理の処理を実行
+        return processBookManagement(request);
     }
 
-    // 在庫情報管理の処理
-    protected abstract String processInventoryManagement(HttpServletRequest request)
+    // 書籍情報管理の処理
+    protected abstract String processBookManagement(HttpServletRequest request)
             throws SQLException, NamingException;
 
     // セッションが存在するかどうかのチェック

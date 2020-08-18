@@ -7,7 +7,7 @@ pageEncoding="UTF-8"%>
     <a href="control?action_name=show">
       <img src="template/logo.png" />
     </a>
-      <p>在庫管理システム<br>
+      <p>書籍管理システム<br>
       ログイン:<span class="login_user_name"><jsp:getProperty name="user" property="userName" /></span>さん</p>
   </div>
 </div>

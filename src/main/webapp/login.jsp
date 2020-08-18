@@ -4,7 +4,7 @@ pageEncoding="UTF-8"%>
 <html>
 <header id="header">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-    <title>在庫管理システム</title>
+    <title>書籍管理システム</title>
     <link type="text/css" rel="stylesheet" href="css/style.css" />
 </header>
 <main id="main">

@@ -4,7 +4,6 @@ import java.sql.SQLException;
 import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-
 import org.javatraining.entity.User;
 import org.javatraining.service.LoginService;
 
