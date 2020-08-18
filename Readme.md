@@ -14,7 +14,7 @@
 ## DB,テーブル作成,データ挿入
  - 画面下の「Machines」→「db」を右クリックし、「Terminal」を選択
  - Terminalが表示されたら、以下実行しMysqlに接続
-   mysql -uroot -ppassword
+ - mysql -uroot -ppassword
  - java_training_ddl.sqlの全文をコピーし、ターミナルに貼り付けて実行
 
 ## アプリケーションログの確認
