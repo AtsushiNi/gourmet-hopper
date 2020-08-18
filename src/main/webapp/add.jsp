@@ -3,7 +3,7 @@ pageEncoding="UTF-8"%> <!DOCTYPE html>
 <html>
 <header id="header">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>在庫管理システム</title>
+    <title>書籍管理システム</title>
     <div id="top" class="top">
       <jsp:include page="template/top.jsp" />
     </div>
@@ -12,36 +12,32 @@ pageEncoding="UTF-8"%> <!DOCTYPE html>
 <main id="main">
       <div id="content">
         <div class="content_title">
-          <h1>商品登録</h1>
+          <h1>書籍登録</h1>
         </div>
         <form action="result.jsp" class="register_form">
           <table>
             <tr>
-              <th><label for="prod_name">商品名</label></th>
-              <td><input id="prod_name" type="text" class="name_input" /></td>
+              <th><label for="book_name">書籍名</label></th>
+              <td><input id="book_name" type="text" class="name_input" /></td>
             </tr>
             <tr>
-              <th><label for="prc">単価</label></th>
-              <td>
-                <input id="prc" type="number" value="0" class="number_input" />
-              </td>
+              <th><label for="author">著者名</label></th>
+              <td><input id="author" type="text" class="name_input" /></td>
             </tr>
             <tr>
               <th><label for="amt">在庫数量</label></th>
-              <td>
-                <input id="amt" type="number" value="0" class="number_input" />
-              </td>
+              <td><input id="amt" type="number" value="0" class="number_input"/></td>
             </tr>
             <tr>
               <th><label for="loc">保存場所</label></th>
               <td>
                 <select id="loc" size="1">
-                  <option value="東京">東京</option>
-                  <option value="大阪">大阪</option>
-                  <option value="名古屋">名古屋</option>
-                  <option value="福岡">福岡</option>
-                  <option value="札幌">札幌</option>
-                  <option value="那覇">那覇</option>
+                  <option value="Tokyo">Tokyo</option>
+                  <option value="Osaka">Osaka</option>
+                  <option value="Nagoya">Nagoya</option>
+                  <option value="Fukuoka">Fukuoka</option>
+                  <option value="Sapporo">Sapporo</option>
+                  <option value="Naha">Naha</option>
                 </select>
               </td>
             </tr>

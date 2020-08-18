@@ -4,7 +4,7 @@ pageEncoding="UTF-8"%>
 <html>
 <header id="header">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>在庫管理システム</title>
+    <title>書籍管理システム</title>
     <div id="top" class="top">
       <jsp:include page="template/top.jsp" />
     </div>
@@ -17,14 +17,6 @@ pageEncoding="UTF-8"%>
       <p><input type="text" placeholder="1040053" name="postal_code" /></p>
       <p><input type="submit" value="最寄駅検索" class="submit_button" /></p>
 
-      <%-- エラー・メッセージがある場合は表示 --%> <% if
-      (request.getAttribute("errorMsg") != null) { %>
-      <ul class="error">
-        <li>
-          <%= request.getAttribute("errorMsg") %>
-        </li>
-      </ul>
-      <% } %>
     </form>
       </div>
     </div>

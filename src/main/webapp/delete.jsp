@@ -3,13 +3,13 @@ pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
   <jsp:useBean
-    id="inventory"
+    id="book"
     scope="request"
-    class="org.javatraining.entity.Inventory"
+    class="org.javatraining.entity.Book"
   />
 <header id="header">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>在庫管理システム</title>
+    <title>書籍管理システム</title>
     <div id="top" class="top">
       <jsp:include page="template/top.jsp" />
     </div>
@@ -22,31 +22,31 @@ pageEncoding="UTF-8"%>
         </div>
         <form action="control" class="register_form">
           <input type="hidden" name="prod_id" value="<jsp:getProperty
-            name="inventory"
+            name="book"
             property="productId"
           />" />
           <table>
             <tr>
-              <th><label for="prod name">商品名</label></th>
+              <th><label for="book name">書籍名</label></th>
               <td>
-                <span id="prod_name">
-                  <jsp:getProperty name="inventory" property="productName" />
+                <span id="book_name">
+                  <jsp:getProperty name="book" property="bookName" />
                 </span>
               </td>
             </tr>
             <tr>
-              <th><label for="prc">単価</label></th>
+              <th><label for="author">著者名</label></th>
               <td>
-                <span id="prc">
-                  <jsp:getProperty name="inventory" property="price" />
+                <span id="author">
+                  <jsp:getProperty name="book" property="author" />
                 </span>
               </td>
             </tr>
             <tr>
-              <th><label for="amt">在庫数量</label></th>
+              <th><label for="amt">書籍数量</label></th>
               <td>
                 <span id="amt">
-                  <jsp:getProperty name="inventory" property="amount" />
+                  <jsp:getProperty name="book" property="amount" />
                 </span>
               </td>
             </tr>
@@ -54,7 +54,7 @@ pageEncoding="UTF-8"%>
               <th><label for="loc">保管場所</label></th>
               <td>
                 <span id="loc">
-                  <jsp:getProperty name="inventory" property="location" />
+                  <jsp:getProperty name="book" property="location" />
                 </span>
               </td>
             </tr>
@@ -62,7 +62,7 @@ pageEncoding="UTF-8"%>
               <th><label for="desc">商品説明</label></th>
               <td>
                 <span id="desc">
-                  <jsp:getProperty name="inventory" property="description"/>
+                  <jsp:getProperty name="book" property="description"/>
                 </span>
               </td>
             </tr>
@@ -71,7 +71,7 @@ pageEncoding="UTF-8"%>
             <input type="hidden" name="action_name" value="delete" />
             <input type="submit" value="削除" class="submit button" />
             <input type="button"
-            onclick="window.location.href='control?action_name=edit&prod_id=<jsp:getProperty name="inventory" property="productId"/>'; return false;" value="詳細に戻る" class="submit_button" />
+            onclick="window.location.href='control?action_name=edit&prod_id=<jsp:getProperty name="book" property="productId"/>'; return false;" value="詳細に戻る" class="submit_button" />
           </p>
         </form>
       </div>

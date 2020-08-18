@@ -3,11 +3,11 @@ package org.javatraining.entity;
 import java.io.Serializable;
 
 // 在庫情報エンティティクラス
-public class Inventory implements Serializable {
+public class Book implements Serializable {
 
     private int productId;
-    private String productName = "";
-    private int price;
+    private String bookName = "";
+    private String author = "";
     private int amount;
     private String location = "";
     private String description = "";
@@ -23,23 +23,23 @@ public class Inventory implements Serializable {
     }
 
     // 商品名を取得する
-    public String getProductName() {
-        return productName;
+    public String getBookName() {
+        return bookName;
     }
 
     // 商品名を設定する
-    public void setProductName(String productName) {
-        this.productName = productName;
+    public void setBookName(String bookName) {
+        this.bookName = bookName;
     }
 
-    // 単価を取得する
-    public int getPrice() {
-        return price;
+    // 著者名を取得する
+    public String getAuthor() {
+        return author;
     }
 
-    // 単価を設定する
-    public void setPrice(int price) {
-        this.price = price;
+    // 著者名を設定する
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     // 在庫数量を取得する

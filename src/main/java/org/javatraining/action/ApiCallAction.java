@@ -1,11 +1,11 @@
 package org.javatraining.action;
 
-import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import org.javatraining.entity.Station;
 import org.javatraining.service.ApiCallService;
 import java.sql.SQLException;
 import javax.naming.NamingException;
+import java.io.IOException;
 import java.util.List;
 
 public class ApiCallAction extends Action{
@@ -14,7 +14,7 @@ public class ApiCallAction extends Action{
     @Override
     protected String processRequest(HttpServletRequest request) throws SQLException, NamingException,IOException {
 
-        // ユーザIDとパスワードを取得
+        // 郵便番号から最寄駅を検索するWebAPIを実行する
         String postalCode = request.getParameter("postal_code");
         List<Station> stations = service.search(postalCode);
 
