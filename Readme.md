@@ -3,11 +3,11 @@
 
 ## アプリケーション実行
  - ソースコードを作成したら、ビルド、アプリケーションサーバへの配置が必要
- - Command(左上の「>I-」の様な様なマーク)から「App Deploy」をクリック
+ - Command(左上の「>I-」のようなマーク)から「App Deploy」をクリック
  - 右上の「RUN」→「dev-machine」をクリックし、「BUILD SUCCESSFUL」が出ればOK
  
 ## DB接続
- - Command(左上の「>I-」の様な様なマーク)から「Connect Database」をクリック
+ - Command(左上の「>I-」のようなマーク)から「Connect Database」をクリック
  - 右上の「RUN」→「dev-machine」をクリックし、Successが出ればOK
  - 既に実行済みの場合失敗する
 
