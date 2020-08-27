@@ -26,6 +26,9 @@ public class ApiCallService {
 		
         try(BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()))){
             while (reader.ready()) {
+                System.out.println("-----------------------");
+                System.out.println(reader.ready());
+                System.out.println("-----------------------");
                 output.append(reader.readLine());
             }
         }
