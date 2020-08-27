@@ -9,6 +9,9 @@ pageEncoding="UTF-8"%>
 </header>
 <main id="main">
   <body class="login_body">
+  <img src="data:image/png;base64,xxxxx..." />
+<!--
+
     <form action="control" method="post" class="imagebase64">
       <input type="hidden" name="action_name" value="imagebase64" />
       <h2>画像取得</h2>
@@ -16,6 +19,15 @@ pageEncoding="UTF-8"%>
       <p>
       <p><input type="submit" value="ImageGet" class="submit_button" /></p>
     </form>
+    -->
   </body>
   </main>
+  <aside id="sub">
+    <div>
+      <div id="left">
+        <jsp:include page="template/side.jsp" />
+      </div>
+</aside>
+</html>
+
 </html>
