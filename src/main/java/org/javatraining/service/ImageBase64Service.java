@@ -13,12 +13,12 @@ import java.util.List;
 
 
 //API処理 ビジネスロジック
-public class ApiCallService {
+public class ImageBase64Service {
     
     public List<Station> search(String postalCode) throws IOException {
         
         //外部APIに接続
-        URL url = new URL("http://geoapi.heartrails.com/api/json?method=getStations&postal=" + postalCode );
+        URL url = new URL(image_url);
         HttpURLConnection conn = (HttpURLConnection)url.openConnection();
 
         //値の取得＆出力
@@ -26,9 +26,6 @@ public class ApiCallService {
 		
         try(BufferedReader reader = new BufferedReader(new InputStreamReader(conn.getInputStream()))){
             while (reader.ready()) {
-                System.out.println("-----------------------");
-                System.out.println(reader.ready());
-                System.out.println("-----------------------");
                 output.append(reader.readLine());
             }
         }

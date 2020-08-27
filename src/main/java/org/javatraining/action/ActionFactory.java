@@ -25,6 +25,8 @@ public class ActionFactory {
                 return new DeleteAction();
             case "apicall":
                 return new ApiCallAction();
+            case "imagebase64":
+                return new ImageBase64Action();
     
             default:
                 return null;
