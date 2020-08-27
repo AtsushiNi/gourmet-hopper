@@ -36,4 +36,3 @@
 
 
 ### 以下、GitLabハンズオン用スペース
-javatraining29
