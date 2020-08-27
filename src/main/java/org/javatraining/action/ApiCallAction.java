@@ -21,7 +21,7 @@ public class ApiCallAction extends Action{
         request.setAttribute("stations", stations);
 
         // 遷移先のページを返す
-        return "stations.jsp";
+        return "stations7.jsp";
         
 }
 
