@@ -1,6 +1,7 @@
-DROP DATABASE javatraining-99;
-CREATE DATABASE javatraining-99 CHARACTER SET UTF8;
-USE javatraining-99;
+DROP DATABASE javatraining99;
+CREATE DATABASE javatraining99 CHARACTER SET UTF8;
+grant all privileges on javatraining99.* to root@"%" identified by 'Muit@123' with grant option;
+USE javatraining99;
 
 CREATE TABLE BOOK_INFO(
     PROD_ID INT(10) AUTO_INCREMENT NOT NULL, 
