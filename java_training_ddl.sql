@@ -1,4 +1,3 @@
-DROP DATABASE training;
 DROP DATABASE javatraining;
 CREATE DATABASE javatraining CHARACTER SET UTF8;
 USE javatraining;
