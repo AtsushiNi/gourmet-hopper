@@ -31,8 +31,8 @@ pipeline {
             steps {
                 script {
 
-                    sh "docker stop \$(docker ps -q) | echo ''"
-                    sh "docker rm ${appName} | echo ''"
+                    sh "docker stop javatraining-99 | echo ''"
+                    sh "docker rm javatraining-99 | echo ''"
                     sh "docker build -t javatraining-99:latest ."
 //                    sh "docker build -t ${appName}-${studentName}:${tagName} \
 //                        --build-arg appName=${appName} \
