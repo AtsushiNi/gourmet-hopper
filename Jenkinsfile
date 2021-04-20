@@ -19,7 +19,7 @@ pipeline {
                         sh "chmod +x ./gradlew"
                     }
                 }
-                gradlew "-p ${projectName} war"
+                sh "gradlew war"
             }
         }
 
