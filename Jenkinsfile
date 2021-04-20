@@ -16,7 +16,7 @@ pipeline {
             steps {
                 script {
                     if(isUnix()) {
-                        sh "chmod +x ./${projectName}/gradlew"
+                        sh "chmod +x ./gradlew"
                     }
                 }
                 gradlew "-p ${projectName} war"
