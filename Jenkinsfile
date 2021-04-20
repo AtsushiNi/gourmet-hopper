@@ -76,8 +76,8 @@ pipeline {
 
             steps {
                 script {
-                sh "scp -i javatraining_mysql5.7_rsa java_training_ddl.sql ec2-user@3.112.209.238:~/"
-                sh "ssh -i javatraining_mysql5.7_rsa ec2-user@3.112.209.238 mysql -uroot -p password < java_training_ddl.sql"
+                sh "scp -i javatraining_rsa java_training_ddl.sql ec2-user@3.112.209.238:~/"
+                sh "ssh -i javatraining_rsa ec2-user@3.112.209.238 mysql -uroot -p password < java_training_ddl.sql"
                 }
             }
         }
