@@ -29,8 +29,9 @@ pipeline {
             steps {
                 script {
 
-                    sh "docker stop ${imageName} | echo ''"
-                    sh "docker rm ${imageName} | echo ''"
+                    sh "docker stop ${appName} | echo ''"
+                    sh "docker rm ${appName} | echo ''"
+                    sh "docker rmi ${imageName} | echo ''"
                     sh "docker build -t ${imageName}:latest ."
                     // sh "docker system prune --force"
                 }
