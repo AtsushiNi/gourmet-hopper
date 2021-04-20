@@ -2,9 +2,9 @@ pipeline {
     agent any
 
     environment {
-        groupNo = "99"
-        appPort = "8099"
-        consolePort = "4899"
+        groupNo = "${GroupName}"
+        appPort = "80${groupNo}"
+        consolePort = "48${groupNo}"
         imageName = "javatraining-${groupNo}"
         appName = "${imageName}-app"
     }
