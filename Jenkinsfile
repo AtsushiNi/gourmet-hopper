@@ -23,11 +23,11 @@ pipeline {
         	}
 
             steps {
-                    sh "docker stop ${appName} | echo ''"
-                    sh "docker rm ${appName} | echo ''"
-                    sh "docker rmi ${imageName} | echo ''"
-                    sh "docker build -t ${imageName}:latest ."
-                    // sh "docker system prune --force"
+                sh "docker stop ${appName} | echo ''"
+                sh "docker rm ${appName} | echo ''"
+                sh "docker rmi ${imageName} | echo ''"
+                sh "docker build -t ${imageName}:latest ."
+             // sh "docker system prune --force"
             }
         }
 
@@ -37,14 +37,14 @@ pipeline {
         	}
 
             steps {
-                     sh "docker run --name ${appName} -p ${appPort}:8080 -p ${consolePort}:4848 -d ${imageName}:latest"
+                sh "docker run --name ${appName} -p ${appPort}:8080 -p ${consolePort}:4848 -d ${imageName}:latest"
             }
         }
 
         stage("Make ConnectionPool") {
-                  	when{
-                		expression {currentBuild.currentResult == 'SUCCESS'}
-                	}
+            when{
+                expression {currentBuild.currentResult == 'SUCCESS'}
+            }
 
             steps {
                 sh "sleep 20"
@@ -54,17 +54,15 @@ pipeline {
                 sh "docker exec ${appName} asadmin --user admin --passwordfile passwordFile create-resource-ref --enabled=true --target=server jdbc/tx"
             }
         }
-//        stage("Data Setup") {
-//                    when{
-//                        expression {currentBuild.currentResult == 'SUCCESS'}
-//                    }
+//      stage("Data Setup") {
+//          when{
+//              expression {currentBuild.currentResult == 'SUCCESS'}
+//          }
 //
-//            steps {
-//                script {
-//                sh "sudo -u ec2-user scp -i javatraining_rsa java_training_ddl.sql ec2-user@3.112.209.238:~/"
-//                sh "ssh -i javatraining_rsa ec2-user@3.112.209.238 mysql -uroot -p password < java_training_ddl.sql"
-//                }
-//            }
-//        }
+//          steps {
+//              sh "sudo -u ec2-user scp -i javatraining_rsa java_training_ddl.sql ec2-user@3.112.209.238:~/"
+//              sh "ssh -i javatraining_rsa ec2-user@3.112.209.238 mysql -uroot -p password < java_training_ddl.sql"
+//          }
+//      }
     }
 }
