@@ -7,10 +7,8 @@ pipeline {
         execDir = "/tmp"
         appName = "spring-rs-person"
         studentName = "student77"
-        tagName = "latest"
         port = "8080"
         DockerRegistry = "18.179.82.228:50443"
-        reportDir = "**/build/reports"
     }
 
     stages {
