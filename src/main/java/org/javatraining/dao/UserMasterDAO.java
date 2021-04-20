@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 import org.javatraining.entity.User;
-import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 
 // ユーザマスタへのアクセスを行うクラス
 public class UserMasterDAO {
