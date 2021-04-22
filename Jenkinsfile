@@ -2,6 +2,7 @@ pipeline {
     agent any
 
     environment {
+        GroupName = "99"
         groupNo = "${GroupName}"
         appPort = "80${groupNo}"
         consolePort = "48${groupNo}"
