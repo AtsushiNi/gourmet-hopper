@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <jsp:useBean
   id="books"
   scope="request"
   type="java.util.List<org.javatraining.entity.Book>"
 />
+<!DOCTYPE html>
 <html>
   <head>
     <meta charset=UTF-8" />
