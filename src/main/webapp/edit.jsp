@@ -17,7 +17,7 @@
     </header>
     <main id="main">
       <h1>書籍詳細</h1>
-      <form action="control" method="get" class="register_form">
+      <form action="control" class="register_form">
         <input name="prod_id" type="hidden" value="<jsp:getProperty name="book" property="productId" />" />
         <table>
           <tr>
