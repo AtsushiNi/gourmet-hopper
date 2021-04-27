@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<jsp:useBean id="book" scope="request" class="org.javatraining.entity.Book" />
+<jsp:useBean
+  id="book"
+  scope="request"
+  class="org.javatraining.entity.Book"
+/>
 <!DOCTYPE html>
 <html>
   <head>
