@@ -6,6 +6,6 @@
   </a>
   <p>
     書籍管理システム<br>
-    ログイン:<span class="login_user_name"><jsp:getProperty name="user" property="userName" /></span>さん
+    ログイン:<jsp:getProperty name="user" property="userName" />さん
   </p>
 </div>
