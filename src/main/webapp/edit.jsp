@@ -17,12 +17,12 @@
     </header>
     <main id="main">
       <h1>書籍詳細</h1>
-      <form action="control" class="register_form">
+      <form action="control">
         <input type="hidden" name="prod_id" value="<jsp:getProperty name="book" property="productId" />" />
         <table>
           <tr>
             <th>
-              <label for="book name">書籍名</label>
+              <label for="book_name">書籍名</label>
             </th>
             <td>
               <input id="book_name" name="book_name" type="text" value="<jsp:getProperty name="book" property="bookName" />" required />
@@ -49,7 +49,7 @@
               <label for="loc">保管場所</label>
             </th>
             <td>
-              <select id="loc" name="location" size="1">
+              <select id="loc" name="location">
                 <option value="Tokyo" <%= "Tokyo".equals(book.getLocation()) ? "selected" : "" %>>
                   Tokyo
                 </option>
@@ -76,7 +76,9 @@
               <label for="desc">商品説明</label>
             </th>
             <td>
-              <textarea id="desc" name="description"><jsp:getProperty name="book" property="description"/></textarea>
+              <textarea id="desc" name="description">
+                <jsp:getProperty name="book" property="description" />
+              </textarea>
             </td>
           </tr>
         </table>
