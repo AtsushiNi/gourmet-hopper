@@ -15,10 +15,11 @@
       <form action="control" method="post">
         <input type="hidden" name="action_name" value="apicall" />
         <p>
-          <input type="text" placeholder="1040053" name="postal_code" />
+          <label for="postal_code">郵便番号</label>
+          <input id="postal_code" name="postal_code" type="text" placeholder="1040053" />
         </p>
         <p>
-          <input type="submit" value="最寄駅検索" />
+          <input type="submit" value="検索" />
         </p>
       </form>
     </main>
