@@ -18,7 +18,7 @@
     <main id="main">
       <h1>書籍詳細</h1>
       <form action="control" class="register_form">
-        <input name="prod_id" type="hidden" value="<jsp:getProperty name="book" property="productId" />" />
+        <input type="hidden" name="prod_id" value="<jsp:getProperty name="book" property="productId" />" />
         <table>
           <tr>
             <th>
