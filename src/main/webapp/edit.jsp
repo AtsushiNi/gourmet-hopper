@@ -76,9 +76,7 @@
               <label for="desc">商品説明</label>
             </th>
             <td>
-              <textarea id="desc" name="description">
-                <jsp:getProperty name="book" property="description" />
-              </textarea>
+              <textarea id="desc" name="description"><jsp:getProperty name="book" property="description" /></textarea>
             </td>
           </tr>
         </table>
