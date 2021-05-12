@@ -1,7 +1,7 @@
-DROP DATABASE javatraining99;
-CREATE DATABASE javatraining99 CHARACTER SET UTF8;
-grant all privileges on javatraining99.* to root@"%" identified by 'Muit@123' with grant option;
-USE javatraining99;
+DROP DATABASE javatraining;
+CREATE DATABASE javatraining CHARACTER SET UTF8;
+grant all privileges on javatraining.* to root@"%" identified by 'Muit@123' with grant option;
+USE javatraining;
 
 CREATE TABLE BOOK_INFO(
     PROD_ID INT(10) AUTO_INCREMENT NOT NULL, 
@@ -25,4 +25,4 @@ INSERT INTO USER_MASTER VALUE(2,"Suzuki","suzuki");
 INSERT INTO USER_MASTER VALUE(3,"Ozaki","ozaki");
 
 INSERT INTO BOOK_INFO VALUE(1,"Java Training","Hoge Taro","10","Tokyo","Java Training");
-INSERT INTO BOOK_INFO VALUE(2,"Finance","Hoge Jiro","5","Osaka","Finance");
+INSERT INTO BOOK_INFO VALUE(2,"金融業界のトレンド","M社","5","Osaka","Finance");

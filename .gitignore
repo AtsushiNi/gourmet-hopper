@@ -10,3 +10,5 @@ HELP.md
 .project
 .vscode/
 .settings/
+/target/
+.class

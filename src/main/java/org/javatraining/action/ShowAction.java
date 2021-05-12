@@ -13,6 +13,7 @@ public class ShowAction extends BookAction {
     protected String processBookManagement(HttpServletRequest request) throws SQLException, NamingException {
 
         // 書籍情報オブジェクトのListを取得
+    	System.out.println("ShowAction Start");
         List<Book> books = service.getBooks();
 
         // 書籍情報オブジェクトの List をリクエストに設定
