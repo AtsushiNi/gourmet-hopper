@@ -10,7 +10,7 @@ import org.apache.commons.io.IOUtils;
 import org.javatraining.entity.Image;
 
 //画像取得処理 ビジネスロジック
-public class ImageBase64Service {
+public class ImageService {
     
     public Image getImage(String imageUrl) throws IOException {
         

@@ -8,18 +8,13 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
-import javax.annotation.Resource;
 import org.javatraining.entity.Book;
 
-
 // 書籍情報テーブルへのアクセスを行うクラス
-public class BookInfoDAO {
+public class ImageDAO {
     // 書籍情報テーブルを全件検索する
     public List<Book> findAll() throws SQLException, NamingException {
 
-    	@Resource(lookup = "java:comp/env/jdbc/hoge")
-        DataSource dataSource;
-    	
         // book INFO テーブルを全件検索する SQL文
         String sql = "SELECT PROD_ID,BOOK_NAME,AUTHOR,AMOUNT,LOCATION,DESCRIPTION FROM BOOK_INFO";
 

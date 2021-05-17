@@ -14,6 +14,10 @@
     <a href="control?action_name=imagebase64">画像表示</a>
   </li>
   <li>
+    <a href="imageupload.jsp">画像アップロード</a>
+  </li>
+
+  <li>
     <a href="control?action_name=logout">ログアウト</a>
   </li>
 </ul>

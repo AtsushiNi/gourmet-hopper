@@ -3,6 +3,7 @@ package org.javatraining.controller;
 import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +14,7 @@ import org.javatraining.action.Action;
 import org.javatraining.action.ActionFactory;
 
 //クライアントからの入力を受け付け、必要に応じて他のクラスJSPへ処理を振り分ける制御クラス
+@MultipartConfig
 @WebServlet(urlPatterns = { "/control" })
 public class Controller extends HttpServlet {
 
@@ -37,6 +39,8 @@ public class Controller extends HttpServlet {
             // 遷移元で指定されたアクションを取得する。
             String strActionName = request.getParameter("action_name");
             Action action = ActionFactory.getInstance(strActionName);
+
+            System.out.println("[Controller.java] ActionName:"+ strActionName);
 
             if (action == null) {
                 // アクションが取得できなかった場合、セッションを破棄してログインページに遷移

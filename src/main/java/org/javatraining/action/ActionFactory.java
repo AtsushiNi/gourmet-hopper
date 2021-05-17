@@ -27,7 +27,8 @@ public class ActionFactory {
                 return new ApiCallAction();
             case "imagebase64":
                 return new ImageBase64Action();
-    
+            case "upload":
+                return new UploadAction();    
             default:
                 return null;
 

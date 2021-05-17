@@ -1,14 +1,14 @@
 package org.javatraining.action;
 
 import javax.servlet.http.HttpServletRequest;
-import org.javatraining.service.ImageBase64Service;
+import org.javatraining.service.ImageService;
 import org.javatraining.entity.Image;
 import java.sql.SQLException;
 import javax.naming.NamingException;
 import java.io.IOException;
 
 public class ImageBase64Action extends Action{
-    private final ImageBase64Service service = new ImageBase64Service();
+    private final ImageService service = new ImageService();
 
     @Override
     protected String processRequest(HttpServletRequest request) throws SQLException, NamingException,IOException {
