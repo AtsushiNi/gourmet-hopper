@@ -8,13 +8,15 @@ import org.javatraining.entity.Book;
 import org.javatraining.util.Validator;
 
 // 書籍情報登録アクションクラス
-public class AddAction extends BookAction {
+public class BookAddAction extends BookAction {
     private static final int PROD_NAME_MAX_LEN = 100;
     private static final int DESCRIPTION_MAX_LEN = 500;
 
     @Override
     protected String processBookManagement(HttpServletRequest request) throws SQLException, NamingException {
-        // リクエスト値の検証
+
+        System.out.println("[BookAddAction.java]: Start");
+    	// リクエスト値の検証
         if (!validateParameters(request)) {
             String productId = request.getParameter("prod_id");
             return "control?action_name=edit&prod_id=" + productId;
@@ -26,13 +28,16 @@ public class AddAction extends BookAction {
         // 商品IDが0かどうかで処理を分岐
         if (book.getProductId() == 0) {
             // 新規登録処理
+            System.out.println("[BookAddAction.java]: BookService:createメソッドを呼び出し");
             service.create(book);
         } else {
             // 更新処理
+            System.out.println("[BookAddAction.java]: BookService:updateメソッドを呼び出し");
             service.update(book);
         }
 
         // 遷移先のページを返す
+        System.out.println("[BookAddAction.java]: End");
         return "result.jsp";
     }
 

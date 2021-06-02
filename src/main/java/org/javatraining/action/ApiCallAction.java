@@ -14,13 +14,17 @@ public class ApiCallAction extends Action{
     @Override
     protected String processRequest(HttpServletRequest request) throws SQLException, NamingException,IOException {
 
+        System.out.println("[ApiCallAction.java]: Start");
         // 郵便番号から最寄駅を検索するWebAPIを実行する
         String postalCode = request.getParameter("postal_code");
+
+        System.out.println("[ApiCallAction.java]: ApiCallService searchメソッドを呼び出し");
         List<Station> stations = service.search(postalCode);
 
         request.setAttribute("stations", stations);
 
         // 遷移先のページを返す
+        System.out.println("[ApiACallAction.java]: End");
         return "stations.jsp";
         
 }

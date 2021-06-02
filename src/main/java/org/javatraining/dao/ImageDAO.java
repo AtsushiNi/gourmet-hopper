@@ -6,12 +6,15 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.annotation.Resource;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 import org.javatraining.entity.Book;
 
 // 書籍情報テーブルへのアクセスを行うクラス
 public class ImageDAO {
+    
     // 書籍情報テーブルを全件検索する
     public List<Book> findAll() throws SQLException, NamingException {
 

@@ -6,20 +6,20 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import javax.annotation.Resource;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
-import javax.annotation.Resource;
+
 import org.javatraining.entity.Book;
 
 
 // 書籍情報テーブルへのアクセスを行うクラス
-public class BookInfoDAO {
+public class BookDAO {
+    
     // 書籍情報テーブルを全件検索する
     public List<Book> findAll() throws SQLException, NamingException {
 
-    	@Resource(lookup = "java:comp/env/jdbc/hoge")
-        DataSource dataSource;
-    	
+        System.out.println("[BookDAO.java]:findAll Start");
         // book INFO テーブルを全件検索する SQL文
         String sql = "SELECT PROD_ID,BOOK_NAME,AUTHOR,AMOUNT,LOCATION,DESCRIPTION FROM BOOK_INFO";
 
@@ -38,6 +38,8 @@ public class BookInfoDAO {
                 books.add(book);
             }
             // 書籍情報オブジェクトの List を返す
+            System.out.println("[BookDAO.java]:findAll SQL実行結果: "+ books);
+            System.out.println("[BookDAO.java]:findAll End");
             return books;
         }
     }
@@ -45,7 +47,8 @@ public class BookInfoDAO {
     // 書籍情報テーブルを主キー検索する
     public Book findById(int productId) throws SQLException, NamingException {
 
-        // BOOK_INFO テーブルを商品 ID の条件で検索する SQL 文
+        System.out.println("[BookDAO.java]:findById Start");
+    	// BOOK_INFO テーブルを商品 ID の条件で検索する SQL 文
         String sql = "SELECT PROD_ID,BOOK_NAME,AUTHOR, AMOUNT,LOCATION,DESCRIPTION FROM BOOK_INFO WHERE PROD_ID = ?";
 
         // データソースを取得
@@ -62,8 +65,10 @@ public class BookInfoDAO {
                 }
                 // 書籍情報オブジェクトを生成
                 Book book = createBook(rs);
-
+                
                 // 書籍情報を返す
+                System.out.println("[BookDAO.java]:findById SQL実行結果: "+ book);
+                System.out.println("[BookDAO.java]:findById End");                
                 return book;
             }
         }
@@ -72,6 +77,7 @@ public class BookInfoDAO {
     // 書籍情報テーブルに書籍情報を新規登録する
     public boolean create(Book book) throws SQLException, NamingException {
 
+        System.out.println("[BookDAO.java]:create Start");
         // INSERT INFO テーブルにデータを追加する SQL文
         String sql = "INSERT INTO BOOK_INFO (BOOK_NAME,AUTHOR,AMOUNT,LOCATION,DESCRIPTION ) VALUES (?, ?, ?, ?, ?)";
 
@@ -94,8 +100,10 @@ public class BookInfoDAO {
             // SQL 文を実行
             int affectedRows = ps.executeUpdate();
             boolean insResult = affectedRows == 1;
-
+            
             // 実行結果を返す
+            System.out.println("[BookDAO.java]:create SQL実行結果: "+ insResult);
+            System.out.println("[BookDAO.java]:create End");
             return insResult;
         }
     }
@@ -103,6 +111,7 @@ public class BookInfoDAO {
     // 書籍情報テーブルに書籍情報を更新する
     public boolean merge(Book book) throws SQLException, NamingException {
 
+        System.out.println("[BookDAO.java]:merge Start");
         // INSERT INFO テーブルのデータを更新する SQL文
         String sql = "UPDATE BOOK_INFO SET BOOK_NAME = ? ,AUTHOR = ? , AMOUNT = ?, LOCATION = ? , DESCRIPTION = ?  WHERE PROD_ID = ? ";
 
@@ -127,14 +136,19 @@ public class BookInfoDAO {
             boolean updResult = affectedRows == 1;
 
             // 実行結果を返す
+            System.out.println("[BookDAO.java]:merge SQL実行結果: "+ updResult);
+            System.out.println("[BookDAO.java]:merge End");
             return updResult;
         }
     }
 
     // 書籍情報テーブルから書籍情報を削除する
     public boolean remove(Book book) throws SQLException, NamingException {
+    	
+        System.out.println("[BookDAO.java]:remove Start");
         // BOOK INFO テーブルからデータを削除する SQL 文
         String sql = "DELETE FROM BOOK_INFO WHERE PROD_ID = ?";
+
         // データソースを取得
         DataSource ds = DataSourceSupplier.getDataSource();
         try (Connection con = ds.getConnection();
@@ -144,8 +158,12 @@ public class BookInfoDAO {
             // SQL 文を実行
             int affectedRows = ps.executeUpdate();
             boolean delResult = affectedRows == 1;
+
             // 実行結果を返す
+            System.out.println("[BookDAO.java]:remove SQL実行結果: "+ delResult);
+            System.out.println("[BookDAO.java]:remove End");
             return delResult;
+            
         }
     }
 

@@ -14,28 +14,24 @@ public class ImageService {
     
     public Image getImage(String imageUrl) throws IOException {
         
+        System.out.println("[ImageService.java]:getImage Start");
         //画像のURLを元にBase64変換コードを生成
         URL url = new URL(imageUrl);
         BufferedInputStream bis = null;
-//        BufferedOutputStream bos = null;
 
         try {
             bis = new BufferedInputStream(url.openStream());
             String base64Code = new String(Base64.encodeBase64(IOUtils.toByteArray(bis)));
 
-//            final byte[] buf = Base64.encodeBase64(base64Code.getBytes());
-//            final FileOutputStream fos = new FileOutputStream("./test.png");
-//            bos = new BufferedOutputStream(fos);
-//            bos.write(buf);
-
         Image image = new Image();
         image.setImageCode(base64Code);
+        System.out.println("[ImageService.java]:getImage image:"+ image);
 
+        System.out.println("[ImageService.java]:getImage End");
         return image;
             
         } finally {
             bis.close();
-//            bos.close();
         }
     }
 }

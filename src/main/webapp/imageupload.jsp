@@ -13,7 +13,7 @@
     <main id="main">
      <h1>画像アップロード</h1>
      <form action="control" method="post" enctype="multipart/form-data">
-       <input type="hidden" name="action_name" value="upload" />
+       <input type="hidden" name="action_name" value="imageupload" />
        <input type="file" name="file" />
        <button>Upload</button>
      </form>
