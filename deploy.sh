@@ -8,5 +8,6 @@ cp build/libs/java-training*.war /c/Users/Kensyuu/Documents/payara5/glassfish/do
 
 #asadmin restart-domain
 
-start http://localhost:8080/java-training-1.0/login.jsp
+sleep 2
 
+start http://localhost:8080/java-training-1.0/login.jsp
