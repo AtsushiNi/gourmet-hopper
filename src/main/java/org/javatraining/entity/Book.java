@@ -1,15 +1,30 @@
 package org.javatraining.entity;
 
 import java.io.Serializable;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 // 在庫情報エンティティクラス
 public class Book implements Serializable {
 
+	@NotNull
     private int productId;
+
+	@NotNull
+    @Size(max = 100, message= "書籍名は100文字以内にしてください。")
     private String bookName = "";
+
+	@NotNull
+    @Size(max = 100,message= "著者名は100文字以内にしてください。")
     private String author = "";
+
+	@Min(value = 0,message="数量は0以上を入力してください。")
     private int amount;
-    private String location = "";
+
+	private String location = "";
+
+	@Size(max = 100,message= "説明文は100文字以内にしてください。")
     private String description = "";
 
     // 商品 ID を取得する

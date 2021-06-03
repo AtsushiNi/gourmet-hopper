@@ -20,7 +20,7 @@ public class LoginAction extends Action {
         String userName = request.getParameter("user_name");
         String password = request.getParameter("user_password");
 
-        // ユーザマスタより、入力されたユーザ名とパスワードに該当するユーザ情報を取得
+        // ユーザDBより、入力されたユーザ名とパスワードに該当するユーザ情報を取得
         System.out.println("[LoginAction.java]: username,password = "+ userName +","+ password);
         System.out.println("[LoginAction.java]: UserService:loginメソッドを呼び出し");
         User user = service.login(userName, password);

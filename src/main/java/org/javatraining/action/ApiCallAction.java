@@ -8,6 +8,7 @@ import javax.naming.NamingException;
 import java.io.IOException;
 import java.util.List;
 
+//WebAPIを実行するアクションクラス
 public class ApiCallAction extends Action{
     private final ApiCallService service = new ApiCallService();
 
@@ -15,9 +16,11 @@ public class ApiCallAction extends Action{
     protected String processRequest(HttpServletRequest request) throws SQLException, NamingException,IOException {
 
         System.out.println("[ApiCallAction.java]: Start");
-        // 郵便番号から最寄駅を検索するWebAPIを実行する
+  
+        // リクエストから郵便番号を取得。
         String postalCode = request.getParameter("postal_code");
 
+        // 郵便番号をもとにサービスクラスを呼び出し
         System.out.println("[ApiCallAction.java]: ApiCallService searchメソッドを呼び出し");
         List<Station> stations = service.search(postalCode);
 
@@ -25,7 +28,7 @@ public class ApiCallAction extends Action{
 
         // 遷移先のページを返す
         System.out.println("[ApiACallAction.java]: End");
-        return "stations.jsp";
+        return "stationresult.jsp";
         
 }
 

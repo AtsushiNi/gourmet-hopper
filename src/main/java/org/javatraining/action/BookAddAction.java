@@ -1,119 +1,100 @@
 package org.javatraining.action;
 
 import java.sql.SQLException;
+import java.util.Set;
+import org.javatraining.entity.Book;
 import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
-
-import org.javatraining.entity.Book;
-import org.javatraining.util.Validator;
+import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
+import javax.validation.Validator;
+import javax.validation.ValidatorFactory;
 
 // 書籍情報登録アクションクラス
 public class BookAddAction extends BookAction {
-    private static final int PROD_NAME_MAX_LEN = 100;
-    private static final int DESCRIPTION_MAX_LEN = 500;
 
-    @Override
-    protected String processBookManagement(HttpServletRequest request) throws SQLException, NamingException {
+	@Override
+	protected String processBookManagement(HttpServletRequest request) throws SQLException, NamingException {
 
-        System.out.println("[BookAddAction.java]: Start");
-    	// リクエスト値の検証
-        if (!validateParameters(request)) {
-            String productId = request.getParameter("prod_id");
-            return "control?action_name=edit&prod_id=" + productId;
-        }
+		System.out.println("[BookAddAction.java]: Start");
 
-        // リクエストの情報により書籍情報オブジェクトを作成
-        Book book = createBook(request);
+		// リクエスト値の検証
+		// バリデータの作成
+		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+		Validator validator = factory.getValidator();
 
-        // 商品IDが0かどうかで処理を分岐
-        if (book.getProductId() == 0) {
-            // 新規登録処理
-            System.out.println("[BookAddAction.java]: BookService:createメソッドを呼び出し");
-            service.create(book);
-        } else {
-            // 更新処理
-            System.out.println("[BookAddAction.java]: BookService:updateメソッドを呼び出し");
-            service.update(book);
-        }
+		// リクエストの情報により書籍情報オブジェクトを作成
+		Book book = createBook(request);
 
-        // 遷移先のページを返す
-        System.out.println("[BookAddAction.java]: End");
-        return "result.jsp";
-    }
+		// 書籍情報オブジェクトに対して入力値チェック
+		Set<ConstraintViolation<Book>> results = validator.validate(book);
+		System.out.println("[BookAddAction.java]: 入力値チェック結果:" + results);
 
-    // リクエストの情報により書籍情報オブジェクトを作成
-    private Book createBook(HttpServletRequest request) {
+		// 入力値チェックエラーありの場合、エラーメッセージ生成して再度登録画面に遷移
+		int errorCount = results.size();
+		if (errorCount > 0) {
+			// エラーメッセージ用StringBuilderを生成
+			StringBuilder errMsgBuilder = new StringBuilder();
 
-        // 書籍情報オブジェクトを生成
-        Book book = new Book();
+			// エラー結果からメッセージをStringBuilderに追記
+			errMsgBuilder.append("エラー:" + errorCount + "件<br />");
+			results.forEach(result -> {
+				errMsgBuilder.append(result.getMessage() + "<br />");
+			});
 
-        // リクエストの入力値を取得しながら
-        // 書籍情報オブジェクトの各フィールドを設定
-        int productId = Integer.parseInt(request.getParameter("prod_id"));
-        book.setProductId(productId);
+			request.setAttribute("errorMsg", errMsgBuilder.toString());
+			String productId = request.getParameter("prod_id");
 
-        String bookName = request.getParameter("book_name");
-        book.setBookName(bookName);
+			System.out.println("[BookAddAction.java]: End(入力値エラーのため登録画面に遷移)");
+			return "control?action_name=edit&prod_id=" + productId;
+		}
 
-        String author = request.getParameter("author");
-        book.setAuthor(author);
+		// 商品IDが0かどうかで処理を分岐
+		if (book.getProductId() == 0) {
+			// 新規登録処理
+			System.out.println("[BookAddAction.java]: BookService:createメソッドを呼び出し");
+			service.create(book);
+			System.out.println("[BookAddAction.java]: End(新規登録完了)");
 
-        int amount = Integer.parseInt(request.getParameter("amount"));
-        book.setAmount(amount);
+		} else {
+			// 更新処理
+			System.out.println("[BookAddAction.java]: BookService:updateメソッドを呼び出し");
+			service.update(book);
+			System.out.println("[BookAddAction.java]: End(更新完了)");
+		}
 
-        String location = request.getParameter("location");
-        book.setLocation(location);
+		// 遷移先のページを返す
+		return "result.jsp";
+	}
 
-        String description = request.getParameter("description");
-        book.setDescription(description);
+	// リクエストの情報により書籍情報オブジェクトを作成
+	private Book createBook(HttpServletRequest request) {
 
-        // 書籍情報オブジェクトを返す
-        return book;
-    }
+		// 書籍情報オブジェクトを生成
+		Book book = new Book();
 
-    // リクエストのパラメータ値を検証
-    private boolean validateParameters(HttpServletRequest request) {
+		// リクエストの入力値を取得しながら
+		// 書籍情報オブジェクトの各フィールドを設定
+		int productId = Integer.parseInt(request.getParameter("prod_id"));
+		book.setProductId(productId);
 
-        // 検証結果
-        boolean isValid = true;
+		String bookName = request.getParameter("book_name");
+		book.setBookName(bookName);
 
-        // エラーメッセージ
-        StringBuilder errMsgBuilder = new StringBuilder();
-        // エラー件数
-        int errCount = 0;
+		String author = request.getParameter("author");
+		book.setAuthor(author);
 
-        // 正の整数値チェック
-        // 書籍数量の検証
-        String strAmount = request.getParameter("amount");
-        if (!Validator.isInteger(strAmount)) {
-            isValid = false;
-            errMsgBuilder.append("・書籍数量の値は正の整数にしてください。<br />");
-            errCount++;
-        }
-        // 文字データの長さチェック
-        // 商品名
-        String strBookName = request.getParameter("book_name");
-        if (strBookName.length() > PROD_NAME_MAX_LEN) {
-            isValid = false;
-            errMsgBuilder.append("・書籍名は" + PROD_NAME_MAX_LEN + "文字までにしてください。<br />");
-            errCount++;
-        }
+		int amount = Integer.parseInt(request.getParameter("amount"));
+		book.setAmount(amount);
 
-        // 商品説明
-        String strDescription = request.getParameter("description");
-        if (strDescription.length() > DESCRIPTION_MAX_LEN) {
-            isValid = false;
-            errMsgBuilder.append("・商品説明は" + DESCRIPTION_MAX_LEN + "文字までにしてください。<br />");
-            errCount++;
-        }
-        // 検証失敗なら、エラーメッセージを設定
-        if (!isValid) {
-            errMsgBuilder.insert(0, "エラー:" + errCount + "件<br />");
-            request.setAttribute("errorMsg", errMsgBuilder.toString());
+		String location = request.getParameter("location");
+		book.setLocation(location);
 
-        }
-        // 検証結果を返す。
-        return isValid;
+		String description = request.getParameter("description");
+		book.setDescription(description);
 
-    }
+		// 書籍情報オブジェクトを返す
+		return book;
+	}
+
 }

@@ -8,7 +8,7 @@
     <a href="control?action_name=edit">登録</a>
   </li>
   <li>
-    <a href="postal.jsp">最寄駅検索</a>
+    <a href="stationsearch.jsp">最寄駅検索</a>
   </li>
   <li>
     <a href="control?action_name=imageshow">画像表示</a>

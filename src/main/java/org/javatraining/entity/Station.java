@@ -2,12 +2,11 @@ package org.javatraining.entity;
 
 import java.io.Serializable;
 
-//ユーザ情報エンティティクラス
+//路線情報エンティティクラス
 public class Station implements Serializable {
 
     private String stationName;
     private String lineName;
-
 
     public String getStationName() {
         return stationName;

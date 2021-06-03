@@ -22,6 +22,7 @@ public class BookDeleteAction extends BookAction {
 
         System.out.println("[BookDeleteAction.java]: BookService:deleteメソッドを呼び出し");
         service.delete(book);
+        
         // 遷移先のページを返す
         System.out.println("[BookDeleteAction.java]: End");
         return "result.jsp";

@@ -33,7 +33,7 @@
           <% } %>
         </tbody>
       </table>
-      <a href="postal.jsp">戻る</a>
+      <a href="stationsearch.jsp">戻る</a>
     </main>
     <aside id="sub">
       <jsp:include page="template/side.jsp" />

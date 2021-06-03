@@ -28,6 +28,9 @@ dependencies {
     compile group: 'org.json', name: 'json', version: '20200518'
     compile group: 'commons-codec', name: 'commons-codec', version: '1.10'
     compile group: 'org.apache.directory.studio', name: 'org.apache.commons.io', version: '2.4'
+    compile group: 'javax.validation', name: 'validation-api', version: '2.0.1.Final'
+    compile group: 'org.hibernate.validator', name: 'hibernate-validator', version: '6.0.17.Final'
+    compile group: 'org.glassfish', name: 'javax.el', version: '3.0.1-b11'
 }
 
 test {
