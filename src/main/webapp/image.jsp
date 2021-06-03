@@ -13,7 +13,8 @@
     </header>
     <main id="main">
       <h1>画像取得</h1>
-      <p>取得した画像を表示します</p>
+      <p>以下のURLの画像を表示します</p>
+      <p>https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png</p>
       <!--Base64変換したコードを元に画像表示-->
       <img src="data:image/png;base64,<%= image %>" />
     </main>
