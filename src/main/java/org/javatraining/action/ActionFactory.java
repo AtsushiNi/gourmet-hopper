@@ -14,20 +14,21 @@ public class ActionFactory {
             case "login":
                 return new LoginAction();
             case "show":
-                return new ShowAction();
-            case "registration":
-                return new AddAction();
+                return new BookShowAction();
+            case "regist":
+                return new BookAddAction();
             case "edit":
-                return new EditAction();
+                return new BookEditAction();
             case "delete_confirm":
-                return new DeleteConfirmAction();
+                return new BookDeleteConfirmAction();
             case "delete":
-                return new DeleteAction();
+                return new BookDeleteAction();
             case "apicall":
                 return new ApiCallAction();
-            case "imagebase64":
-                return new ImageBase64Action();
-    
+            case "imageshow":
+                return new ImageShowAction();
+            case "imageupload":
+                return new ImageUploadAction();    
             default:
                 return null;
 

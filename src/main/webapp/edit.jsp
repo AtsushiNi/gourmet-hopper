@@ -87,7 +87,7 @@
           <input type="submit" value="更新" />
           <input type="submit" value="削除" onclick="window.location.href='control?action_name=delete_confirm&prod_id=<jsp:getProperty name="book" property="productId"/>'; return false;" />
           <% } %>
-          <input type="hidden" name="action_name" value="registration" />
+          <input type="hidden" name="action_name" value="regist" />
         </p>
       </form>
       <!-- エラー・メッセージがある場合は表示 -->

@@ -8,10 +8,13 @@
     <a href="control?action_name=edit">登録</a>
   </li>
   <li>
-    <a href="postal.jsp">最寄駅検索</a>
+    <a href="stationsearch.jsp">最寄駅検索</a>
   </li>
   <li>
-    <a href="control?action_name=imagebase64">画像表示</a>
+    <a href="control?action_name=imageshow">画像表示</a>
+  </li>
+  <li>
+    <a href="imageupload.jsp">画像アップロード</a>
   </li>
   <li>
     <a href="control?action_name=logout">ログアウト</a>
