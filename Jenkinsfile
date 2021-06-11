@@ -5,7 +5,7 @@ pipeline {
         groupNo = "${GroupName}"
         appPort = "80${groupNo}"
         consolePort = "48${groupNo}"
-        imageName = "javatraining-Gr${groupNo}"
+        imageName = "javatraining-gr${groupNo}"
         appName = "${imageName}-app"
     }
 
