@@ -9,7 +9,7 @@ pipeline {
         imageName = "javatraining-Gr${groupNo}"
         appName = "${imageName}-app"
     }
-
+    
     stages {
     //アプリケーションビルド
         stage("BUILD") {
@@ -18,16 +18,16 @@ pipeline {
                 sh "./gradlew war"
             }
         }
-
-　　　　//Dockerイメージのビルド
+        
+        //Dockerイメージのビルド
         stage("Docker Build") {
         
         //前段の処理が成功している時だけ実行する
           	when{
         		expression {currentBuild.currentResult == 'SUCCESS'}
         	}
-
-     　　　//イメージのビルド
+        	
+        //イメージのビルド
             steps {
                 sh "docker stop ${appName} | echo ''"
                 sh "docker rm ${appName} | echo ''"
@@ -36,8 +36,8 @@ pipeline {
              // sh "docker system prune --force"
             }
         }
-
-　　　　　　　//アプリケーションの実行
+        
+        //アプリケーションの実行
         stage("Docker Run") {
           	when{
         		expression {currentBuild.currentResult == 'SUCCESS'}
@@ -47,7 +47,7 @@ pipeline {
                 sh "docker run --name ${appName} -p ${appPort}:8080 -p ${consolePort}:4848 -d ${imageName}:latest"
             }
         }
-
+        
         //コネクションプール(PayaraからDBサーバへの接続口)の作成
         stage("Make ConnectionPool") {
             when{
