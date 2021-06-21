@@ -16,13 +16,16 @@ public abstract class BookAction extends Action {
     @Override
     protected String processRequest(HttpServletRequest request) throws SQLException, NamingException {
 
+    System.out.println("[BookAction.java]: Start");
         // ログイン済みかどうかのチェック
+        System.out.println("[BookEditAction.java]:""+ request);
         if (!checkSession(request)) {
             // ログイン済みでなければ、セッションを破棄してログイン・ページに恐移
             request.setAttribute("errorMsg", "セッションが切断されました。もう一度ログイン画面からやり直してください。");
             return "login.jsp";
         }
 
+    System.out.println("[BookEditAction.java]: Test1");
         // 書籍情報管理の処理を実行
         return processBookManagement(request);
     }
@@ -37,13 +40,17 @@ public abstract class BookAction extends Action {
         HttpSession session = request.getSession(false);
         // セッションに User オブジェクトが格納されていなければ false
         if (session == null) {
+            System.out.println("[BookEditAction.java]: session=null");
             return false;
         } else if (session.getAttribute("user") == null) {
+            System.out.println("[BookEditAction.java]: user=null");
             return false;
         }
 
         // セッションから User オブジェクトを取り出す
+        System.out.println("[BookEditAction.java]: UserOK");
         User user = (User) session.getAttribute("user");
+        System.out.println("[BookEditAction.java]: User" + user);
         // User オブジェクトのユーザ名が null なら false
         if (user.getUserName() == null) {
             return false;
