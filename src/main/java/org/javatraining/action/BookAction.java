@@ -18,7 +18,7 @@ public abstract class BookAction extends Action {
 
     System.out.println("[BookAction.java]: Start");
         // ログイン済みかどうかのチェック
-        System.out.println("[BookEditAction.java]:""+ request);
+        System.out.println("[BookEditAction.java]:"+ request);
         if (!checkSession(request)) {
             // ログイン済みでなければ、セッションを破棄してログイン・ページに恐移
             request.setAttribute("errorMsg", "セッションが切断されました。もう一度ログイン画面からやり直してください。");
