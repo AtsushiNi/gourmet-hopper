@@ -3,7 +3,7 @@
 <jsp:useBean id="image" scope="request" type="java.lang.String" />
 <html>
   <head>
-    <meta charset=UTF-8" />
+    <meta charset="UTF-8" />
     <title>書籍管理システム</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
