@@ -33,6 +33,7 @@ public class ApiCallService {
         }
  
         System.out.println("[ApiCallAction.java]:search API実行結果:"+ output);
+        System.out.println("[ApiCallAction.java]:search API実行結果:"+ output);
 
         //結果のJSON整形
         JSONObject json = new JSONObject(output.toString()); 
