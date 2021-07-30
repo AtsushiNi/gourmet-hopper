@@ -17,8 +17,7 @@ pipeline {
         	}
 
             steps {
-                sh "ls -laR"
-                sh "cp -ip ./build/libs/java-training*.jar /usr/lib/payara5/glassfish/domains/domain1/autodeploy/"
+                sh "cp -ip ./build/libs/java-training*.war /usr/lib/payara5/glassfish/domains/domain1/autodeploy/"
             }
         }
         
