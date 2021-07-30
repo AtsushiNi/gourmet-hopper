@@ -21,15 +21,14 @@ pipeline {
             }
         }
         
-//      stage("Data Setup") {
-//          when{
-//              expression {currentBuild.currentResult == 'SUCCESS'}
-//          }
-//
-//          steps {
-//              sh "sudo -u ec2-user scp -i javatraining_rsa java_training_ddl.sql ec2-user@3.112.209.238:~/"
-//              sh "ssh -i javatraining_rsa ec2-user@3.112.209.238 mysql -uroot -p password < java_training_ddl.sql"
-//          }
-//      }
+      stage("Data Setup") {
+          when{
+              expression {currentBuild.currentResult == 'SUCCESS'}
+          }
+
+          steps {
+              sh "mysql -uroot -p Muit@123 javatraining < java_training_ddl.sql"
+          }
+      }
     }
 }
