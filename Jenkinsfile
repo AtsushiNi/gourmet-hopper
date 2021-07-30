@@ -17,7 +17,7 @@ pipeline {
         	}
 
             steps {
-                sh "cp -ip ./build/libs/java-training*.war /usr/lib/payara5/glassfish/domains/domain1/autodeploy/"
+                sh "cp -f ./build/libs/java-training*.war /usr/lib/payara5/glassfish/domains/domain1/autodeploy/"
             }
         }
         
@@ -27,7 +27,7 @@ pipeline {
           }
 
           steps {
-              sh "mysql -uroot -p Muit@123 javatraining < javatraining.sql"
+              sh "./usr/bin/mysql -uroot -p Muit@123 javatraining < javatraining.sql"
           }
       }
     }
