@@ -24,4 +24,13 @@ public class Station implements Serializable {
         this.lineName = lineName;
     }
 
+    
+    @Override
+    public String toString() {
+        return "Station {" +
+                "stationName=" + stationName +
+                ", lineName='" + lineName + '\'' +
+                '}';
+    }
+
 }
