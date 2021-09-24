@@ -27,7 +27,7 @@ pipeline {
           }
 
           steps {
-              sh "/usr/bin/mysql -uroot -pMuit@123 < javatraining.sql"
+              sh "/usr/bin/mysql -uroot -pMuit@123 < javatraining_deploy.sql"
           }
       }
     }
