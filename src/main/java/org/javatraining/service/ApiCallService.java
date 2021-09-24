@@ -33,20 +33,22 @@ public class ApiCallService {
         }
  
         System.out.println("[ApiCallAction.java]:search API実行結果:"+ output);
-        System.out.println("[ApiCallAction.java]:search API実行結果:"+ output);
 
-        //結果のJSON整形
-        JSONObject json = new JSONObject(output.toString()); 
-        JSONArray locations = json.getJSONObject("response").getJSONArray("station");
-        System.out.println("[ApiCallAction.java]:search API実行結果のJson整形後:"+ json);
-    
         //駅情報オブジェクトの List を生成
         List<Station> stations = new ArrayList<>();
+
+        //結果のJSON整形
+        JSONObject json = new JSONObject(output.toString());
+
+	//JSONの構造から最寄駅データを取得できたか判定
+	if(!json.getJSONObject("response").isNull("station")){
+        JSONArray locations = json.getJSONObject("response").getJSONArray("station");
+        System.out.println("[ApiCallAction.java]:search API実行結果のJson整形後:"+ locations);
     
     for (int i = 0; i < locations.length(); i++) {
 
+	// JSON整形済の実行結果から駅名、路線名を取得
         JSONObject data = locations.getJSONObject(i);
-        // JSON整形済の実行結果から駅名、路線名を取得
         String StationName = data.getString("name");
         String lineName = data.getString("line");
 
@@ -54,8 +56,15 @@ public class ApiCallService {
         Station station = new Station();
         station.setStationName(StationName);
         station.setLineName(lineName);
-        stations.add(station);        
-        }
+        stations.add(station);
+       }
+}else{
+	// 最寄駅データがない場合のオブジェクトを作成しリスト追加
+        Station station = new Station();
+        station.setStationName("該当なし");
+        station.setLineName("該当なし");
+        stations.add(station);
+}
     
     	System.out.println("[ApiCallAction.java]:search stations:"+ stations);
         return stations; 

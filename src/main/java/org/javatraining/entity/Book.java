@@ -1,6 +1,7 @@
 package org.javatraining.entity;
 
 import java.io.Serializable;
+
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -85,5 +86,17 @@ public class Book implements Serializable {
     // 商品説明を設定する
     public void setDescription(String description) {
         this.description = description;
+    }
+    
+    @Override
+    public String toString() {
+        return "Book {" +
+                "productId=" + productId +
+                ", bookName='" + bookName + '\'' +
+                ", author='" + author + '\'' +
+                ", amount='" + amount + '\'' +
+                ", location=" + location +
+                ", description='" + description + '\'' +
+                '}';
     }
 }
