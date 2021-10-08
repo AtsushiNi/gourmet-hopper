@@ -19,6 +19,7 @@ public class ImageUploadAction extends Action {
 			
 			//受け取った画像をもとにBase64変換した文字列を取得。
             System.out.println("[ImageUploadAction.java]: ImageService:uploadImageメソッドを呼び出し");
+                        //必要に応じてこのStringをDBに保存する
 			String image = service.uploadImage(filePart);
 
 			request.setAttribute("image", image);
