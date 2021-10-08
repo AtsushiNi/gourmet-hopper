@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
+import java.util.Base64;
 
 
 //画像取得処理 ビジネスロジック
