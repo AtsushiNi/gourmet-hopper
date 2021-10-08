@@ -1,12 +1,13 @@
 package org.javatraining.service;
 
-import java.net.URL;
-import javax.servlet.http.Part;
-import java.io.InputStream;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.Base64;
+
+import javax.servlet.http.Part;
 
 
 //画像取得処理 ビジネスロジック
@@ -43,10 +44,12 @@ public class ImageService {
         InputStream fileContent = filePart.getInputStream();
         byte[] byteArray = getByteArray(fileContent);
         String base64String = Base64.getEncoder().encodeToString(byteArray);
+        String contentType = filePart.getContentType();
+        String image = "data:" + contentType + ";base64," + base64String;
 
-        System.out.println("[ImageService.java]:uploadImage 画像のBase64変換済コード" + base64String);
+        System.out.println("[ImageService.java]:uploadImage 画像のBase64変換済コード" + image);
         System.out.println("[ImageService.java]:uploadImage End");
-        return base64String;
+        return image;
         
         } finally {
         }
