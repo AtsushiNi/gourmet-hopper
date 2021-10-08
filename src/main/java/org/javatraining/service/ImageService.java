@@ -1,13 +1,11 @@
 package org.javatraining.service;
 
+import java.net.URL;
+import javax.servlet.http.Part;
+import java.io.InputStream;
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.ByteArrayOutputStream;
-import java.io.InputStream;
-import java.net.URL;
-import java.util.Base64;
-
-import javax.servlet.http.Part;
 
 
 //画像取得処理 ビジネスロジック
