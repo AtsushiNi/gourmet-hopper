@@ -1,6 +1,5 @@
 DROP DATABASE javatraining;
 CREATE DATABASE javatraining CHARACTER SET UTF8;
-grant all privileges on javatraining.* to root@"%" identified by 'Muit@123' with grant option;
 USE javatraining;
 
 CREATE TABLE BOOK_INFO(
