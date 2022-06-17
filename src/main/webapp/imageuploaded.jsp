@@ -13,7 +13,7 @@
     </header>
     <main id="main">
      <h1>アップロードした画像を表示します</h1>
-       <img src="data:image/png;base64,<%= image %>" />
+       <img src="<%= image %>" />
     </main>   
     <aside id="sub">
       <jsp:include page="template/side.jsp" />

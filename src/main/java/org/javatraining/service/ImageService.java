@@ -43,10 +43,12 @@ public class ImageService {
         InputStream fileContent = filePart.getInputStream();
         byte[] byteArray = getByteArray(fileContent);
         String base64String = Base64.getEncoder().encodeToString(byteArray);
+        String contentType = filePart.getContentType();
+        String image = "data:" + contentType + ";base64," + base64String;
 
-        System.out.println("[ImageService.java]:uploadImage 画像のBase64変換済コード" + base64String);
+        System.out.println("[ImageService.java]:uploadImage 画像のBase64変換済コード" + image);
         System.out.println("[ImageService.java]:uploadImage End");
-        return base64String;
+        return image;
         
         } finally {
         }
