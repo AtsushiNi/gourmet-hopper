@@ -8,7 +8,7 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>書籍管理システム30</title>
+    <title>書籍管理システム</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
