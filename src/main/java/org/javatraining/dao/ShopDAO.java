@@ -10,16 +10,16 @@ import java.util.List;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import org.javatraining.entity.Shops;
+import org.javatraining.entity.Shop;
 
 
 // shopsテーブルへのアクセスを行うクラス
-public class ShopsDAO {
+public class ShopDAO {
     
     // SHOPSテーブルを全件検索する
-    public List<Shops> findAll() throws SQLException, NamingException {
+    public List<Shop> findAll() throws SQLException, NamingException {
 
-        System.out.println("[ShopsDAO.java]:findAll Start");
+        System.out.println("[ShopDAO.java]:findAll Start");
         // SHOPSテーブルを全件検索する SQL文
         String sql = "SELECT * FROM SHOPS";
 
@@ -28,25 +28,25 @@ public class ShopsDAO {
         try (Connection con = ds.getConnection();
                 PreparedStatement ps = con.prepareStatement(sql);
                 ResultSet rs = ps.executeQuery()) {
-            // Shopsオブジェクトの List を生成
-            List<Shops> shops = new ArrayList<>();
-            // 検索結果をループしてShopsオブジェクトの List に格納
+            // Shopオブジェクトの List を生成
+            List<Shop> shops = new ArrayList<>();
+            // 検索結果をループしてShopオブジェクトの List に格納
             while (rs.next()) {
-                // Shopsオブジェクトを生成
-                Shops shop = createShops(rs);
-                // Shopsオブジェクトの List に格納
+                // Shopオブジェクトを生成
+                Shop shop = createShop(rs);
+                // Shopオブジェクトの List に格納
                 shops.add(shop);
             }
-            // Shopsオブジェクトの List を返す
-            System.out.println("[ShopsDAO.java]:findAll SQL実行結果: "+ shops);
-            System.out.println("[ShopsDAO.java]:findAll End");
+            // Shopオブジェクトの List を返す
+            System.out.println("[ShopDAO.java]:findAll SQL実行結果: "+ shops);
+            System.out.println("[ShopDAO.java]:findAll End");
             return shops;
         }
     }
 
     // SHOPSテーブルを主キー検索する
-    public Shops findById(int id) throws SQLException, NamingException {
-        System.out.println("[ShopsDAO.java]:findById Start");
+    public Shop findById(int id) throws SQLException, NamingException {
+        System.out.println("[ShopDAO.java]:findById Start");
     	// SHOPS テーブルを商品 ID の条件で検索する SQL 文
         String sql = "SELECT * WHERE ID = ?";
 
@@ -62,21 +62,21 @@ public class ShopsDAO {
                 if (!rs.next()) {
                     return null;
                 }
-                // Shopsオブジェクトを生成
-                Shops shop = createShops(rs);
+                // Shopオブジェクトを生成
+                Shop shop = createShop(rs);
                 
-                // Shopsを返す
-                System.out.println("[ShopsDAO.java]:findById SQL実行結果: "+ shop);
-                System.out.println("[ShopsDAO.java]:findById End");                
+                // Shopを返す
+                System.out.println("[ShopDAO.java]:findById SQL実行結果: "+ shop);
+                System.out.println("[ShopDAO.java]:findById End");                
                 return shop;
             }
         }
     }
 
-    // SHOPSテーブルにshopsを新規登録する
-    public boolean create(Shops shops) throws SQLException, NamingException {
+    // SHOPSテーブルにshopを新規登録する
+    public boolean create(Shop shop) throws SQLException, NamingException {
 
-        System.out.println("[ShopsDAO.java]:create Start");
+        System.out.println("[ShopDAO.java]:create Start");
         // INSERT INFO テーブルにデータを追加する SQL文
         String sql = "INSERT INTO SHOPS (NAME) VALUES (?)";
 
@@ -86,25 +86,25 @@ public class ShopsDAO {
                 PreparedStatement ps = con.prepareStatement(sql)){
 
             // プレース・ホルダに値を設定
-        	 ps.setString(1, shops.getName());
+        	 ps.setString(1, shop.getName());
 
             // SQL 文を実行
             int affectedRows = ps.executeUpdate();
             boolean insResult = affectedRows == 1;
             
             // 実行結果を返す
-            System.out.println("[ShopsDAO.java]:create SQL実行結果: "+ insResult);
-            System.out.println("[ShopsDAO.java]:create End");
+            System.out.println("[ShopDAO.java]:create SQL実行結果: "+ insResult);
+            System.out.println("[ShopDAO.java]:create End");
             return insResult;
         }
     }
 
-    // ResultSetからShopsオブジェクトを生成する
-    private Shops createShops(ResultSet rs) throws SQLException {
-        Shops shops = new Shops();
+    // ResultSetからShopオブジェクトを生成する
+    private Shop createShop(ResultSet rs) throws SQLException {
+        Shop shop = new Shop();
 
-        shops.setId(rs.getInt("ID"));
-        shops.setName(rs.getString("NAME"));
-        return shops;
+        shop.setId(rs.getInt("ID"));
+        shop.setName(rs.getString("NAME"));
+        return shop;
     }
 }

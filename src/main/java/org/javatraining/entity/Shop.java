@@ -5,8 +5,8 @@ import java.io.Serializable;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-// Shopsエンティティクラス
-public class Shops implements Serializable {
+// Shopエンティティクラス
+public class Shop implements Serializable {
 
 	@NotNull
     private int id;
