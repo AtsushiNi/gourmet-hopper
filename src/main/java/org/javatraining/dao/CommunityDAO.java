@@ -108,7 +108,8 @@ public class CommunityDAO {
             }
         }
     }
-
+    
+    
     // CommunityテーブルにCommunityを新規登録する
     public boolean create(Community community) throws SQLException, NamingException {
 

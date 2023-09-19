@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <jsp:useBean
-  id="user"
-  scope="session"
-  class="org.javatraining.entity.User"
+  id="community"
+  scope="request"
+  type="java.util.List<org.javatraining.entity.Community>"
 />
 
 <!-- Header Start -->
@@ -10,9 +10,15 @@
 	<a href="control?action_name=show">
 		<img src="image/GourmetHopper.png" width="100px" height="50px"/>
 	</a>
-    <select name="communitiy">
-    	<option value="community">---</option>
+	
+	<!--コミュニティ名のプルダウン-->
+	<select name="communitiy">
+      <% for(int i = 0; i < community.size(); i++) {%>          
+  	    <option value="community"><%= community.get(i).getCommunityName() %></option>      
+      <% } %>
     </select>
+    <!--fin コミュニティ名のプルダウン-->
+    
     <div style="text-align: right">
     	<a href="#">Search</a>
     	<a href="#">Profile</a>

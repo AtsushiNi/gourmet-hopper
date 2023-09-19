@@ -5,12 +5,16 @@ import javax.naming.NamingException;
 import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 
+import org.javatraining.service.CommunityService;
+
 //アクションの抽象クラス
 public abstract class Action {
 
     // 業務処理を呼び出し、その結果を元に遷移先を返す
     public String execute(HttpServletRequest request) {
         try {
+        	CommunityService cs = new CommunityService();
+        	request.setAttribute("community", cs.getCommunities());
             // リクエストに対するActionごとの個別の処理
             return processRequest(request);
 
