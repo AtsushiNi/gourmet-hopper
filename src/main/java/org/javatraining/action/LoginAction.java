@@ -1,9 +1,11 @@
 package org.javatraining.action;
 
 import java.sql.SQLException;
+
 import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
 import org.javatraining.entity.User;
 import org.javatraining.service.UserService;
 
@@ -17,8 +19,8 @@ public class LoginAction extends Action {
         System.out.println("[LoginAction.java]: Start");
 
         // ユーザIDとパスワードを取得
-        String userName = request.getParameter("user_name");
-        String password = request.getParameter("user_password");
+        String userName = request.getParameter("name");
+        String password = request.getParameter("password");
 
         // ユーザDBより、入力されたユーザ名とパスワードに該当するユーザ情報を取得
         System.out.println("[LoginAction.java]: username,password = "+ userName +","+ password);
