@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import javax.validation.constraints.NotNull;
 
-// レビューエンティティクラス
+// レビューのエンティティクラス
 public class Review implements Serializable {
 
 	@NotNull
@@ -14,14 +14,7 @@ public class Review implements Serializable {
     private String title = "";
 	private String comment = "";
 
-    public String getComment() {
-		return comment;
-	}
-
-	public void setComment(String comment) {
-		this.comment = comment;
-	}
-
+	
 	public int getId() {
 		return id;
 	}
@@ -37,7 +30,13 @@ public class Review implements Serializable {
 	public void setTitle(String title) {
 		this.title = title;
 	}
+    public String getComment() {
+		return comment;
+	}
 
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
 	@Override
     public String toString() {
         return "Book {" +
