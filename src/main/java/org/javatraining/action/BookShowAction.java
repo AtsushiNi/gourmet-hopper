@@ -18,7 +18,9 @@ public class BookShowAction extends BookAction {
 
         // 書籍情報オブジェクトの List をリクエストに設定
 //      request.setAttribute("books", books);
-        
-        return "search.jsp";
+
+      // 遷移先のページを返す
+      System.out.println("[BookShowAction.java]: End");
+      return "search.jsp";
     }
 }
