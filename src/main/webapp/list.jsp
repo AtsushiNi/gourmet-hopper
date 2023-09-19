@@ -5,7 +5,7 @@
   type="java.util.List<org.javatraining.entity.Book>"
 />
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <!-- head -->
   <jsp:include page="template/head.jsp">
     <jsp:param name="page" value="list" />
@@ -57,5 +57,9 @@
     <aside id="sub">
       <jsp:include page="template/side.jsp" />
     </aside>
+    
+    <!-- footer -->
+    <%@ include file="template/footer.jsp" %>
+
   </body>
 </html>

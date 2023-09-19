@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <!-- head -->
   <jsp:include page="template/head.jsp">
     <jsp:param name="page" value="imageupload" />
@@ -21,5 +21,9 @@
     <aside id="sub">
       <jsp:include page="template/side.jsp" />
     </aside>
+    
+    <!-- footer -->
+    <%@ include file="template/footer.jsp" %>
+
   </body>
 </html>
