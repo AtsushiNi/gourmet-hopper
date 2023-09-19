@@ -1,17 +1,19 @@
 package org.javatraining.action;
 
 import java.sql.SQLException;
+
 import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+
 import org.javatraining.entity.User;
-import org.javatraining.service.BookService;
+import org.javatraining.service.ShopService;
 
 // 書籍情報管理の抽象アクションクラス
 public abstract class ShopAction extends Action {
 
     // 書籍情報管理サービス
-    protected final BookService service = new BookService();
+    protected final ShopService service = new ShopService();
 
     @Override
     protected String processRequest(HttpServletRequest request) throws SQLException, NamingException {
@@ -24,11 +26,11 @@ public abstract class ShopAction extends Action {
         }
 
         // 書籍情報管理の処理を実行
-        return processBookManagement(request);
+        return processShopManagement(request);
     }
 
     // 書籍情報管理の処理
-    protected abstract String processBookManagement(HttpServletRequest request)
+    protected abstract String processShopManagement(HttpServletRequest request)
             throws SQLException, NamingException;
 
     // セッションが存在するかどうかのチェック

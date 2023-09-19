@@ -14,7 +14,7 @@ public class ActionFactory {
             case "login":
                 return new LoginAction();
             case "show_shop":
-                return new BookShowAction();
+                return new ShopShowAction();
             case "regist":
                 return new BookAddAction();
             case "edit":

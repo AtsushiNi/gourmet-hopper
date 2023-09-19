@@ -19,13 +19,13 @@ public class ShopService {
         return dao.findAll();
     }
 
-    // 店情報を取得する
-    public Shop find(int productId) throws SQLException, NamingException {
+    // Shopを取得する
+    public Shop find(int id) throws SQLException, NamingException {
         System.out.println("[ShopService.java]:find Start");
-        return dao.findById(productId);
+        return dao.findById(id);
     }
 
-    // 書籍情報を登録する
+    // Shop情報を登録する
     public boolean create(Shop shop) throws SQLException, NamingException {
         System.out.println("[ShopService.java]:create Start");
     	return dao.create(shop);
