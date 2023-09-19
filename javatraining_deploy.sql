@@ -2,9 +2,9 @@ DROP DATABASE javatraining;
 CREATE DATABASE javatraining CHARACTER SET UTF8;
 USE javatraining;
 
-CREATE TABLE shops(
-    id INT(10) AUTO_INCREMENT NOT NULL, 
-    name VARCHAR(30) NOT NULL,
+CREATE TABLE SHOPS(
+   ID INT(10) AUTO_INCREMENT NOT NULL, 
+    NAME VARCHAR(30) NOT NULL,
     PRIMARY KEY (id)
     );
 
@@ -26,8 +26,8 @@ INSERT INTO USERS VALUE(1,"Machida","muit123");
 INSERT INTO USERS VALUE(2,"Suzuki","suzuki");
 INSERT INTO USERS VALUE(3,"Ozaki","ozaki");
 
-INSERT INTO BOOK_INFO VALUE(1,"Java Training","Hoge Taro","10","Tokyo","Java Training");
-INSERT INTO BOOK_INFO VALUE(2,"金融業界のトレンド","M社","5","Osaka","Finance");
+INSERT INTO SHOPS VALUE(1,"がい屋");
+
 
 INSERT INTO COMMUNITIES VALUE(1,"りんご","apple");
 INSERT INTO COMMUNITIES VALUE(2,"ばなな","banana");
