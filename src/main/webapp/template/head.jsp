@@ -17,4 +17,5 @@
   <link rel="stylesheet" href=<%=cssPath%>>
   <!-- TODO アプリの名前を決める -->
   <title>app name</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 </head>
