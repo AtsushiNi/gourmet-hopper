@@ -12,16 +12,16 @@ CREATE TABLE BOOK_INFO(
     PRIMARY KEY (PROD_ID)
     );
 
-CREATE TABLE USER_MASTER(
+CREATE TABLE users(
     USER_ID INT(10) AUTO_INCREMENT NOT NULL, 
     USER_NAME VARCHAR(30) NOT NULL,
     PASSWORD VARCHAR(30) NOT NULL,
     PRIMARY KEY (USER_ID)
     );
 
-INSERT INTO USER_MASTER VALUE(1,"Machida","muit123");
-INSERT INTO USER_MASTER VALUE(2,"Suzuki","suzuki");
-INSERT INTO USER_MASTER VALUE(3,"Ozaki","ozaki");
+INSERT INTO users VALUE(1,"Machida","muit123");
+INSERT INTO users VALUE(2,"Suzuki","suzuki");
+INSERT INTO users VALUE(3,"Ozaki","ozaki");
 
 INSERT INTO BOOK_INFO VALUE(1,"Java Training","Hoge Taro","10","Tokyo","Java Training");
 INSERT INTO BOOK_INFO VALUE(2,"金融業界のトレンド","M社","5","Osaka","Finance");
