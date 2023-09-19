@@ -8,6 +8,9 @@
   </jsp:include>
 
   <body>
+    <header id="header">
+      <jsp:include page="template/top.jsp" />
+    </header>
     <main id="main">
       <div id="map" style="width: 400px; height: 400px;"></div>
     </main>
