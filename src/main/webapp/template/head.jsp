@@ -3,7 +3,7 @@
 
 <%
   String path = request.getParameter("page");
-  String cssPath = "../css/" + path + ".css";
+  String cssPath = "css/" + path + ".css";
 %>
 
 <head>
