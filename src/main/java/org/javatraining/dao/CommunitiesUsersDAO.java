@@ -7,17 +7,17 @@ import java.sql.SQLException;
 
 import javax.naming.NamingException;
 import javax.sql.DataSource;
-import org.javatraining.entity.User;
+import org.javatraining.entity.CommunitiesUsers;
 
 // ユーザマスタへのアクセスを行うクラス
-public class UserDAO {
+public class CommunitiesUsersDAO {
 	
 	
     // ログイン情報に対応するユーザ情報を検索する
-    public User findByCredential(String userName, String password) throws SQLException, NamingException {
+    public CommunitiesUsers findByCredential(int communityId, int userId) throws SQLException, NamingException {
 
-    	System.out.println("[UserDAO.java]:findByCredential Start");
-        String sql = "SELECT ID,NAME,PASSWORD FROM USERS WHERE NAME = ? AND PASSWORD = ? ";
+    	System.out.println("[CommunitiesUsersDAO.java]:findByCredential Start");
+        String sql = "SELECT ID, COMMUNITY_ID, USER_ID FROM COMMUNITIES_USERS WHERE COMMUNITY_ID = ? AND USER_ID = ? ";
 
         // データソースを取得
         DataSource ds = DataSourceSupplier.getDataSource();
@@ -25,8 +25,8 @@ public class UserDAO {
                 PreparedStatement ps = con.prepareStatement(sql)){
 
             // SQL文のプレースホルダに値をセット
-            ps.setString(1, userName);
-            ps.setString(2, password);
+            ps.setInt(1, communityId);
+            ps.setInt(2, userId);
 
             // SQL実行
             try (ResultSet rs = ps.executeQuery()) {
@@ -37,13 +37,13 @@ public class UserDAO {
                 }
 
                 // Userオブジェクトを作成して返す
-                User user = new User();
-                user.setUserId(rs.getInt("ID"));
-                user.setUserName(rs.getString("NAME"));
-                user.setPassword(rs.getString("PASSWORD"));
+                CommunitiesUsers communitiesusers = new CommunitiesUsers();
+                communitiesusers.setId(rs.getInt("ID"));
+                communitiesusers.setCommunityId(rs.getInt("COMMUNITY_ID"));
+                communitiesusers.setUserId(rs.getInt("USER_ID"));
                 
-            	System.out.println("[UserDAO.java]:findByCredential SQL実行結果 :"+ user);
-                return user;
+            	System.out.println("[CommunitiesUsersDAO.java]:findByCredential SQL実行結果 :"+ communitiesusers);
+                return communitiesusers;
             }
         }
     }
