@@ -4,30 +4,29 @@
   scope="session"
   class="org.javatraining.entity.User"
 />
+
+<!-- Header Start -->
+<div>
+	<a href="control?action_name=show">
+		<img src="image/GourmetHopper.png" width="100px" height="50px"/>
+	</a>
+    <select name="communitiy">
+    	<option value="community">---</option>
+    </select>
+    <div style="text-align: right">
+    	<a href="#">Search</a>
+    	<a href="#">Profile</a>
+    	<a href="#">Group</a>
+    	<a href="#">Profile</a>
+    </div>
+</div>
+
+<!-- Header End -->
+
 <div class="top_logo">
   <a href="control?action_name=show">
     <img src="image/logo.png" />
   </a>
-  
-  <!-- Header Start -->
-  <header class="site-header">
-    <div class="wrapper site-header__wrapper">
-      <a href="#" class="brand">Brand</a>
-      <nav class="nav">
-        <button class="nav__toggle" aria-expanded="false" type="button">
-          menu
-        </button>
-        <ul class="nav__wrapper">
-          <li class="nav__item"><a href="#">Home</a></li>
-          <li class="nav__item"><a href="#">About</a></li>
-          <li class="nav__item"><a href="#">Services</a></li>
-          <li class="nav__item"><a href="#">Hire us</a></li>
-          <li class="nav__item"><a href="#">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-  <!-- Header End -->
 	  
   <p>
     書籍管理システム<br>
