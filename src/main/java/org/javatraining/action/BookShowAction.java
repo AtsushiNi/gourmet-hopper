@@ -5,8 +5,6 @@ import java.sql.SQLException;
 import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
 
-import org.javatraining.repository.HotpepperRepository;
-
 // 一覧画面表示アクションクラス
 public class BookShowAction extends BookAction {
 
@@ -21,12 +19,6 @@ public class BookShowAction extends BookAction {
         // 書籍情報オブジェクトの List をリクエストに設定
 //      request.setAttribute("books", books);
         
-        HotpepperRepository repository = new HotpepperRepository();
-        try {
-        	repository.getJsonString();
-        } catch(Exception e) {
-        	e.printStackTrace();
-        }
         return "search.jsp";
     }
 }
