@@ -6,11 +6,11 @@
 />
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>書籍管理システム</title>
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
+  <!-- head -->
+  <jsp:include page="template/head.jsp">
+    <jsp:param name="page" value="list" />
+  </jsp:include>
+
   <body>
     <header id="header">
       <jsp:include page="template/top.jsp" />
