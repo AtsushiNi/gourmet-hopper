@@ -1,10 +1,9 @@
 package org.javatraining.action;
 
 import java.sql.SQLException;
-import java.util.List;
+
 import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
-import org.javatraining.entity.Book;
 
 // 一覧画面表示アクションクラス
 public class BookShowAction extends BookAction {
@@ -15,13 +14,13 @@ public class BookShowAction extends BookAction {
         // 書籍情報オブジェクトのListを取得
         System.out.println("[BookShowAction.java]: Start");
         System.out.println("[BookShowAction.java]: BookService:getBooksメソッドを呼び出し");
-        List<Book> books = service.getBooks();
+//        List<Book> books = service.getBooks();
 
         // 書籍情報オブジェクトの List をリクエストに設定
-        request.setAttribute("books", books);
+//        request.setAttribute("books", books);
 
         // 遷移先のページを返す
         System.out.println("[BookShowAction.java]: End");
-        return "list.jsp";
+        return "search.jsp";
     }
 }
