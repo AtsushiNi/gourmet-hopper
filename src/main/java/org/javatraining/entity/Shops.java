@@ -15,23 +15,23 @@ public class Shops implements Serializable {
     @Size(max = 100, message= "店名は100文字以内にしてください。")
     private String name = "";
 
-	public int getid() {
+    public int getId() {
 		return id;
 	}
 
-	public void setid(int id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
-	public String getname() {
+	public String getName() {
 		return name;
 	}
 
-	public void setname(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
-    @Override
+	@Override
     public String toString() {
         return "Book {" +
                 "id=" + id +
