@@ -17,10 +17,10 @@ public class BookShowAction extends BookAction {
 //        List<Book> books = service.getBooks();
 
         // 書籍情報オブジェクトの List をリクエストに設定
-//      request.setAttribute("books", books);
+//        request.setAttribute("books", books);
 
-      // 遷移先のページを返す
-      System.out.println("[BookShowAction.java]: End");
-      return "search.jsp";
+        // 遷移先のページを返す
+        System.out.println("[BookShowAction.java]: End");
+        return "search.jsp";
     }
 }
