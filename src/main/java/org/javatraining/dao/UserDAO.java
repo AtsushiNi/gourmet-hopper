@@ -17,7 +17,7 @@ public class UserDAO {
     public User findByCredential(String userName, String password) throws SQLException, NamingException {
 
     	System.out.println("[UserDAO.java]:findByCredential Start");
-        String sql = "SELECT USER_ID,USER_NAME,PASSWORD FROM USER_MASTER WHERE USER_NAME = ? AND PASSWORD = ? ";
+        String sql = "SELECT USER_ID,USER_NAME,PASSWORD FROM users WHERE USER_NAME = ? AND PASSWORD = ? ";
 
         // データソースを取得
         DataSource ds = DataSourceSupplier.getDataSource();

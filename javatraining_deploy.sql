@@ -7,3 +7,14 @@ CREATE TABLE shops(
     name VARCHAR(30) NOT NULL,
     PRIMARY KEY (id)
     );
+
+CREATE TABLE users(
+    USER_ID INT(10) AUTO_INCREMENT NOT NULL, 
+    USER_NAME VARCHAR(30) NOT NULL,
+    PASSWORD VARCHAR(30) NOT NULL,
+    PRIMARY KEY (USER_ID)
+    );
+
+INSERT INTO users VALUE(1,"Machida","muit123");
+INSERT INTO users VALUE(2,"Suzuki","suzuki");
+INSERT INTO users VALUE(3,"Ozaki","ozaki");
