@@ -35,6 +35,8 @@ public class ActionFactory {
             	return new SelectGroupTypeAction();
             case "team_list":
             	return new TeamListAction();
+            case "team_detail":
+            	return new TeamDetailAction();
             default:
                 return null;
 

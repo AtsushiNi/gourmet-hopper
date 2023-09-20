@@ -19,4 +19,9 @@ public class TeamService {
         System.out.println("[TeamService.java]:getTeams Start");
         return dao.findAll(community);
     }
+
+    public Team find(int id) throws SQLException, NamingException {
+        System.out.println("[TeamService.java]:find Start");
+        return dao.findById(id);
+    }
 }
