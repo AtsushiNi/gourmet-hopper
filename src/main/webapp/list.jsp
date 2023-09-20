@@ -33,7 +33,7 @@
             <td>
               <a href="control?action_name=edit&prod_id=<%=books.get(i).getProductId() %>">
                 <%= books.get(i).getBookName() %>
-                </a>
+              </a>
             </td>
             <td>
               <%= books.get(i).getAuthor() %>
