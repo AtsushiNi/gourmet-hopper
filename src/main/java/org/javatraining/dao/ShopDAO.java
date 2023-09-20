@@ -18,24 +18,17 @@ public class ShopDAO {
     
     // SHOPSテーブルで入力された名前に関してあいまい検索する
     public List<Shop> findAll() throws SQLException, NamingException {
-
+    	String nakanoCode = "X175";
         System.out.println("[ShopDAO.java]:findAll Start");
-      //  String userInput = "shopname"; // ユーザーからの入力
-        // SHOPSテーブルで入力された名前に関してあいまい検索する SQL文
         
-        /** 製作途中 **/
-/*
-        String sql = "SELECT * FROM SHOPS WHERE NAME LIKE ? AND (AREA = ?)";
-*/
-        String sql = "SELECT * FROM SHOPS";
+        String sql = "SELECT * FROM SHOPS WHERE SMALL_AREA_CODE = ?";
         // データソースを取得
         DataSource ds = DataSourceSupplier.getDataSource();
         try (Connection con = ds.getConnection();
                 PreparedStatement ps = con.prepareStatement(sql)) {
- /*       	// プレースホルダに値をセット
-            ps.setString(1, "%" + userInput + "%");
-            ps.setString(2, "NAKANO");
- */           //実行
+     	// プレースホルダに値をセット
+            ps.setString(1, nakanoCode );
+        //実行
             ResultSet rs = ps.executeQuery();
             // Shopオブジェクトの List を生成
             List<Shop> shops = new ArrayList<>();
