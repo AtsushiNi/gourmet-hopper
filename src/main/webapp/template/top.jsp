@@ -4,6 +4,11 @@
   scope="session"
   type="java.util.List<org.javatraining.entity.Community>"
 />
+<jsp:useBean
+id="user"
+scope="session"
+class="org.javatraining.entity.User"
+/>
 
 <!-- Header Start -->
 <div>
@@ -23,7 +28,10 @@
     	<a href="#">Search</a>
     	<a href="#">Profile</a>
     	<a href="#">Group</a>
-    	<a href="#">Profile</a>
+    	 <form action="showProfile.jsp" method="post">
+         <!-- 画像をボタンとして使用 -->
+         <input type="image" src= "image/icons/${user.userName}.png" alt="ボタンの画像" name="submitButton" width="50px" height="50px">
+         </form>
     </div>
 </div>
 
