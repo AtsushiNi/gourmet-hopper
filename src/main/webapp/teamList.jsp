@@ -14,18 +14,11 @@
 
     <main id="main">
       <div class="container" style="width: 80%;">
-        <table class="table">
-        <thead>
-          <tr>
-            <th>name</th>
-          </tr>
-        </thead>
         <c:forEach var="group" items="${groups}">
-          <tr>
-            <td>${group.name}</td>
-          </tr>
+          <div class="row">
+            <a class="col" href="control?action_name=group_detail&id=${group.id}">${group.name}</a>
+          </div>
         </c:forEach>
-        </table>
       </div>
     </main>
     
