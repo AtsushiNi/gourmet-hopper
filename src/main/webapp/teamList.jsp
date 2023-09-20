@@ -14,9 +14,9 @@
 
     <main id="main">
       <div class="container" style="width: 80%;">
-        <c:forEach var="group" items="${groups}">
+        <c:forEach var="team" items="${teams}">
           <div class="row">
-            <a class="col" href="control?action_name=group_detail&id=${group.id}">${group.name}</a>
+            <a class="col" href="control?action_name=team_detail&id=${team.id}">${team.name}</a>
           </div>
         </c:forEach>
       </div>
