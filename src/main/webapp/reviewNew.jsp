@@ -14,7 +14,7 @@
     <main id="main">
       <h1>レビューを新規作成</h1>
       <form action="control" method="post">
-        <input type="hidden" name="action_name" value="reviewRegist" />
+        <input type="hidden" name="action_name" value="review_new" />
         <p>
           <label for="title">タイトル</label>
           <input id="title" name="title" type="text" placeholder="タイトル" />
