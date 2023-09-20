@@ -31,6 +31,8 @@ public class ActionFactory {
                 return new ImageUploadAction();    
             case "home":
             	return new HomeAction();
+            case "select_group_type":
+            	return new SelectGroupTypeAction();
             default:
                 return null;
 

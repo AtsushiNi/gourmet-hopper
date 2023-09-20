@@ -17,17 +17,15 @@
           <div class="col-sm">
             <a
               class="shadow m-5 rounded action-card"
-              href="control?action_name=search"
             >
-              レビューを見る/書く
+              既存グループで企画
             </a>
           </div>
           <div class="col-sm">
             <a
               class="shadow m-5 rounded action-card"
-              href="control?action_name=select_group_type"
             >
-              飲み会を企画する
+              新規グループで企画
             </a>
           </div>
         </div>
