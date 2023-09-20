@@ -2,6 +2,12 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
+<jsp:useBean
+  id="shops"
+  scope="request"
+  type="java.util.List<org.javatraining.entity.Shop>"
+/>
+
 <html lang="ja">
   <!-- head -->
   <jsp:include page="template/head.jsp">
@@ -21,20 +27,37 @@
         <input type="submit" value="検索"><br>
       
         <label for="tabaco">喫煙可</label>
-        <input type="checkbox" id="tabaco" name="tag" value="tabaco">
+        <input type="checkbox" id="tabaco" name="tag" value="tabaco"><br>
       
-        <label for="banana">バナナ</label><br>
-        <input type="checkbox" id="banana" name="fruit" value="banana">
+        <label for="banana">バナナ</label>
+        <input type="checkbox" id="banana" name="fruit" value="banana"><br>
         
         <label for="orange">オレンジ</label>
-        <input type="checkbox" id="orange" name="fruit" value="orange">
+        <input type="checkbox" id="orange" name="fruit" value="orange"><br>
         
-        <label for="grape">ぶどう</label><br>
-        <input type="checkbox" id="grape" name="fruit" value="grape">
+        <label for="grape">ぶどう</label>
+        <input type="checkbox" id="grape" name="fruit" value="grape"><br>
         
-        <label for="strawberry">いちご</label><br>
-        <input type="checkbox" id="strawberry" name="fruit" value="strawberry">
+        <label for="strawberry">いちご</label>
+        <input type="checkbox" id="strawberry" name="fruit" value="strawberry"><br>
       </form>
+  
+  <table>
+<thead>
+          <tr>
+            <th>店名</th>
+          </tr>
+        </thead>
+<tbody>
+           <% for(int i = 0; i < shops.size(); i++) {%>
+          <tr>
+            <td>
+                <%= shops.get(i).getName() %>
+            </td>
+          </tr>
+          <%} %>
+</tbody>
+</table>
   
       <div id="map" style="width: 400px; height: 400px;"></div>
     </main>
