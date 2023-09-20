@@ -18,11 +18,4 @@ public class CommunityService {
         System.out.println("[CommunityService.java]:getCommunities Start");
         return dao.findByUserId(userId);
     }
-/*
-    // 書籍情報を取得する
-    public Book find(int productId) throws SQLException, NamingException {
-        System.out.println("[BookService.java]:find Start");
-        return dao.findById(productId);
-    }
-*/
 }
