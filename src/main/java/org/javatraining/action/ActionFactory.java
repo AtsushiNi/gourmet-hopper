@@ -33,6 +33,8 @@ public class ActionFactory {
             	return new HomeAction();
             case "select_group_type":
             	return new SelectGroupTypeAction();
+            case "team_list":
+            	return new TeamListAction();
             default:
                 return null;
 

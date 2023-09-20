@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ja">
   <!-- head -->
@@ -13,23 +14,18 @@
 
     <main id="main">
       <div class="container" style="width: 80%;">
-        <div class="row">
-          <div class="col-sm">
-            <a
-              class="shadow m-5 rounded action-card"
-              href="control?action_name=team_list"
-            >
-              既存グループで企画
-            </a>
-          </div>
-          <div class="col-sm">
-            <a
-              class="shadow m-5 rounded action-card"
-            >
-              新規グループで企画
-            </a>
-          </div>
-        </div>
+        <table class="table">
+        <thead>
+          <tr>
+            <th>name</th>
+          </tr>
+        </thead>
+        <c:forEach var="group" items="${groups}">
+          <tr>
+            <td>${group.name}</td>
+          </tr>
+        </c:forEach>
+        </table>
       </div>
     </main>
     
