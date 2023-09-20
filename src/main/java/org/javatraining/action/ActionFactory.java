@@ -31,8 +31,8 @@ public class ActionFactory {
                 return new ImageUploadAction();
             case "shop_detail":
             	return new ShopDetailAction();
-            case "review_create":
-            	return new ReviewCreateAction();
+            case "review_new":
+            	return new ReviewNewAction();
             default:
                 return null;
 
