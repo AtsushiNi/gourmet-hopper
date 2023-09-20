@@ -6,7 +6,7 @@
 />
 <!DOCTYPE html>
 <html lang="ja">
-  <!-- head --
+  <!-- head -->
   <jsp:include page="template/head.jsp">
     <jsp:param name="page" value="list" />
   </jsp:include>
@@ -31,7 +31,23 @@
           <% for(int i = 0; i < books.size(); i++) {%>
           <tr>
             <td>
+              <a href="control?action_name=edit&prod_id=<%=books.get(i).getProductId() %>">
                 <%= books.get(i).getBookName() %>
+                </a>
+            </td>
+            <td>
+              <%= books.get(i).getAuthor() %>
+            </td>
+            <td>
+              <%= books.get(i).getAmount() %>
+            </td>
+            <td>
+              <%= books.get(i).getLocation() %>
+            </td>
+            <td>
+              <a href="control?action_name=delete_confirm&prod_id=<%= books.get(i).getProductId() %>">
+                削除
+              </a>
             </td>
           </tr>
           <% } %>
