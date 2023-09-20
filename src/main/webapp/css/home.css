@@ -1,0 +1,10 @@
+.action-card {
+	height: 200px;
+	width: 200px;
+	line-height: 200px;
+	text-align: center;
+	display: block;
+	text-decoration: none !important;
+	color: inherit !important;
+}
+

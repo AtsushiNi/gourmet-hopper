@@ -29,6 +29,8 @@ public class ActionFactory {
                 return new ImageShowAction();
             case "imageupload":
                 return new ImageUploadAction();    
+            case "home":
+            	return new HomeAction();
             default:
                 return null;
 
