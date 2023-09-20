@@ -16,18 +16,22 @@ import org.javatraining.entity.Shop;
 // shopsテーブルへのアクセスを行うクラス
 public class ShopDAO {
     
-    // SHOPSテーブルを全件検索する
+    // SHOPSテーブルで入力された名前に関してあいまい検索する
     public List<Shop> findAll() throws SQLException, NamingException {
 
         System.out.println("[ShopDAO.java]:findAll Start");
-        // SHOPSテーブルを全件検索する SQL文
-        String sql = "SELECT * FROM SHOPS";
-
+        String userInput = "name"; // ユーザーからの入力
+        // SHOPSテーブルで入力された名前に関してあいまい検索する SQL文
+        String sql = "SELECT * FROM SHOPS WHERE NAME LIKE ? AND (AREA = ?)";
+        
         // データソースを取得
         DataSource ds = DataSourceSupplier.getDataSource();
         try (Connection con = ds.getConnection();
                 PreparedStatement ps = con.prepareStatement(sql);
                 ResultSet rs = ps.executeQuery()) {
+        	// プレースホルダに値をセット
+            ps.setString(1, "%" + userInput + "%");
+            ps.setString(2, "NAKANO");
             // Shopオブジェクトの List を生成
             List<Shop> shops = new ArrayList<>();
             // 検索結果をループしてShopオブジェクトの List に格納
