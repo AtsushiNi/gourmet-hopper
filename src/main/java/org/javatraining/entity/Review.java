@@ -13,6 +13,8 @@ public class Review implements Serializable {
 	@NotNull
     private String title = "";
 	private String comment = "";
+	private int userId;
+	private int shopId;
 
 	
 	public int getId() {
@@ -37,6 +39,23 @@ public class Review implements Serializable {
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
+	
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+
+	public int getShopId() {
+		return shopId;
+	}
+
+	public void setShopId(int shopId) {
+		this.shopId = shopId;
+	}
+
 	@Override
     public String toString() {
         return "Book {" +
