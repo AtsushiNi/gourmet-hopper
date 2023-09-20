@@ -15,7 +15,7 @@ import org.javatraining.repository.HotpepperRepository;
 public class ShopService {
 
     private final ShopDAO dao = new ShopDAO();
-
+    String inputName = null;
     
     
     // Shopリストを取得する
@@ -23,7 +23,7 @@ public class ShopService {
         System.out.println("[ShopService.java]:getShops Start");
        //apiから情報を取得
         HotpepperRepository repository = new HotpepperRepository();
-        List<Shop> shops = repository.getShops();
+        List<Shop> shops = repository.getShops("X175", inputName);
         List<Shop> allShops = new ArrayList<>();
         allShops.addAll(dao.findAll() );
         allShops.addAll(shops);

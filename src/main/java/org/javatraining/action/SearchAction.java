@@ -28,15 +28,14 @@ public class SearchAction extends Action {
 		} catch (NamingException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		} catch (InterruptedException e) {
-			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
 
         // Shopオブジェクトの List をリクエストに設定
         request.setAttribute("shops", shops);
+        request.setAttribute("inputName", shops);
 
         // 遷移先のページを返す
         System.out.println("[ShopShowAction.java]: End");
