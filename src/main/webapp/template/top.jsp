@@ -18,9 +18,10 @@ class="org.javatraining.entity.User"
 	
 	<!--コミュニティ名のプルダウン-->
 	<form action="control" method="post">
-		<select id="communityNames" name="action_name" >
+		<input type="hidden" name="action_name" value="topcommunity">
+		<select id="communityNames" name="communityId">
 	      <% for(int i = 0; i < communities.size(); i++) {%>          
-	  	    <option value="topcommunity"><%= communities.get(i).getCommunityName() %></option>
+	  	    <option value= <%= communities.get(i).getCommunityId()%> ><%= communities.get(i).getCommunityName() %></option>
 	      <% } %>
 	    </select>
 	    <input type="submit" value="確定">
