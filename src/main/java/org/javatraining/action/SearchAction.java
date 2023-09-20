@@ -1,15 +1,12 @@
 package org.javatraining.action;
 
-import java.sql.SQLException;
-
-import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
 
 // 一覧画面表示アクションクラス
-public class SearchAction extends ShopAction {
+public class SearchAction extends Action {
 
     @Override
-    protected String processShopManagement(HttpServletRequest request) throws SQLException, NamingException {
+    protected String processRequest(HttpServletRequest request) {
 /*
         // ShopオブジェクトのListを取得
         System.out.println("[ShopShowAction.java]: Start");
