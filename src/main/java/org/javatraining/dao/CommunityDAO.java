@@ -78,7 +78,43 @@ public class CommunityDAO {
             }
         }
     }
+    
+    // Communityテーブルを主キー検索する
+    public List<Community> findByUserId(int userId) throws SQLException, NamingException {
 
+        System.out.println("[CommunityDAO.java]:findById Start");
+    	// COMMUNITIES テーブルを商品 ID の条件で検索する SQL 文
+        String sql = "SELECT * FROM COMMUNITIES "
+        		+ "INNER JOIN COMMUNITIES_USERS ON COMMUNITIES.ID = COMMUNITIES_USERS.COMMUNITY_ID"
+        		+ "WHERE COMMUNITIES_USERS.USER_ID = ?";
+
+        // データソースを取得
+        DataSource ds = DataSourceSupplier.getDataSource();
+        try (Connection con = ds.getConnection();
+                PreparedStatement ps = con.prepareStatement(sql);) {
+            ps.setInt(1, userId);
+            ResultSet rs = ps.executeQuery();
+            // Communityオブジェクトの List を生成
+            List<Community> communities = new ArrayList<>();
+            
+            // 検索結果をループしてCommunityオブジェクトの List に格納
+            while (rs.next()) {
+                // Communityオブジェクトを生成
+            	Community community = new Community();
+            	//
+            	community.setCommunityId(rs.getInt("COMMUNITY.ID"));
+            	community.setCommunityName(rs.getString("COMMUNITY.NAME"));
+            	community.setCommunityPassword(rs.getString("COMMUNITY.PASSWORD"));
+                // Communityオブジェクトの List に格納
+                communities.add(community);
+            }
+            // Communityオブジェクトの List を返す
+            System.out.println("[CommunityDAO.java]:findById SQL実行結果: "+ communities);
+            System.out.println("[CommunityDAO.java]:findById End");
+            return communities;
+        }
+    }
+/*
     // Communityテーブルを主キー検索する
     public Community findById(int communityId) throws SQLException, NamingException {
 
@@ -108,7 +144,7 @@ public class CommunityDAO {
             }
         }
     }
-    
+ */   
     
     // CommunityテーブルにCommunityを新規登録する
     public boolean create(Community community) throws SQLException, NamingException {
