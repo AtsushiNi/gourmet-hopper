@@ -23,6 +23,7 @@ public class HotpepperRepository {
 	//お店の一覧返す
 	public ArrayList<Shop> getShops(String smallAreaCode, String inputName) throws IOException, InterruptedException {
         URL url = new URL("https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=7eaca5563e5d7d8e&small_area=" + smallAreaCode +"&name=" + inputName +"&count=10&format=json");
+        System.out.print("https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=7eaca5563e5d7d8e&small_area=" + smallAreaCode +"&name=" + inputName +"&count=10&format=json");
         HttpURLConnection conn = (HttpURLConnection)url.openConnection();
 
         //値の取得＆出力
@@ -32,6 +33,8 @@ public class HotpepperRepository {
                 output.append(reader.readLine());
             }
         }
+	    System.out.println(output.toString());
+	    System.out.println("=====================================");
 
         //結果のJSON整形
         JSONObject json = new JSONObject(output.toString());

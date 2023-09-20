@@ -20,7 +20,7 @@
     </header>
     
     <main id="main">
-      <form action="/control" method="post">
+      <form action="control" method="post">
         <input type="hidden" name="action_name" value="search" />
       
         <input type="text" name="inputName" placeholder="検索キーワードを入力">
@@ -55,7 +55,7 @@
                 <%= shops.get(i).getName() %>
             </td>
           </tr>
-          <%} %>
+          <% } %>
 </tbody>
 </table>
   

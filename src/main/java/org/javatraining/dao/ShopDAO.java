@@ -17,9 +17,7 @@ import org.javatraining.entity.Shop;
 public class ShopDAO {
     
     // SHOPSテーブルで入力された名前に関してあいまい検索する
-    public List<Shop> findAll() throws SQLException, NamingException {
-    	String nakanoCode = "X175";
-    	String inputName = null;
+    public List<Shop> findAll(String smallAreaCode, String inputName) throws SQLException, NamingException {
         System.out.println("[ShopDAO.java]:findAll Start");
         
         String sql = "SELECT * FROM SHOPS WHERE NAME LIKE ? AND SMALL_AREA_CODE = ?";
@@ -29,7 +27,7 @@ public class ShopDAO {
                 PreparedStatement ps = con.prepareStatement(sql)) {
      	// プレースホルダに値をセット
             ps.setString(1,"%"+ inputName + "%" );
-            ps.setString(2,nakanoCode);
+            ps.setString(2,smallAreaCode);
         //実行
             ResultSet rs = ps.executeQuery();
             // Shopオブジェクトの List を生成

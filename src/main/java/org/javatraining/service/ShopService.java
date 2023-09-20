@@ -19,13 +19,13 @@ public class ShopService {
     
     
     // Shopリストを取得する
-    public List<Shop> getShops() throws SQLException, NamingException, IOException, InterruptedException {
+    public List<Shop> getShops(String smallAreaCode, String inputName) throws SQLException, NamingException, IOException, InterruptedException {
         System.out.println("[ShopService.java]:getShops Start");
        //apiから情報を取得
         HotpepperRepository repository = new HotpepperRepository();
-        List<Shop> shops = repository.getShops("X175", inputName);
+        List<Shop> shops = repository.getShops(smallAreaCode, inputName);
         List<Shop> allShops = new ArrayList<>();
-        allShops.addAll(dao.findAll() );
+        //allShops.addAll(dao.findAll(smallAreaCode,inputName) );
         allShops.addAll(shops);
         return allShops;
     }

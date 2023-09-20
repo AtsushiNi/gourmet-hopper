@@ -15,14 +15,15 @@ public class SearchAction extends Action {
 	private final ShopService service = new ShopService();
     @Override
     protected String processRequest(HttpServletRequest request) {
-
+    	
         // ShopオブジェクトのListを取得
         System.out.println("[ShopShowAction.java]: Start");
         System.out.println("[ShopShowAction.java]: ShopService:getShopsメソッドを呼び出し");
-        
+        String smallAreaCode = "X175";
+        String inputName = request.getParameter("inputName");
         List<Shop> shops = null;
 		try {
-			shops = service.getShops();
+			shops = service.getShops(smallAreaCode,inputName);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (NamingException e) {
@@ -35,7 +36,6 @@ public class SearchAction extends Action {
 
         // Shopオブジェクトの List をリクエストに設定
         request.setAttribute("shops", shops);
-        request.setAttribute("inputName", shops);
 
         // 遷移先のページを返す
         System.out.println("[ShopShowAction.java]: End");
