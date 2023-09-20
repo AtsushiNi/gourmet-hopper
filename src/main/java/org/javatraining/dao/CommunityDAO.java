@@ -85,7 +85,7 @@ public class CommunityDAO {
         System.out.println("[CommunityDAO.java]:findById Start");
     	// COMMUNITIES テーブルを商品 ID の条件で検索する SQL 文
         String sql = "SELECT * FROM COMMUNITIES "
-        		+ "INNER JOIN COMMUNITIES_USERS ON COMMUNITIES.ID = COMMUNITIES_USERS.COMMUNITY_ID"
+        		+ "INNER JOIN COMMUNITIES_USERS ON COMMUNITIES.ID = COMMUNITIES_USERS.COMMUNITY_ID "
         		+ "WHERE COMMUNITIES_USERS.USER_ID = ?";
 
         // データソースを取得
@@ -102,9 +102,9 @@ public class CommunityDAO {
                 // Communityオブジェクトを生成
             	Community community = new Community();
             	//
-            	community.setCommunityId(rs.getInt("COMMUNITY.ID"));
-            	community.setCommunityName(rs.getString("COMMUNITY.NAME"));
-            	community.setCommunityPassword(rs.getString("COMMUNITY.PASSWORD"));
+            	community.setCommunityId(rs.getInt("COMMUNITIES.ID"));
+            	community.setCommunityName(rs.getString("COMMUNITIES.NAME"));
+            	community.setCommunityPassword(rs.getString("COMMUNITIES.PASSWORD"));
                 // Communityオブジェクトの List に格納
                 communities.add(community);
             }

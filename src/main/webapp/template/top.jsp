@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <jsp:useBean
-  id="community"
-  scope="request"
+  id="communities"
+  scope="session"
   type="java.util.List<org.javatraining.entity.Community>"
 />
 
@@ -12,9 +12,9 @@
 	</a>
 	
 	<!--コミュニティ名のプルダウン-->
-	<select name="communitiy">
-      <% for(int i = 0; i < community.size(); i++) {%>          
-  	    <option value="community"><%= community.get(i).getCommunityName() %></option>      
+	<select name="communities">
+      <% for(int i = 0; i < communities.size(); i++) {%>          
+  	    <option value="communities"><%= communities.get(i).getCommunityName() %></option>      
       <% } %>
     </select>
     <!--fin コミュニティ名のプルダウン-->
