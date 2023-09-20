@@ -13,7 +13,7 @@ public class ActionFactory {
         switch (actionName) {
             case "login":
                 return new LoginAction();
-            case "show_shop":
+            case "shop_show":
                 return new ShopShowAction();
             case "regist":
                 return new BookAddAction();

@@ -20,7 +20,7 @@ public class ShopDAO {
     public List<Shop> findAll() throws SQLException, NamingException {
 
         System.out.println("[ShopDAO.java]:findAll Start");
-        String userInput = "name"; // ユーザーからの入力
+        String userInput = "shopname"; // ユーザーからの入力
         // SHOPSテーブルで入力された名前に関してあいまい検索する SQL文
         String sql = "SELECT * FROM SHOPS WHERE NAME LIKE ? AND (AREA = ?)";
         
