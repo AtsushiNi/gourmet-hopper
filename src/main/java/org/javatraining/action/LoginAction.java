@@ -40,7 +40,7 @@ public class LoginAction extends Action {
             session.setAttribute("user", user);
 
             System.out.println("[LoginAction.java]: End(該当ユーザあり)");
-            return "control?action_name=show";
+            return "control?action_name=search";
         }
     }
 

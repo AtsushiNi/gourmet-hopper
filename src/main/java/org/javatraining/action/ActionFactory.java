@@ -13,8 +13,8 @@ public class ActionFactory {
         switch (actionName) {
             case "login":
                 return new LoginAction();
-            case "shop_show":
-                return new ShopShowAction();
+            case "search":
+                return new SearchAction();
             case "regist":
                 return new BookAddAction();
             case "edit":
