@@ -26,7 +26,7 @@ class="org.javatraining.entity.User"
     
     <div style="text-align: right">
     	<a href="#">Search</a>
-    	<a href="#">Profile</a>
+    	<a href="showProfile.jsp">Profile</a>
     	<a href="#">Group</a>
     	 <form action="showProfile.jsp" method="post">
          <!-- 画像をボタンとして使用 -->
