@@ -11,7 +11,7 @@ class="org.javatraining.entity.User"
 />
 
 <!-- Header Start -->
-<div>
+<div class="header">
 	<a href="control?action_name=show">
 		<img src="image/GourmetHopper.png" width="100px" height="50px"/>
 	</a>
