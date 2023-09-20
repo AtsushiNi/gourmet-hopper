@@ -9,10 +9,10 @@ import javax.servlet.http.HttpSession;
 import org.javatraining.entity.User;
 import org.javatraining.service.ShopService;
 
-// 書籍情報管理の抽象アクションクラス
+// Shop管理の抽象アクションクラス
 public abstract class ShopAction extends Action {
 
-    // 書籍情報管理サービス
+    // Shop管理サービス
     protected final ShopService service = new ShopService();
 
     @Override
@@ -25,11 +25,11 @@ public abstract class ShopAction extends Action {
             return "login.jsp";
         }
 
-        // 書籍情報管理の処理を実行
+        // Shop管理の処理を実行
         return processShopManagement(request);
     }
 
-    // 書籍情報管理の処理
+    // Shop管理の処理
     protected abstract String processShopManagement(HttpServletRequest request)
             throws SQLException, NamingException;
 
