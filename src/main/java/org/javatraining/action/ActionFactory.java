@@ -28,7 +28,9 @@ public class ActionFactory {
             case "imageshow":
                 return new ImageShowAction();
             case "imageupload":
-                return new ImageUploadAction();    
+                return new ImageUploadAction();
+            case "topcommunity":
+            	return new TopCommunityAction();
             default:
                 return null;
 

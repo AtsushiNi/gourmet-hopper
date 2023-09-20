@@ -17,11 +17,15 @@ class="org.javatraining.entity.User"
 	</a>
 	
 	<!--コミュニティ名のプルダウン-->
-	<select name="communities">
-      <% for(int i = 0; i < communities.size(); i++) {%>          
-  	    <option value="communities"><%= communities.get(i).getCommunityName() %></option>      
-      <% } %>
-    </select>
+	<form action="control" method="post">
+		<select id="communityNames" name="action_name" >
+	      <% for(int i = 0; i < communities.size(); i++) {%>          
+	  	    <option value="topcommunity"><%= communities.get(i).getCommunityName() %></option>
+	      <% } %>
+	    </select>
+	    <input type="submit" value="確定">
+	 </form>
+
     <!--fin コミュニティ名のプルダウン-->
     
     <div style="text-align: right">
