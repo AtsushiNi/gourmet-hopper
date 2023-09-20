@@ -1,5 +1,6 @@
 package org.javatraining.action;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -25,6 +26,12 @@ public class SearchAction extends Action {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} catch (NamingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO 自動生成された catch ブロック
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			// TODO 自動生成された catch ブロック
 			e.printStackTrace();
 		}
 
