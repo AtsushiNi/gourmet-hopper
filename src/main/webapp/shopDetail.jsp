@@ -39,6 +39,7 @@
           <% } %>
         </tbody>
       </table>
+   　<a href="control?action_name=review_new&id=1">新規レビューを投稿</a>
     </main>
     
     <!-- footer -->
