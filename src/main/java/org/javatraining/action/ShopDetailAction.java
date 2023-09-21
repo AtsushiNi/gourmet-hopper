@@ -21,11 +21,11 @@ public class ShopDetailAction extends Action {
     	List<Review> reviews = service.getReviews();
     	
     	//apiIdの取得
-    	String apiId = request.getParameter("apiId");
+    	//String apiId = request.getParameter("apiId");
     	
     	
         request.setAttribute("reviews", reviews);
-        request.setAttribute("apiId", apiId);
+        //request.setAttribute("apiId", apiId);
         // 遷移先のページを返す
         return "shopDetail.jsp";
     }  

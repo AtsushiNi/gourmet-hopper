@@ -2,8 +2,8 @@
 	pageEncoding="UTF-8"%>
 <jsp:useBean id="reviews" scope="request"
 	type="java.util.List<org.javatraining.entity.Review>" />
-<jsp:useBean id="apiId" scope="request"
-	type="java.util.List<org.javatraining.entity.Shop>" />
+<%--<jsp:useBean id="apiId" scope="request"
+	type="java.util.List<org.javatraining.entity.Shop>" />--%>
 
 <!DOCTYPE html>
 

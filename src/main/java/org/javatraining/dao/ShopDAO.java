@@ -56,7 +56,7 @@ public class ShopDAO {
 	public Shop findById(int id) throws SQLException, NamingException {
 		System.out.println("[ShopDAO.java]:findById Start");
 		// SHOPS テーブルを商品 ID の条件で検索する SQL 文
-		String sql = "SELECT * WHERE ID = ?";
+		String sql = "SELECT *　FROM SHOPS WHERE ID = ?";
 		// データソースを取得
 		DataSource ds = DataSourceSupplier.getDataSource();
 		try (Connection con = ds.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
@@ -82,7 +82,7 @@ public class ShopDAO {
     public Shop findByApiId(String apiId) throws SQLException, NamingException {
         System.out.println("[ShopDAO.java]:findById Start");
     	// SHOPS テーブルを商品 ID の条件で検索する SQL 文
-        String sql = "SELECT * WHERE API_ID = ?";
+        String sql = "SELECT * FROM SHOPS WHERE API_ID = ?";
 
         // データソースを取得
         DataSource ds = DataSourceSupplier.getDataSource();
