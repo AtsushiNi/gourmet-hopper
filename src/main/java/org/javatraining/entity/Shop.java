@@ -10,7 +10,6 @@ public class Shop implements Serializable {
 
 	@NotNull
     private int id;
-	
 	private String apiId;
 	private String smallAreaCode;
 	
@@ -36,22 +35,6 @@ public class Shop implements Serializable {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	public String getApiId() {
-		return apiId;
-	}
-
-	public void setApiId(String apiId) {
-		this.apiId = apiId;
-	}
-
-	public String getSmallAreaCode() {
-		return smallAreaCode;
-	}
-
-	public void setSmallAreaCode(String smallAreaCode) {
-		this.smallAreaCode = smallAreaCode;
-	}
 
 	public double getLat() {
 		return lat;
@@ -69,11 +52,28 @@ public class Shop implements Serializable {
 		this.lng = lng;
 	}
 
+	public String getSmallAreaCode() {
+		return smallAreaCode;
+	}
+
+	public void setSmallAreaCode(String smallAreaCode) {
+		this.smallAreaCode = smallAreaCode;
+	}
+
+	public String getApiId() {
+		return apiId;
+	}
+
+	public void setApiId(String apiId) {
+		this.apiId = apiId;
+	}
+
 	@Override
     public String toString() {
         return "Shop {" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", apiId'" + apiId + '\'' +
                 '}';
     }
 }

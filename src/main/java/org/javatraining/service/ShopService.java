@@ -30,11 +30,12 @@ public class ShopService {
         return allShops;
     }
 
-    // Shopを取得する
-    public Shop find(int id) throws SQLException, NamingException {
+    // ShopをapiIdから取得する
+    public Shop find(String apiId) throws SQLException, NamingException {
         System.out.println("[ShopService.java]:find Start");
-        return dao.findById(id);
+        return dao.findByApiId(apiId);
     }
+    
 
     // Shop情報を登録する
     public boolean create(Shop shop) throws SQLException, NamingException {
