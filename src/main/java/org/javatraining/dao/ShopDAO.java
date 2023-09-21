@@ -46,8 +46,8 @@ public class ShopDAO {
 				shops.add(shop);
 			}
 			// Shopオブジェクトの List を返す
-			System.out.println("[ShopDAO.java]:findAll SQL実行結果: " + shops);
-			System.out.println("[ShopDAO.java]:findAll End");
+			System.out.println("[ShopDAO.java]:search SQL実行結果: " + shops);
+			System.out.println("[ShopDAO.java]:search End");
 			return shops;
 		}
 	}
@@ -139,6 +139,7 @@ public class ShopDAO {
 
 		shop.setId(rs.getInt("ID"));
 		shop.setName(rs.getString("NAME"));
+		shop.setApiId(rs.getString("API_ID"));
 		return shop;
 	}
 }
