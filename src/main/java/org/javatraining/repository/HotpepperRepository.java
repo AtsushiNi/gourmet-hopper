@@ -26,13 +26,19 @@ public class HotpepperRepository {
 	}
 	
 	//お店の一覧返す
-	public ArrayList<Shop> getShops(String smallAreaCode, String searchName) throws IOException, InterruptedException {
+	public ArrayList<Shop> getShops(String smallAreaCode, String shopName) throws IOException, InterruptedException {
+		// URLを組み立て
 		String baseURL = "https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=7eaca5563e5d7d8e";
-		@SuppressWarnings("deprecation")
-		String encodedSearchName = URLEncoder.encode(searchName, "UTF-8");
-		URL url = new URL(baseURL + "&small_area=" + smallAreaCode +"&name=" + encodedSearchName +"&count=10&format=json");
-		System.out.println(url);
-        
+		URL url = null;
+		if(shopName != null) {
+			@SuppressWarnings("deprecation")
+			String encodedSearchName = URLEncoder.encode(shopName, "UTF-8");
+			url = new URL(baseURL + "&small_area=" + smallAreaCode +"&name=" + encodedSearchName +"&count=10&format=json");
+		} else {
+			url = new URL(baseURL + "&small_area=" + smallAreaCode +"&count=10&format=json");			
+		}
+
+		// リクエスト実行
         String response = sendRequest(url);
 
         //結果のJSON整形
