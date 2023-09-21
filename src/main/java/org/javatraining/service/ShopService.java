@@ -52,4 +52,10 @@ public class ShopService {
 		}
 		return shopDetail;
 	}
+	
+	// Shop情報を登録する
+    public boolean create(Shop shop) throws SQLException, NamingException {
+        System.out.println("[ShopService.java]:create Start");
+    	return dao.create(shop);
+    }
 }
