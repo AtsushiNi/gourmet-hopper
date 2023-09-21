@@ -56,7 +56,7 @@ public class LoginAction extends Action {
         	}
             
             System.out.println("[LoginAction.java]: End(該当ユーザあり)");
-            return "control?action_name=search";
+            return "control?action_name=shop_detail";
         }
     }
     @Override
