@@ -52,17 +52,4 @@ public class ShopService {
 		}
 		return shopDetail;
 	}
-
-	// Shopを取得する
-	public Shop find(int id) throws SQLException, NamingException {
-		System.out.println("[ShopService.java]:find Start");
-		return dao.findById(id);
-	}
-
-	// Shop情報を登録する
-	public boolean create(Shop shop) throws SQLException, NamingException {
-		System.out.println("[ShopService.java]:create Start");
-		return dao.create(shop);
-	}
-
 }
