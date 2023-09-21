@@ -14,59 +14,72 @@
   </jsp:include>
 
   <body>
-  <div>
   	<header id="header">
   		<jsp:include page="template/top.jsp" />
-  	</header><br>
+  	</header>
     
-  	<div>
-		<ul class="nav nav-tabs" role="tablist">
-		  <li class="nav-item">
-		    <a class="nav-link active" id="item1-tab" data-toggle="tab" href="#item1" role="tab" aria-controls="item1" aria-selected="true">基本情報</a>
-		  </li>
-		  <li class="nav-item">
-		    <a class="nav-link" id="item2-tab" data-toggle="tab" href="#item2" role="tab" aria-controls="item2" aria-selected="false">みんなのレビュー</a>
-		  </li>
-		</ul>
-		<div class="tab-content">
-			<div class="tab-pane fade show active" id="item1" role="tabpanel" aria-labelledby="item1-tab">
-				<h3>詳細情報</h3>
-				<!--ここに店の情報入れる-->
-				
-				<!--ここまで店の情報-->
+  	<main id ="main">
+	  	<div class="container">
+	  	<div class="row">
+	  		<div class="col">
+				<ul class="nav nav-tabs" role="tablist">
+				  <li class="nav-item">
+				    <a class="nav-link active" id="item1-tab" data-toggle="tab" href="#item1" role="tab" aria-controls="item1" aria-selected="true">基本情報</a>
+				  </li>
+				  <li class="nav-item">
+				    <a class="nav-link" id="item2-tab" data-toggle="tab" href="#item2" role="tab" aria-controls="item2" aria-selected="false">みんなのレビュー</a>
+				  </li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane fade show active" id="item1" role="tabpanel" aria-labelledby="item1-tab">
+						<div data-spy="scroll" style="height: 400px; overflow: auto;">
+							<h3>詳細情報</h3>
+							<!--ここに店の情報入れる-->
+							
+							<!--ここまで店の情報-->
+						</div>
+					</div>
+					<div class="tab-pane fade" id="item2" role="tabpanel" aria-labelledby="item2-tab">
+						<div data-spy="scroll" style="height: 400px; overflow: auto;">
+							<!--ここにレビュー入れる-->
+							
+							<!--ここまでレビュー-->
+							<table>
+							<thead>
+								<tr>
+								<th>タイトル</th>
+								<th>コメント</th>
+								</tr>
+							</thead>
+							<tbody>
+								<% for(int i = 0; i < reviews.size(); i++) {%>
+								<tr>
+								<td>
+								<%= reviews.get(i).getTitle() %>
+								</td>
+								<td>
+								<%= reviews.get(i).getComment() %>
+								</td>
+								</tr>
+								<% } %>
+							</tbody>
+							</table>
+						</div>
+					</div>
+				</div>
 			</div>
-			<div class="tab-pane fade" id="item2" role="tabpanel" aria-labelledby="item2-tab">
-				<!--ここにレビュー入れる-->
-				
-				<!--ここまでレビュー-->
-				<table>
-				<thead>
-					<tr>
-					<th>タイトル</th>
-					<th>コメント</th>
-					</tr>
-				</thead>
-				<tbody>
-					<% for(int i = 0; i < reviews.size(); i++) {%>
-					<tr>
-					<td>
-					<%= reviews.get(i).getTitle() %>
-					</td>
-					<td>
-					<%= reviews.get(i).getComment() %>
-					</td>
-					</tr>
-					<% } %>
-				</tbody>
-				</table>
+			
+			<div class="col">
+				<div id="map" style="width: 400px; height: 400px;"></div>
 			</div>
+			
 		</div>
-		<h1>マップ</h1>
-	</div>
-	<div style="text-align: right">
-		<a href="control?action_name=review_new&id=1">新規レビューを投稿</a>
-	</div>
-  </div>  
+		</div>
+		<div style="text-align: right">
+			<a href="control?action_name=review_new&id=1">新規レビューを投稿</a>
+		</div>
+	</main>
+	
     <!-- footer -->
     <%@ include file="template/footer.jsp" %>
     
