@@ -33,7 +33,8 @@ public class TopCommunityAction extends Action {
         System.out.println("[TopCommunityAction.java]: End");
 
         //shopDetail確認用
-        return "control?action_name=shop_detail";
+        //return "control?action_name=shop_detail";
+        return "control?action_name=search";
         //return "home.jsp";
     }
 }

@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 
 import org.javatraining.entity.Community;
 import org.javatraining.entity.Review;
+import org.javatraining.entity.Shop;
 import org.javatraining.service.ReviewService;
 
 // Shopの詳細を表示するアクションクラス
@@ -28,22 +29,20 @@ public class ShopDetailAction extends Action {
     	int communityId = community.getCommunityId();
     	System.out.println("[ShopDetailAction.java:community.getCommunityId() "+ communityId);
     	
-    	//shopIdをRequestから取得
-    	ShopDetail shopDetail = (ShopDetail)request.getAttribute("shopDetail");
-    	int shopId = shopDetail.getShopId();
-    	System.out.println("[ShopDetailAction.java: shopDetail.getShopId() "+ shopId);
+    	//apiIdの取得
+    	String apiId = request.getParameter("apiId");
+        request.setAttribute("apiId", apiId);
+    	System.out.println("[ShopDetailAction.java: shopDetail.getShopId() "+ apiId);
     	
     	//communityIdでDBからReviewをListで取得
-    	List<Review> reviews = reviewService.getReviews(communityId, shopId);
+    	List<Review> reviews = reviewService.getReviews(communityId, apiId);
     	System.out.println("[ShopDetailAction.java: service.getReviews(communityId) "+ reviews);
     	
     	//取得したReview型のListをRequestに格納
     	request.setAttribute("reviews", reviews);
     	System.out.println("[ShopDetailAction.java: processRequest(HttpServletRequest request) END");
 
-    	//apiIdの取得
-    	String apiId = request.getParameter("apiId");
-        request.setAttribute("apiId", apiId);
+
 
         // 遷移先のページを返す
         return "shopDetail.jsp";
