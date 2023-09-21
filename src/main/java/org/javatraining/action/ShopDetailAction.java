@@ -40,7 +40,7 @@ public class ShopDetailAction extends Action {
     	String apiId = shopDetail.getApiId();
     	System.out.println("[ShopDetailAction.java]: shopDetail.getShopId() "+ apiId);
     	
-    	//communityIdでDBからReviewをListで取得
+    	//communityIdとapiIdでDBからReviewをListで取得
     	List<Review> reviews = reviewService.getReviewsByCommunityIdAndApiId(communityId, apiId);
     	System.out.println("[ShopDetailAction.java]: service.getReviewsByCommunityIdAndApiId "+ reviews);
     	
