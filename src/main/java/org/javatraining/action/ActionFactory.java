@@ -29,6 +29,8 @@ public class ActionFactory {
                 return new ImageShowAction();
             case "imageupload":
                 return new ImageUploadAction();
+            case "topcommunity":
+            	return new TopCommunityAction();
             case "shop_detail":
             	return new ShopDetailAction();
             case "review_new":

@@ -114,7 +114,7 @@ public class CommunityDAO {
             return communities;
         }
     }
-/*
+
     // Communityテーブルを主キー検索する
     public Community findById(int communityId) throws SQLException, NamingException {
 
@@ -144,7 +144,7 @@ public class CommunityDAO {
             }
         }
     }
- */   
+   
     
     // CommunityテーブルにCommunityを新規登録する
     public boolean create(Community community) throws SQLException, NamingException {
