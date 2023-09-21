@@ -19,7 +19,6 @@ public class ShopDAO {
 	public List<Shop> search(String smallAreaCode, String shopName) throws SQLException, NamingException {
 		System.out.println("[ShopDAO.java]:search Start");
 		String sql = null;
-		System.out.println("shopname : " + shopName);
 		if (shopName != null) {
 			sql = "SELECT * FROM SHOPS WHERE NAME LIKE ? AND SMALL_AREA_CODE = ?";
 		} else {
