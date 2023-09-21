@@ -18,4 +18,9 @@ public class CommunityService {
         System.out.println("[CommunityService.java]:getCommunities Start");
         return dao.findByUserId(userId);
     }
+    
+    public Community getCommunity(int userId) throws SQLException, NamingException {
+        System.out.println("[CommunityService.java]:getCommunity Start");
+        return dao.findById(userId);
+    }
 }

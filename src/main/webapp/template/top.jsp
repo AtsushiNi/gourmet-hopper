@@ -17,11 +17,16 @@ class="org.javatraining.entity.User"
 	</a>
 	
 	<!--コミュニティ名のプルダウン-->
-	<select name="communities">
-      <% for(int i = 0; i < communities.size(); i++) {%>          
-  	    <option value="communities"><%= communities.get(i).getCommunityName() %></option>      
-      <% } %>
-    </select>
+	<form action="control" method="post">
+		<input type="hidden" name="action_name" value="topcommunity">
+		<select id="communityNames" name="communityId">
+	      <% for(int i = 0; i < communities.size(); i++) {%>          
+	  	    <option value= <%= communities.get(i).getCommunityId()%> ><%= communities.get(i).getCommunityName() %></option>
+	      <% } %>
+	    </select>
+	    <input type="submit" value="確定">
+	 </form>
+
     <!--fin コミュニティ名のプルダウン-->
     
     <div style="text-align: right">
@@ -43,7 +48,6 @@ class="org.javatraining.entity.User"
   </a>
 	  
   <p>
-    書籍管理システム<br>
-    ログイン:<jsp:getProperty name="user" property="userName" />さん
+    <jsp:getProperty name="user" property="userName" />さん
   </p>
 </div>
