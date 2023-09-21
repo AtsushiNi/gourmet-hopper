@@ -23,6 +23,8 @@
           <label for="comment">コメント</label>
           <input id="comment" name="comment" type="text" size=300 placeholder="コメント" />
         </p>
+        <input type="hidden" name="userId" value="ユーザーIDを取得してくる" />
+        <input type="hidden" name="shopId" value="ショップIDを取得してくる" />
         <p>
           <input type="submit" value="登録" />
         </p>
