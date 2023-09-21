@@ -10,7 +10,7 @@ public class SearchService {
         System.out.println("================================");
         HotpepperRepository repository = new HotpepperRepository();
         try {
-        	System.out.println(repository.getShops());
+        	System.out.println(repository.getShops("X175", "メゾン"));
         } catch(Exception e) {
         	e.printStackTrace();
         }
