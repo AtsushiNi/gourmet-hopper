@@ -102,10 +102,10 @@ public class ReviewDAO {
             }
         }
     }
- // reviewsテーブルをcommunity名で検索する
+ // reviewsテーブルをcommunityIdとshopIdで検索する
     public List<Review> findByCommunityIdAndShopId(int communityId, int shopId) throws SQLException, NamingException {
 
-        System.out.println("[ReviewDAO.java]:findByCommunityId Start");
+        System.out.println("[ReviewDAO.java]:findByCommunityIdAndShopId Start");
     	// COMMUNITIES テーブルをUSERが所属しているCOMMUNITYのIDの条件で検索する SQL 文
         String sql = "SELECT * FROM COMMUNITIES_USERS "
         		+ "INNER JOIN REVIEWS ON COMMUNITIES_USERS.USER_ID = REVIEWS.USER_ID "
@@ -115,8 +115,9 @@ public class ReviewDAO {
         DataSource ds = DataSourceSupplier.getDataSource();
         try (Connection con = ds.getConnection();
                 PreparedStatement ps = con.prepareStatement(sql);) {
-        	System.out.println("[ReviewDAO.java]:findByCommunityId(int communityId) communityId="+communityId);
+        	System.out.println("[ReviewDAO.java]:findByCommunityIdAndShopId communityId="+communityId);
         	ps.setInt(1, communityId);
+        	System.out.println("[ReviewDAO.java]:findByCommunityIdAndShopId shopId="+shopId);
         	ps.setInt(2, shopId);
             ResultSet rs = ps.executeQuery();
             // Reviewオブジェクトの List を生成
@@ -137,11 +138,11 @@ public class ReviewDAO {
             	reviews.add(review);
             	
             	//デバッグ用にUSER_IDを取得
-            	System.out.println("[ReviewDAO.java]:findByCommunityId(int communityId) SQL途中 USER_ID ="+rs.getInt("USER_ID"));
+            	System.out.println("[ReviewDAO.java]:findByCommunityIdAndShopId SQL途中 USER_ID ="+rs.getInt("USER_ID"));
             }
             // Reviewオブジェクトの List を返す
-            System.out.println("[ReviewDAO.java]:findByCommunityId SQL実行結果: "+ reviews);
-            System.out.println("[ReviewDAO.java]:findByCommunityId End");
+            System.out.println("[ReviewDAO.java]:findByCommunityIdAndShopId SQL実行結果: "+ reviews);
+            System.out.println("[ReviewDAO.java]:findByCommunityIdAndShopId End");
             return reviews;
         }
     }
