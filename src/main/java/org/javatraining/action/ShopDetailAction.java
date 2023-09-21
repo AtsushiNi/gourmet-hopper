@@ -23,6 +23,7 @@ public class ShopDetailAction extends Action {
     	//apiIdの取得
     	String apiId = request.getParameter("apiId");
     	
+    	
         request.setAttribute("reviews", reviews);
         request.setAttribute("apiId", apiId);
         // 遷移先のページを返す
