@@ -32,6 +32,8 @@ public class TopCommunityAction extends Action {
 
         System.out.println("[TopCommunityAction.java]: End");
 
-        return "control?action_name=shop_detail";
+        //shopDetail確認用
+        //return "control?action_name=shop_detail";
+        return "home.jsp";
     }
 }
