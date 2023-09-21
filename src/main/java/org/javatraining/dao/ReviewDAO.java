@@ -109,7 +109,7 @@ public class ReviewDAO {
     	// COMMUNITIES テーブルをUSERが所属しているCOMMUNITYのIDの条件で検索する SQL 文
         String sql = "SELECT * FROM COMMUNITIES_USERS "
         		+ "INNER JOIN REVIEWS ON COMMUNITIES_USERS.USER_ID = REVIEWS.USER_ID "
-        		+ "INNER JOIN SHOPS ON REVIEWS.SHOP_ID = SHOPS.ID"
+        		+ "INNER JOIN SHOPS ON REVIEWS.SHOP_ID = SHOPS.ID　"
         		+ "WHERE COMMUNITIES_USERS.COMMUNITY_ID = ? AND SHOPS.API_ID = ?";
 
         // データソースを取得
@@ -139,8 +139,8 @@ public class ReviewDAO {
             	reviews.add(review);
             	
             	//デバッグ用にUSER_IDを取得
-            	System.out.println("[ReviewDAO.java]:findByCommunityIdAndApiId SQL途中 USER_ID ="+rs.getInt("USER_ID"));
-            	System.out.println("[ReviewDAO.java]:findByCommunityIdAndApiId SQL途中 USER_ID ="+rs.getInt("SHOP_ID"));
+            	System.out.println("[ReviewDAO.java]:findByCommunityIdAndApiId SQL途中 USER_ID ="+rs.getInt("REVIEWS.USER_ID"));
+            	System.out.println("[ReviewDAO.java]:findByCommunityIdAndApiId SQL途中 USER_ID ="+rs.getInt("REVIEWS.SHOP_ID"));
             }
             // Reviewオブジェクトの List を返す
             System.out.println("[ReviewDAO.java]:findByCommunityIdAndApiId SQL実行結果: "+ reviews);
