@@ -14,6 +14,11 @@ public class Shop implements Serializable {
 	@NotNull
     @Size(max = 100, message= "店名は100文字以内にしてください。")
     private String name = "";
+	
+	private String apiId;
+	
+	private double lat;
+	private double lng;
 
     public int getId() {
 		return id;
@@ -29,6 +34,30 @@ public class Shop implements Serializable {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getApiId() {
+		return apiId;
+	}
+
+	public void setApiId(String apiId) {
+		this.apiId = apiId;
+	}
+
+	public double getLat() {
+		return lat;
+	}
+
+	public void setLat(double lat) {
+		this.lat = lat;
+	}
+
+	public double getLng() {
+		return lng;
+	}
+
+	public void setLng(double lng) {
+		this.lng = lng;
 	}
 
 	@Override

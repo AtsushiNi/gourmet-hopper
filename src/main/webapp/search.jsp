@@ -49,9 +49,9 @@
           </div>
 
           <div class="col">
-            <div data-spy="scroll" style="height: 400px; overflow: auto;">
+            <div id="shop-list" data-spy="scroll" style="height: 400px; overflow: auto;">
               <% for(int i = 0; i < shops.size(); i++) {%>
-                <div class="shadow-sm p-3 mb-2 bg-white rounded">
+                <div class="shadow-sm p-3 mb-2 bg-white rounded active-item" id=<%= shops.get(i).getApiId() %> >
                   <%= shops.get(i).getName() %>
                 </div>
               <% } %>
@@ -68,6 +68,10 @@
     <!-- footer -->
     <%@ include file="template/footer.jsp"%>
   
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+    	let shopsJson = ${requestScope.shopsJson}
+    </script>
     <script src="http://maps.google.com/maps/api/js?key=AIzaSyBYxzFJkG_P15cNs_NQzwCw9QktNHTIlvU&language=ja"></script>
     <script src="js/googlemap.js"></script>
   　<%--<a href="control?action_name=shop_detail&id=1">店舗の詳細を表示</a> --%>
