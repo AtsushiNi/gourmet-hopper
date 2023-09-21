@@ -4,6 +4,11 @@
   scope="request"
   type="java.util.List<org.javatraining.entity.Review>"
 />
+<jsp:useBean
+  id="apiId"
+  scope="request"
+  type="java.util.List<org.javatraining.entity.Shop>"
+/>
 
 <!DOCTYPE html>
 

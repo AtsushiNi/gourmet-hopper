@@ -13,15 +13,18 @@ import org.javatraining.service.ReviewService;
 public class ShopDetailAction extends Action {
 	
 	protected final ReviewService service = new ReviewService();
-
+	
     @Override
     protected String processRequest(HttpServletRequest request) throws SQLException, NamingException {
     	
     	//reviewの取得
     	List<Review> reviews = service.getReviews();
     	
+    	//apiIdの取得
+    	String apiId = request.getParameter("apiId");
+    	
         request.setAttribute("reviews", reviews);
-
+        request.setAttribute("apiId", apiId);
         // 遷移先のページを返す
         return "shopDetail.jsp";
     }  
