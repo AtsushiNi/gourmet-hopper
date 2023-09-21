@@ -20,46 +20,49 @@
     </header>
     
     <main id="main">
-      <form action="/control" method="post">
-        <input type="hidden" name="action_name" value="search" />
-      
-        <input type="text" name="shopname" placeholder="検索キーワードを入力">
-        <input type="submit" value="検索"><br>
-      
-        <label for="tabaco">喫煙可</label>
-        <input type="checkbox" id="tabaco" name="tag" value="tabaco"><br>
-      
-        <label for="banana">バナナ</label>
-        <input type="checkbox" id="banana" name="fruit" value="banana"><br>
-        
-        <label for="orange">オレンジ</label>
-        <input type="checkbox" id="orange" name="fruit" value="orange"><br>
-        
-        <label for="grape">ぶどう</label>
-        <input type="checkbox" id="grape" name="fruit" value="grape"><br>
-        
-        <label for="strawberry">いちご</label>
-        <input type="checkbox" id="strawberry" name="fruit" value="strawberry"><br>
-      </form>
-  
-  <table>
-<thead>
-          <tr>
-            <th>店名</th>
-          </tr>
-        </thead>
-<tbody>
-           <% for(int i = 0; i < shops.size(); i++) {%>
-          <tr>
-            <td>
-                <%= shops.get(i).getName() %>
-            </td>
-          </tr>
-          <%} %>
-</tbody>
-</table>
-  
-      <div id="map" style="width: 400px; height: 400px;"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <div class="shadow p-3 mb-5 bg-white rounded">
+              <form action="control" method="post">
+                <input type="hidden" name="action_name" value="search" />
+              
+                <input type="text" name="shopName" placeholder="検索キーワードを入力">
+                <input type="submit" value="検索"><br>
+              
+                <label for="tabaco">喫煙可</label>
+                <input type="checkbox" id="tabaco" name="tag" value="tabaco"><br>
+              
+                <label for="banana">バナナ</label>
+                <input type="checkbox" id="banana" name="fruit" value="banana"><br>
+                
+                <label for="orange">オレンジ</label>
+                <input type="checkbox" id="orange" name="fruit" value="orange"><br>
+                
+                <label for="grape">ぶどう</label>
+                <input type="checkbox" id="grape" name="fruit" value="grape"><br>
+                
+                <label for="strawberry">いちご</label>
+                <input type="checkbox" id="strawberry" name="fruit" value="strawberry"><br>
+              </form>
+            </div>
+          </div>
+
+          <div class="col">
+            <div data-spy="scroll" style="height: 400px; overflow: auto;">
+              <% for(int i = 0; i < shops.size(); i++) {%>
+                <div class="shadow-sm p-3 mb-2 bg-white rounded">
+                  <%= shops.get(i).getName() %>
+                </div>
+              <% } %>
+            </div>
+          </div>
+
+          <div class="col">
+            <div id="map" style="width: 400px; height: 400px;"></div>
+          </div>
+        </div>
+      </div>
     </main>
   
     <!-- footer -->

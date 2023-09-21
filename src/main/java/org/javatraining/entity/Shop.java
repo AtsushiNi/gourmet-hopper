@@ -33,7 +33,7 @@ public class Shop implements Serializable {
 
 	@Override
     public String toString() {
-        return "Book {" +
+        return "Shop {" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';
