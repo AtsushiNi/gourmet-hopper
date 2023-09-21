@@ -13,8 +13,8 @@ import org.javatraining.service.ShopService;
 //　レビュー情報登録アクションクラス
 public class ReviewCreateAction extends Action {
 
-    protected final ReviewService service = new ReviewService();
-    protected final ShopService service2 = new ShopService();
+    protected final ReviewService reviewService = new ReviewService();
+    protected final ShopService shopService = new ShopService();
 	
     protected String processRequest(HttpServletRequest request) throws SQLException, NamingException {
     	processShopManagement(request);
@@ -33,7 +33,7 @@ public class ReviewCreateAction extends Action {
 
 		//レビュー情報の新規登録
 		System.out.println("[ReviewCreateAction.java]: ReviewService:createメソッドを呼び出し");
-		service.create(review);
+		reviewService.create(review);
 		System.out.println("[ReviewCreateAction.java]: End(新規登録完了)");
 
 
@@ -85,7 +85,7 @@ public class ReviewCreateAction extends Action {
     protected Shop processShopManagement(HttpServletRequest request) throws SQLException, NamingException{
 
 		String shopApiId = request.getParameter("shopApiId");
-		Shop dbshop = service2.find(shopApiId);
+		Shop dbshop = shopService.find(shopApiId);
 		
 		if(dbshop == null) {
 			
@@ -99,7 +99,7 @@ public class ReviewCreateAction extends Action {
 
 			shop.setSmallAreaCode(shopApiId);
 			
-			service2.create(shop);
+			shopService.create(shop);
 			return shop;
 		}else{
 			return dbshop;
