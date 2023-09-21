@@ -105,6 +105,7 @@ public class HotpepperRepository {
 	private Shop createShopFromApi(JSONObject json) {
         Shop shop = new Shop();
         shop.setName(json.getString("name"));
+        shop.setApiId(json.getString("id"));
         shop.setAccess(json.getString("access"));
         shop.setAddress(json.getString("address"));
         shop.setCard(json.getString("card"));
