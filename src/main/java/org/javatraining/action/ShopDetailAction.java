@@ -7,25 +7,27 @@ import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
 
 import org.javatraining.entity.Review;
+import org.javatraining.entity.Shop;
 import org.javatraining.service.ReviewService;
+import org.javatraining.service.ShopService;
 
 // Shopの詳細を表示するアクションクラス
 public class ShopDetailAction extends Action {
 	
-	protected final ReviewService service = new ReviewService();
+	protected final ReviewService reviewService = new ReviewService();
+	protected final ShopService shopService = new ShopService();
+	
 	
     @Override
     protected String processRequest(HttpServletRequest request) throws SQLException, NamingException {
-    	
     	//reviewの取得
-    	List<Review> reviews = service.getReviews();
+    	List<Review> reviews = reviewService.getReviews();
     	
-    	//apiIdの取得
-    	String apiId = request.getParameter("apiId");
-    	
+    	//shopDetailの取得
+    	Shop shopDetail = shopService.getShop(request);
     	
         request.setAttribute("reviews", reviews);
-        request.setAttribute("apiId", apiId);
+        request.setAttribute("shopDetail", shopDetail);
         // 遷移先のページを返す
         return "shopDetail.jsp";
     }  
