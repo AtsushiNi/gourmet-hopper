@@ -42,8 +42,6 @@
 					<div class="tab-pane fade" id="item2" role="tabpanel" aria-labelledby="item2-tab">
 						<div data-spy="scroll" style="height: 400px; overflow: auto;">
 							<!--ここにレビュー入れる-->
-							
-							<!--ここまでレビュー-->
 							<table>
 							<thead>
 								<tr>
@@ -64,6 +62,7 @@
 								<% } %>
 							</tbody>
 							</table>
+							<!--ここまでレビュー-->
 						</div>
 					</div>
 				</div>

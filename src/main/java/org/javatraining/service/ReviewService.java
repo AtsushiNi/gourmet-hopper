@@ -16,5 +16,9 @@ public class ReviewService {
 		System.out.println("[ReviewService.java:getReviews Start");
 		return dao.findAll();
 	}
-
+	
+	public List<Review> getReviews(int communityId) throws SQLException, NamingException{
+		System.out.println("[ReviewService.java:getReviews(communityId) Start");
+		return dao.findByCommunityId(communityId);
+	}
 }
