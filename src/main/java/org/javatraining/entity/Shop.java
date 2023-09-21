@@ -12,13 +12,12 @@ public class Shop implements Serializable {
     private int id;
 	
 	private String apiId;
+	private String smallAreaCode;
 	
 	@NotNull
     @Size(max = 100, message= "店名は100文字以内にしてください。")
     private String name = "";
 	
-	
-
     public int getId() {
 		return id;
 	}
@@ -41,6 +40,14 @@ public class Shop implements Serializable {
 
 	public void setApiId(String apiId) {
 		this.apiId = apiId;
+	}
+
+	public String getSmallAreaCode() {
+		return smallAreaCode;
+	}
+
+	public void setSmallAreaCode(String smallAreaCode) {
+		this.smallAreaCode = smallAreaCode;
 	}
 
 	@Override

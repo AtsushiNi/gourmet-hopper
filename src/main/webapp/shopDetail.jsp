@@ -37,7 +37,19 @@
 			<div class="tab-pane fade show active" id="item1" role="tabpanel" aria-labelledby="item1-tab">
 				<h3>詳細情報</h3>
 				<!--ここに店の情報入れる-->
-				
+				<table>
+				<thead>
+					<tr>
+					<th>お店の詳細情報</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+					<td>
+					</td>
+					</tr>
+				</tbody>
+				</table>
 				<!--ここまで店の情報-->
 			</div>
 			<div class="tab-pane fade" id="item2" role="tabpanel" aria-labelledby="item2-tab">
