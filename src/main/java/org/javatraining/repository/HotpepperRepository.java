@@ -73,6 +73,7 @@ public class HotpepperRepository {
 	private Shop createShop(JSONObject json) {
         Shop shop = new Shop();
         shop.setName(json.getString("name"));
+        shop.setApiId(json.getString("id"));
         return shop;
     }
 	
