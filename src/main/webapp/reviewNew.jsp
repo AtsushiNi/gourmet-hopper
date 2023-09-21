@@ -25,7 +25,9 @@
           <input id="comment" name="comment" type="text" size=300 placeholder="コメント" />
         </p>
         <input type="hidden" name="userId" value=${user.userId } />
-        <input type="hidden" name="shopId" value=${shop.apiId } />
+        <input type="hidden" name="shopName" value=${shop.name } />
+        <input type="hidden" name="smallAreaCode" value=${shop.smallAreaCode } />
+        <input type="hidden" name="shopApiId" value=${shop.apiId } />
         <p>
           <input type="submit" value="登録" />
         </p>

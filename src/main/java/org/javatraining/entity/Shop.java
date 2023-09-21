@@ -54,7 +54,6 @@ public class Shop implements Serializable {
         return "Book {" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", smallAreaCode'" + smallAreaCode + '\'' +
                 ", apiId'" + apiId + '\'' +
                 '}';
     }
