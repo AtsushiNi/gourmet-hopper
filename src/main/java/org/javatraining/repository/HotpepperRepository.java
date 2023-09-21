@@ -51,6 +51,28 @@ public class HotpepperRepository {
         }
         return shops;		
     }
+	
+	//お店の詳細返す
+		public Shop getShopByApiId(String apiId) throws IOException, InterruptedException {
+			// URLを組み立て
+			String baseURL = "https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=7eaca5563e5d7d8e";
+			URL url = null;
+			System.out.println("==============================================");
+			System.out.println(apiId);
+				url = new URL(baseURL + "&id=" + apiId + "&format=json");
+
+			// リクエスト実行
+	        String response = sendRequest(url);
+	        //結果のJSON整形
+	        JSONObject json = new JSONObject(response);
+	        JSONArray shopsJson = json.getJSONObject("results").getJSONArray("shop");
+	        Shop shop = null;
+	        for(Object shopJson : shopsJson) {
+	        	shop = createShopFromApi((JSONObject)shopJson);
+	        }
+	        return shop;		
+	    }
+
 
 	// エリアコードの一覧を取得する
 	public Map<String, String> getSmallAreas() throws IOException, InterruptedException {
@@ -77,6 +99,17 @@ public class HotpepperRepository {
         shop.setLat(json.getDouble("lat"));
         shop.setLng(json.getDouble("lng"));
 
+        return shop;
+    }
+	
+	private Shop createShopFromApi(JSONObject json) {
+        Shop shop = new Shop();
+        shop.setName(json.getString("name"));
+        shop.setApiId(json.getString("id"));
+        shop.setAccess(json.getString("access"));
+        shop.setAddress(json.getString("address"));
+        shop.setCard(json.getString("card"));
+        shop.setCatchMessage(json.getString("catch"));
         return shop;
     }
 	
