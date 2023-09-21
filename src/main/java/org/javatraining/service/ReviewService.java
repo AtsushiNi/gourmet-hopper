@@ -17,9 +17,9 @@ public class ReviewService {
 		return dao.findAll();
 	}
 	
-	public List<Review> getReviews(int communityId, String apiId) throws SQLException, NamingException{
-		System.out.println("[ReviewService.java:getReviews(communityId) Start");
-		return dao.findByCommunityIdAndShopId(communityId, apiId);
+	public List<Review> getReviewsByCommunityIdAndApiId(int communityId, String apiId) throws SQLException, NamingException{
+		System.out.println("[ReviewService.java:getReviewsByCommunityIdAndApiId Start");
+		return dao.findByCommunityIdAndApiId(communityId, apiId);
 	}
 	
     // review情報を登録する

@@ -23,15 +23,14 @@ public class ShopDetailAction extends Action {
     @Override
     protected String processRequest(HttpServletRequest request) throws SQLException, NamingException {
     
-    	System.out.println("[ShopDetailAction.java: processRequest(HttpServletRequest request) Start");
+    	System.out.println("[ShopDetailAction.java]: processRequest(HttpServletRequest request) Start");
     	//CommunityIdに対応したReviewをリスト型で取得
     	
     	//CommunityIdをsessionから取得
         HttpSession session = request.getSession(true);
     	Community community = (Community)session.getAttribute("community");
     	int communityId = community.getCommunityId();
-    	System.out.println("[ShopDetailAction.java:community.getCommunityId() "+ communityId);
-
+    	System.out.println("[ShopDetailAction.java]:community.getCommunityId() "+ communityId);
 
     	//shopDetailの取得
     	Shop shopDetail = shopService.getShop(request);
@@ -39,15 +38,15 @@ public class ShopDetailAction extends Action {
         
     	//apiIdの取得
     	String apiId = shopDetail.getApiId();
-    	System.out.println("[ShopDetailAction.java: shopDetail.getShopId() "+ apiId);
+    	System.out.println("[ShopDetailAction.java]: shopDetail.getShopId() "+ apiId);
     	
     	//communityIdでDBからReviewをListで取得
-    	List<Review> reviews = reviewService.getReviews(communityId, apiId);
-    	System.out.println("[ShopDetailAction.java: service.getReviews(communityId) "+ reviews);
+    	List<Review> reviews = reviewService.getReviewsByCommunityIdAndApiId(communityId, apiId);
+    	System.out.println("[ShopDetailAction.java]: service.getReviewsByCommunityIdAndApiId "+ reviews);
     	
     	//取得したReview型のListをRequestに格納
     	request.setAttribute("reviews", reviews);
-    	System.out.println("[ShopDetailAction.java: processRequest(HttpServletRequest request) END");
+    	System.out.println("[ShopDetailAction.java]: processRequest(HttpServletRequest request) END");
 
         // 遷移先のページを返す
         return "shopDetail.jsp";

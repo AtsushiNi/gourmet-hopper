@@ -103,9 +103,9 @@ public class ReviewDAO {
         }
     }
  // reviewsテーブルをcommunityIdとshopIdで検索する
-    public List<Review> findByCommunityIdAndShopId(int communityId, String apiId) throws SQLException, NamingException {
+    public List<Review> findByCommunityIdAndApiId(int communityId, String apiId) throws SQLException, NamingException {
 
-        System.out.println("[ReviewDAO.java]:findByCommunityIdAndShopId Start");
+        System.out.println("[ReviewDAO.java]:findByCommunityIdAndApiId Start");
     	// COMMUNITIES テーブルをUSERが所属しているCOMMUNITYのIDの条件で検索する SQL 文
         String sql = "SELECT * FROM COMMUNITIES_USERS "
         		+ "INNER JOIN REVIEWS ON COMMUNITIES_USERS.USER_ID = REVIEWS.USER_ID "
@@ -116,9 +116,9 @@ public class ReviewDAO {
         DataSource ds = DataSourceSupplier.getDataSource();
         try (Connection con = ds.getConnection();
                 PreparedStatement ps = con.prepareStatement(sql);) {
-        	System.out.println("[ReviewDAO.java]:findByCommunityIdAndShopId communityId="+communityId);
+        	System.out.println("[ReviewDAO.java]:findByCommunityIdAndApiId communityId="+communityId);
         	ps.setInt(1, communityId);
-        	System.out.println("[ReviewDAO.java]:findByCommunityIdAndShopId shopId="+apiId);
+        	System.out.println("[ReviewDAO.java]:findByCommunityIdAndApiId apiId="+apiId);
         	ps.setString(2, apiId);
             ResultSet rs = ps.executeQuery();
             // Reviewオブジェクトの List を生成
@@ -139,11 +139,12 @@ public class ReviewDAO {
             	reviews.add(review);
             	
             	//デバッグ用にUSER_IDを取得
-            	System.out.println("[ReviewDAO.java]:findByCommunityIdAndShopId SQL途中 USER_ID ="+rs.getInt("USER_ID"));
+            	System.out.println("[ReviewDAO.java]:findByCommunityIdAndApiId SQL途中 USER_ID ="+rs.getInt("USER_ID"));
+            	System.out.println("[ReviewDAO.java]:findByCommunityIdAndApiId SQL途中 USER_ID ="+rs.getInt("SHOP_ID"));
             }
             // Reviewオブジェクトの List を返す
-            System.out.println("[ReviewDAO.java]:findByCommunityIdAndShopId SQL実行結果: "+ reviews);
-            System.out.println("[ReviewDAO.java]:findByCommunityIdAndShopId End");
+            System.out.println("[ReviewDAO.java]:findByCommunityIdAndApiId SQL実行結果: "+ reviews);
+            System.out.println("[ReviewDAO.java]:findByCommunityIdAndApiId End");
             return reviews;
         }
     }
