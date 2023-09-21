@@ -11,11 +11,14 @@ import org.javatraining.entity.Community;
 import org.javatraining.entity.Review;
 import org.javatraining.entity.Shop;
 import org.javatraining.service.ReviewService;
+import org.javatraining.service.ShopService;
 
 // Shopの詳細を表示するアクションクラス
 public class ShopDetailAction extends Action {
 	
 	protected final ReviewService reviewService = new ReviewService();
+	protected final ShopService shopService = new ShopService();
+
 	
     @Override
     protected String processRequest(HttpServletRequest request) throws SQLException, NamingException {
@@ -28,10 +31,14 @@ public class ShopDetailAction extends Action {
     	Community community = (Community)session.getAttribute("community");
     	int communityId = community.getCommunityId();
     	System.out.println("[ShopDetailAction.java:community.getCommunityId() "+ communityId);
-    	
+
+
+    	//shopDetailの取得
+    	Shop shopDetail = shopService.getShop(request);
+        request.setAttribute("shopDetail", shopDetail);
+        
     	//apiIdの取得
-    	String apiId = request.getParameter("apiId");
-        request.setAttribute("apiId", apiId);
+    	String apiId = shopDetail.getApiId();
     	System.out.println("[ShopDetailAction.java: shopDetail.getShopId() "+ apiId);
     	
     	//communityIdでDBからReviewをListで取得
@@ -41,8 +48,6 @@ public class ShopDetailAction extends Action {
     	//取得したReview型のListをRequestに格納
     	request.setAttribute("reviews", reviews);
     	System.out.println("[ShopDetailAction.java: processRequest(HttpServletRequest request) END");
-
-
 
         // 遷移先のページを返す
         return "shopDetail.jsp";

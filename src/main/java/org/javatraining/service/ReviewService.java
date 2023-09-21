@@ -21,4 +21,11 @@ public class ReviewService {
 		System.out.println("[ReviewService.java:getReviews(communityId) Start");
 		return dao.findByCommunityIdAndShopId(communityId, apiId);
 	}
+	
+    // review情報を登録する
+    public boolean create(Review review) throws SQLException, NamingException {
+        System.out.println("[ReviewService.java]:create Start");
+    	return dao.create(review);
+    }
+
 }
