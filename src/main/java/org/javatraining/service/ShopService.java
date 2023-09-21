@@ -23,15 +23,20 @@ public class ShopService {
 			throws SQLException, NamingException, IOException, InterruptedException {
 		System.out.println("[ShopService.java]:getShops Start");
 
+
 		// apiから情報を取得
 		HotpepperRepository repository = new HotpepperRepository();
 		List<Shop> shopsFromApi = repository.getShops(smallAreaCode, shopName);
 		List<Shop> allShops = new ArrayList<>();
 		allShops.addAll(dao.search(smallAreaCode, shopName));
 		allShops.addAll(shopsFromApi);
-
 		return allShops;
 	}
+    // ShopをapiIdから取得する
+    public Shop find(String apiId) throws SQLException, NamingException {
+        System.out.println("[ShopService.java]:find Start");
+        return dao.findByApiId(apiId);
+    }
 
 	public Shop getShop(HttpServletRequest request) {
 		String apiId = request.getParameter("apiId");

@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.javatraining.entity.Shop;
 import org.javatraining.service.ShopService;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 // 一覧画面表示アクションクラス
 public class SearchAction extends Action {
@@ -31,6 +33,20 @@ public class SearchAction extends Action {
 
         // Shopオブジェクトの List をリクエストに設定
         request.setAttribute("shops", shops);
+        
+        // Shopオブジェクトの List をjson形式でリクエストに設定
+        JSONArray jsonArray = new JSONArray();
+        for(Shop shop : shops) {
+        	JSONObject json = new JSONObject();
+        	json.put("id", shop.getId());
+        	json.put("name", shop.getName());
+        	json.put("apiId", shop.getApiId());
+        	json.put("lat", shop.getLat());
+        	json.put("lng", shop.getLng());
+        	jsonArray.put(json);
+        }
+        request.setAttribute("shopsJson", jsonArray.toString());
+        
         System.out.println("shops : " + shops);
         // 遷移先のページを返す
         System.out.println("[ShopShowAction.java]: End");

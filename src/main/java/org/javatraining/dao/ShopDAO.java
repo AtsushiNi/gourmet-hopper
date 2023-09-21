@@ -57,28 +57,56 @@ public class ShopDAO {
 		System.out.println("[ShopDAO.java]:findById Start");
 		// SHOPS テーブルを商品 ID の条件で検索する SQL 文
 		String sql = "SELECT * WHERE ID = ?";
-
 		// データソースを取得
 		DataSource ds = DataSourceSupplier.getDataSource();
 		try (Connection con = ds.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
+            // プレース・ホルダに値を設定
+            ps.setInt(1, id);
+            try (ResultSet rs = ps.executeQuery()) {
+                // 検索結果が存在しない場合、NULL を返す
+                if (!rs.next()) {
+                    return null;
+                }
+                // Shopオブジェクトを生成
+                Shop shop = createShop(rs);
+                
+                // Shopを返す
+                System.out.println("[ShopDAO.java]:findById SQL実行結果: "+ shop);
+                System.out.println("[ShopDAO.java]:findById End");                
+                return shop;
+            }
+        }
+    }
+    
+    //SHOPSテーブルをapiIDで検索する
+    public Shop findByApiId(String apiId) throws SQLException, NamingException {
+        System.out.println("[ShopDAO.java]:findById Start");
+    	// SHOPS テーブルを商品 ID の条件で検索する SQL 文
+        String sql = "SELECT * WHERE API_ID = ?";
 
-			// プレース・ホルダに値を設定
-			ps.setInt(1, id);
-			try (ResultSet rs = ps.executeQuery()) {
-				// 検索結果が存在しない場合、NULL を返す
-				if (!rs.next()) {
-					return null;
-				}
-				// Shopオブジェクトを生成
-				Shop shop = createShop(rs);
+        // データソースを取得
+        DataSource ds = DataSourceSupplier.getDataSource();
+        try (Connection con = ds.getConnection();
+                PreparedStatement ps = con.prepareStatement(sql)){
 
-				// Shopを返す
-				System.out.println("[ShopDAO.java]:findById SQL実行結果: " + shop);
-				System.out.println("[ShopDAO.java]:findById End");
-				return shop;
-			}
-		}
-	}
+            // プレース・ホルダに値を設定
+            ps.setString(1, apiId);
+            try (ResultSet rs = ps.executeQuery()) {
+                // 検索結果が存在しない場合、NULL を返す
+                if (!rs.next()) {
+                    return null;
+                }
+                // Shopオブジェクトを生成
+                Shop shop = createShop(rs);
+                
+                // Shopを返す
+                System.out.println("[ShopDAO.java]:findById SQL実行結果: "+ shop);
+                System.out.println("[ShopDAO.java]:findById End");                
+                return shop;
+            }
+        }
+    }
+    
 
 	// SHOPSテーブルにshopを新規登録する
 	public boolean create(Shop shop) throws SQLException, NamingException {
