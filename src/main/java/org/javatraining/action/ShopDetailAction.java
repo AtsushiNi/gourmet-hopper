@@ -14,7 +14,7 @@ import org.javatraining.service.ReviewService;
 // Shopの詳細を表示するアクションクラス
 public class ShopDetailAction extends Action {
 	
-	protected final ReviewService service = new ReviewService();
+	protected final ReviewService reviewService = new ReviewService();
 	
     @Override
     protected String processRequest(HttpServletRequest request) throws SQLException, NamingException {
@@ -28,8 +28,13 @@ public class ShopDetailAction extends Action {
     	int communityId = community.getCommunityId();
     	System.out.println("[ShopDetailAction.java:community.getCommunityId() "+ communityId);
     	
+    	//shopIdをRequestから取得
+    	ShopDetail shopDetail = (ShopDetail)request.getAttribute("shopDetail");
+    	int shopId = shopDetail.getShopId();
+    	System.out.println("[ShopDetailAction.java: shopDetail.getShopId() "+ shopId);
+    	
     	//communityIdでDBからReviewをListで取得
-    	List<Review> reviews = service.getReviews(communityId);
+    	List<Review> reviews = reviewService.getReviews(communityId, shopId);
     	System.out.println("[ShopDetailAction.java: service.getReviews(communityId) "+ reviews);
     	
     	//取得したReview型のListをRequestに格納
