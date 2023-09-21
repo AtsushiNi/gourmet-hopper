@@ -16,11 +16,7 @@ public class TopCommunityAction extends Action {
         System.out.println("[TopCommunityAction.java]: Start");
         System.out.println("[TopCommunityAction.java]: コミュニティオブジェクトを生成し、sessionに格納");
         
-        HttpSession session = request.getSession(false);
-        //sessionがない、もしくはsessionにcommunityがなければsessionを作成
-        if(session == null || session.getAttribute("community") == null) {
-        	session = request.getSession(true);
-        }
+        HttpSession session = request.getSession(true);
         
         try {
         	//formのselect boxで選択されたcommunity名に対応するcommunityIdを取得し、sessionに格納
