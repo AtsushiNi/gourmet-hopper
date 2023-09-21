@@ -1,6 +1,5 @@
 package org.javatraining.action;
 
-import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -9,30 +8,23 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.javatraining.entity.Review;
 import org.javatraining.entity.Shop;
-import org.javatraining.repository.HotpepperRepository;
 import org.javatraining.service.ReviewService;
+import org.javatraining.service.ShopService;
 
 // Shopの詳細を表示するアクションクラス
 public class ShopDetailAction extends Action {
 	
-	protected final ReviewService service = new ReviewService();
+	protected final ReviewService reviewService = new ReviewService();
+	protected final ShopService shopService = new ShopService();
+	
 	
     @Override
     protected String processRequest(HttpServletRequest request) throws SQLException, NamingException {
-    	HotpepperRepository repository = new HotpepperRepository();
     	//reviewの取得
-    	List<Review> reviews = service.getReviews();
+    	List<Review> reviews = reviewService.getReviews();
     	
-    	//apiIdの取得
-    	String apiId = request.getParameter("apiId");
-    	Shop shopDetail = null;
-    	try {
-				shopDetail  = repository.getShopByApiId(apiId);
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+    	//shopDetailの取得
+    	Shop shopDetail = shopService.getShop(request);
     	
         request.setAttribute("reviews", reviews);
         request.setAttribute("shopDetail", shopDetail);
