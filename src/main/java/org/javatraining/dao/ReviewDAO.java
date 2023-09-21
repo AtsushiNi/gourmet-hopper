@@ -109,7 +109,8 @@ public class ReviewDAO {
     	// COMMUNITIES テーブルをUSERが所属しているCOMMUNITYのIDの条件で検索する SQL 文
         String sql = "SELECT * FROM COMMUNITIES_USERS "
         		+ "INNER JOIN REVIEWS ON COMMUNITIES_USERS.USER_ID = REVIEWS.USER_ID "
-        		+ "WHERE COMMUNITIES_USERS.COMMUNITY_ID = ? AND REVIEWS.SHOP_ID = ?";
+        		+ "INNER JOIN SHOPS ON REVIEWS.SHOP_ID = SHOPS.ID"
+        		+ "WHERE COMMUNITIES_USERS.COMMUNITY_ID = ? AND SHOPS.API_ID = ?";
 
         // データソースを取得
         DataSource ds = DataSourceSupplier.getDataSource();
