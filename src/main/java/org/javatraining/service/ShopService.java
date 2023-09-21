@@ -42,9 +42,7 @@ public class ShopService {
 		String apiId = request.getParameter("apiId");
 		Shop shopDetail = null;
 		try {
-			System.out.println("============");
-			System.out.println(apiId);
-			shopDetail = repository.getShopByApiId("J003324939");
+			shopDetail = repository.getShopByApiId(apiId);
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (InterruptedException e) {
