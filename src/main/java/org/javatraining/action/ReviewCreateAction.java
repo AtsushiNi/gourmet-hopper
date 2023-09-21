@@ -1,14 +1,9 @@
 package org.javatraining.action;
 
 import java.sql.SQLException;
-import java.util.Set;
 
 import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.ConstraintViolation;
-import javax.validation.Validation;
-import javax.validation.Validator;
-import javax.validation.ValidatorFactory;
 
 import org.javatraining.entity.Review;
 import org.javatraining.service.ReviewService;
@@ -29,41 +24,13 @@ public class ReviewCreateAction extends Action {
 
 		System.out.println("[ReviewCreateAction.java]: Start");
 
-		// リクエスト値の検証
-		// バリデータの作成
-		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
-		Validator validator = factory.getValidator();
-
 		// リクエストの情報により書籍情報オブジェクトを作成
 		Review review = createReview(request);
 
-		// レビュー情報オブジェクトに対して入力値チェック
-		Set<ConstraintViolation<Review>> results = validator.validate(review);
-		System.out.println("[ReviewCreateAction.java]: 入力値チェック結果:" + results);
-
-		// 入力値チェックエラーありの場合、エラーメッセージ生成して再度登録画面に遷移
-		int errorCount = results.size();
-		if (errorCount > 0) {
-			// エラーメッセージ用StringBuilderを生成
-			StringBuilder errMsgBuilder = new StringBuilder();
-
-			// エラー結果からメッセージをStringBuilderに追記
-			errMsgBuilder.append("エラー:" + errorCount + "件<br />");
-			results.forEach(result -> {
-				errMsgBuilder.append(result.getMessage() + "<br />");
-			});
-
-			request.setAttribute("errorMsg", errMsgBuilder.toString());
-			String productId = request.getParameter("prod_id");
-
-			System.out.println("[BookAddAction.java]: End(入力値エラーのため登録画面に遷移)");
-			return "control?action_name=edit&prod_id=" + productId;
-		}
-
 		//レビュー情報の新規登録
-		System.out.println("[BookAddAction.java]: BookService:createメソッドを呼び出し");
+		System.out.println("[ReviewCreateAction.java]: ReviewService:createメソッドを呼び出し");
 		service.create(review);
-		System.out.println("[BookAddAction.java]: End(新規登録完了)");
+		System.out.println("[ReviewCreateAction.java]: End(新規登録完了)");
 
 
 		// 遷移先のページを返す
