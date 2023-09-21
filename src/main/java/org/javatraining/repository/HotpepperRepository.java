@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.net.http.HttpClient;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,8 +26,12 @@ public class HotpepperRepository {
 	}
 	
 	//お店の一覧返す
-	public ArrayList<Shop> getShops(String smallAreaCode, String inputName) throws IOException, InterruptedException {
-		URL url = new URL("https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=7eaca5563e5d7d8e&small_area=" + smallAreaCode +"&name=" + inputName +"&count=10&format=json");
+	public ArrayList<Shop> getShops(String smallAreaCode, String searchName) throws IOException, InterruptedException {
+		String baseURL = "https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=7eaca5563e5d7d8e";
+		@SuppressWarnings("deprecation")
+		String encodedSearchName = URLEncoder.encode(searchName, "UTF-8");
+		URL url = new URL(baseURL + "&small_area=" + smallAreaCode +"&name=" + encodedSearchName +"&count=10&format=json");
+		System.out.println(url);
         
         String response = sendRequest(url);
 
@@ -67,7 +72,7 @@ public class HotpepperRepository {
 	
 	// 指定したURLにアクセスして、レスポンスを得る
 	private String sendRequest(URL url) throws IOException, InterruptedException {
-        StringBuilder output = null;
+		StringBuilder output = null;
 
         // API通信が成功するまで繰り返し(最大でMAX_RETRY_NUM回)
         for(int num = MAX_RETRY_NUM; num>0; num--) {
