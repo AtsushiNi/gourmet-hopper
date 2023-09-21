@@ -133,7 +133,7 @@ public class ReviewDAO {
 
         System.out.println("[REVIEWDAO.java]:create Start");
         // INSERT INFO テーブルにデータを追加する SQL文
-        String sql = "INSERT INTO REVIEW (TITLE, COMMENT, USER_ID, SHOP_ID) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO REVIEWS (TITLE, COMMENT, USER_ID, SHOP_ID) VALUES (?, ?, ?, ?)";
 
         // データソースを取得
         DataSource ds = DataSourceSupplier.getDataSource();

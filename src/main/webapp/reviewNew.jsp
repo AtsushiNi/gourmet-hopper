@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 
 <html lang="ja">
@@ -14,7 +15,7 @@
     <main id="main">
       <h1>レビューを新規作成</h1>
       <form action="control" method="post">
-        <input type="hidden" name="action_name" value="review_new" />
+        <input type="hidden" name="action_name" value="review_create" />
         <p>
           <label for="title">タイトル</label>
           <input id="title" name="title" type="text" placeholder="タイトル" />
@@ -23,8 +24,8 @@
           <label for="comment">コメント</label>
           <input id="comment" name="comment" type="text" size=300 placeholder="コメント" />
         </p>
-        <input type="hidden" name="userId" value="ユーザーIDを取得してくる" />
-        <input type="hidden" name="shopId" value="ショップIDを取得してくる" />
+        <input type="hidden" name="userId" value=${user.userId } />
+        <input type="hidden" name="shopId" value=${shop.apiId } />
         <p>
           <input type="submit" value="登録" />
         </p>
