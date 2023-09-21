@@ -4,7 +4,7 @@
 <html lang="ja">
   <!-- head -->
   <jsp:include page="template/head.jsp">
-    <jsp:param name="page" value="login" />
+    <jsp:param name="page" value="showProfile" />
   </jsp:include>
 
   <body>
