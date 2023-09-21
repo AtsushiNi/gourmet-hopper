@@ -9,7 +9,9 @@ import java.util.List;
 
 import javax.naming.NamingException;
 import javax.sql.DataSource;
+import javax.validation.constraints.NotNull;
 
+import org.javatraining.entity.Community;
 import org.javatraining.entity.Review;
 
 
@@ -100,6 +102,53 @@ public class ReviewDAO {
             }
         }
     }
+ // reviewsテーブルをcommunityIdとshopIdで検索する
+    public List<Review> findByCommunityIdAndApiId(int communityId, String apiId) throws SQLException, NamingException {
+
+        System.out.println("[ReviewDAO.java]:findByCommunityIdAndApiId Start");
+    	// COMMUNITIES テーブルをUSERが所属しているCOMMUNITYのIDの条件で検索する SQL 文
+        String sql = "SELECT * FROM COMMUNITIES_USERS "
+        		+ "INNER JOIN REVIEWS ON COMMUNITIES_USERS.USER_ID = REVIEWS.USER_ID "
+        		+ "INNER JOIN SHOPS ON REVIEWS.SHOP_ID = SHOPS.ID　"
+        		+ "WHERE COMMUNITIES_USERS.COMMUNITY_ID = ? AND SHOPS.API_ID = ?";
+
+        // データソースを取得
+        DataSource ds = DataSourceSupplier.getDataSource();
+        try (Connection con = ds.getConnection();
+                PreparedStatement ps = con.prepareStatement(sql);) {
+        	System.out.println("[ReviewDAO.java]:findByCommunityIdAndApiId communityId="+communityId);
+        	ps.setInt(1, communityId);
+        	System.out.println("[ReviewDAO.java]:findByCommunityIdAndApiId apiId="+apiId);
+        	ps.setString(2, apiId);
+            ResultSet rs = ps.executeQuery();
+            // Reviewオブジェクトの List を生成
+            List<Review> reviews = new ArrayList<>();
+            
+            // 検索結果をループしてReviewオブジェクトの List に格納
+            while (rs.next()) {
+                // Reviewオブジェクトを生成
+            	Review review = new Review();
+            	//　ReviewオブジェクトにSQLの結果を格納
+            	review.setId(rs.getInt("REVIEWS.ID"));
+            	review.setTitle(rs.getString("REVIEWS.TITLE"));
+            	review.setComment(rs.getString("REVIEWS.COMMENT"));
+            	review.setUserId(rs.getInt("REVIEWS.USER_ID"));
+            	review.setShopId(rs.getInt("REVIEWS.SHOP_ID"));
+            	
+                // Reviewオブジェクトの List に格納
+            	reviews.add(review);
+            	
+            	//デバッグ用にUSER_IDを取得
+            	System.out.println("[ReviewDAO.java]:findByCommunityIdAndApiId SQL途中 USER_ID ="+rs.getInt("REVIEWS.USER_ID"));
+            	System.out.println("[ReviewDAO.java]:findByCommunityIdAndApiId SQL途中 USER_ID ="+rs.getInt("REVIEWS.SHOP_ID"));
+            }
+            // Reviewオブジェクトの List を返す
+            System.out.println("[ReviewDAO.java]:findByCommunityIdAndApiId SQL実行結果: "+ reviews);
+            System.out.println("[ReviewDAO.java]:findByCommunityIdAndApiId End");
+            return reviews;
+        }
+    }
+    
     //REVIEWテーブルをshopID検索する
     public Review findByShopId(int id) throws SQLException, NamingException {
         System.out.println("[DAO.java]:findByShopId Start");
