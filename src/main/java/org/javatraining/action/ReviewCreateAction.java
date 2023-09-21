@@ -13,14 +13,14 @@ import javax.validation.ValidatorFactory;
 import org.javatraining.entity.Review;
 import org.javatraining.service.ReviewService;
 
-// 書籍情報登録アクションクラス
+//　レビュー情報登録アクションクラス
 public class ReviewCreateAction extends Action {
 
     protected final ReviewService service = new ReviewService();
 	
     protected String processRequest(HttpServletRequest request) throws SQLException, NamingException {
 
-        // 書籍情報管理の処理を実行
+        // レビュー情報管理の処理を実行
         return processReviewManagement(request);
     }
 
@@ -37,7 +37,7 @@ public class ReviewCreateAction extends Action {
 		// リクエストの情報により書籍情報オブジェクトを作成
 		Review review = createReview(request);
 
-		// 書籍情報オブジェクトに対して入力値チェック
+		// レビュー情報オブジェクトに対して入力値チェック
 		Set<ConstraintViolation<Review>> results = validator.validate(review);
 		System.out.println("[ReviewCreateAction.java]: 入力値チェック結果:" + results);
 
@@ -60,6 +60,7 @@ public class ReviewCreateAction extends Action {
 			return "control?action_name=edit&prod_id=" + productId;
 		}
 
+		//レビュー情報の新規登録
 		System.out.println("[BookAddAction.java]: BookService:createメソッドを呼び出し");
 		service.create(review);
 		System.out.println("[BookAddAction.java]: End(新規登録完了)");
@@ -69,13 +70,13 @@ public class ReviewCreateAction extends Action {
 		return "shopDetail.jsp";
 	}
 
-	// リクエストの情報により書籍情報オブジェクトを作成
+	// リクエストの情報によりレビュー情報オブジェクトを作成
 	private Review createReview(HttpServletRequest request) {
 
-		// 書籍情報オブジェクトを生成
+		// レビュー情報オブジェクトを生成
 		Review review = new Review();
 
-		// 書籍情報オブジェクトの各フィールドを設定
+		// レビュー情報オブジェクトの各フィールドを設定
 
 		String title = request.getParameter("title");
 		review.setTitle(title);
@@ -89,7 +90,7 @@ public class ReviewCreateAction extends Action {
 		int shopId = Integer.parseInt(request.getParameter("shopId"));
 		review.setShopId(shopId);
 
-		// 書籍情報オブジェクトを返す
+		// レビュー情報オブジェクトを返す
 		return review;
 	}
 
