@@ -31,7 +31,7 @@ public class SearchAction extends Action {
 
         // Shopオブジェクトの List をリクエストに設定
         request.setAttribute("shops", shops);
-
+        System.out.println("shops : " + shops);
         // 遷移先のページを返す
         System.out.println("[ShopShowAction.java]: End");
  

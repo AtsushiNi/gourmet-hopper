@@ -23,10 +23,12 @@ public class ShopService {
         //apiから情報を取得
         HotpepperRepository repository = new HotpepperRepository();
         List<Shop> shopsFromApi = repository.getShops(smallAreaCode, shopName);
-
+        System.out.println("shopsFromAp : " + shopsFromApi);
         List<Shop> allShops = new ArrayList<>();
-        //allShops.addAll(dao.findAll(smallAreaCode,inputName) );
+        System.out.println("dao : " + dao.search(smallAreaCode,shopName));
+        allShops.addAll(dao.search(smallAreaCode,shopName) );
         allShops.addAll(shopsFromApi);
+        
         return allShops;
     }
 
