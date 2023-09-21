@@ -48,7 +48,6 @@ class="org.javatraining.entity.User"
   </a>
 	  
   <p>
-    書籍管理システム<br>
-    ログイン:<jsp:getProperty name="user" property="userName" />さん
+    <jsp:getProperty name="user" property="userName" />さん
   </p>
 </div>

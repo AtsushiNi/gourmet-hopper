@@ -76,6 +76,7 @@ public class HotpepperRepository {
         shop.setApiId(json.getString("id"));
         shop.setLat(json.getDouble("lat"));
         shop.setLng(json.getDouble("lng"));
+
         return shop;
     }
 	
