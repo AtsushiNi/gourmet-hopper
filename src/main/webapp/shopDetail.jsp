@@ -46,50 +46,47 @@
 											<td><%=shopDetail.getName() %></td>
 										</tr>
 										<tr>
-										<td><%=shopDetail.getAccess() %></td>
+											<td><%=shopDetail.getAccess() %></td>
 										</tr>
 										<tr>
-										<td><%=shopDetail.getAddress() %></td>
+											<td><%=shopDetail.getAddress() %></td>
 										</tr>
 										<tr>
-										<td><%=shopDetail.getCard() %></td>
+											<td><%=shopDetail.getCard() %></td>
 										</tr>
 										<tr>
-										<td><%=shopDetail.getCatchMessage() %></td>
+											<td><%=shopDetail.getCatchMessage() %></td>
 										</tr>
 									</tbody>
 								</table>
 								<!--ここまで店の情報-->
 							</div>
 						</div>
-						<div class="tab-pane fade" id="item2" role="tabpanel"
-							aria-labelledby="item2-tab">
-							<div data-spy="scroll" style="height: 400px; overflow: auto;">
-								<!--ここにレビュー入れる-->
-
-								<table>
-									<thead>
-										<tr>
-											<th>タイトル</th>
-											<th>コメント</th>
-										</tr>
-									</thead>
-									<tbody>
-										<%
-										for (int i = 0; i < reviews.size(); i++) {
-										%>
-										<tr>
-											<td><%=reviews.get(i).getTitle()%></td>
-										</tr>
-										<tr>
-											<td><%=reviews.get(i).getComment()%></td>
-										</tr>
-										<%
-										}
-										%>
-									</tbody>
-								</table>
-							</div>
+					</div>
+					<div class="tab-pane fade" id="item2" role="tabpanel" aria-labelledby="item2-tab">
+						<div data-spy="scroll" style="height: 400px; overflow: auto;">
+							<!--ここにレビュー入れる-->
+							<table>
+							<thead>
+								<tr>
+								<th>タイトル</th>
+								<th>コメント</th>
+								</tr>
+							</thead>
+							<tbody>
+								<% for(int i = 0; i < reviews.size(); i++) {%>
+								<tr>
+								<td>
+								<%= reviews.get(i).getTitle() %>
+								</td>
+								<td>
+								<%= reviews.get(i).getComment() %>
+								</td>
+								</tr>
+								<% } %>
+							</tbody>
+							</table>
+							<!--ここまでレビュー-->
 						</div>
 					</div>
 				</div>
@@ -104,7 +101,6 @@
 			<a href="control?action_name=review_new&id=1">新規レビューを投稿</a>
 		</div>
 	</main>
-	<!--ここまでレビュー-->
 	<!-- footer -->
 	<%@ include file="template/footer.jsp"%>
 
