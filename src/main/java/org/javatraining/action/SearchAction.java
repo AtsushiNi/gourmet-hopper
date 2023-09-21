@@ -8,6 +8,7 @@ import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
 
 import org.javatraining.entity.Shop;
+import org.javatraining.service.SearchService;
 import org.javatraining.service.ShopService;
 
 // 一覧画面表示アクションクラス
@@ -39,6 +40,9 @@ public class SearchAction extends Action {
 
         // 遷移先のページを返す
         System.out.println("[ShopShowAction.java]: End");
+        
+        SearchService service = new SearchService();
+        service.search();
  
         return "search.jsp";
     }
