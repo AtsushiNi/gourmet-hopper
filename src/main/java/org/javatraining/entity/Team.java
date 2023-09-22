@@ -14,7 +14,7 @@ public class Team implements Serializable {
 	@NotNull
     private String name = "";
 	private Community community;
-	private ArrayList<User> users;
+	private ArrayList<User> users = new ArrayList<>();
 
 	public int getId() {
 		return id;

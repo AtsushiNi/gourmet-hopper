@@ -24,7 +24,7 @@
           </div>
           <div class="col-sm">
             <c:forEach var="user" items="${users}">
-              <div class="row">${user.name}</div>
+              <div class="row">${user.userName}</div>
             </c:forEach>
           </div>
           <div class="col-sm">

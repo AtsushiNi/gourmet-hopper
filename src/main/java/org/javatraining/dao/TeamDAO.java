@@ -83,7 +83,11 @@ public class TeamDAO {
 
     private void appendUser(ResultSet rs, Team team) throws SQLException {
     	User user = new User();
-    	team.addUser(user);
+        user.setUserId(rs.getInt("USERS.ID"));
+        user.setUserName(rs.getString("USERS.NAME"));
+        user.setPassword(rs.getString("USERS.PASSWORD"));
+
+        team.addUser(user);
         team.setId(rs.getInt("TEAMS.ID"));
         team.setName(rs.getString("TEAMS.NAME"));
 
