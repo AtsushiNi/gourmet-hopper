@@ -32,6 +32,6 @@ public class TopCommunityAction extends Action {
 
         System.out.println("[TopCommunityAction.java]: End");
 
-        return "home.jsp";
+        return (new SearchAction()).execute(request);
     }
 }

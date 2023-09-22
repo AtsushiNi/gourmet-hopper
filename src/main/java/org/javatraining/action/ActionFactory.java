@@ -13,6 +13,8 @@ public class ActionFactory {
         switch (actionName) {
             case "login":
                 return new LoginAction();
+            case "logout":
+            	return new LogoutAction();
             case "search":
                 return new SearchAction();
             case "apicall":

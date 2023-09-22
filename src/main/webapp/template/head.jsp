@@ -17,7 +17,6 @@
   <link rel="stylesheet" href=<%=cssPath%>>
   <!-- TODO アプリの名前を決める -->
   <title>GroumetHopper</title>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-  
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>  
   
 </head>
