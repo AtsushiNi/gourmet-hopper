@@ -44,34 +44,6 @@ public class ReviewDAO {
         }
     }
 
-/*    // SHOPSテーブルを主キー検索する
-    public Review findById(int id) throws SQLException, NamingException {
-        System.out.println("[ShopDAO.java]:findById Start");
-    	// SHOPS テーブルを商品 ID の条件で検索する SQL 文
-        String sql = "SELECT * WHERE ID = ?";
-
-        // データソースを取得
-        DataSource ds = DataSourceSupplier.getDataSource();
-        try (Connection con = ds.getConnection();
-                PreparedStatement ps = con.prepareStatement(sql)){
-
-            // プレース・ホルダに値を設定
-            ps.setInt(1, id);
-            try (ResultSet rs = ps.executeQuery()) {
-                // 検索結果が存在しない場合、NULL を返す
-                if (!rs.next()) {
-                    return null;
-                }
-                // Shopオブジェクトを生成
-                Shop shop = createShop(rs);
-                
-                // Shopを返す
-                System.out.println("[ShopDAO.java]:findById SQL実行結果: "+ shop);
-                System.out.println("[ShopDAO.java]:findById End");                
-                return shop;
-            }
-        }
-    }*/
     // REVIEWテーブルをuserID検索する
     public Review findByUserId(int id) throws SQLException, NamingException {
         System.out.println("[DAO.java]:findByUserId Start");
@@ -107,7 +79,7 @@ public class ReviewDAO {
     	// COMMUNITIES テーブルをUSERが所属しているCOMMUNITYのIDの条件で検索する SQL 文
         String sql = "SELECT * FROM COMMUNITIES_USERS "
         		+ "INNER JOIN REVIEWS ON COMMUNITIES_USERS.USER_ID = REVIEWS.USER_ID "
-        		+ "INNER JOIN SHOPS ON REVIEWS.SHOP_ID = SHOPS.ID　"
+        		+ "INNER JOIN SHOPS ON REVIEWS.SHOP_ID = SHOPS.ID"
         		+ "WHERE COMMUNITIES_USERS.COMMUNITY_ID = ? AND SHOPS.API_ID = ?";
 
         // データソースを取得
