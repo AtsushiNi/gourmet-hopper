@@ -26,8 +26,8 @@
         </p>
         <input type="hidden" name="userId" value=${user.userId } />
         <input type="hidden" name="shopName" value="あああ" />
-        <input type="hidden" name="smallAreaCode" value=X000 />
-        <input type="hidden" name="shopApiId" value=J111192710 />
+        <input type="hidden" name="smallAreaCode" value="X000" />
+        <input type="hidden" name="shopApiId" value="J111192710" />
         <p>
           <input type="submit" value="登録" />
         </p>

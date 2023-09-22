@@ -21,7 +21,7 @@ public class ReviewCreateAction extends Action {
     	
     	Review review = createReview(request, shop);
     	
-    	
+    	reviewService.create(review);
 		// 遷移先のページを返す
 		return (new ShopDetailAction()).execute(request);
     }    
@@ -64,10 +64,11 @@ public class ReviewCreateAction extends Action {
 			String smallAreaCode = request.getParameter("smallAreaCode");
 			shop.setSmallAreaCode(smallAreaCode);
 
-			shop.setSmallAreaCode(shopApiId);
+			shop.setApiId(shopApiId);
 			
 			shopService.create(shop);
-			return shop;
+			dbshop = shopService.find(shopApiId);
+			return dbshop;
 		}else{
 			return dbshop;
 		}

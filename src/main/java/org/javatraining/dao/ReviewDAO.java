@@ -9,9 +9,7 @@ import java.util.List;
 
 import javax.naming.NamingException;
 import javax.sql.DataSource;
-import javax.validation.constraints.NotNull;
 
-import org.javatraining.entity.Community;
 import org.javatraining.entity.Review;
 
 
@@ -78,7 +76,7 @@ public class ReviewDAO {
     public Review findByUserId(int id) throws SQLException, NamingException {
         System.out.println("[DAO.java]:findByUserId Start");
     	// REVIEW テーブルをuserID の条件で検索する SQL 文
-        String sql = "SELECT * WHERE USER_ID = ?";
+        String sql = "SELECT * FROM REVIEWS WHERE USER_ID = ?";
 
         // データソースを取得
         DataSource ds = DataSourceSupplier.getDataSource();
@@ -153,7 +151,7 @@ public class ReviewDAO {
     public Review findByShopId(int id) throws SQLException, NamingException {
         System.out.println("[DAO.java]:findByShopId Start");
     	// REVIEW テーブルをshopID の条件で検索する SQL 文
-        String sql = "SELECT * WHERE SHOP_ID = ?";
+        String sql = "SELECT * FROM REVIEWS WHERE SHOP_ID = ?";
 
         // データソースを取得
         DataSource ds = DataSourceSupplier.getDataSource();

@@ -113,7 +113,7 @@ public class ShopDAO {
 
 		System.out.println("[ShopDAO.java]:create Start");
 		// INSERT INFO テーブルにデータを追加する SQL文
-		String sql = "INSERT INTO SHOPS (NAME) VALUES (?)";
+		String sql = "INSERT INTO SHOPS (NAME, SMALL_AREA_CODE, API_ID) VALUES (?, ?, ?)";
 
 		// データソースを取得
 		DataSource ds = DataSourceSupplier.getDataSource();
@@ -121,6 +121,8 @@ public class ShopDAO {
 
 			// プレース・ホルダに値を設定
 			ps.setString(1, shop.getName());
+			ps.setString(2, shop.getSmallAreaCode() );
+			ps.setString(3, shop.getApiId());
 
 			// SQL 文を実行
 			int affectedRows = ps.executeUpdate();
