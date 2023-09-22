@@ -12,6 +12,8 @@ import org.javatraining.entity.Review;
 import org.javatraining.entity.Shop;
 import org.javatraining.service.ReviewService;
 import org.javatraining.service.ShopService;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 // Shopの詳細を表示するアクションクラス
 public class ShopDetailAction extends Action {
@@ -37,11 +39,19 @@ public class ShopDetailAction extends Action {
         request.setAttribute("shopDetail", shopDetail);
         System.out.println("[ShopDetailAction.java]: shopDetail "+ shopDetail);
         
-    	//apiIdの取得
+        // Shopオブジェクトの List (要素は1つ)をjson形式でリクエストに設定
+        JSONArray jsonArray = new JSONArray();
+    	JSONObject json = new JSONObject();
+    	json.put("id", shopDetail.getId());
+    	json.put("name", shopDetail.getName());
+    	json.put("apiId", shopDetail.getApiId());
+    	json.put("lat", shopDetail.getLat());
+    	json.put("lng", shopDetail.getLng());
+    	jsonArray.put(json);
+        request.setAttribute("shopsJson", jsonArray.toString());
+        
+        //communityIdとapiIdでDBからReviewをListで取得
     	String apiId = shopDetail.getApiId();
-    	System.out.println("[ShopDetailAction.java]: apiId "+ apiId);
-    	
-    	//communityIdとapiIdでDBからReviewをListで取得
     	List<Review> reviews = reviewService.getReviewsByCommunityIdAndApiId(communityId, apiId);
     	System.out.println("[ShopDetailAction.java]: reviews "+ reviews);
     	

@@ -15,7 +15,7 @@ import org.javatraining.repository.HotpepperRepository;
 // ビジネスロジック
 public class ShopService {
 
-	private final ShopDAO dao = new ShopDAO();
+	private final ShopDAO shopDao = new ShopDAO();
 	private HotpepperRepository repository = new HotpepperRepository();
 
 	// Shopリストを取得する
@@ -28,14 +28,14 @@ public class ShopService {
 		HotpepperRepository repository = new HotpepperRepository();
 		List<Shop> shopsFromApi = repository.getShops(smallAreaCode, shopName);
 		List<Shop> allShops = new ArrayList<>();
-		allShops.addAll(dao.search(smallAreaCode, shopName));
+		allShops.addAll(shopDao.search(smallAreaCode, shopName));
 		allShops.addAll(shopsFromApi);
 		return allShops;
 	}
     // ShopをapiIdから取得する
     public Shop find(String apiId) throws SQLException, NamingException {
         System.out.println("[ShopService.java]:find Start");
-        return dao.findByApiId(apiId);
+        return shopDao.findByApiId(apiId);
     }
 
 	public Shop getShop(HttpServletRequest request) {
@@ -55,6 +55,6 @@ public class ShopService {
 	// Shop情報を登録する
     public boolean create(Shop shop) throws SQLException, NamingException {
         System.out.println("[ShopService.java]:create Start");
-    	return dao.create(shop);
+    	return shopDao.create(shop);
     }
 }

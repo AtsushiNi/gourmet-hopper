@@ -56,6 +56,7 @@
               <% for(int i = 0; i < shops.size(); i++) {%>
                 <div class="shadow-sm p-3 mb-2 bg-white rounded active-item" id=<%= shops.get(i).getApiId() %>>
                 <a href="control?action_name=shop_detail&apiId=<%=shops.get(i).getApiId() %>"><%= shops.get(i).getName() %></a> 
+                <img src="<%=shops.get(i).getPhoto()%>"alt="サムネイル">
                 </div>
               <% } %>
             </div>
@@ -77,6 +78,5 @@
     </script>
     <script src="http://maps.google.com/maps/api/js?key=AIzaSyBYxzFJkG_P15cNs_NQzwCw9QktNHTIlvU&language=ja"></script>
     <script src="js/googlemap.js"></script>
-  　<%--<a href="control?action_name=shop_detail&id=1">店舗の詳細を表示</a> --%>
   </body>
 </html>
