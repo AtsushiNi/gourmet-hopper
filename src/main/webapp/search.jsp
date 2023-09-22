@@ -27,7 +27,12 @@
               <form action="control" method="post">
                 <input type="hidden" name="action_name" value="search" />
               
-                <input type="text" name="shopName" placeholder="検索キーワードを入力">
+                <input
+                  type="text"
+                  name="shopName"
+                  placeholder="検索キーワードを入力"
+                  value=${(requestScope.shopName == null) ? "" : requestScope.shopName}
+                >
                 <input type="submit" value="検索"><br>
               
                 <label for="tabaco">喫煙可</label>
