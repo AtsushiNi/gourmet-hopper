@@ -17,39 +17,22 @@ public class ReviewCreateAction extends Action {
     protected final ShopService shopService = new ShopService();
 	
     protected String processRequest(HttpServletRequest request) throws SQLException, NamingException {
-    	processShopManagement(request);
-
-        // レビュー情報管理の処理を実行
-        return processReviewManagement(request);
+    	Shop shop = getOrCreateShop(request);
+    	
+    	Review review = createReview(request, shop);
+    	
+    	reviewService.create(review);
+		// 遷移先のページを返す
+		return (new ShopDetailAction()).execute(request);
     }    
     
-	protected String processReviewManagement(HttpServletRequest request) throws SQLException, NamingException {
-
-		System.out.println("[ReviewCreateAction.java]: Start");
-
-		// リクエストの情報によりレビュー情報オブジェクトを作成
-		Review review = createReview(request);
-		
-
-		//レビュー情報の新規登録
-		System.out.println("[ReviewCreateAction.java]: ReviewService:createメソッドを呼び出し");
-		reviewService.create(review);
-		System.out.println("[ReviewCreateAction.java]: End(新規登録完了)");
-
-
-		// 遷移先のページを返す
-		return "shopDetail.jsp";
-	}
-
 	// リクエストの情報によりレビュー情報オブジェクトを作成
-	private Review createReview(HttpServletRequest request) throws NamingException, SQLException{
+	private Review createReview(HttpServletRequest request, Shop shop) throws NamingException, SQLException{
 
 		// レビュー情報オブジェクトを生成
 		Review review = new Review();
-		Shop shop = processShopManagement(request);
 
 		// レビュー情報オブジェクトの各フィールドを設定
-
 		String title = request.getParameter("title");
 		review.setTitle(title);
 
@@ -66,23 +49,7 @@ public class ReviewCreateAction extends Action {
 		return review;
 	}
 	
-	/*private Shop createShop(HttpServletRequest request) {
-		Shop shop = new Shop();
-		
-		String shopName = request.getParameter("shopName");
-		shop.setName(shopName);
-		
-		String smallAreaCode = request.getParameter("smallAreaCode");
-		shop.setSmallAreaCode(smallAreaCode);
-		
-		String shopApiId = request.getParameter("shopApiId");
-		shop.setSmallAreaCode(shopApiId);
-		
-		//ショップ情報を返す
-		return shop;
-	}*/
-	
-    protected Shop processShopManagement(HttpServletRequest request) throws SQLException, NamingException{
+    protected Shop getOrCreateShop(HttpServletRequest request) throws SQLException, NamingException{
 
 		String shopApiId = request.getParameter("shopApiId");
 		Shop dbshop = shopService.find(shopApiId);
@@ -97,10 +64,11 @@ public class ReviewCreateAction extends Action {
 			String smallAreaCode = request.getParameter("smallAreaCode");
 			shop.setSmallAreaCode(smallAreaCode);
 
-			shop.setSmallAreaCode(shopApiId);
+			shop.setApiId(shopApiId);
 			
 			shopService.create(shop);
-			return shop;
+			dbshop = shopService.find(shopApiId);
+			return dbshop;
 		}else{
 			return dbshop;
 		}
