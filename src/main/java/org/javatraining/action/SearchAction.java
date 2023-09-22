@@ -23,6 +23,7 @@ public class SearchAction extends Action {
 
         String smallAreaCode = "X175";
         String shopName = request.getParameter("shopName");
+        request.setAttribute("shopName", shopName);
 
         List<Shop> shops = null;
 		try {
