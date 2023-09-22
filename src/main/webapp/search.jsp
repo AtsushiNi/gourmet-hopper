@@ -33,17 +33,15 @@
                 <label for="tabaco">喫煙可</label>
                 <input type="checkbox" id="tabaco" name="tag" value="tabaco"><br>
               
-                <label for="banana">バナナ</label>
-                <input type="checkbox" id="banana" name="fruit" value="banana"><br>
+                <label for="free">飲み放題有り</label>
+                <input type="checkbox" id="free" name="tag"value="free"><br>
                 
-                <label for="orange">オレンジ</label>
-                <input type="checkbox" id="orange" name="fruit" value="orange"><br>
+                <label for="party">宴会席有り</label>
+                <input type="checkbox" id="party" name="tag" value="party"><br>
                 
-                <label for="grape">ぶどう</label>
-                <input type="checkbox" id="grape" name="fruit" value="grape"><br>
-                
-                <label for="strawberry">いちご</label>
-                <input type="checkbox" id="strawberry" name="fruit" value="strawberry"><br>
+                <label for="reservation">予約可</label>
+                <input type="checkbox" id="reservation" name="tag" value="reservation"><br>
+
               </form>
             </div>
           </div>

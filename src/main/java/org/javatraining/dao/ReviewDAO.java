@@ -9,9 +9,7 @@ import java.util.List;
 
 import javax.naming.NamingException;
 import javax.sql.DataSource;
-import javax.validation.constraints.NotNull;
 
-import org.javatraining.entity.Community;
 import org.javatraining.entity.Review;
 
 
@@ -109,7 +107,7 @@ public class ReviewDAO {
     	// COMMUNITIES テーブルをUSERが所属しているCOMMUNITYのIDの条件で検索する SQL 文
         String sql = "SELECT * FROM COMMUNITIES_USERS "
         		+ "INNER JOIN REVIEWS ON COMMUNITIES_USERS.USER_ID = REVIEWS.USER_ID "
-        		+ "INNER JOIN SHOPS ON REVIEWS.SHOP_ID = SHOPS.ID　"
+        		+ "INNER JOIN SHOPS ON REVIEWS.SHOP_ID = SHOPS.ID "
         		+ "WHERE COMMUNITIES_USERS.COMMUNITY_ID = ? AND SHOPS.API_ID = ?";
 
         // データソースを取得
