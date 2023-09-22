@@ -56,19 +56,10 @@ public class ReviewCreateAction extends Action {
 		String apiId = request.getParameter("apiId");
 		Shop dbshop = shopService.find(apiId);
 		
-		
 		if(dbshop == null) {
 			
-			Shop shop = new Shop();
+			Shop shop = null;
 			HotpepperRepository repository = new HotpepperRepository();
-			
-			/*String shopName = request.getParameter("shopName");
-			shop.setName(shopName);
-			
-			String smallAreaCode = request.getParameter("smallAreaCode");
-			shop.setSmallAreaCode(smallAreaCode);
-
-			shop.setApiId(apiId);*/
 			
 			try {
 				shop = repository.getShopByApiId(apiId);

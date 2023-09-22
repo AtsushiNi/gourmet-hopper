@@ -1,7 +1,4 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<jsp:useBean id="shopDetail" scope="request"
-	type="org.javatraining.entity.Shop" />
-<!DOCTYPE html>
 
 <html lang="ja">
   <!-- head -->

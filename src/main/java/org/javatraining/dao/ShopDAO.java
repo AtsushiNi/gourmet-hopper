@@ -114,7 +114,6 @@ public class ShopDAO {
 		System.out.println("[ShopDAO.java]:create Start");
 		// INSERT INFO テーブルにデータを追加する SQL文
 		String sql = "INSERT INTO SHOPS (NAME, SMALL_AREA_CODE, API_ID) VALUES (?, ?, ?)";
-
 		// データソースを取得
 		DataSource ds = DataSourceSupplier.getDataSource();
 		try (Connection con = ds.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
