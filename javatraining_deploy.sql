@@ -65,10 +65,10 @@ INSERT INTO COMMUNITIES_USERS VALUE(4,3,1);
 
 INSERT INTO REVIEWS VALUE(1, "Machidaさんのレビュー", "がい屋最高。", 1, 1);
 INSERT INTO REVIEWS VALUE(2, "Machidaさんのレビュー", "たけ屋最高。", 1, 2);
-INSERT INTO REVIEWS VALUE(3, "Machidaさんのレビュー", "Maison de MURA最高", 1, 3);
+INSERT INTO REVIEWS VALUE(3, "Machidaさんのレビュー", "Maison de MURA最高", 1, 1);
 INSERT INTO REVIEWS VALUE(4, "Suzukiさんのレビュー", "がい屋まあまあ。", 2, 1);
 INSERT INTO REVIEWS VALUE(5, "Suzukiさんのレビュー", "たけ屋良き", 2, 2);
-INSERT INTO REVIEWS VALUE(6, "Suzukiさんのレビュー", "Maison de MURA良き", 2, 3);
+INSERT INTO REVIEWS VALUE(6, "Suzukiさんのレビュー", "Maison de MURA良き", 2, 2);
 INSERT INTO REVIEWS VALUE(7, "Ozakiさんのレビュー", "がい屋もう行かない", 3, 1);
 INSERT INTO REVIEWS VALUE(8, "Ozakiさんのレビュー", "たけ屋微妙", 3, 2);
-INSERT INTO REVIEWS VALUE(9, "Ozakiさんのレビュー", "Maison de MURAまた行く", 3, 3);
+INSERT INTO REVIEWS VALUE(9, "Ozakiさんのレビュー", "Maison de MURAまた行く", 3, 2);

@@ -98,7 +98,7 @@
 				</div>
 			</div>
 			<div style="text-align: right">
-				<a href="control?action_name=review_new&id=1">新規レビューを投稿</a>
+				<a href="control?action_name=review_new&apiId=${requestScope.shopDetail.apiId }">新規レビューを投稿</a>
 			</div>
 	</main>
 	<!-- footer -->

@@ -18,6 +18,8 @@ public class ReviewNewAction extends Action {
     	//reviewの取得
     	//List<Review> reviews = service.getReviews();
         //request.setAttribute("reviews", reviews);
+    	String apiId = (String)request.getAttribute("apiId");
+    	request.setAttribute("apiId", apiId);
 
         // 遷移先のページを返す
         return "reviewNew.jsp";

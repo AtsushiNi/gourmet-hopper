@@ -1,5 +1,6 @@
 package org.javatraining.action;
 
+import java.io.IOException;
 import java.sql.SQLException;
 
 import javax.naming.NamingException;
@@ -7,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.javatraining.entity.Review;
 import org.javatraining.entity.Shop;
+import org.javatraining.repository.HotpepperRepository;
 import org.javatraining.service.ReviewService;
 import org.javatraining.service.ShopService;
 
@@ -23,7 +25,7 @@ public class ReviewCreateAction extends Action {
     	
     	reviewService.create(review);
 		// 遷移先のページを返す
-		return (new ShopDetailAction()).execute(request);
+		return "control?action_name=shop_detail&apiId=" + shop.getApiId();
     }    
     
 	// リクエストの情報によりレビュー情報オブジェクトを作成
@@ -51,23 +53,32 @@ public class ReviewCreateAction extends Action {
 	
     protected Shop getOrCreateShop(HttpServletRequest request) throws SQLException, NamingException{
 
-		String shopApiId = request.getParameter("shopApiId");
-		Shop dbshop = shopService.find(shopApiId);
+		String apiId = request.getParameter("apiId");
+		Shop dbshop = shopService.find(apiId);
+		
 		
 		if(dbshop == null) {
 			
 			Shop shop = new Shop();
+			HotpepperRepository repository = new HotpepperRepository();
 			
-			String shopName = request.getParameter("shopName");
+			/*String shopName = request.getParameter("shopName");
 			shop.setName(shopName);
 			
 			String smallAreaCode = request.getParameter("smallAreaCode");
 			shop.setSmallAreaCode(smallAreaCode);
 
-			shop.setApiId(shopApiId);
+			shop.setApiId(apiId);*/
 			
+			try {
+				shop = repository.getShopByApiId(apiId);
+			} catch (IOException e) {
+				e.printStackTrace();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 			shopService.create(shop);
-			dbshop = shopService.find(shopApiId);
+			dbshop = shopService.find(apiId);
 			return dbshop;
 		}else{
 			return dbshop;

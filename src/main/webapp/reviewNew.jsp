@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<jsp:useBean id="shopDetail" scope="request"
+	type="org.javatraining.entity.Shop" />
 <!DOCTYPE html>
 
 <html lang="ja">
@@ -25,9 +26,7 @@
           <input id="comment" name="comment" type="text" size=300 placeholder="コメント" />
         </p>
         <input type="hidden" name="userId" value=${user.userId } />
-        <input type="hidden" name="shopName" value=${shop.name } />
-        <input type="hidden" name="smallAreaCode" value=${shop.smallAreaCode } />
-        <input type="hidden" name="shopApiId" value=${shop.apiId } />
+        <input type="hidden" name="apiId" value=${apiId } />
         <p>
           <input type="submit" value="登録" />
         </p>
