@@ -2,8 +2,8 @@
 	pageEncoding="UTF-8"%>
 <jsp:useBean id="reviews" scope="request"
 	type="java.util.List<org.javatraining.entity.Review>" />
-<jsp:useBean id="apiId" scope="request"
-	type="java.util.List<org.javatraining.entity.Shop>" />
+<jsp:useBean id="shopDetail" scope="request"
+	type="org.javatraining.entity.Shop" />
 
 <!DOCTYPE html>
 
@@ -34,7 +34,6 @@
 						<div class="tab-pane fade show active" id="item1" role="tabpanel"
 							aria-labelledby="item1-tab">
 							<div data-spy="scroll" style="height: 400px; overflow: auto;">
-								<h3>詳細情報</h3>
 								<!--ここに店の情報入れる-->
 								<table>
 									<thead>
@@ -44,7 +43,19 @@
 									</thead>
 									<tbody>
 										<tr>
-											<td></td>
+											<td><%=shopDetail.getName()%></td>
+										</tr>
+										<tr>
+											<td><%=shopDetail.getAccess()%></td>
+										</tr>
+										<tr>
+											<td><%=shopDetail.getAddress()%></td>
+										</tr>
+										<tr>
+											<td><%=shopDetail.getCard()%></td>
+										</tr>
+										<tr>
+											<td><%=shopDetail.getCatchMessage()%></td>
 										</tr>
 									</tbody>
 								</table>
@@ -55,7 +66,6 @@
 							aria-labelledby="item2-tab">
 							<div data-spy="scroll" style="height: 400px; overflow: auto;">
 								<!--ここにレビュー入れる-->
-
 								<table>
 									<thead>
 										<tr>
@@ -76,22 +86,21 @@
 										%>
 									</tbody>
 								</table>
+								<!--ここまでレビュー-->
 							</div>
 						</div>
 					</div>
-				</div>
 
-				<div class="col">
-					<div id="map" style="width: 400px; height: 400px;"></div>
-				</div>
+					<div class="col">
+						<div id="map" style="width: 400px; height: 400px;"></div>
+					</div>
 
+				</div>
 			</div>
-		</div>
-		<div style="text-align: right">
-			<a href="control?action_name=review_new&id=1">新規レビューを投稿</a>
-		</div>
+			<div style="text-align: right">
+				<a href="control?action_name=review_new&id=1">新規レビューを投稿</a>
+			</div>
 	</main>
-	<!--ここまでレビュー-->
 	<!-- footer -->
 	<%@ include file="template/footer.jsp"%>
 

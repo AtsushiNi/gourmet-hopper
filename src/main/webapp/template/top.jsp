@@ -5,9 +5,14 @@
   type="java.util.List<org.javatraining.entity.Community>"
 />
 <jsp:useBean
-id="user"
-scope="session"
-class="org.javatraining.entity.User"
+	id="community"
+	scope="session"
+	class="org.javatraining.entity.Community"
+/>
+<jsp:useBean
+	id="user"
+	scope="session"
+	class="org.javatraining.entity.User"
 />
 
 <!-- Header Start -->

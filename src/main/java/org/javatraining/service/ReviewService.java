@@ -16,5 +16,16 @@ public class ReviewService {
 		System.out.println("[ReviewService.java:getReviews Start");
 		return dao.findAll();
 	}
+	
+	public List<Review> getReviewsByCommunityIdAndApiId(int communityId, String apiId) throws SQLException, NamingException{
+		System.out.println("[ReviewService.java:getReviewsByCommunityIdAndApiId Start");
+		return dao.findByCommunityIdAndApiId(communityId, apiId);
+	}
+	
+    // review情報を登録する
+    public boolean create(Review review) throws SQLException, NamingException {
+        System.out.println("[ReviewService.java]:create Start");
+    	return dao.create(review);
+    }
 
 }

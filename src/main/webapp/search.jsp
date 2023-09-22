@@ -33,17 +33,15 @@
                 <label for="tabaco">喫煙可</label>
                 <input type="checkbox" id="tabaco" name="tag" value="tabaco"><br>
               
-                <label for="banana">バナナ</label>
-                <input type="checkbox" id="banana" name="fruit" value="banana"><br>
+                <label for="free">飲み放題有り</label>
+                <input type="checkbox" id="free" name="tag"value="free"><br>
                 
-                <label for="orange">オレンジ</label>
-                <input type="checkbox" id="orange" name="fruit" value="orange"><br>
+                <label for="party">宴会席有り</label>
+                <input type="checkbox" id="party" name="tag" value="party"><br>
                 
-                <label for="grape">ぶどう</label>
-                <input type="checkbox" id="grape" name="fruit" value="grape"><br>
-                
-                <label for="strawberry">いちご</label>
-                <input type="checkbox" id="strawberry" name="fruit" value="strawberry"><br>
+                <label for="reservation">予約可</label>
+                <input type="checkbox" id="reservation" name="tag" value="reservation"><br>
+
               </form>
             </div>
           </div>
@@ -51,8 +49,8 @@
           <div class="col">
             <div id="shop-list" data-spy="scroll" style="height: 400px; overflow: auto;">
               <% for(int i = 0; i < shops.size(); i++) {%>
-                <div class="shadow-sm p-3 mb-2 bg-white rounded active-item" id=<%= shops.get(i).getApiId() %> >
-                  <a href="control?action_name=shop_detail&id=<%=shops.get(i).getApiId() %>"><%= shops.get(i).getName() %></a> 
+                <div class="shadow-sm p-3 mb-2 bg-white rounded active-item" id=<%= shops.get(i).getApiId() %>>
+                <a href="control?action_name=shop_detail&apiId=<%=shops.get(i).getApiId() %>"><%= shops.get(i).getName() %></a> 
                 </div>
               <% } %>
             </div>

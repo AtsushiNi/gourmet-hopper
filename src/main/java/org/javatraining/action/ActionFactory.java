@@ -29,6 +29,8 @@ public class ActionFactory {
             	return new ShopDetailAction();
             case "review_new":
             	return new ReviewNewAction();
+            case "review_create":
+            	return new ReviewCreateAction();
             default:
                 return null;
 
