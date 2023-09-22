@@ -62,34 +62,33 @@
 								<!--ここまで店の情報-->
 							</div>
 						</div>
-					</div>
-					<div class="tab-pane fade" id="item2" role="tabpanel" aria-labelledby="item2-tab">
-						<div data-spy="scroll" style="height: 400px; overflow: auto;">
-							<!--ここにレビュー入れる-->
-							<table>
-							<thead>
-								<tr>
-								<th>タイトル</th>
-								<th>コメント</th>
-								</tr>
-							</thead>
-							<tbody>
-								<% for(int i = 0; i < reviews.size(); i++) {%>
-								<tr>
-								<td>
-								<%= reviews.get(i).getTitle() %>
-								</td>
-								<td>
-								<%= reviews.get(i).getComment() %>
-								</td>
-								</tr>
-								<% } %>
-							</tbody>
-							</table>
-							<!--ここまでレビュー-->
+						<div class="tab-pane fade" id="item2" role="tabpanel" aria-labelledby="item2-tab">
+							<div data-spy="scroll" style="height: 400px; overflow: auto;">
+								<!--ここにレビュー入れる-->
+								<table>
+								<thead>
+									<tr>
+									<th>タイトル</th>
+									<th>コメント</th>
+									</tr>
+								</thead>
+								<tbody>
+									<% for(int i = 0; i < reviews.size(); i++) {%>
+									<tr>
+									<td>
+									<%= reviews.get(i).getTitle() %>
+									</td>
+									<td>
+									<%= reviews.get(i).getComment() %>
+									</td>
+									</tr>
+									<% } %>
+								</tbody>
+								</table>
+								<!--ここまでレビュー-->
+							</div>
 						</div>
 					</div>
-				</div>
 
 				<div class="col">
 					<div id="map" style="width: 400px; height: 400px;"></div>

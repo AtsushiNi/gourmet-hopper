@@ -35,14 +35,15 @@ public class ShopDetailAction extends Action {
     	//shopDetailの取得
     	Shop shopDetail = shopService.getShop(request);
         request.setAttribute("shopDetail", shopDetail);
+        System.out.println("[ShopDetailAction.java]: shopDetail "+ shopDetail);
         
     	//apiIdの取得
     	String apiId = shopDetail.getApiId();
-    	System.out.println("[ShopDetailAction.java]: shopDetail.getShopId() "+ apiId);
+    	System.out.println("[ShopDetailAction.java]: apiId "+ apiId);
     	
     	//communityIdとapiIdでDBからReviewをListで取得
     	List<Review> reviews = reviewService.getReviewsByCommunityIdAndApiId(communityId, apiId);
-    	System.out.println("[ShopDetailAction.java]: service.getReviewsByCommunityIdAndApiId "+ reviews);
+    	System.out.println("[ShopDetailAction.java]: reviews "+ reviews);
     	
     	//取得したReview型のListをRequestに格納
     	request.setAttribute("reviews", reviews);

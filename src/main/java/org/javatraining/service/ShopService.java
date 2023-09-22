@@ -40,6 +40,7 @@ public class ShopService {
 
 	public Shop getShop(HttpServletRequest request) {
 		String apiId = request.getParameter("apiId");
+		System.out.println("[ShopService.java] getShop :apiId "+ apiId);
 		Shop shopDetail = null;
 		try {
 			shopDetail = repository.getShopByApiId(apiId);
