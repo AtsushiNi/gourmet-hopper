@@ -29,6 +29,7 @@ public class TeamDAO {
         DataSource ds = DataSourceSupplier.getDataSource();
         try (Connection con = ds.getConnection();
                 PreparedStatement ps = con.prepareStatement(sql)) {
+        	ps.setInt(1, community.getCommunityId());
         	ResultSet rs = ps.executeQuery();
         	List<Team> teams = new ArrayList<>();
             // 検索結果をループしてチーム情報オブジェクトの List に格納
