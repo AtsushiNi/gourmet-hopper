@@ -129,7 +129,7 @@ public class ReviewDAO {
             	//　ReviewオブジェクトにSQLの結果を格納
             	review.setId(rs.getInt("REVIEWS.ID"));
             	review.setTitle(rs.getString("REVIEWS.TITLE"));
-            	review.setComment(rs.getString("REVIEWS.COMMENT"));
+            	review.setComment(rs.getString("REVIEWS.REVIEW"));
             	review.setUserId(rs.getInt("REVIEWS.USER_ID"));
             	review.setShopId(rs.getInt("REVIEWS.SHOP_ID"));
             	
@@ -180,7 +180,7 @@ public class ReviewDAO {
 
         System.out.println("[REVIEWDAO.java]:create Start");
         // INSERT INFO テーブルにデータを追加する SQL文
-        String sql = "INSERT INTO REVIEWS (TITLE, COMMENT, USER_ID, SHOP_ID) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO REVIEWS (TITLE, REVIEW, USER_ID, SHOP_ID) VALUES (?, ?, ?, ?)";
 
         // データソースを取得
         DataSource ds = DataSourceSupplier.getDataSource();
@@ -208,7 +208,7 @@ public class ReviewDAO {
     private Review createReview(ResultSet rs) throws SQLException {
         Review review = new Review();
         review.setTitle(rs.getString("TITLE"));
-        review.setComment(rs.getString("COMMENT"));
+        review.setComment(rs.getString("REVIEW"));
         review.setUserId(rs.getInt("USER_ID"));
         review.setShopId(rs.getInt("SHOP_ID"));
         return review;

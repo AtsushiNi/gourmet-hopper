@@ -5,9 +5,14 @@
   type="java.util.List<org.javatraining.entity.Community>"
 />
 <jsp:useBean
-id="user"
-scope="session"
-class="org.javatraining.entity.User"
+	id="community"
+	scope="session"
+	class="org.javatraining.entity.Community"
+/>
+<jsp:useBean
+	id="user"
+	scope="session"
+	class="org.javatraining.entity.User"
 />
 
 <!-- Header Start -->
@@ -21,7 +26,13 @@ class="org.javatraining.entity.User"
 		<input type="hidden" name="action_name" value="topcommunity">
 		<select id="communityNames" name="communityId">
 	      <% for(int i = 0; i < communities.size(); i++) {%>          
-	  	    <option value= <%= communities.get(i).getCommunityId()%> ><%= communities.get(i).getCommunityName() %></option>
+	  	    <option value= <%= communities.get(i).getCommunityId()%>
+	  	    	<%  String initial = "";
+	  	    		if(community.getCommunityName().equals(communities.get(i).getCommunityName()))
+	  	    		{initial = "selected";}
+	  	    	%>
+	  	    	<%= initial %>
+	  	    ><%= communities.get(i).getCommunityName() %></option>
 	      <% } %>
 	    </select>
 	    <input type="submit" value="確定">
