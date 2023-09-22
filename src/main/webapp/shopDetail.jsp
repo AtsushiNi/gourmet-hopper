@@ -24,14 +24,22 @@
 			<div class="row">
 				<div class="col">
 					<ul class="nav nav-tabs" role="tablist">
-						<li class="nav-item"><a class="nav-link active"
-							id="item1-tab" data-toggle="tab" href="#item1" role="tab"
-							aria-controls="item1" aria-selected="true">基本情報</a></li>
-						<li class="nav-item"><a class="nav-link" id="item2-tab"
-							data-toggle="tab" href="#item2" role="tab" aria-controls="item2"
-							aria-selected="false">みんなのレビュー</a></li>
+						<li class="nav-item">
+                            <a class="nav-link active"
+    							id="item1-tab" data-toggle="tab" href="#item1" role="tab"
+    							aria-controls="item1" aria-selected="true" style="color: inherit;">
+                                基本情報
+                            </a>
+                        </li>
+						<li class="nav-item">
+                            <a class="nav-link" id="item2-tab"
+							     data-toggle="tab" href="#item2" role="tab" aria-controls="item2"
+							     aria-selected="false" style="color: inherit;">
+                                  みんなのレビュー
+                            </a>
+                        </li>
 					</ul>
-					<div class="tab-content">
+					<div class="tab-content" style="border: 1px solid #dee2e6; border-radius: 0 10px;">
 						<div class="tab-pane fade show active" id="item1" role="tabpanel"
 							aria-labelledby="item1-tab">
 							<div data-spy="scroll" style="height: 400px; overflow: auto;">
@@ -91,16 +99,17 @@
 							</div>
 						</div>
 					</div>
-
-					<div class="col">
-						<div id="map" style="width: 400px; height: 400px;"></div>
-					</div>
-
+                </div>
+                
+				<div class="col">
+					<div id="map" class="ml-auto" style="width: 400px; height: 400px;"></div>
 				</div>
+
 			</div>
-			<div style="text-align: right">
-				<a href="control?action_name=review_new&apiId=${requestScope.shopDetail.apiId }">新規レビューを投稿</a>
-			</div>
+            <div class="row">
+  				<a class="btn btn-secondary ml-auto" href="control?action_name=review_new&apiId=${requestScope.shopDetail.apiId }">新規レビューを投稿</a>
+            </div>
+        </div>
 	</main>
 	<!-- footer -->
 	<%@ include file="template/footer.jsp"%>
