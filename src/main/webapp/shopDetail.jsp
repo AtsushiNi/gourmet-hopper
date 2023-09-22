@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+
 <jsp:useBean id="reviews" scope="request"
 	type="java.util.List<org.javatraining.entity.Review>" />
 <jsp:useBean id="shopDetail" scope="request"
 	type="org.javatraining.entity.Shop" />
 
-<!DOCTYPE html>
 
 <html lang="ja">
 <!-- head -->
@@ -104,8 +105,11 @@
 	<!-- footer -->
 	<%@ include file="template/footer.jsp"%>
 
-	<script
-		src="http://maps.google.com/maps/api/js?key=AIzaSyBYxzFJkG_P15cNs_NQzwCw9QktNHTIlvU&language=ja"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      let shopsJson = ${requestScope.shopsJson}
+    </script>
+	<script src="http://maps.google.com/maps/api/js?key=AIzaSyBYxzFJkG_P15cNs_NQzwCw9QktNHTIlvU&language=ja"></script>
 	<script src="js/googlemap.js"></script>
 </body>
 </html>
