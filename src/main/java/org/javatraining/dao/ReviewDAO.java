@@ -9,9 +9,7 @@ import java.util.List;
 
 import javax.naming.NamingException;
 import javax.sql.DataSource;
-import javax.validation.constraints.NotNull;
 
-import org.javatraining.entity.Community;
 import org.javatraining.entity.Review;
 
 
