@@ -14,11 +14,18 @@
 
     <main id="main">
       <div class="container" style="width: 80%;">
-        <c:forEach var="team" items="${teams}">
-          <div class="row">
-            <a class="col" href="control?action_name=team_detail&id=${team.id}">${team.name}</a>
+        <div class="row mt-5">
+          <h4 class="h4">グループ選択</h4>
+        </div>
+        <div class="row">
+          <div class="col ml-5">
+            <c:forEach var="team" items="${teams}">
+              <div class="row mt-4">
+                <a class="btn btn-secondary" style="width: 300px;" href="control?action_name=team_detail&id=${team.id}">${team.name}</a>
+              </div>
+            </c:forEach>
           </div>
-        </c:forEach>
+        </div>
       </div>
     </main>
     
