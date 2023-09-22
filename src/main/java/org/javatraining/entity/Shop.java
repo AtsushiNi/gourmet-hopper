@@ -16,6 +16,7 @@ public class Shop implements Serializable {
 	private String address;
 	private String card;
 	private String catchMessage;
+	private String photo;
 	
 	@NotNull
     @Size(max = 100, message= "店名は100文字以内にしてください。")
@@ -102,6 +103,14 @@ public class Shop implements Serializable {
 
 	public void setApiId(String apiId) {
 		this.apiId = apiId;
+	}
+
+	public String getPhoto() {
+		return photo;
+	}
+
+	public void setPhoto(String photo) {
+		this.photo = photo;
 	}
 
 	@Override

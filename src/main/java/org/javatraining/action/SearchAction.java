@@ -14,7 +14,7 @@ import org.json.JSONObject;
 
 // 一覧画面表示アクションクラス
 public class SearchAction extends Action {
-	private final ShopService service = new ShopService();
+	private final ShopService shopService = new ShopService();
 
 	@Override
     protected String processRequest(HttpServletRequest request) {
@@ -27,7 +27,7 @@ public class SearchAction extends Action {
 
         List<Shop> shops = null;
 		try {
-			shops = service.getShops(smallAreaCode,shopName);
+			shops = shopService.getShops(smallAreaCode,shopName);
 		} catch (SQLException | NamingException | IOException | InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -48,7 +48,7 @@ public class SearchAction extends Action {
         }
         request.setAttribute("shopsJson", jsonArray.toString());
         
-        System.out.println("[ShopShowAction.java]shops : " + shops);
+        System.out.println("[ShopShowAction.java]shops : " + shops); 
         // 遷移先のページを返す
         System.out.println("[ShopShowAction.java]: End");
  
