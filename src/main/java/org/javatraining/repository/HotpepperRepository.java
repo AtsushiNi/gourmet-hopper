@@ -57,8 +57,6 @@ public class HotpepperRepository {
 			// URLを組み立て
 			String baseURL = "https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=7eaca5563e5d7d8e";
 			URL url = null;
-			System.out.println("==============================================");
-			System.out.println(apiId);
 				url = new URL(baseURL + "&id=" + apiId + "&format=json");
 
 			// リクエスト実行

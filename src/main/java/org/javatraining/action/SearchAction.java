@@ -47,7 +47,7 @@ public class SearchAction extends Action {
         }
         request.setAttribute("shopsJson", jsonArray.toString());
         
-        System.out.println("shops : " + shops);
+        System.out.println("[ShopShowAction.java]shops : " + shops);
         // 遷移先のページを返す
         System.out.println("[ShopShowAction.java]: End");
  
