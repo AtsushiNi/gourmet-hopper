@@ -31,6 +31,9 @@
             <!-- TODO: 履歴一覧 -->
           </div>
         </div>
+        <div class="row">
+          <a class="btn btn-dark ml-auto" href="control?action_name=search">お店を選ぶ</a>
+        </div>
       </div>
     </main>
     

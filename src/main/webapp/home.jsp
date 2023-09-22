@@ -18,6 +18,7 @@
             <a
               class="shadow m-5 rounded action-card"
               href="control?action_name=search"
+              style="background: white;"
             >
               レビューを見る/書く
             </a>
@@ -26,6 +27,7 @@
             <a
               class="shadow m-5 rounded action-card"
               href="control?action_name=select_group_type"
+              style="background: white;"
             >
               飲み会を企画する
             </a>

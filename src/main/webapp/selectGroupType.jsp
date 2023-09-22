@@ -18,6 +18,7 @@
             <a
               class="shadow m-5 rounded action-card"
               href="control?action_name=team_list"
+              style="background: white;"
             >
               既存グループで企画
             </a>
@@ -25,6 +26,7 @@
           <div class="col-sm">
             <a
               class="shadow m-5 rounded action-card"
+              style="background: white;"
             >
               新規グループで企画
             </a>
