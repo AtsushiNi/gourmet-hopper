@@ -18,7 +18,7 @@
 <!-- Header Start -->
 <div id="header-div" class="d-flex flex-column flex-md-row align-items-center px-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
   <!-- ロゴ -->
-  <a href="control?action_name=show" >
+  <a href="control?action_name=home" >
     <img src="image/GourmetHopper.png" id="header-icon" />
   </a>
 
