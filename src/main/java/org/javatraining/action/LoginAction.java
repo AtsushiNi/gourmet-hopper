@@ -1,11 +1,13 @@
 package org.javatraining.action;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.javatraining.entity.Community;
 import org.javatraining.entity.User;
 import org.javatraining.service.CommunityService;
 import org.javatraining.service.UserService;
@@ -40,9 +42,16 @@ public class LoginAction extends Action {
             HttpSession session = request.getSession(true);
             session.setAttribute("user", user);
             
+            //ログイン中のユーザーが所属しているコミュニティ全てをList<Community>型でsessionに格納
             if (session == null || session.getAttribute("communities") == null) {
 	        	CommunityService cs = new CommunityService();
 	        	session.setAttribute("communities", cs.getCommunities(user.getUserId()));
+	        	
+	        	//コミュニティIDが一番小さいコミュニティを初期値としてsessionに格納
+	        	List<Community> communities = (List<Community>)session.getAttribute("communities");
+	        	Community firstCommunity = communities.get(0);
+	        	System.out.println("[LoginAction.java]: firstCommunity" + firstCommunity);
+	        	session.setAttribute("community", firstCommunity);
         	}
             
             System.out.println("[LoginAction.java]: End(該当ユーザあり)");

@@ -13,21 +13,16 @@ public class ActionFactory {
         switch (actionName) {
             case "login":
                 return new LoginAction();
+            case "logout":
+            	return new LogoutAction();
             case "search":
                 return new SearchAction();
-            case "regist":
-                return new BookAddAction();
-            case "edit":
-                return new BookEditAction();
-            case "delete_confirm":
-                return new BookDeleteConfirmAction();
-            case "delete":
-                return new BookDeleteAction();
             case "apicall":
                 return new ApiCallAction();
             case "imageshow":
                 return new ImageShowAction();
             case "imageupload":
+<<<<<<< HEAD
                 return new ImageUploadAction();    
             case "home":
             	return new HomeAction();
@@ -37,6 +32,17 @@ public class ActionFactory {
             	return new TeamListAction();
             case "team_detail":
             	return new TeamDetailAction();
+=======
+                return new ImageUploadAction();
+            case "topcommunity":
+            	return new TopCommunityAction();
+            case "shop_detail":
+            	return new ShopDetailAction();
+            case "review_new":
+            	return new ReviewNewAction();
+            case "review_create":
+            	return new ReviewCreateAction();
+>>>>>>> master
             default:
                 return null;
 

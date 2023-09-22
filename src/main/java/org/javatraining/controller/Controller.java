@@ -70,6 +70,8 @@ public class Controller extends HttpServlet {
             rd = request.getRequestDispatcher("login.jsp");
         }
         // 遷移先のページに遷移
+        System.out.println("[Controller.java]: request ="+request);
+        System.out.println("[Controller.java]: response ="+ response);
         rd.forward(request, response);
     }
 }
