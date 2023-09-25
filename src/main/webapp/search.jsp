@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ page import="java.util.List" %>
 <!DOCTYPE html>
 
 <jsp:useBean
@@ -63,8 +64,9 @@
               <% for(int i = 0; i < shops.size(); i++) {%>
                 <div class="shadow-sm p-3 mb-2 bg-white rounded active-item" id=<%= shops.get(i).getApiId() %>>
                 <a href="control?action_name=shop_detail&apiId=<%=shops.get(i).getApiId() %>"><%= shops.get(i).getName() %></a> 
-                <img src="<%=shops.get(i).getPhoto()%>"alt="サムネイル">
-                【予算】<%= shops.get(i).getBudgetAve() %>
+                <img src="<%=shops.get(i).getPhoto()%>"alt="サムネイル"><br>
+                【予算】<%= shops.get(i).getBudgetAve() %><br>
+                <%= shops.get(i).getReviewCount() %>件のレビューがあります。<br>
                 </div>
               <% } %>
             </div>

@@ -9,7 +9,7 @@ import javax.validation.constraints.Size;
 public class Shop implements Serializable {
 
 	@NotNull
-    private int id;
+    private int shopId;
 	private int reviewCount;
 	private String apiId;
 	private String smallAreaCode;
@@ -26,15 +26,15 @@ public class Shop implements Serializable {
 	
 	private double lat;
 	private double lng;
-
-    public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
 	
+	public int getShopId() {
+		return shopId;
+	}
+
+	public void setShopId(int shopId) {
+		this.shopId = shopId;
+	}
+
 	public int getReviewCount() {
 		return reviewCount;
 	}
@@ -134,7 +134,7 @@ public class Shop implements Serializable {
 	@Override
     public String toString() {
         return "Shop {" +
-                "id=" + id +
+                "shopId=" + shopId +
                 ", name='" + name + '\'' +
                 ", apiId'" + apiId + '\'' +
                 '}';

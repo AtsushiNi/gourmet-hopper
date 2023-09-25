@@ -20,10 +20,19 @@ public class ShopDAO {
 		System.out.println("[ShopDAO.java]:search Start");
 		String sql = null;
 		if (shopName != null) {
-			sql = "SELECT * FROM SHOPS WHERE NAME LIKE ? AND SMALL_AREA_CODE = ?";
+			sql = "SELECT SHOPS.*, COUNT(REVIEWS.ID) AS REVIEW_COUNT\r\n"
+					+ "FROM SHOPS\r\n"
+					+ "LEFT JOIN REVIEWS ON SHOPS.ID = REVIEWS.SHOP_ID\r\n"
+					+ "WHERE SHOPS.NAME LIKE ? AND SHOPS.SMALL_AREA_CODE = ?\r\n"
+					+ "GROUP BY SHOPS.ID, SHOPS.NAME";
 		} else {
-			sql = "SELECT * FROM SHOPS WHERE SMALL_AREA_CODE = ?";
+			sql = "SELECT SHOPS.*, COUNT(REVIEWS.ID) AS REVIEW_COUNT\r\n"
+					+ "FROM SHOPS\r\n"
+					+ "LEFT JOIN REVIEWS ON SHOPS.ID = REVIEWS.SHOP_ID\r\n"
+					+ "WHERE SHOPS.SMALL_AREA_CODE = ?\r\n"
+					+ "GROUP BY SHOPS.ID, SHOPS.NAME";
 		}
+		
 		// データソースを取得
 		DataSource ds = DataSourceSupplier.getDataSource();
 		try (Connection con = ds.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
@@ -139,9 +148,10 @@ public class ShopDAO {
 	private Shop createShop(ResultSet rs) throws SQLException {
 		Shop shop = new Shop();
 
-		shop.setId(rs.getInt("ID"));
+		shop.setShopId(rs.getInt("ID"));
 		shop.setName(rs.getString("NAME"));
 		shop.setApiId(rs.getString("API_ID"));
+		shop.setReviewCount(rs.getInt("REVIEW_COUNT"));
 		return shop;
 	}
 }
