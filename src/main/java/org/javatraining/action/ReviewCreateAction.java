@@ -2,6 +2,7 @@ package org.javatraining.action;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Objects;
 
 import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
@@ -37,7 +38,34 @@ public class ReviewCreateAction extends Action {
 		// レビュー情報オブジェクトの各フィールドを設定
 		String title = request.getParameter("title");
 		review.setTitle(title);
-
+		
+		int rating = Integer.parseInt(request.getParameter("rating"));
+		review.setRating(rating);
+		
+		String Budget = request.getParameter("budget");
+		review.setBudget(Budget);
+		
+		
+		String forParty = request.getParameter("forParty");
+		review.setForParty(Objects.isNull(forParty));
+		
+		String forReception = request.getParameter("forReception");
+		review.setForParty(Objects.isNull(forReception));
+		
+		String forDate = request.getParameter("forDate");
+		review.setForDate(Objects.isNull(forDate));
+		
+		String tabaco = request.getParameter("tabaco");
+		review.setTabaco(Objects.isNull(tabaco));
+		String free = request.getParameter("free");
+		review.setFree(Objects.isNull(free));
+		
+		String partySpace = request.getParameter("patrySpace");
+		review.setPartySpace(Objects.isNull(partySpace));
+		
+		String reservation = request.getParameter("reservation");
+		review.setReservation(Objects.isNull(reservation));
+		
 		String comment = request.getParameter("comment");
 		review.setComment(comment);
 
@@ -50,6 +78,7 @@ public class ReviewCreateAction extends Action {
 		// レビュー情報オブジェクトを返す
 		return review;
 	}
+	
 	
     protected Shop getOrCreateShop(HttpServletRequest request) throws SQLException, NamingException{
 

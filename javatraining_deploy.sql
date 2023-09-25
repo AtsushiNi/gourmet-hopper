@@ -41,6 +41,15 @@ CREATE TABLE COMMUNITIES_USERS(
 CREATE TABLE REVIEWS(
 	ID INT(10) AUTO_INCREMENT NOT NULL,
 	TITLE VARCHAR(40),
+	RATING INT(1),
+	BUDGET VARCHAR(30),
+	FORPARTY BOOLEAN,
+	FORRECEPTION BOOLEAN,
+	FORDATE BOOLEAN,
+	TABACO BOOLEAN,
+	FREE BOOLEAN,
+	PARTYSPACE BOOLEAN,
+	RESERVATION BOOLEAN,
 	REVIEW VARCHAR(300),
 	USER_ID INT(10) NOT NULL,
 	SHOP_ID INT(10) NOT NULL,
@@ -150,65 +159,65 @@ INSERT INTO COMMUNITIES_USERS VALUE(30,28,1);
 INSERT INTO COMMUNITIES_USERS VALUE(31,29,1);
 INSERT INTO COMMUNITIES_USERS VALUE(32,30,1);
 
-INSERT INTO REVIEWS VALUE(1, "Maison de MURA メゾン ド ムラ中野店のレビュー", "最高", 1, 1);
-INSERT INTO REVIEWS VALUE(2, "Maison de MURA メゾン ド ムラ中野店のレビュー", "最高", 2, 1);
-INSERT INTO REVIEWS VALUE(3, "Maison de MURA メゾン ド ムラ中野店のレビュー", "最高", 3, 1);
-INSERT INTO REVIEWS VALUE(4, "Maison de MURA メゾン ド ムラ中野店のレビュー", "最高", 4, 1);
-INSERT INTO REVIEWS VALUE(5, "Maison de MURA メゾン ド ムラ中野店のレビュー", "最高", 5, 1);
-INSERT INTO REVIEWS VALUE(6, "Maison de MURA メゾン ド ムラ中野店のレビュー", "最高", 6, 1);
-INSERT INTO REVIEWS VALUE(7, "Maison de MURA メゾン ド ムラ中野店のレビュー", "最高", 7, 1);
-INSERT INTO REVIEWS VALUE(8, "Maison de MURA メゾン ド ムラ中野店のレビュー", "最高", 8, 1);
-INSERT INTO REVIEWS VALUE(9, "Maison de MURA メゾン ド ムラ中野店のレビュー", "最高", 9, 1);
-INSERT INTO REVIEWS VALUE(10, "Maison de MURA メゾン ド ムラ中野店のレビュー", "最高", 10, 1);
-INSERT INTO REVIEWS VALUE(11, "Maison de MURA メゾン ド ムラ中野店のレビュー", "最高", 11, 1);
-INSERT INTO REVIEWS VALUE(12, "Maison de MURA メゾン ド ムラ中野店のレビュー", "最高", 12, 1);
-INSERT INTO REVIEWS VALUE(13, "Maison de MURA メゾン ド ムラ中野店のレビュー", "まあまあ。", 13, 1);
-INSERT INTO REVIEWS VALUE(14, "Maison de MURA メゾン ド ムラ中野店のレビュー", "良き", 14, 1);
-INSERT INTO REVIEWS VALUE(15, "Maison de MURA メゾン ド ムラ中野店のレビュー", "良き", 15, 1);
-INSERT INTO REVIEWS VALUE(16, "Maison de MURA メゾン ド ムラ中野店のレビュー", "まあまあ。", 16, 1);
-INSERT INTO REVIEWS VALUE(17, "Maison de MURA メゾン ド ムラ中野店のレビュー", "良き", 17, 1);
-INSERT INTO REVIEWS VALUE(18, "Maison de MURA メゾン ド ムラ中野店のレビュー", "良き", 18, 1);
-INSERT INTO REVIEWS VALUE(19, "Maison de MURA メゾン ド ムラ中野店のレビュー", "もう行かない", 19, 1);
-INSERT INTO REVIEWS VALUE(20, "Maison de MURA メゾン ド ムラ中野店のレビュー", "微妙", 20, 1);
-INSERT INTO REVIEWS VALUE(21, "Maison de MURA メゾン ド ムラ中野店のレビュー", "また行く", 25, 1);
-INSERT INTO REVIEWS VALUE(22, "Maison de MURA メゾン ド ムラ中野店のレビュー", "まあまあ。", 26, 1);
-INSERT INTO REVIEWS VALUE(23, "Maison de MURA メゾン ド ムラ中野店のレビュー", "良き", 27, 1);
-INSERT INTO REVIEWS VALUE(24, "Maison de MURA メゾン ド ムラ中野店のレビュー", "良き", 28, 1);
-INSERT INTO REVIEWS VALUE(25, "アティックルーム 中野のレビュー", "まあまあ。", 2, 2);
-INSERT INTO REVIEWS VALUE(26, "アティックルーム 中野のレビュー", "良き", 3, 2);
-INSERT INTO REVIEWS VALUE(27, "アティックルーム 中野のレビュー", "良き", 4, 2);
-INSERT INTO REVIEWS VALUE(28, "アティックルーム 中野のレビュー", "もう行かない", 5, 2);
-INSERT INTO REVIEWS VALUE(29, "アティックルーム 中野のレビュー", "微妙", 6, 2);
-INSERT INTO REVIEWS VALUE(30, "アティックルーム 中野のレビュー", "また行く", 7, 2);
-INSERT INTO REVIEWS VALUE(31, "アティックルーム 中野のレビュー", "まあまあ。", 8, 2);
-INSERT INTO REVIEWS VALUE(32, "アティックルーム 中野のレビュー", "良き", 9, 2);
-INSERT INTO REVIEWS VALUE(33, "アティックルーム 中野のレビュー", "良き", 10, 2);
-INSERT INTO REVIEWS VALUE(34, "アティックルーム 中野のレビュー", "もう行かない", 11, 2);
-INSERT INTO REVIEWS VALUE(35, "アティックルーム 中野のレビュー", "微妙", 12, 2);
-INSERT INTO REVIEWS VALUE(36, "アティックルーム 中野のレビュー", "また行く", 13, 2);
-INSERT INTO REVIEWS VALUE(37, "アティックルーム 中野のレビュー", "まあまあ。", 16, 2);
-INSERT INTO REVIEWS VALUE(38, "アティックルーム 中野のレビュー", "良き", 17, 2);
-INSERT INTO REVIEWS VALUE(39, "アティックルーム 中野のレビュー", "良き", 18, 2);
-INSERT INTO REVIEWS VALUE(40, "アティックルーム 中野のレビュー", "もう行かない", 25, 2);
-INSERT INTO REVIEWS VALUE(41, "アティックルーム 中野のレビュー", "微妙", 26, 2);
-INSERT INTO REVIEWS VALUE(42, "0秒レモンサワー 仙台ホルモン焼肉酒場 ときわ亭 中野店のレビュー", "まあまあ。", 2, 3);
-INSERT INTO REVIEWS VALUE(43, "0秒レモンサワー 仙台ホルモン焼肉酒場 ときわ亭 中野店のレビュー", "良き", 3, 3);
-INSERT INTO REVIEWS VALUE(44, "0秒レモンサワー 仙台ホルモン焼肉酒場 ときわ亭 中野店のレビュー", "良き", 4, 3);
-INSERT INTO REVIEWS VALUE(45, "0秒レモンサワー 仙台ホルモン焼肉酒場 ときわ亭 中野店のレビュー", "まあまあ。", 5, 3);
-INSERT INTO REVIEWS VALUE(46, "0秒レモンサワー 仙台ホルモン焼肉酒場 ときわ亭 中野店のレビュー", "良き", 6, 3);
-INSERT INTO REVIEWS VALUE(47, "0秒レモンサワー 仙台ホルモン焼肉酒場 ときわ亭 中野店のレビュー", "良き", 7, 3);
-INSERT INTO REVIEWS VALUE(48, "0秒レモンサワー 仙台ホルモン焼肉酒場 ときわ亭 中野店のレビュー", "もう行かない", 8, 3);
-INSERT INTO REVIEWS VALUE(49, "0秒レモンサワー 仙台ホルモン焼肉酒場 ときわ亭 中野店のレビュー", "微妙", 9, 3);
-INSERT INTO REVIEWS VALUE(50, "0秒レモンサワー 仙台ホルモン焼肉酒場 ときわ亭 中野店のレビュー", "また行く", 10, 3);
-INSERT INTO REVIEWS VALUE(51, "【全席喫煙可能】 イタめし酒場Viva (ビバ)のレビュー", "まあまあ。", 2, 4);
-INSERT INTO REVIEWS VALUE(52, "【全席喫煙可能】 イタめし酒場Viva (ビバ)のレビュー", "良き", 3, 4);
-INSERT INTO REVIEWS VALUE(53, "【全席喫煙可能】 イタめし酒場Viva (ビバ)のレビュー", "良き", 4, 4);
-INSERT INTO REVIEWS VALUE(54, "【全席喫煙可能】 イタめし酒場Viva (ビバ)のレビュー", "まあまあ。", 5, 4);
-INSERT INTO REVIEWS VALUE(55, "【全席喫煙可能】 イタめし酒場Viva (ビバ)のレビュー", "良き", 6, 4);
-INSERT INTO REVIEWS VALUE(56, "【全席喫煙可能】 イタめし酒場Viva (ビバ)のレビュー", "良き", 7, 4);
-INSERT INTO REVIEWS VALUE(57, "豊洲市場 さかな酒場 魚星中野駅 北口店のレビュー", "まあまあ。", 2, 5);
-INSERT INTO REVIEWS VALUE(58, "豊洲市場 さかな酒場 魚星中野駅 北口店のレビュー", "良き", 3, 5);
-INSERT INTO REVIEWS VALUE(59, "豊洲市場 さかな酒場 魚星中野駅 北口店のレビュー", "良き", 4, 5);
+INSERT INTO REVIEWS VALUE(1, "Maison de MURA メゾン ド ムラ中野店のレビュー", 5, "￥4,000~5,000", TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, "最高", 1, 1);
+INSERT INTO REVIEWS VALUE(2, "Maison de MURA メゾン ド ムラ中野店のレビュー", 5, "￥4,000~5,000", TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, "最高", 2, 1);
+INSERT INTO REVIEWS VALUE(3, "Maison de MURA メゾン ド ムラ中野店のレビュー", 5, "￥4,000~5,000", TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, "最高", 3, 1);
+INSERT INTO REVIEWS VALUE(4, "Maison de MURA メゾン ド ムラ中野店のレビュー", 5, "￥4,000~5,000", TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, "最高", 4, 1);
+INSERT INTO REVIEWS VALUE(5, "Maison de MURA メゾン ド ムラ中野店のレビュー", 5, "￥4,000~5,000", TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, "最高", 5, 1);
+INSERT INTO REVIEWS VALUE(6, "Maison de MURA メゾン ド ムラ中野店のレビュー", 5, "￥4,000~5,000", TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, "最高", 6, 1);
+INSERT INTO REVIEWS VALUE(7, "Maison de MURA メゾン ド ムラ中野店のレビュー", 5, "￥4,000~5,000", TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, "最高", 7, 1);
+INSERT INTO REVIEWS VALUE(8, "Maison de MURA メゾン ド ムラ中野店のレビュー", 5, "￥4,000~5,000", TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, "最高", 8, 1);
+INSERT INTO REVIEWS VALUE(9, "Maison de MURA メゾン ド ムラ中野店のレビュー", 5, "￥4,000~5,000", TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, "最高", 9, 1);
+INSERT INTO REVIEWS VALUE(10, "Maison de MURA メゾン ド ムラ中野店のレビュー", 5, "￥4,000~5,000", TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, "最高", 10, 1);
+INSERT INTO REVIEWS VALUE(11, "Maison de MURA メゾン ド ムラ中野店のレビュー", 5, "￥4,000~5,000", TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, "最高", 11, 1);
+INSERT INTO REVIEWS VALUE(12, "Maison de MURA メゾン ド ムラ中野店のレビュー", 5, "￥5,000~6,000", TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, "最高", 12, 1);
+INSERT INTO REVIEWS VALUE(13, "Maison de MURA メゾン ド ムラ中野店のレビュー", 3, "￥5,000~6,000", TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, "まあまあ。", 13, 1);
+INSERT INTO REVIEWS VALUE(14, "Maison de MURA メゾン ド ムラ中野店のレビュー", 4, "￥5,000~6,000", TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, "良き", 14, 1);
+INSERT INTO REVIEWS VALUE(15, "Maison de MURA メゾン ド ムラ中野店のレビュー", 4, "￥3,000~4,000", TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, "良き", 15, 1);
+INSERT INTO REVIEWS VALUE(16, "Maison de MURA メゾン ド ムラ中野店のレビュー", 3, "￥3,000~4,000", TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, "まあまあ。", 16, 1);
+INSERT INTO REVIEWS VALUE(17, "Maison de MURA メゾン ド ムラ中野店のレビュー", 4, "￥3,000~4,000", TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, "良き", 17, 1);
+INSERT INTO REVIEWS VALUE(18, "Maison de MURA メゾン ド ムラ中野店のレビュー", 4, "￥2,000~3,000", TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, "良き", 18, 1);
+INSERT INTO REVIEWS VALUE(19, "Maison de MURA メゾン ド ムラ中野店のレビュー", 1, "￥2,000~3,000", TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, "もう行かない", 19, 1);
+INSERT INTO REVIEWS VALUE(20, "Maison de MURA メゾン ド ムラ中野店のレビュー", 2, "￥3,000~4,000", TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, "微妙", 20, 1);
+INSERT INTO REVIEWS VALUE(21, "Maison de MURA メゾン ド ムラ中野店のレビュー", 4, "￥3,000~4,000", TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, "また行く", 25, 1);
+INSERT INTO REVIEWS VALUE(22, "Maison de MURA メゾン ド ムラ中野店のレビュー", 3, "￥6,000~8,000", TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, "まあまあ。", 26, 1);
+INSERT INTO REVIEWS VALUE(23, "Maison de MURA メゾン ド ムラ中野店のレビュー", 4, "￥6,000~8,000", TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, "良き", 27, 1);
+INSERT INTO REVIEWS VALUE(24, "Maison de MURA メゾン ド ムラ中野店のレビュー", 4, "￥6,000~8,000", TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, "良き", 28, 1);
+INSERT INTO REVIEWS VALUE(25, "アティックルーム 中野のレビュー", 3, "￥8,000~10,000", TRUE, TRUE, TRUE, TRUE, FALSE, FALSE, TRUE, "まあまあ。", 2, 2);
+INSERT INTO REVIEWS VALUE(26, "アティックルーム 中野のレビュー", 4, "￥8,000~10,000", TRUE, TRUE, TRUE, TRUE, FALSE, FALSE, TRUE,"良き", 3, 2);
+INSERT INTO REVIEWS VALUE(27, "アティックルーム 中野のレビュー", 4, "￥8,000~10,000", TRUE, TRUE, TRUE, TRUE, FALSE, FALSE, TRUE, "良き", 4, 2);
+INSERT INTO REVIEWS VALUE(28, "アティックルーム 中野のレビュー", 1, "￥8,000~10,000", TRUE, TRUE, TRUE, TRUE, FALSE, FALSE, TRUE, "もう行かない", 5, 2);
+INSERT INTO REVIEWS VALUE(29, "アティックルーム 中野のレビュー", 2, "￥8,000~10,000", TRUE, TRUE, TRUE, TRUE, FALSE, FALSE, TRUE, "微妙", 6, 2);
+INSERT INTO REVIEWS VALUE(30, "アティックルーム 中野のレビュー", 4, "￥6,000~8,000", TRUE, TRUE, TRUE, TRUE, FALSE, FALSE, TRUE, "また行く", 7, 2);
+INSERT INTO REVIEWS VALUE(31, "アティックルーム 中野のレビュー", 3, "￥6,000~8,000", TRUE, TRUE, TRUE, TRUE, FALSE, FALSE, TRUE, "まあまあ。", 8, 2);
+INSERT INTO REVIEWS VALUE(32, "アティックルーム 中野のレビュー", 4, "￥6,000~8,000", TRUE, TRUE, TRUE, TRUE, FALSE, FALSE, TRUE, "良き", 9, 2);
+INSERT INTO REVIEWS VALUE(33, "アティックルーム 中野のレビュー", 4, "￥6,000~8,000", TRUE, TRUE, TRUE, TRUE, FALSE, FALSE, TRUE, "良き", 10, 2);
+INSERT INTO REVIEWS VALUE(34, "アティックルーム 中野のレビュー", 1, "￥6,000~8,000", TRUE, TRUE, TRUE, TRUE, FALSE, FALSE, TRUE, "もう行かない", 11, 2);
+INSERT INTO REVIEWS VALUE(35, "アティックルーム 中野のレビュー", 2, "￥6,000~8,000", TRUE, TRUE, TRUE, TRUE, FALSE, FALSE, TRUE, "微妙", 12, 2);
+INSERT INTO REVIEWS VALUE(36, "アティックルーム 中野のレビュー", 4, "￥6,000~8,000", TRUE, TRUE, TRUE, TRUE, FALSE, FALSE, TRUE, "また行く", 13, 2);
+INSERT INTO REVIEWS VALUE(37, "アティックルーム 中野のレビュー", 3, "￥10,000~15,000", TRUE, TRUE, TRUE, TRUE, FALSE, FALSE, TRUE, "まあまあ。", 16, 2);
+INSERT INTO REVIEWS VALUE(38, "アティックルーム 中野のレビュー", 4, "￥10,000~15,000", TRUE, TRUE, TRUE, TRUE, FALSE, FALSE, TRUE, "良き", 17, 2);
+INSERT INTO REVIEWS VALUE(39, "アティックルーム 中野のレビュー", 4, "￥5,000~6,000", TRUE, TRUE, TRUE, TRUE, FALSE, FALSE, TRUE, "良き", 18, 2);
+INSERT INTO REVIEWS VALUE(40, "アティックルーム 中野のレビュー", 1, "￥5,000~6,000", TRUE, TRUE, TRUE, TRUE, FALSE, FALSE, TRUE, "もう行かない", 25, 2);
+INSERT INTO REVIEWS VALUE(41, "アティックルーム 中野のレビュー", 2, "￥5,000~6,000", TRUE, TRUE, TRUE, TRUE, FALSE, FALSE, TRUE, "微妙", 26, 2);
+INSERT INTO REVIEWS VALUE(42, "0秒レモンサワー 仙台ホルモン焼肉酒場 ときわ亭 中野店のレビュー", 3, "￥3,000~4,000", TRUE, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE, "まあまあ。", 2, 3);
+INSERT INTO REVIEWS VALUE(43, "0秒レモンサワー 仙台ホルモン焼肉酒場 ときわ亭 中野店のレビュー", 4, "￥3,000~4,000", TRUE, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE, "良き", 3, 3);
+INSERT INTO REVIEWS VALUE(44, "0秒レモンサワー 仙台ホルモン焼肉酒場 ときわ亭 中野店のレビュー", 4, "￥3,000~4,000", TRUE, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE, "良き", 4, 3);
+INSERT INTO REVIEWS VALUE(45, "0秒レモンサワー 仙台ホルモン焼肉酒場 ときわ亭 中野店のレビュー", 3, "￥3,000~4,000", TRUE, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE, "まあまあ。", 5, 3);
+INSERT INTO REVIEWS VALUE(46, "0秒レモンサワー 仙台ホルモン焼肉酒場 ときわ亭 中野店のレビュー", 4, "￥4,000~5,000", TRUE, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE, "良き", 6, 3);
+INSERT INTO REVIEWS VALUE(47, "0秒レモンサワー 仙台ホルモン焼肉酒場 ときわ亭 中野店のレビュー", 4, "￥4,000~5,000", TRUE, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE, "良き", 7, 3);
+INSERT INTO REVIEWS VALUE(48, "0秒レモンサワー 仙台ホルモン焼肉酒場 ときわ亭 中野店のレビュー", 1, "￥4,000~5,000", TRUE, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE, "もう行かない", 8, 3);
+INSERT INTO REVIEWS VALUE(49, "0秒レモンサワー 仙台ホルモン焼肉酒場 ときわ亭 中野店のレビュー", 2, "￥2,000~3,000", TRUE, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE, "微妙", 9, 3);
+INSERT INTO REVIEWS VALUE(50, "0秒レモンサワー 仙台ホルモン焼肉酒場 ときわ亭 中野店のレビュー", 4, "￥2,000~3,000", TRUE, TRUE, TRUE, FALSE, FALSE, TRUE, TRUE, "また行く", 10, 3);
+INSERT INTO REVIEWS VALUE(51, "【全席喫煙可能】 イタめし酒場Viva (ビバ)のレビュー", 3, "￥2,000~3,000", TRUE, TRUE, TRUE, FALSE, TRUE, TRUE, FALSE, "まあまあ。", 2, 4);
+INSERT INTO REVIEWS VALUE(52, "【全席喫煙可能】 イタめし酒場Viva (ビバ)のレビュー", 4, "￥2,000~3,000", TRUE, TRUE, TRUE, FALSE, TRUE, TRUE, FALSE, "良き", 3, 4);
+INSERT INTO REVIEWS VALUE(53, "【全席喫煙可能】 イタめし酒場Viva (ビバ)のレビュー", 4, "￥2,000~3,000", TRUE, TRUE, TRUE, FALSE, TRUE, TRUE, FALSE, "良き", 4, 4);
+INSERT INTO REVIEWS VALUE(54, "【全席喫煙可能】 イタめし酒場Viva (ビバ)のレビュー", 3, "￥3,000~4,000", TRUE, TRUE, TRUE, FALSE, TRUE, TRUE, FALSE, "まあまあ。", 5, 4);
+INSERT INTO REVIEWS VALUE(55, "【全席喫煙可能】 イタめし酒場Viva (ビバ)のレビュー", 4, "￥3,000~4,000", TRUE, TRUE, TRUE, FALSE, TRUE, TRUE, FALSE, "良き", 6, 4);
+INSERT INTO REVIEWS VALUE(56, "【全席喫煙可能】 イタめし酒場Viva (ビバ)のレビュー", 4, "￥1,000~2,000", TRUE, TRUE, TRUE, FALSE, TRUE, TRUE, FALSE, "良き", 7, 4);
+INSERT INTO REVIEWS VALUE(57, "豊洲市場 さかな酒場 魚星中野駅 北口店のレビュー", 4, "￥1,000~2,000", TRUE, TRUE, TRUE, FALSE, TRUE, FALSE, FALSE, "まあまあ。", 2, 5);
+INSERT INTO REVIEWS VALUE(58, "豊洲市場 さかな酒場 魚星中野駅 北口店のレビュー", 4, "￥3,000~4,000", TRUE, TRUE, TRUE, FALSE, TRUE, FALSE, FALSE, "良き", 3, 5);
+INSERT INTO REVIEWS VALUE(59, "豊洲市場 さかな酒場 魚星中野駅 北口店のレビュー", 4, "￥3,000~4,000", TRUE, TRUE, TRUE, FALSE, TRUE, FALSE, FALSE, "良き", 4, 5);
 
 INSERT INTO TEAMS VALUE(1,"中野支店 取引先課",3);
 INSERT INTO TEAMS VALUE(2,"システム部同期Gr",3);
