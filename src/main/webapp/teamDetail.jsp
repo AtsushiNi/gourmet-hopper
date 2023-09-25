@@ -14,25 +14,34 @@
 
     <main id="main">
       <div class="container" style="width: 80%;">
-        <div class="row">
-          <h2>グループ詳細</h2>
+        <div class="row mt-5">
+          <div class="col-sm">
+            <h4 class="h4">グループ名</h4>
+            <div class="ml-4 mt-5">${requestScope.team.name}</div>
+          </div>
+          <div class="col-sm">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>名前</th>
+                  <th>好きなもの</th>
+                  <th>苦手なもの</th>
+                </tr>
+              </thead>
+              <tbody>
+                <c:forEach var="user" items="${users}">
+                  <tr>
+                    <td>${user.userName}</td>
+                    <td>${user.likeFood}</td>
+                    <td>${user.dislikeFood}</td>
+                  </tr>
+                </c:forEach>
+              </tbody>
+            </table>
+          </div>
         </div>
         <div class="row">
-          <div class="col-sm">
-            <h4>グループ名</h4>
-            <div>${requestScope.team.name}</div>
-          </div>
-          <div class="col-sm">
-            <c:forEach var="user" items="${users}">
-              <div class="row">${user.userName}</div>
-            </c:forEach>
-          </div>
-          <div class="col-sm">
-            <!-- TODO: 履歴一覧 -->
-          </div>
-        </div>
-        <div class="row">
-          <a class="btn btn-dark ml-auto" href="control?action_name=search">お店を選ぶ</a>
+          <a class="btn btn-dark ml-auto" href="control?action_name=shops_with_team&teamId=${requestScope.team.id}">お店を選ぶ</a>
         </div>
       </div>
     </main>
