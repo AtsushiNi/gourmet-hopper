@@ -10,6 +10,7 @@ public class Shop implements Serializable {
 
 	@NotNull
     private int id;
+	private int reviewCount;
 	private String apiId;
 	private String smallAreaCode;
 	private String access;
@@ -17,6 +18,7 @@ public class Shop implements Serializable {
 	private String card;
 	private String catchMessage;
 	private String photo;
+	private String budgetAve;
 	
 	@NotNull
     @Size(max = 100, message= "店名は100文字以内にしてください。")
@@ -31,6 +33,14 @@ public class Shop implements Serializable {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+	
+	public int getReviewCount() {
+		return reviewCount;
+	}
+
+	public void setReviewCount(int reviewCount) {
+		this.reviewCount = reviewCount;
 	}
 
 	public String getName() {
@@ -111,6 +121,14 @@ public class Shop implements Serializable {
 
 	public void setPhoto(String photo) {
 		this.photo = photo;
+	}
+
+	public String getBudgetAve() {
+		return budgetAve;
+	}
+
+	public void setBudgetAve(String budgetAve) {
+		this.budgetAve = budgetAve;
 	}
 
 	@Override

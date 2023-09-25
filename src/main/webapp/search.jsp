@@ -59,18 +59,19 @@
           </div>
 
           <div class="col">
-            <div id="shop-list" data-spy="scroll" style="height: 400px; overflow: auto;">
+            <div id="shop-list" data-spy="scroll" style="height: 450px; overflow: auto; margin-top: 30px;">
               <% for(int i = 0; i < shops.size(); i++) {%>
                 <div class="shadow-sm p-3 mb-2 bg-white rounded active-item" id=<%= shops.get(i).getApiId() %>>
                 <a href="control?action_name=shop_detail&apiId=<%=shops.get(i).getApiId() %>"><%= shops.get(i).getName() %></a> 
                 <img src="<%=shops.get(i).getPhoto()%>"alt="サムネイル">
+                【予算】<%= shops.get(i).getBudgetAve() %>
                 </div>
               <% } %>
             </div>
           </div>
 
           <div class="col">
-            <div id="map" style="width: 400px; height: 400px;"></div>
+            <div id="map" style="width: 400px; height: 450px; margin-top: 30px;"></div>
           </div>
         </div>
       </div>

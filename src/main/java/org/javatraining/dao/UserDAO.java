@@ -7,6 +7,7 @@ import java.sql.SQLException;
 
 import javax.naming.NamingException;
 import javax.sql.DataSource;
+
 import org.javatraining.entity.User;
 
 // ユーザマスタへのアクセスを行うクラス
@@ -17,7 +18,7 @@ public class UserDAO {
     public User findByCredential(String userName, String password) throws SQLException, NamingException {
 
     	System.out.println("[UserDAO.java]:findByCredential Start");
-        String sql = "SELECT ID,NAME,PASSWORD FROM USERS WHERE NAME = ? AND PASSWORD = ? ";
+        String sql = "SELECT * FROM USERS WHERE NAME = ? AND PASSWORD = ? ";
 
         // データソースを取得
         DataSource ds = DataSourceSupplier.getDataSource();
@@ -41,6 +42,9 @@ public class UserDAO {
                 user.setUserId(rs.getInt("ID"));
                 user.setUserName(rs.getString("NAME"));
                 user.setPassword(rs.getString("PASSWORD"));
+                user.setEmail(rs.getString("EMAIL"));
+                user.setLikeFood(rs.getString("LIKE_FOOD"));
+                user.setDislikeFood(rs.getString("DISLIKE_FOOD"));
                 
             	System.out.println("[UserDAO.java]:findByCredential SQL実行結果 :"+ user);
                 return user;

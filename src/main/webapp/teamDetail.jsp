@@ -16,20 +16,23 @@
       <div class="container" style="width: 80%;">
         <div class="row mt-5">
           <div class="col-sm">
-            <h4 class="h4">グループ名</h4>
-            <div class="ml-4 mt-5">${requestScope.team.name}</div>
+            <h4 class="h4 ml-4">${requestScope.team.name}</h4>
           </div>
           <div class="col-sm">
             <table class="table">
               <thead>
                 <tr>
                   <th>名前</th>
+                  <th>好きなもの</th>
+                  <th>苦手なもの</th>
                 </tr>
               </thead>
               <tbody>
                 <c:forEach var="user" items="${users}">
                   <tr>
                     <td>${user.userName}</td>
+                    <td>${user.likeFood}</td>
+                    <td>${user.dislikeFood}</td>
                   </tr>
                 </c:forEach>
               </tbody>
@@ -37,7 +40,7 @@
           </div>
         </div>
         <div class="row">
-          <a class="btn btn-dark ml-auto" href="control?action_name=search">お店を選ぶ</a>
+          <a class="btn btn-dark ml-auto" href="control?action_name=shops_with_team&teamId=${requestScope.team.id}">お店を選ぶ</a>
         </div>
       </div>
     </main>

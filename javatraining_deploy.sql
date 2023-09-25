@@ -7,7 +7,6 @@ CREATE TABLE SHOPS(
     NAME VARCHAR(30) NOT NULL,
     SMALL_AREA_CODE VARCHAR(30) ,
     API_ID VARCHAR(30) ,
-    PHOTO VARCHAR(300),
     LAT DOUBLE,
     LNG DOUBLE,
     PRIMARY KEY (ID)
@@ -17,6 +16,9 @@ CREATE TABLE USERS(
     ID INT(10) AUTO_INCREMENT NOT NULL, 
     NAME VARCHAR(30) NOT NULL,
     PASSWORD VARCHAR(30) NOT NULL,
+    EMAIL VARCHAR(100),
+    LIKE_FOOD VARCHAR(100),
+    DISLIKE_FOOD VARCHAR(100),
     PRIMARY KEY (ID)
     );
     
@@ -82,42 +84,43 @@ CREATE TABLE EVENTS(
     FOREIGN KEY (SHOP_ID) REFERENCES SHOPS (ID)
 	);
 
-INSERT INTO USERS VALUE(1,"Takei","takei");
-INSERT INTO USERS VALUE(2,"Suzuki","suzuki");
-INSERT INTO USERS VALUE(3,"Ozaki","ozaki");
-INSERT INTO USERS VALUE(4,"Sasaki","sasaki");
-INSERT INTO USERS VALUE(5,"Murata","murata");
-INSERT INTO USERS VALUE(6,"Okada","okada");
-INSERT INTO USERS VALUE(7,"Nomura","nomura");
-INSERT INTO USERS VALUE(8,"Matsumoto","matsumoto");
-INSERT INTO USERS VALUE(9,"Inoue","inoue");
-INSERT INTO USERS VALUE(10,"Yoshida","yoshida");
-INSERT INTO USERS VALUE(11,"Fujimoto","fujimoto");
-INSERT INTO USERS VALUE(12,"Kawaguchi","kawaguchi");
-INSERT INTO USERS VALUE(13,"Okamoto","okamoto");
-INSERT INTO USERS VALUE(14,"Morita","morita");
-INSERT INTO USERS VALUE(15,"Shimizu","shimizu");
-INSERT INTO USERS VALUE(16,"Nakata","nakata");
-INSERT INTO USERS VALUE(17,"Ogawa","ogawa");
-INSERT INTO USERS VALUE(18,"Tamura","tamura");
-INSERT INTO USERS VALUE(19,"Kikuchi","kikuchi");
-INSERT INTO USERS VALUE(20,"Sugiyama","sugiyama");
-INSERT INTO USERS VALUE(21,"Takagi","takagi");
-INSERT INTO USERS VALUE(22,"Aoki","aoki");
-INSERT INTO USERS VALUE(23,"Takahashi","takahashi");
-INSERT INTO USERS VALUE(24,"Tanaka","tanaka");
-INSERT INTO USERS VALUE(25,"Yamamoto","yamamoto");
-INSERT INTO USERS VALUE(26,"Sato","sato");
-INSERT INTO USERS VALUE(27,"Nakamura","nakamura");
-INSERT INTO USERS VALUE(28,"Ito","ito");
-INSERT INTO USERS VALUE(29,"Watanabe","watanabe");
-INSERT INTO USERS VALUE(30,"Kato","kato");
+INSERT INTO USERS VALUES
+	(1,"武井 凱","takei", "takei@test.com", "ビール, ワイン, 中華", "日本酒, 刺身"),
+	(2, "鈴木 佳子", "suzuki", "suzuki@test.com", "ビール, 中華", "刺身"),
+	(3, "尾崎 寛人", "ozaki", "ozaki@test.com", "ビール, ワイン, 焼き鳥", "日本酒, ホルモン"),
+	(4, "佐々木 美咲", "sasaki", "sasaki@test.com", "ビール, 中華", "刺身"),
+	(5, "村田 雄大", "murata", "murata@test.com", "焼き鳥", "ビール"),
+	(6, "岡田 恵美", "okada", "okada@test.com", "ビール, ワイン, 中華", "日本酒, ホルモン"),
+	(7, "野村 健太", "nomura", "nomura@test.com", "ビール", "刺身"),
+	(8, "松本 亜美", "matsumoto", "matsumoto@test.com", "ビール, ワイン", "刺身"),
+	(9, "井上 大輝", "inoue", "inoue@test.com", "焼き鳥", "ビール, ホルモン"),
+	(10, "吉田 明日香", "yoshida", "yoshida@test.com", "", "ビール"),
+	(11, "高橋 優馬", "takahashi", "takahashi@test.com", "ビール, ワイン, 焼き鳥", "日本酒, ホルモン"),
+	(12, "田中 さくら", "tanaka", "tanaka@test.com", "ビール, 中華", "刺身"),
+	(13, "伊藤 龍之介", "ito", "ito@test.com", "ビール, ワイン, 中華", "日本酒, ホルモン"),
+	(14, "渡辺 莉子", "watanabe", "watanabe@test.com", "焼き鳥", "ビール"),
+	(15, "加藤 千尋", "kato", "kato@test.com", "ビール, ワイン, 中華", "刺身"),
+	(16, "山田 海斗", "yamada", "yamada@test.com", "ビール, 焼き鳥", "日本酒"),
+	(17, "中村 あやか", "nakamura", "nakamura@test.com", "ビール, ワイン", "刺身"),
+	(18, "森田 悠希", "morita", "morita@test.com", "ビール, 中華", "刺身"),
+	(19, "斉藤 真央", "saito", "saito@test.com", "ビール, ワイン, 焼き鳥", "日本酒, ホルモン"),
+	(20, "西村 啓介", "nishimura", "nishimura@test.com", "ビール", "刺身"),
+	(21, "佐藤 健太郎", "sato", "sato@test.com", "ビール, ワイン, 中華", "日本酒, ホルモン"),
+	(22, "小林 みさき", "kobayashi", "kobayashi@test.com", "ビール, 中華", "刺身"),
+	(23, "田村 大輝", "tamura", "tamura@test.com", "焼き鳥", "ビール"),
+	(24, "加藤 亜美", "kato", "kato@test.com", "ビール, ワイン, 中華", "刺身"),
+	(25, "伊藤 修一", "ito", "ito@test.com", "ビール, 焼き鳥", "日本酒"),
+	(26, "山本 美香", "yamamoto", "yamamoto@test.com", "ビール, ワイン", "刺身"),
+	(27, "鈴木 達也", "suzuki", "suzuki@test.com", "ビール, 中華", "刺身"),
+	(28, "佐々木 竜司", "sasaki", "sasaki@test.com", "ビール, ワイン, 焼き鳥", "日本酒, ホルモン"),
+	(29, "高田 裕美", "takada", "takada@test.com", "焼き鳥", "ビール"),
+	(30, "岡田 剛", "okada", "okada@test.com", "ビール", "刺身");
 
-INSERT INTO SHOPS VALUE(1,"Maison de MURA メゾン ド ムラ中野店","X175","J001192710", "https://imgfp.hotp.jp/IMGH/13/27/P029301327/P029301327_168.jpg",35.7074540574, 139.6653579201);
-INSERT INTO SHOPS VALUE(2,"アティックルーム 中野","X175","J003324939", "https://imgfp.hotp.jp/IMGH/75/58/P041087558/P041087558_168.jpg", 35.7065247369, 139.6660756742);
-INSERT INTO SHOPS VALUE(3,"0秒レモンサワー 仙台ホルモン焼肉酒場 ときわ亭 中野店","X175","J003599955", "https://imgfp.hotp.jp/IMGH/55/09/P042565509/P042565509_168.jpg", 35.7086395082, 139.6664344477);
-INSERT INTO SHOPS VALUE(4,"【全席喫煙可能】 イタめし酒場Viva (ビバ)","X175","J003298105", "https://imgfp.hotp.jp/IMGH/37/50/P039613750/P039613750_168.jpg", 35.7052912328, 139.6648794365);
-INSERT INTO SHOPS VALUE(5,"豊洲市場 さかな酒場 魚星中野駅 北口店","X175","J000036282", "https://imgfp.hotp.jp/IMGH/28/54/P040922854/P040922854_168.jpg", 35.7076415633, 139.6663678267);
+INSERT INTO SHOPS VALUE(1,"Maison de MURA メゾン ド ムラ中野店","X175","J001192710",35.7074540574, 139.6653579201);
+INSERT INTO SHOPS VALUE(2,"アティックルーム 中野","X175","J003324939",35.7065247369, 139.6660756742);
+INSERT INTO SHOPS VALUE(3,"0秒レモンサワー 仙台ホルモン焼肉酒場 ときわ亭 中野店","X175","J003599955",35.7086395082, 139.6664344477);
+INSERT INTO SHOPS VALUE(4,"【全席喫煙可能】 イタめし酒場Viva (ビバ)","X175","J003298105", 35.7052912328, 139.6648794365);
+INSERT INTO SHOPS VALUE(5,"豊洲市場 さかな酒場 魚星中野駅 北口店","X175","J000036282",35.7076415633, 139.6663678267);
 
 INSERT INTO COMMUNITIES VALUE(1,"北海道","hokkaido");
 INSERT INTO COMMUNITIES VALUE(2,"大学","university");

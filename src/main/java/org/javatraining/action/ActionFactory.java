@@ -39,6 +39,8 @@ public class ActionFactory {
             	return new TeamListAction();
             case "team_detail":
             	return new TeamDetailAction();
+            case "shops_with_team":
+            	return new ShopsWithTeamAction();
 
             default:
                 return null;

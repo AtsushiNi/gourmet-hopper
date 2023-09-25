@@ -12,8 +12,8 @@
       <input type="hidden" name="action_name" value="login" />
       <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
 
-      <label for="inputName" class="sr-only">Email address</label>
-      <input type="text" id="inputName" name="name" class="form-control" placeholder="User name" value="Takei" required autofocus>
+      <label for="inputName" class="sr-only">User name</label>
+      <input type="text" id="inputName" name="name" class="form-control" placeholder="User name" value="武井 凱" required autofocus>
 
       <label for="inputPassword" class="sr-only">Password</label>
       <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" value="takei" required>
