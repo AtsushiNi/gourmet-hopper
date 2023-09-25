@@ -21,7 +21,7 @@
         </p>
         <p>
           <label for="rating">評価：　</label>
-          <input type="radio" name="rating" value="5">5.最高　
+          <input type="radio" name="rating" value="5" checked>5.最高　
           <input type="radio" name="rating" value="4">4.とても良い　
           <input type="radio" name="rating" value="3">3.良い　 
           <input type="radio" name="rating" value="2">2.普通　
