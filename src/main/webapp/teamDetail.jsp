@@ -41,7 +41,7 @@
           </div>
         </div>
         <div class="row">
-          <a class="btn btn-dark ml-auto" href="control?action_name=search">お店を選ぶ</a>
+          <a class="btn btn-dark ml-auto" href="control?action_name=shops_with_team&teamId=${requestScope.team.id}">お店を選ぶ</a>
         </div>
       </div>
     </main>
