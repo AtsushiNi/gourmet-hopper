@@ -42,6 +42,22 @@
                   </div>
                 </div>
                 
+                <div class="accordion" id="select-areas">
+                  <div class="card">
+                    <div class="card-header" id="large-area">
+                      <h5 class="mb-0">
+                        <button class="btn btn-link" id="large-area-button" type="button" data-toggle="collapse" data-target="#middle-areas" aria-expanded="false" aria-controls="midde-areas">
+                          東京
+                        </button>
+                      </h5>
+                    </div>
+                    <div id="middle-areas" class="collapse" aria-labelledby="large-area" data-parent="#select-areas">
+                      <div class="card-body">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
                 <label for="tabaco">喫煙可</label>
                 <input type="checkbox" id="tabaco" name="tag" value="tabaco"><br>
               
@@ -86,5 +102,6 @@
     </script>
     <script src="http://maps.google.com/maps/api/js?key=AIzaSyBYxzFJkG_P15cNs_NQzwCw9QktNHTIlvU&language=ja"></script>
     <script src="js/googlemap.js"></script>
+    <script src="js/search.js"></script>
   </body>
 </html>

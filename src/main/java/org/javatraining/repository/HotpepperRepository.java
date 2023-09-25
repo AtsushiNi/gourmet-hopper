@@ -9,6 +9,7 @@ import java.net.URLEncoder;
 import java.net.http.HttpClient;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.javatraining.entity.Shop;
@@ -71,19 +72,43 @@ public class HotpepperRepository {
     }
 
 
-	// エリアコードの一覧を取得する
-	public Map<String, String> getSmallAreas() throws IOException, InterruptedException {
-        URL url = new URL("https://webservice.recruit.co.jp/hotpepper/small_area/v1/?key=7eaca5563e5d7d8e&format=json");
+	// 中エリアコードの一覧を取得する(東京都内の)
+	public List<Map<String, String>> getMiddleAreas() throws IOException, InterruptedException {
+        URL url = new URL("https://webservice.recruit.co.jp/hotpepper/small_area/v1/?key=7eaca5563e5d7d8e&large_area=Z011&format=json");
+
+        String response = sendRequest(url);
+
+        //結果のJSON整形
+	    JSONObject json = new JSONObject(response);
+        JSONArray areasJson = json.getJSONObject("results").getJSONArray("middle_area");
+		ArrayList<Map<String, String>> areas = new ArrayList<>();
+		for(Object areaJson : areasJson) {
+			JSONObject data = (JSONObject)areaJson;
+			Map<String, String> area = new HashMap<>();
+			area.put("code", data.getString("code"));
+			area.put("name", data.getString("name"));
+			areas.add(area);
+		}
+		
+		return areas;
+	}
+	
+	// 小エリアコードの一覧を取得する
+	public List<Map<String, String>> getSmallAreas(String middleAreaCode) throws IOException, InterruptedException {
+        URL url = new URL("https://webservice.recruit.co.jp/hotpepper/small_area/v1/?key=7eaca5563e5d7d8e&middle_area="+middleAreaCode+"&format=json");
 
         String response = sendRequest(url);
 
         //結果のJSON整形
 	    JSONObject json = new JSONObject(response);
         JSONArray areasJson = json.getJSONObject("results").getJSONArray("small_area");
-		Map<String, String> areas = new HashMap<>();
+		ArrayList<Map<String, String>> areas = new ArrayList<>();
 		for(Object areaJson : areasJson) {
 			JSONObject data = (JSONObject)areaJson;
-			areas.put(data.getString("code"),data.getString("name"));
+			Map<String, String> area = new HashMap<>();
+			area.put("code", data.getString("code"));
+			area.put("name", data.getString("name"));
+			areas.add(area);
 		}
 		
 		return areas;
