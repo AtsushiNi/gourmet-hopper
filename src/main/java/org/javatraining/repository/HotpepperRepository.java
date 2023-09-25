@@ -109,7 +109,10 @@ public class HotpepperRepository {
         shop.setAccess(json.getString("access"));
         shop.setAddress(json.getString("address"));
         shop.setCard(json.getString("card"));
+        shop.setNonSmoking(json.getString("non_smoking"));
         shop.setCatchMessage(json.getString("catch"));
+        shop.setPhoto(json.getJSONObject("photo").getJSONObject("pc").getString("l"));
+        shop.setUrl(json.getJSONObject("urls").getString("pc"));
         return shop;
     }
 	

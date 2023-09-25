@@ -16,9 +16,11 @@ public class Shop implements Serializable {
 	private String access;
 	private String address;
 	private String card;
+	private String nonSmoking;
 	private String catchMessage;
 	private String photo;
 	private String budgetAve;
+	private String url;
 	
 	@NotNull
     @Size(max = 100, message= "店名は100文字以内にしてください。")
@@ -99,6 +101,14 @@ public class Shop implements Serializable {
 		this.card = card;
 	}
 
+	public String getNonSmoking() {
+		return nonSmoking;
+	}
+
+	public void setNonSmoking(String nonSmoking) {
+		this.nonSmoking = nonSmoking;
+	}
+
 	public String getCatchMessage() {
 		return catchMessage;
 	}
@@ -129,6 +139,14 @@ public class Shop implements Serializable {
 
 	public void setBudgetAve(String budgetAve) {
 		this.budgetAve = budgetAve;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
 	}
 
 	@Override
