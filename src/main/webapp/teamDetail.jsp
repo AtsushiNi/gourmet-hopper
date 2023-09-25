@@ -16,8 +16,7 @@
       <div class="container" style="width: 80%;">
         <div class="row mt-5">
           <div class="col-sm">
-            <h4 class="h4">グループ名</h4>
-            <div class="ml-4 mt-5">${requestScope.team.name}</div>
+            <h4 class="h4 ml-4">${requestScope.team.name}</h4>
           </div>
           <div class="col-sm">
             <table class="table">

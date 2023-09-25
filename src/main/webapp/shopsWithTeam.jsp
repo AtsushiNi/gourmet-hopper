@@ -63,30 +63,32 @@
             </div>
             
             <div class="row">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th>名前</th>
-                    <th>好きなもの</th>
-                    <th>苦手なもの</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <c:forEach var="user" items="${team.users}">
+              <div class="table-wrapper" style="max-height: 250px; overflow-y: scroll;">
+                <table class="table" style="font-size: 12px;">
+                  <thead>
                     <tr>
-                      <td>${user.userName}</td>
-                      <td>${user.likeFood}</td>
-                      <td>${user.dislikeFood}</td>
+                      <th>名前</th>
+                      <th>好きなもの</th>
+                      <th>苦手なもの</th>
                     </tr>
-                  </c:forEach>
-                </tbody>
-              </table>
+                  </thead>
+                  <tbody>
+                    <c:forEach var="user" items="${team.users}">
+                      <tr>
+                        <td>${user.userName}</td>
+                        <td>${user.likeFood}</td>
+                        <td>${user.dislikeFood}</td>
+                      </tr>
+                    </c:forEach>
+                  </tbody>
+                </table>
+              </div>
             </div>
 
           </div>
 
           <div class="col">
-            <div id="shop-list" data-spy="scroll" style="height: 400px; overflow: auto;">
+            <div id="shop-list" data-spy="scroll" style="height: 450px; overflow: auto; margin-top: 30px;">
               <% for(int i = 0; i < shops.size(); i++) {%>
                 <div class="shadow-sm p-3 mb-2 bg-white rounded active-item" id=<%= shops.get(i).getApiId() %>>
                 <a href="control?action_name=shop_detail&apiId=<%=shops.get(i).getApiId() %>"><%= shops.get(i).getName() %></a> 
@@ -97,7 +99,7 @@
           </div>
 
           <div class="col">
-            <div id="map" style="width: 400px; height: 400px;"></div>
+            <div id="map" style="width: 400px; height: 450px; margin-top: 30px;"></div>
           </div>
         </div>
       </div>
