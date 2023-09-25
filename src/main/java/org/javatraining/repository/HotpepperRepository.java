@@ -95,7 +95,7 @@ public class HotpepperRepository {
         shop.setApiId(json.getString("id"));
         shop.setLat(json.getDouble("lat"));
         shop.setLng(json.getDouble("lng"));
-
+        shop.setPhoto(json.getJSONObject("photo").getJSONObject("pc").getString("l"));
         return shop;
     }
 	
@@ -103,6 +103,8 @@ public class HotpepperRepository {
         Shop shop = new Shop();
         shop.setName(json.getString("name"));
         shop.setApiId(json.getString("id"));
+        shop.setLat(json.getDouble("lat"));
+        shop.setLng(json.getDouble("lng"));
         shop.setAccess(json.getString("access"));
         shop.setAddress(json.getString("address"));
         shop.setCard(json.getString("card"));

@@ -14,21 +14,26 @@
 
     <main id="main">
       <div class="container" style="width: 80%;">
-        <div class="row">
-          <h2>グループ詳細</h2>
-        </div>
-        <div class="row">
+        <div class="row mt-5">
           <div class="col-sm">
-            <h4>グループ名</h4>
-            <div>${requestScope.team.name}</div>
+            <h4 class="h4">グループ名</h4>
+            <div class="ml-4 mt-5">${requestScope.team.name}</div>
           </div>
           <div class="col-sm">
-            <c:forEach var="user" items="${users}">
-              <div class="row">${user.userName}</div>
-            </c:forEach>
-          </div>
-          <div class="col-sm">
-            <!-- TODO: 履歴一覧 -->
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>名前</th>
+                </tr>
+              </thead>
+              <tbody>
+                <c:forEach var="user" items="${users}">
+                  <tr>
+                    <td>${user.userName}</td>
+                  </tr>
+                </c:forEach>
+              </tbody>
+            </table>
           </div>
         </div>
         <div class="row">

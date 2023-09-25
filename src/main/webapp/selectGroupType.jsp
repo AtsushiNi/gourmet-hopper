@@ -16,7 +16,7 @@
         <div class="row">
           <div class="col-sm">
             <a
-              class="shadow m-5 rounded action-card"
+              class="shadow m-5 rounded action-card mx-auto"
               href="control?action_name=team_list"
               style="background: white;"
             >
@@ -25,7 +25,7 @@
           </div>
           <div class="col-sm">
             <a
-              class="shadow m-5 rounded action-card"
+              class="shadow m-5 rounded action-card mx-auto"
               style="background: white;"
             >
               新規グループで企画

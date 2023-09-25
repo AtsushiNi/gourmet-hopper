@@ -26,15 +26,22 @@
             <div class="shadow p-3 mb-5 bg-white rounded">
               <form action="control" method="post">
                 <input type="hidden" name="action_name" value="search" />
-              
-                <input
-                  type="text"
-                  name="shopName"
-                  placeholder="検索キーワードを入力"
-                  value=${(requestScope.shopName == null) ? "" : requestScope.shopName}
-                >
-                <input type="submit" value="検索"><br>
-              
+
+                <div class="input-group">
+                  <div style="display: flex;">
+                    <input
+                      type="text"
+                      name="shopName"
+                      class="form-control"
+                      style="border-top-right-radius: 0px; border-bottom-right-radius: 0px;"
+                      placeholder="検索キーワードを入力"
+                      value=${(requestScope.shopName == null) ? "" : requestScope.shopName}
+                    >
+                    <button type="button" class="btn btn-secondary" style="border-top-left-radius: 0px; border-bottom-left-radius: 0px;"
+                    ><i class="fa fa-search"></i></button>
+                  </div>
+                </div>
+                
                 <label for="tabaco">喫煙可</label>
                 <input type="checkbox" id="tabaco" name="tag" value="tabaco"><br>
               
@@ -56,6 +63,7 @@
               <% for(int i = 0; i < shops.size(); i++) {%>
                 <div class="shadow-sm p-3 mb-2 bg-white rounded active-item" id=<%= shops.get(i).getApiId() %>>
                 <a href="control?action_name=shop_detail&apiId=<%=shops.get(i).getApiId() %>"><%= shops.get(i).getName() %></a> 
+                <img src="<%=shops.get(i).getPhoto()%>"alt="サムネイル">
                 </div>
               <% } %>
             </div>
@@ -77,6 +85,5 @@
     </script>
     <script src="http://maps.google.com/maps/api/js?key=AIzaSyBYxzFJkG_P15cNs_NQzwCw9QktNHTIlvU&language=ja"></script>
     <script src="js/googlemap.js"></script>
-  　<%--<a href="control?action_name=shop_detail&id=1">店舗の詳細を表示</a> --%>
   </body>
 </html>
