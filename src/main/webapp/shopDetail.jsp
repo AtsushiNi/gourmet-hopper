@@ -75,26 +75,41 @@
 							aria-labelledby="item2-tab">
 							<div data-spy="scroll" style="height: 400px; overflow: auto;">
 								<!--ここにレビュー入れる-->
-								<table>
-									<thead>
-										<tr>
-											<th>タイトル</th>
-											<th>コメント</th>
-										</tr>
-									</thead>
-									<tbody>
-										<%
-										for (int i = 0; i < reviews.size(); i++) {
-										%>
-										<tr>
-											<td><%=reviews.get(i).getTitle()%></td>
-											<td><%=reviews.get(i).getComment()%></td>
-										</tr>
-										<%
-										}
-										%>
-									</tbody>
-								</table>
+								<h4><%=shopDetail.getName() %></h4>
+									<%
+										for(int i = 0; i < reviews.size(); i++){ 
+									%>
+										<b><%=reviews.get(i).getTitle()%></b><br>
+										[評価]<%=reviews.get(i).getComment() %><br>
+										[予算]<%=reviews.get(i).getBudget() %><br>
+										[お店の雰囲気]<br>
+										<%if(reviews.get(i).isForParty()){%>
+											〇宴会向け
+										<%}%>
+										<%if(reviews.get(i).isForReception()){ %>
+											〇接待向け
+										<%} %>
+										<%if(reviews.get(i).isForDate()){ %>
+											〇デート向け
+										<%} %><br><br>
+										
+										[お店の詳細]<br>
+										<%if(reviews.get(i).isTabaco()){ %>
+											喫煙可
+										<%}%>
+										<%if(reviews.get(i).isFree()){ %>
+											食べ放題あり
+										<%} %>
+										<%if(reviews.get(i).isPartySpace()){ %>
+											宴会場あり
+										<%} %>
+										<%if(reviews.get(i).isReservation()){ %>
+											予約可
+										<%} %>
+										<hr>
+										
+									<%} %>
+
 								<!--ここまでレビュー-->
 							</div>
 						</div>

@@ -101,6 +101,15 @@ public class ReviewDAO {
             	//　ReviewオブジェクトにSQLの結果を格納
             	review.setId(rs.getInt("REVIEWS.ID"));
             	review.setTitle(rs.getString("REVIEWS.TITLE"));
+            	review.setRating(rs.getInt("REVIEWS.RATING"));
+            	review.setBudget(rs.getString("REVIEWS.BUDGET"));
+            	review.setForParty(rs.getBoolean("REVIEWS.FORPARTY"));
+            	review.setForReception(rs.getBoolean("REVIEWS.FORRECEPTION"));
+            	review.setForDate(rs.getBoolean("REVIEWS.FORDATE"));
+            	review.setTabaco(rs.getBoolean("REVIEWS.TABACO"));
+            	review.setFree(rs.getBoolean("REVIEWS.FREE"));
+            	review.setPartySpace(rs.getBoolean("REVIEWS.PARTYSPACE"));
+            	review.setReservation(rs.getBoolean("REVIEWS.RESERVATION"));
             	review.setComment(rs.getString("REVIEWS.REVIEW"));
             	review.setUserId(rs.getInt("REVIEWS.USER_ID"));
             	review.setShopId(rs.getInt("REVIEWS.SHOP_ID"));
@@ -189,6 +198,15 @@ public class ReviewDAO {
     private Review createReview(ResultSet rs) throws SQLException {
         Review review = new Review();
         review.setTitle(rs.getString("TITLE"));
+        review.setRating(rs.getInt("RATING"));
+        review.setBudget(rs.getString("BUDGET"));
+        review.setForParty(rs.getBoolean("FORPARTY"));
+        review.setForReception(rs.getBoolean("FORRECEPTION"));
+        review.setForDate(rs.getBoolean("FORDATE"));
+        review.setTabaco(rs.getBoolean("TABACO"));
+        review.setFree(rs.getBoolean("FREE"));
+        review.setPartySpace(rs.getBoolean("PARTYSPACE"));
+        review.setReservation(rs.getBoolean("RESERVATION"));
         review.setComment(rs.getString("REVIEW"));
         review.setUserId(rs.getInt("USER_ID"));
         review.setShopId(rs.getInt("SHOP_ID"));
