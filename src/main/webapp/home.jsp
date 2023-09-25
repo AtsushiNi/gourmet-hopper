@@ -16,7 +16,7 @@
         <div class="row">
           <div class="col-sm">
             <a
-              class="shadow m-5 rounded action-card"
+              class="shadow m-5 rounded action-card mx-auto"
               href="control?action_name=search"
               style="background: white;"
             >
@@ -25,7 +25,7 @@
           </div>
           <div class="col-sm">
             <a
-              class="shadow m-5 rounded action-card"
+              class="shadow m-5 rounded action-card mx-auto"
               href="control?action_name=select_group_type"
               style="background: white;"
             >
