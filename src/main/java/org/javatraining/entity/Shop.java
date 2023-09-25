@@ -9,16 +9,19 @@ import javax.validation.constraints.Size;
 public class Shop implements Serializable {
 
 	@NotNull
-    private int id;
+    private int shopId;
 	private int reviewCount;
+	private double ratingAve;
 	private String apiId;
 	private String smallAreaCode;
 	private String access;
 	private String address;
 	private String card;
+	private String nonSmoking;
 	private String catchMessage;
 	private String photo;
 	private String budgetAve;
+	private String url;
 	
 	@NotNull
     @Size(max = 100, message= "店名は100文字以内にしてください。")
@@ -26,21 +29,29 @@ public class Shop implements Serializable {
 	
 	private double lat;
 	private double lng;
-
-    public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
 	
+	public int getShopId() {
+		return shopId;
+	}
+
+	public void setShopId(int shopId) {
+		this.shopId = shopId;
+	}
+
 	public int getReviewCount() {
 		return reviewCount;
 	}
 
 	public void setReviewCount(int reviewCount) {
 		this.reviewCount = reviewCount;
+	}
+
+	public double getRatingAve() {
+		return ratingAve;
+	}
+
+	public void setRatingAve(double ratingAve) {
+		this.ratingAve = ratingAve;
 	}
 
 	public String getName() {
@@ -99,6 +110,14 @@ public class Shop implements Serializable {
 		this.card = card;
 	}
 
+	public String getNonSmoking() {
+		return nonSmoking;
+	}
+
+	public void setNonSmoking(String nonSmoking) {
+		this.nonSmoking = nonSmoking;
+	}
+
 	public String getCatchMessage() {
 		return catchMessage;
 	}
@@ -131,10 +150,18 @@ public class Shop implements Serializable {
 		this.budgetAve = budgetAve;
 	}
 
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
 	@Override
     public String toString() {
         return "Shop {" +
-                "id=" + id +
+                "shopId=" + shopId +
                 ", name='" + name + '\'' +
                 ", apiId'" + apiId + '\'' +
                 '}';

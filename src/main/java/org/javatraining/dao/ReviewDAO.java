@@ -212,19 +212,4 @@ public class ReviewDAO {
         review.setShopId(rs.getInt("SHOP_ID"));
         return review;
     }
-    
-    public int countReviews(int shopId) throws SQLException, NamingException {
-    	System.out.println("[reviewDAO.java]:countReviews Start");
-    	Review review = new Review();
-    	String sql = "SELECT COUNT(*) FROM TBL WHERE ID = ?";
-    	DataSource ds = DataSourceSupplier.getDataSource();
-        try (Connection con = ds.getConnection();
-                PreparedStatement ps = con.prepareStatement(sql)){
-        	ps.setInt(1, review.getShopId());
-        	ResultSet rs = ps.executeQuery();
-        	shopId = rs.getInt("SHOP_ID");
-                
-        }
-		return shopId;
-    }
 }

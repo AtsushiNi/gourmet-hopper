@@ -72,7 +72,7 @@ public class ReviewCreateAction extends Action {
 		int userId = Integer.parseInt(request.getParameter("userId"));
 		review.setUserId(userId);
 
-		int shopId = shop.getId();
+		int shopId = shop.getShopId();
 		review.setShopId(shopId);
 
 		// レビュー情報オブジェクトを返す

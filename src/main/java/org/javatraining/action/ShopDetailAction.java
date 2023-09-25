@@ -42,7 +42,7 @@ public class ShopDetailAction extends Action {
         // Shopオブジェクトの List (要素は1つ)をjson形式でリクエストに設定
         JSONArray jsonArray = new JSONArray();
     	JSONObject json = new JSONObject();
-    	json.put("id", shopDetail.getId());
+    	json.put("id", shopDetail.getShopId());
     	json.put("name", shopDetail.getName());
     	json.put("apiId", shopDetail.getApiId());
     	json.put("lat", shopDetail.getLat());
