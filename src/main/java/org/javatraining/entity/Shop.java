@@ -11,6 +11,7 @@ public class Shop implements Serializable {
 	@NotNull
     private int shopId;
 	private int reviewCount;
+	private double ratingAve;
 	private String apiId;
 	private String smallAreaCode;
 	private String access;
@@ -43,6 +44,14 @@ public class Shop implements Serializable {
 
 	public void setReviewCount(int reviewCount) {
 		this.reviewCount = reviewCount;
+	}
+
+	public double getRatingAve() {
+		return ratingAve;
+	}
+
+	public void setRatingAve(double ratingAve) {
+		this.ratingAve = ratingAve;
 	}
 
 	public String getName() {

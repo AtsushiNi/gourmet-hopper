@@ -66,7 +66,8 @@
                 <a href="control?action_name=shop_detail&apiId=<%=shops.get(i).getApiId() %>"><%= shops.get(i).getName() %></a> 
                 <img src="<%=shops.get(i).getPhoto()%>"alt="サムネイル"><br>
                 【予算】<%= shops.get(i).getBudgetAve() %><br>
-                <%= shops.get(i).getReviewCount() %>件のレビューがあります。<br>
+               <%double ave = Math.round((shops.get(i).getRatingAve()) * 10.0) / 10.0;%>
+                <%= shops.get(i).getReviewCount() %>件のレビューがあり、平均<%= ave %>の評価を獲得しています。<br>
                 </div>
               <% } %>
             </div>

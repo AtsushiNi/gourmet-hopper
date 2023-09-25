@@ -20,17 +20,17 @@ public class ShopDAO {
 		System.out.println("[ShopDAO.java]:search Start");
 		String sql = null;
 		if (shopName != null) {
-			sql = "SELECT SHOPS.*, COUNT(REVIEWS.ID) AS REVIEW_COUNT\r\n"
-					+ "FROM SHOPS\r\n"
-					+ "LEFT JOIN REVIEWS ON SHOPS.ID = REVIEWS.SHOP_ID\r\n"
-					+ "WHERE SHOPS.NAME LIKE ? AND SHOPS.SMALL_AREA_CODE = ?\r\n"
-					+ "GROUP BY SHOPS.ID, SHOPS.NAME";
+			sql = "SELECT SHOPS.*, COUNT(REVIEWS.ID) AS REVIEW_COUNT, AVG(REVIEWS.RATING) AS AVERAGE_RATING"
+					+ " FROM SHOPS"
+					+ " LEFT JOIN REVIEWS ON SHOPS.ID = REVIEWS.SHOP_ID"
+					+ " WHERE SHOPS.NAME LIKE ? AND SHOPS.SMALL_AREA_CODE = ?"
+					+ " GROUP BY SHOPS.ID, SHOPS.NAME";
 		} else {
-			sql = "SELECT SHOPS.*, COUNT(REVIEWS.ID) AS REVIEW_COUNT\r\n"
-					+ "FROM SHOPS\r\n"
-					+ "LEFT JOIN REVIEWS ON SHOPS.ID = REVIEWS.SHOP_ID\r\n"
-					+ "WHERE SHOPS.SMALL_AREA_CODE = ?\r\n"
-					+ "GROUP BY SHOPS.ID, SHOPS.NAME";
+			sql = "SELECT SHOPS.*, COUNT(REVIEWS.ID) AS REVIEW_COUNT, AVG(REVIEWS.RATING) AS AVERAGE_RATING"
+					+ " FROM SHOPS"
+					+ " LEFT JOIN REVIEWS ON SHOPS.ID = REVIEWS.SHOP_ID"
+					+ " WHERE SHOPS.SMALL_AREA_CODE = ?"
+					+ " GROUP BY SHOPS.ID, SHOPS.NAME";
 		}
 		
 		// データソースを取得
@@ -152,6 +152,7 @@ public class ShopDAO {
 		shop.setName(rs.getString("NAME"));
 		shop.setApiId(rs.getString("API_ID"));
 		shop.setReviewCount(rs.getInt("REVIEW_COUNT"));
+		shop.setRatingAve(rs.getDouble("AVERAGE_RATING"));
 		return shop;
 	}
 }
