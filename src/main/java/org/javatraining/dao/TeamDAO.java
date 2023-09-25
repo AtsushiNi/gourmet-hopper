@@ -86,6 +86,8 @@ public class TeamDAO {
         user.setUserId(rs.getInt("USERS.ID"));
         user.setUserName(rs.getString("USERS.NAME"));
         user.setPassword(rs.getString("USERS.PASSWORD"));
+        user.setLikeFood(rs.getString("USERS.LIKE_FOOD"));
+        user.setDislikeFood(rs.getString("USERS.DISLIKE_FOOD"));
 
         team.addUser(user);
         team.setId(rs.getInt("TEAMS.ID"));

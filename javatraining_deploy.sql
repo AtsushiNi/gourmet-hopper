@@ -17,6 +17,8 @@ CREATE TABLE USERS(
     ID INT(10) AUTO_INCREMENT NOT NULL, 
     NAME VARCHAR(30) NOT NULL,
     PASSWORD VARCHAR(30) NOT NULL,
+    LIKE_FOOD VARCHAR(100),
+    DISLIKE_FOOD VARCHAR(100),
     PRIMARY KEY (ID)
     );
     
@@ -73,36 +75,36 @@ CREATE TABLE EVENTS(
     FOREIGN KEY (SHOP_ID) REFERENCES SHOPS (ID)
 	);
 
-INSERT INTO USERS VALUE(1,"Takei","takei");
-INSERT INTO USERS VALUE(2,"Suzuki","suzuki");
-INSERT INTO USERS VALUE(3,"Ozaki","ozaki");
-INSERT INTO USERS VALUE(4,"Sasaki","sasaki");
-INSERT INTO USERS VALUE(5,"Murata","murata");
-INSERT INTO USERS VALUE(6,"Okada","okada");
-INSERT INTO USERS VALUE(7,"Nomura","nomura");
-INSERT INTO USERS VALUE(8,"Matsumoto","matsumoto");
-INSERT INTO USERS VALUE(9,"Inoue","inoue");
-INSERT INTO USERS VALUE(10,"Yoshida","yoshida");
-INSERT INTO USERS VALUE(11,"Fujimoto","fujimoto");
-INSERT INTO USERS VALUE(12,"Kawaguchi","kawaguchi");
-INSERT INTO USERS VALUE(13,"Okamoto","okamoto");
-INSERT INTO USERS VALUE(14,"Morita","morita");
-INSERT INTO USERS VALUE(15,"Shimizu","shimizu");
-INSERT INTO USERS VALUE(16,"Nakata","nakata");
-INSERT INTO USERS VALUE(17,"Ogawa","ogawa");
-INSERT INTO USERS VALUE(18,"Tamura","tamura");
-INSERT INTO USERS VALUE(19,"Kikuchi","kikuchi");
-INSERT INTO USERS VALUE(20,"Sugiyama","sugiyama");
-INSERT INTO USERS VALUE(21,"Takagi","takagi");
-INSERT INTO USERS VALUE(22,"Aoki","aoki");
-INSERT INTO USERS VALUE(23,"Takahashi","takahashi");
-INSERT INTO USERS VALUE(24,"Tanaka","tanaka");
-INSERT INTO USERS VALUE(25,"Yamamoto","yamamoto");
-INSERT INTO USERS VALUE(26,"Sato","sato");
-INSERT INTO USERS VALUE(27,"Nakamura","nakamura");
-INSERT INTO USERS VALUE(28,"Ito","ito");
-INSERT INTO USERS VALUE(29,"Watanabe","watanabe");
-INSERT INTO USERS VALUE(30,"Kato","kato");
+INSERT INTO USERS VALUE(1,"Takei","takei", "ビール, ワイン, 中華", "日本酒, 刺身");
+INSERT INTO USERS VALUE(2,"Suzuki","suzuki", "ビール, 中華", "刺身");
+INSERT INTO USERS VALUE(3,"Ozaki","ozaki", "ビール, ワイン, 焼き鳥", "日本酒, ホルモン");
+INSERT INTO USERS VALUE(4,"Sasaki","sasaki", "ビール, 中華", "刺身");
+INSERT INTO USERS VALUE(5,"Murata","murata", "焼き鳥", "ビール");
+INSERT INTO USERS VALUE(6,"Okada","okada", "ビール, ワイン, 中華", "日本酒, ホルモン");
+INSERT INTO USERS VALUE(7,"Nomura","nomura", "ビール", "刺身");
+INSERT INTO USERS VALUE(8,"Matsumoto","matsumoto", "ビール, ワイン", "刺身");
+INSERT INTO USERS VALUE(9,"Inoue","inoue", "焼き鳥", "ビール, ホルモン");
+INSERT INTO USERS VALUE(10,"Yoshida","yoshida", "", "ビール");
+INSERT INTO USERS VALUE(11,"Fujimoto","fujimoto", "ビール, ワイン, 中華", "日本酒");
+INSERT INTO USERS VALUE(12,"Kawaguchi","kawaguchi", "焼き鳥", "ホルモン");
+INSERT INTO USERS VALUE(13,"Okamoto","okamoto", "ビール, ワイン", "");
+INSERT INTO USERS VALUE(14,"Morita","morita", "焼き鳥", "ビール");
+INSERT INTO USERS VALUE(15,"Shimizu","shimizu", "ビール", "");
+INSERT INTO USERS VALUE(16,"Nakata","nakata", "焼き鳥", "");
+INSERT INTO USERS VALUE(17,"Ogawa","ogawa", "ビール", "");
+INSERT INTO USERS VALUE(18,"Tamura","tamura", "", "");
+INSERT INTO USERS VALUE(19,"Kikuchi","kikuchi", "ビール", "");
+INSERT INTO USERS VALUE(20,"Sugiyama","sugiyama", "ビール", "");
+INSERT INTO USERS VALUE(21,"Takagi","takagi", "", "ビール");
+INSERT INTO USERS VALUE(22,"Aoki","aoki", "ビール", "");
+INSERT INTO USERS VALUE(23,"Takahashi","takahashi", "", "");
+INSERT INTO USERS VALUE(24,"Tanaka","tanaka", "ビール", "");
+INSERT INTO USERS VALUE(25,"Yamamoto","yamamoto", "", "");
+INSERT INTO USERS VALUE(26,"Sato","sato", "", "");
+INSERT INTO USERS VALUE(27,"Nakamura","nakamura", "ビール", "");
+INSERT INTO USERS VALUE(28,"Ito","ito", "", "ビール");
+INSERT INTO USERS VALUE(29,"Watanabe","watanabe", "ビール", "");
+INSERT INTO USERS VALUE(30,"Kato","kato", "", "ビール");
 
 INSERT INTO SHOPS VALUE(1,"Maison de MURA メゾン ド ムラ中野店","X175","J001192710", "https://imgfp.hotp.jp/IMGH/13/27/P029301327/P029301327_168.jpg",35.7074540574, 139.6653579201);
 INSERT INTO SHOPS VALUE(2,"アティックルーム 中野","X175","J003324939", "https://imgfp.hotp.jp/IMGH/75/58/P041087558/P041087558_168.jpg", 35.7065247369, 139.6660756742);

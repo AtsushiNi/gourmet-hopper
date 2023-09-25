@@ -24,12 +24,16 @@
               <thead>
                 <tr>
                   <th>名前</th>
+                  <th>好きなもの</th>
+                  <th>苦手なもの</th>
                 </tr>
               </thead>
               <tbody>
                 <c:forEach var="user" items="${users}">
                   <tr>
                     <td>${user.userName}</td>
+                    <td>${user.likeFood}</td>
+                    <td>${user.dislikeFood}</td>
                   </tr>
                 </c:forEach>
               </tbody>
@@ -37,7 +41,7 @@
           </div>
         </div>
         <div class="row">
-          <a class="btn btn-dark ml-auto" href="control?action_name=search">お店を選ぶ</a>
+          <a class="btn btn-dark ml-auto" href="control?action_name=shops_with_team&teamId=${requestScope.team.id}">お店を選ぶ</a>
         </div>
       </div>
     </main>

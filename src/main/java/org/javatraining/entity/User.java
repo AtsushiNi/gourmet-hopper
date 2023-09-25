@@ -8,6 +8,8 @@ public class User implements Serializable {
     private int userId;
     private String userName;
     private String password;
+    private String likeFood;
+    private String dislikeFood;
 
     // ユーザIDを取得する
     public int getUserId() {
@@ -38,8 +40,24 @@ public class User implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
-    
-        @Override
+
+	public String getLikeFood() {
+		return likeFood;
+	}
+
+	public void setLikeFood(String likeFood) {
+		this.likeFood = likeFood;
+	}
+
+	public String getDislikeFood() {
+		return dislikeFood;
+	}
+
+	public void setDislikeFood(String dislikeFood) {
+		this.dislikeFood = dislikeFood;
+	}
+
+	@Override
     public String toString() {
         return "User {" +
                 "userId=" + userId +
