@@ -74,8 +74,9 @@ public class HotpepperRepository {
 
 	// 中エリアコードの一覧を取得する(東京都内の)
 	public List<Map<String, String>> getMiddleAreas() throws IOException, InterruptedException {
-        URL url = new URL("https://webservice.recruit.co.jp/hotpepper/small_area/v1/?key=7eaca5563e5d7d8e&large_area=Z011&format=json");
+        URL url = new URL("https://webservice.recruit.co.jp/hotpepper/middle_area/v1/?key=7eaca5563e5d7d8e&large_area=Z011&format=json");
 
+        System.out.println(url);
         String response = sendRequest(url);
 
         //結果のJSON整形

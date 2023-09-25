@@ -34,6 +34,7 @@ public class AreaServlet extends HttpServlet {
 
         // 文字コードを設定
         request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
         response.setContentType("application/json");
 
         try {
