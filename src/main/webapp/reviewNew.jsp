@@ -21,11 +21,11 @@
         </p>
         <p>
           <label for="rating">評価：　</label>
-          <input type="radio" name="rating" value=5>5.最高　
-          <input type="radio" name="rating" value=4>4.とても良い　
-          <input type="radio" name="rating" value=3>3.良い　 
-          <input type="radio" name="rating" value=2>2.普通　
-          <input type="radio" name="rating" value=1>1.良くない 
+          <input type="radio" name="rating" value="5">5.最高　
+          <input type="radio" name="rating" value="4">4.とても良い　
+          <input type="radio" name="rating" value="3">3.良い　 
+          <input type="radio" name="rating" value="2">2.普通　
+          <input type="radio" name="rating" value="1">1.良くない 
         </p>
         <p>
           <label for="budget">1人当たりの予算</label>
@@ -50,16 +50,16 @@
           </select>
         </p>
         <p>
-          <label for="scene">お店の雰囲気</label><br>
-          <input type="checkbox" name="scene" value="party">宴会向き　
-          <input type="checkbox" name="scene" value="reception">接待向き　
-          <input type="checkbox" name="scene" value="date">デート向き　
+          お店の雰囲気<br>
+          <input type="checkbox" name="forParty" value="forParty">宴会向き　
+          <input type="checkbox" name="forReception" value="forReception">接待向き　
+          <input type="checkbox" name="forDate" value="forDate">デート向き　
         </p>
         <p>
           詳細情報<br>
-          <input type="checkbox" name="tabaco" value="tabaco">たばこ　
+          <input type="checkbox" name="tabaco" value=ture>たばこ　
           <input type="checkbox" name="free" value="free">飲み放題　
-          <input type="checkbox" name="party" value="Yes">宴会場　
+          <input type="checkbox" name="partySpace" value="partySpace">宴会場　
           <input type="checkbox" name="reservation" value="reservation">予約可
         </p>
         <p>

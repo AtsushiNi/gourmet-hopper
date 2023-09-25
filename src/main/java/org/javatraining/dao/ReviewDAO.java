@@ -152,7 +152,7 @@ public class ReviewDAO {
 
         System.out.println("[REVIEWDAO.java]:create Start");
         // INSERT INFO テーブルにデータを追加する SQL文
-        String sql = "INSERT INTO REVIEWS (TITLE, REVIEW, USER_ID, SHOP_ID) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO REVIEWS (TITLE, RATING, BUDGET, FORPARTY, FORRECEPTION, FORDATE, TABACO, FREE, PARTYSPACE, RESERVATION,  REVIEW, USER_ID, SHOP_ID) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         // データソースを取得
         DataSource ds = DataSourceSupplier.getDataSource();
@@ -161,9 +161,18 @@ public class ReviewDAO {
 
             // プレース・ホルダに値を設定
         	 ps.setString(1, review.getTitle());
-        	 ps.setString(2, review.getComment());
-        	 ps.setInt(3, review.getUserId());
-        	 ps.setInt(4, review.getShopId());
+        	 ps.setInt(2, review.getRating());
+        	 ps.setString(3, review.getBudget());
+        	 ps.setBoolean(4, review.isForParty());
+        	 ps.setBoolean(5, review.isForReception());
+        	 ps.setBoolean(6, review.isForDate());
+        	 ps.setBoolean(7, review.isTabaco());
+        	 ps.setBoolean(8, review.isFree());
+        	 ps.setBoolean(9, review.isPartySpace());
+        	 ps.setBoolean(10, review.isReservation());
+        	 ps.setString(11, review.getComment());
+        	 ps.setInt(12, review.getUserId());
+        	 ps.setInt(13, review.getShopId());
 
             // SQL 文を実行
             int affectedRows = ps.executeUpdate();
