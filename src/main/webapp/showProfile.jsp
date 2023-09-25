@@ -13,26 +13,43 @@
     </header>
 
     <main id="main">
-    <div class="container" style="width: 80%;">
-      <div class="row">
-        <div class="col-sm">
-        	<input type="image" src= "image/icons/${user.userName}.png">
+      <div class="container" style="width: 80%;">
+        <div class="row mt-5">
+          <div class="col-sm-3">
+          	<input type="image" src= "image/icons/${user.userId}.png" class="rounded-circle shadow" id="avatar" height="200px">
+          </div>
+          <div class="col-sm">
+            <div style="margin-top: 100px;">
+              <div id="user-name" style="font-size: 30px;">
+                ${user.userName}
+              </div>
+              <div id="user-email">
+                ${user.email}
+              </div>
+            </div>
+          </div>
+          <div class="col-sm">
+            <h6 class="h6">所属コミュニティ</h6>
+            <ul class="list-group">
+              <c:forEach var="community" items="${communities}">
+                <li class="list-group-item">${community.communityName}</li>
+              </c:forEach>
+            </ul>
+            <div class="form-group mt-4">
+              <label for="like-food">好きな食べ物</label>
+              <input type="text" class="form-control" id="like-food" value="${user.likeFood}">
+            </div>
+            <div class="form-group">
+              <label for="dislike-food">苦手な食べ物</label>
+              <input type="text" class="form-control" id="dislike-food" value="${user.dislikeFood}">
+            </div>
+            <button class="btn btn-secondary rounded-circle mt-4 ml-auto" style="display: block;">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </button>
+          </div>
         </div>
-        <div class="col-sm">
-        	ID : ${user.userId}<br>
-        	Name : ${user.userName}<br>
-        	所属コミュニティ： <ul>
-        					<c:forEach var="community" items="${communities}">
-        						<li>${community.communityName}</li>
-        					</c:forEach>
-        				</ul><br>
-            好きなもの　：　${user.likeFood}<br>
-            苦手なもの : ${user.dislikeFood}<br>
-          	レビュー履歴（後から）<br>
-        	パスワードを編集（仮）
-        </div>
+        
       </div>
-    </div>
     </main>
     
     <!-- footer -->

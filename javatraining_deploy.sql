@@ -16,6 +16,7 @@ CREATE TABLE USERS(
     ID INT(10) AUTO_INCREMENT NOT NULL, 
     NAME VARCHAR(30) NOT NULL,
     PASSWORD VARCHAR(30) NOT NULL,
+    EMAIL VARCHAR(100),
     LIKE_FOOD VARCHAR(100),
     DISLIKE_FOOD VARCHAR(100),
     PRIMARY KEY (ID)
@@ -74,36 +75,37 @@ CREATE TABLE EVENTS(
     FOREIGN KEY (SHOP_ID) REFERENCES SHOPS (ID)
 	);
 
-INSERT INTO USERS VALUE(1,"Takei","takei", "ビール, ワイン, 中華", "日本酒, 刺身");
-INSERT INTO USERS VALUE(2,"Suzuki","suzuki", "ビール, 中華", "刺身");
-INSERT INTO USERS VALUE(3,"Ozaki","ozaki", "ビール, ワイン, 焼き鳥", "日本酒, ホルモン");
-INSERT INTO USERS VALUE(4,"Sasaki","sasaki", "ビール, 中華", "刺身");
-INSERT INTO USERS VALUE(5,"Murata","murata", "焼き鳥", "ビール");
-INSERT INTO USERS VALUE(6,"Okada","okada", "ビール, ワイン, 中華", "日本酒, ホルモン");
-INSERT INTO USERS VALUE(7,"Nomura","nomura", "ビール", "刺身");
-INSERT INTO USERS VALUE(8,"Matsumoto","matsumoto", "ビール, ワイン", "刺身");
-INSERT INTO USERS VALUE(9,"Inoue","inoue", "焼き鳥", "ビール, ホルモン");
-INSERT INTO USERS VALUE(10,"Yoshida","yoshida", "", "ビール");
-INSERT INTO USERS VALUE(11,"Fujimoto","fujimoto", "ビール, ワイン, 中華", "日本酒");
-INSERT INTO USERS VALUE(12,"Kawaguchi","kawaguchi", "焼き鳥", "ホルモン");
-INSERT INTO USERS VALUE(13,"Okamoto","okamoto", "ビール, ワイン", "");
-INSERT INTO USERS VALUE(14,"Morita","morita", "焼き鳥", "ビール");
-INSERT INTO USERS VALUE(15,"Shimizu","shimizu", "ビール", "");
-INSERT INTO USERS VALUE(16,"Nakata","nakata", "焼き鳥", "");
-INSERT INTO USERS VALUE(17,"Ogawa","ogawa", "ビール", "");
-INSERT INTO USERS VALUE(18,"Tamura","tamura", "", "");
-INSERT INTO USERS VALUE(19,"Kikuchi","kikuchi", "ビール", "");
-INSERT INTO USERS VALUE(20,"Sugiyama","sugiyama", "ビール", "");
-INSERT INTO USERS VALUE(21,"Takagi","takagi", "", "ビール");
-INSERT INTO USERS VALUE(22,"Aoki","aoki", "ビール", "");
-INSERT INTO USERS VALUE(23,"Takahashi","takahashi", "", "");
-INSERT INTO USERS VALUE(24,"Tanaka","tanaka", "ビール", "");
-INSERT INTO USERS VALUE(25,"Yamamoto","yamamoto", "", "");
-INSERT INTO USERS VALUE(26,"Sato","sato", "", "");
-INSERT INTO USERS VALUE(27,"Nakamura","nakamura", "ビール", "");
-INSERT INTO USERS VALUE(28,"Ito","ito", "", "ビール");
-INSERT INTO USERS VALUE(29,"Watanabe","watanabe", "ビール", "");
-INSERT INTO USERS VALUE(30,"Kato","kato", "", "ビール");
+INSERT INTO USERS VALUES
+	(1,"武井 凱","takei", "takei@test.com", "ビール, ワイン, 中華", "日本酒, 刺身"),
+	(2, "鈴木 佳子", "suzuki", "suzuki@test.com", "ビール, 中華", "刺身"),
+	(3, "尾崎 寛人", "ozaki", "ozaki@test.com", "ビール, ワイン, 焼き鳥", "日本酒, ホルモン"),
+	(4, "佐々木 美咲", "sasaki", "sasaki@test.com", "ビール, 中華", "刺身"),
+	(5, "村田 雄大", "murata", "murata@test.com", "焼き鳥", "ビール"),
+	(6, "岡田 恵美", "okada", "okada@test.com", "ビール, ワイン, 中華", "日本酒, ホルモン"),
+	(7, "野村 健太", "nomura", "nomura@test.com", "ビール", "刺身"),
+	(8, "松本 亜美", "matsumoto", "matsumoto@test.com", "ビール, ワイン", "刺身"),
+	(9, "井上 大輝", "inoue", "inoue@test.com", "焼き鳥", "ビール, ホルモン"),
+	(10, "吉田 明日香", "yoshida", "yoshida@test.com", "", "ビール"),
+	(11, "高橋 優馬", "takahashi", "takahashi@test.com", "ビール, ワイン, 焼き鳥", "日本酒, ホルモン"),
+	(12, "田中 さくら", "tanaka", "tanaka@test.com", "ビール, 中華", "刺身"),
+	(13, "伊藤 龍之介", "ito", "ito@test.com", "ビール, ワイン, 中華", "日本酒, ホルモン"),
+	(14, "渡辺 莉子", "watanabe", "watanabe@test.com", "焼き鳥", "ビール"),
+	(15, "加藤 千尋", "kato", "kato@test.com", "ビール, ワイン, 中華", "刺身"),
+	(16, "山田 海斗", "yamada", "yamada@test.com", "ビール, 焼き鳥", "日本酒"),
+	(17, "中村 あやか", "nakamura", "nakamura@test.com", "ビール, ワイン", "刺身"),
+	(18, "森田 悠希", "morita", "morita@test.com", "ビール, 中華", "刺身"),
+	(19, "斉藤 真央", "saito", "saito@test.com", "ビール, ワイン, 焼き鳥", "日本酒, ホルモン"),
+	(20, "西村 啓介", "nishimura", "nishimura@test.com", "ビール", "刺身"),
+	(21, "佐藤 健太郎", "sato", "sato@test.com", "ビール, ワイン, 中華", "日本酒, ホルモン"),
+	(22, "小林 みさき", "kobayashi", "kobayashi@test.com", "ビール, 中華", "刺身"),
+	(23, "田村 大輝", "tamura", "tamura@test.com", "焼き鳥", "ビール"),
+	(24, "加藤 亜美", "kato", "kato@test.com", "ビール, ワイン, 中華", "刺身"),
+	(25, "伊藤 修一", "ito", "ito@test.com", "ビール, 焼き鳥", "日本酒"),
+	(26, "山本 美香", "yamamoto", "yamamoto@test.com", "ビール, ワイン", "刺身"),
+	(27, "鈴木 達也", "suzuki", "suzuki@test.com", "ビール, 中華", "刺身"),
+	(28, "佐々木 竜司", "sasaki", "sasaki@test.com", "ビール, ワイン, 焼き鳥", "日本酒, ホルモン"),
+	(29, "高田 裕美", "takada", "takada@test.com", "焼き鳥", "ビール"),
+	(30, "岡田 剛", "okada", "okada@test.com", "ビール", "刺身");
 
 INSERT INTO SHOPS VALUE(1,"Maison de MURA メゾン ド ムラ中野店","X175","J001192710",35.7074540574, 139.6653579201);
 INSERT INTO SHOPS VALUE(2,"アティックルーム 中野","X175","J003324939",35.7065247369, 139.6660756742);

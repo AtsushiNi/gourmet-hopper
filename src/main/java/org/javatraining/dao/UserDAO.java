@@ -42,6 +42,7 @@ public class UserDAO {
                 user.setUserId(rs.getInt("ID"));
                 user.setUserName(rs.getString("NAME"));
                 user.setPassword(rs.getString("PASSWORD"));
+                user.setEmail(rs.getString("EMAIL"));
                 user.setLikeFood(rs.getString("LIKE_FOOD"));
                 user.setDislikeFood(rs.getString("DISLIKE_FOOD"));
                 
