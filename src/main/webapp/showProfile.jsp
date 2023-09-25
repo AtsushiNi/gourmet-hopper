@@ -26,7 +26,9 @@
         						<li>${community.communityName}</li>
         					</c:forEach>
         				</ul><br>
-        	レビュー履歴（後から）<br>
+            好きなもの　：　${user.likeFood}<br>
+            苦手なもの : ${user.dislikeFood}<br>
+          	レビュー履歴（後から）<br>
         	パスワードを編集（仮）
         </div>
       </div>

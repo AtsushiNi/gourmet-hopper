@@ -24,12 +24,16 @@
               <thead>
                 <tr>
                   <th>名前</th>
+                  <th>好きなもの</th>
+                  <th>苦手なもの</th>
                 </tr>
               </thead>
               <tbody>
                 <c:forEach var="user" items="${users}">
                   <tr>
                     <td>${user.userName}</td>
+                    <td>${user.likeFood}</td>
+                    <td>${user.dislikeFood}</td>
                   </tr>
                 </c:forEach>
               </tbody>
