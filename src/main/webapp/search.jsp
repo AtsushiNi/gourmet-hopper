@@ -64,6 +64,7 @@
                 <div class="shadow-sm p-3 mb-2 bg-white rounded active-item" id=<%= shops.get(i).getApiId() %>>
                 <a href="control?action_name=shop_detail&apiId=<%=shops.get(i).getApiId() %>"><%= shops.get(i).getName() %></a> 
                 <img src="<%=shops.get(i).getPhoto()%>"alt="サムネイル">
+                【予算】<%= shops.get(i).getBudgetAve() %>
                 </div>
               <% } %>
             </div>

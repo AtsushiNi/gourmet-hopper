@@ -26,10 +26,27 @@ public class ShopService {
 
 		// apiから情報を取得
 		HotpepperRepository repository = new HotpepperRepository();
-		List<Shop> shopsFromApi = repository.getShops(smallAreaCode, shopName);
+		List<Shop> apiShops = repository.getShops(smallAreaCode, shopName);
+		List<Shop> dbShops = shopDao.search(smallAreaCode, shopName);
 		List<Shop> allShops = new ArrayList<>();
-		allShops.addAll(shopDao.search(smallAreaCode, shopName));
-		allShops.addAll(shopsFromApi);
+		allShops.addAll(dbShops);
+		
+		for (Shop apiShop : apiShops) {
+		    Shop dbShop = null;
+		    for (Shop inDbShop : dbShops) {
+		        if (apiShop.getApiId().equals(inDbShop.getApiId())) {
+		            dbShop = inDbShop;
+		            break;
+		        }
+		    }
+		    if (dbShop == null) {
+		        allShops.add(apiShop);
+		    }else {
+				dbShop.setPhoto(apiShop.getPhoto());
+				dbShop.setBudgetAve(apiShop.getBudgetAve());
+		    }
+		}
+		
 		return allShops;
 	}
     // ShopをapiIdから取得する
