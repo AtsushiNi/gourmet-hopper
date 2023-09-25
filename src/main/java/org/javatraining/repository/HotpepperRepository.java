@@ -96,6 +96,7 @@ public class HotpepperRepository {
         shop.setLat(json.getDouble("lat"));
         shop.setLng(json.getDouble("lng"));
         shop.setPhoto(json.getJSONObject("photo").getJSONObject("pc").getString("l"));
+        shop.setBudgetAve(json.getJSONObject("budget").getString("average"));
         return shop;
     }
 	

@@ -4,15 +4,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 
-import org.javatraining.entity.Book;
 import org.javatraining.entity.CommunitiesUsers;
-import org.javatraining.entity.Community;
 
 // ユーザマスタへのアクセスを行うクラス
 public class CommunitiesUsersDAO {
