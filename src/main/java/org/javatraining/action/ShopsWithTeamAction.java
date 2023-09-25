@@ -47,7 +47,7 @@ public class ShopsWithTeamAction extends Action {
         JSONArray jsonArray = new JSONArray();
         for(Shop shop : shops) {
         	JSONObject json = new JSONObject();
-        	json.put("id", shop.getId());
+        	json.put("id", shop.getShopId());
         	json.put("name", shop.getName());
         	json.put("apiId", shop.getApiId());
         	json.put("lat", shop.getLat());
