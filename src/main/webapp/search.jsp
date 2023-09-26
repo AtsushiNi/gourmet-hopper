@@ -44,7 +44,10 @@
                 </div>
                 
                 <div class="accordion" id="select-areas">
-                  <div class="btn-group dropright my-3" id="drop-down" style="width: 100%; margin-bottom: 0 !important">
+                  <div style="font-size: 14px; margin-top: 20px; margin-bottom: 5px; text-align: end;">
+                    <a href="control?action_name=search">デフォルト条件</a>
+                  </div>
+                  <div class="btn-group dropright my-3" id="drop-down" style="width: 100%; margin-bottom: 0 !important; margin-top: 0 !important;">
                     <button type="button" id="dropdown-button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"
                       aria-haspopup="true" aria-expanded="false" style="background: #EAEAEA">
                       東京
