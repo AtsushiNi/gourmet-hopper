@@ -101,6 +101,15 @@ public class ReviewDAO {
             	//　ReviewオブジェクトにSQLの結果を格納
             	review.setId(rs.getInt("REVIEWS.ID"));
             	review.setTitle(rs.getString("REVIEWS.TITLE"));
+            	review.setRating(rs.getInt("REVIEWS.RATING"));
+            	review.setBudget(rs.getString("REVIEWS.BUDGET"));
+            	review.setForParty(rs.getBoolean("REVIEWS.FORPARTY"));
+            	review.setForReception(rs.getBoolean("REVIEWS.FORRECEPTION"));
+            	review.setForDate(rs.getBoolean("REVIEWS.FORDATE"));
+            	review.setTabaco(rs.getBoolean("REVIEWS.TABACO"));
+            	review.setFree(rs.getBoolean("REVIEWS.FREE"));
+            	review.setPartySpace(rs.getBoolean("REVIEWS.PARTYSPACE"));
+            	review.setReservation(rs.getBoolean("REVIEWS.RESERVATION"));
             	review.setComment(rs.getString("REVIEWS.REVIEW"));
             	review.setUserId(rs.getInt("REVIEWS.USER_ID"));
             	review.setShopId(rs.getInt("REVIEWS.SHOP_ID"));
@@ -152,7 +161,7 @@ public class ReviewDAO {
 
         System.out.println("[REVIEWDAO.java]:create Start");
         // INSERT INFO テーブルにデータを追加する SQL文
-        String sql = "INSERT INTO REVIEWS (TITLE, REVIEW, USER_ID, SHOP_ID) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO REVIEWS (TITLE, RATING, BUDGET, FORPARTY, FORRECEPTION, FORDATE, TABACO, FREE, PARTYSPACE, RESERVATION,  REVIEW, USER_ID, SHOP_ID) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         // データソースを取得
         DataSource ds = DataSourceSupplier.getDataSource();
@@ -161,9 +170,18 @@ public class ReviewDAO {
 
             // プレース・ホルダに値を設定
         	 ps.setString(1, review.getTitle());
-        	 ps.setString(2, review.getComment());
-        	 ps.setInt(3, review.getUserId());
-        	 ps.setInt(4, review.getShopId());
+        	 ps.setInt(2, review.getRating());
+        	 ps.setString(3, review.getBudget());
+        	 ps.setBoolean(4, review.isForParty());
+        	 ps.setBoolean(5, review.isForReception());
+        	 ps.setBoolean(6, review.isForDate());
+        	 ps.setBoolean(7, review.isTabaco());
+        	 ps.setBoolean(8, review.isFree());
+        	 ps.setBoolean(9, review.isPartySpace());
+        	 ps.setBoolean(10, review.isReservation());
+        	 ps.setString(11, review.getComment());
+        	 ps.setInt(12, review.getUserId());
+        	 ps.setInt(13, review.getShopId());
 
             // SQL 文を実行
             int affectedRows = ps.executeUpdate();
@@ -180,24 +198,18 @@ public class ReviewDAO {
     private Review createReview(ResultSet rs) throws SQLException {
         Review review = new Review();
         review.setTitle(rs.getString("TITLE"));
+        review.setRating(rs.getInt("RATING"));
+        review.setBudget(rs.getString("BUDGET"));
+        review.setForParty(rs.getBoolean("FORPARTY"));
+        review.setForReception(rs.getBoolean("FORRECEPTION"));
+        review.setForDate(rs.getBoolean("FORDATE"));
+        review.setTabaco(rs.getBoolean("TABACO"));
+        review.setFree(rs.getBoolean("FREE"));
+        review.setPartySpace(rs.getBoolean("PARTYSPACE"));
+        review.setReservation(rs.getBoolean("RESERVATION"));
         review.setComment(rs.getString("REVIEW"));
         review.setUserId(rs.getInt("USER_ID"));
         review.setShopId(rs.getInt("SHOP_ID"));
         return review;
-    }
-    
-    public int countReviews(int shopId) throws SQLException, NamingException {
-    	System.out.println("[reviewDAO.java]:countReviews Start");
-    	Review review = new Review();
-    	String sql = "SELECT COUNT(*) FROM TBL WHERE ID = ?";
-    	DataSource ds = DataSourceSupplier.getDataSource();
-        try (Connection con = ds.getConnection();
-                PreparedStatement ps = con.prepareStatement(sql)){
-        	ps.setInt(1, review.getShopId());
-        	ResultSet rs = ps.executeQuery();
-        	shopId = rs.getInt("SHOP_ID");
-                
-        }
-		return shopId;
     }
 }

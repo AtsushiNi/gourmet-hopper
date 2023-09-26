@@ -22,8 +22,8 @@
 	<main id="main">
 		<div class="container">
 			<div class="row">
-				<div class="col">
-					<ul class="nav nav-tabs" role="tablist">
+				<div class="col-8">
+					<ul class="nav nav-tabs" role="tablist" style="border: none;">
 						<li class="nav-item">
                             <a class="nav-link active"
     							id="item1-tab" data-toggle="tab" href="#item1" role="tab"
@@ -42,66 +42,85 @@
 					<div class="tab-content" style="border: 1px solid #dee2e6; border-radius: 0 10px;">
 						<div class="tab-pane fade show active" id="item1" role="tabpanel"
 							aria-labelledby="item1-tab">
-							<div data-spy="scroll" style="height: 400px; overflow: auto;">
-								<!--ここに店の情報入れる-->
-								<table>
-									<thead>
-										<tr>
-											<th>お店の詳細情報</th>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td><%=shopDetail.getName()%></td>
-										</tr>
-										<tr>
-											<td><%=shopDetail.getAccess()%></td>
-										</tr>
-										<tr>
-											<td><%=shopDetail.getAddress()%></td>
-										</tr>
-										<tr>
-											<td><%=shopDetail.getCard()%></td>
-										</tr>
-										<tr>
-											<td><%=shopDetail.getCatchMessage()%></td>
-										</tr>
-									</tbody>
-								</table>
-								<!--ここまで店の情報-->
+							<div class="container mt-3" style="height: 400px;">
+                                <div class="row">
+                                  <div class="col-4">
+                                    <img src="<%=shopDetail.getPhoto()%>" >                                  
+                                  </div>
+                                  <div class="col-8 ml-2" style="font-size: 14px; max-width: 470px;">
+                                    <div class="my-3" style="font-size: 18px;">
+                                      <%=shopDetail.getName()%>
+                                    </div>
+                                    <div>
+                                      <%=shopDetail.getCatchMessage()%>
+                                    </div>
+                                    
+                                    <div class="mt-3">
+                                      <span class="badge badge-secondary"><%=shopDetail.getCard() %></span>
+                                      <span class="badge badge-secondary"><%=shopDetail.getNonSmoking() %></span>
+                                    </div>
+                                    <div>
+                                      <i class="fa-solid fa-train"></i>
+                                      <%=shopDetail.getAccess()%>
+                                    </div>
+                                    <div>
+                                      <i class="fa-solid fa-location-dot"></i>
+                                      <%=shopDetail.getAddress()%>
+                                    </div>
+                                    
+                                    <div class="mt-3">
+                                      <a class="btn btn-secondary" style="font-size: 14px;" href="<%=shopDetail.getUrl()%>" target="_blank">お店のHP</a>
+                                    </div>
+                                  </div>
+                                </div>
 							</div>
 						</div>
 						<div class="tab-pane fade" id="item2" role="tabpanel"
 							aria-labelledby="item2-tab">
 							<div data-spy="scroll" style="height: 400px; overflow: auto;">
 								<!--ここにレビュー入れる-->
-								<table>
-									<thead>
-										<tr>
-											<th>タイトル</th>
-											<th>コメント</th>
-										</tr>
-									</thead>
-									<tbody>
-										<%
-										for (int i = 0; i < reviews.size(); i++) {
-										%>
-										<tr>
-											<td><%=reviews.get(i).getTitle()%></td>
-											<td><%=reviews.get(i).getComment()%></td>
-										</tr>
-										<%
-										}
-										%>
-									</tbody>
-								</table>
+								<h4><%=shopDetail.getName() %></h4>
+									<%
+										for(int i = 0; i < reviews.size(); i++){ 
+									%>
+										<b><%=reviews.get(i).getTitle()%></b><br>
+										[評価]<%=reviews.get(i).getComment() %><br>
+										[予算]<%=reviews.get(i).getBudget() %><br>
+										[お店の雰囲気]<br>
+										<%if(reviews.get(i).isForParty()){%>
+											〇宴会向け
+										<%}%>
+										<%if(reviews.get(i).isForReception()){ %>
+											〇接待向け
+										<%} %>
+										<%if(reviews.get(i).isForDate()){ %>
+											〇デート向け
+										<%} %><br><br>
+										
+										[お店の詳細]<br>
+										<%if(reviews.get(i).isTabaco()){ %>
+											喫煙可
+										<%}%>
+										<%if(reviews.get(i).isFree()){ %>
+											食べ放題あり
+										<%} %>
+										<%if(reviews.get(i).isPartySpace()){ %>
+											宴会場あり
+										<%} %>
+										<%if(reviews.get(i).isReservation()){ %>
+											予約可
+										<%} %>
+										<hr>
+										
+									<%} %>
+
 								<!--ここまでレビュー-->
 							</div>
 						</div>
 					</div>
                 </div>
                 
-				<div class="col">
+				<div class="col-4">
 					<div id="map" class="ml-auto" style="width: 400px; height: 400px;"></div>
 				</div>
 

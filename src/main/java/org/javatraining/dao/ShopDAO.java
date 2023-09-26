@@ -20,10 +20,19 @@ public class ShopDAO {
 		System.out.println("[ShopDAO.java]:search Start");
 		String sql = null;
 		if (shopName != null) {
-			sql = "SELECT * FROM SHOPS WHERE NAME LIKE ? AND SMALL_AREA_CODE = ?";
+			sql = "SELECT SHOPS.*, COUNT(REVIEWS.ID) AS REVIEW_COUNT, AVG(REVIEWS.RATING) AS AVERAGE_RATING"
+					+ " FROM SHOPS"
+					+ " LEFT JOIN REVIEWS ON SHOPS.ID = REVIEWS.SHOP_ID"
+					+ " WHERE SHOPS.NAME LIKE ? AND SHOPS.SMALL_AREA_CODE = ?"
+					+ " GROUP BY SHOPS.ID, SHOPS.NAME";
 		} else {
-			sql = "SELECT * FROM SHOPS WHERE SMALL_AREA_CODE = ?";
+			sql = "SELECT SHOPS.*, COUNT(REVIEWS.ID) AS REVIEW_COUNT, AVG(REVIEWS.RATING) AS AVERAGE_RATING"
+					+ " FROM SHOPS"
+					+ " LEFT JOIN REVIEWS ON SHOPS.ID = REVIEWS.SHOP_ID"
+					+ " WHERE SHOPS.SMALL_AREA_CODE = ?"
+					+ " GROUP BY SHOPS.ID, SHOPS.NAME";
 		}
+		
 		// データソースを取得
 		DataSource ds = DataSourceSupplier.getDataSource();
 		try (Connection con = ds.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
@@ -97,7 +106,7 @@ public class ShopDAO {
                     return null;
                 }
                 // Shopオブジェクトを生成
-                Shop shop = createShop(rs);
+                Shop shop = createShopObj(rs);
                 
                 // Shopを返す
                 System.out.println("[ShopDAO.java]:findById SQL実行結果: "+ shop);
@@ -139,7 +148,19 @@ public class ShopDAO {
 	private Shop createShop(ResultSet rs) throws SQLException {
 		Shop shop = new Shop();
 
-		shop.setId(rs.getInt("ID"));
+		shop.setShopId(rs.getInt("ID"));
+		shop.setName(rs.getString("NAME"));
+		shop.setApiId(rs.getString("API_ID"));
+		shop.setReviewCount(rs.getInt("REVIEW_COUNT"));
+		shop.setRatingAve(rs.getDouble("AVERAGE_RATING"));
+		return shop;
+	}
+	
+	// ResultSetからShopオブジェクトを生成する
+	private Shop createShopObj(ResultSet rs) throws SQLException {
+		Shop shop = new Shop();
+
+		shop.setShopId(rs.getInt("ID"));
 		shop.setName(rs.getString("NAME"));
 		shop.setApiId(rs.getString("API_ID"));
 		return shop;
