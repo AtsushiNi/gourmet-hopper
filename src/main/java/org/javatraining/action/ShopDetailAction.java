@@ -59,6 +59,15 @@ public class ShopDetailAction extends Action {
     	//取得したReview型のListをRequestに格納
     	request.setAttribute("reviews", reviews);
     	
+    	// グラフ用のJSON
+        JSONArray reviewJsonArray = new JSONArray();
+        for(Review review : reviews) {
+	    	JSONObject reviewJson = new JSONObject();
+	    	reviewJson.put("rating", review.getRating());
+	    	reviewJsonArray.put(reviewJson);
+        }
+        request.setAttribute("reviewsJson", reviewJsonArray.toString());
+
     	//communityIdとapiIdでDBからReviewをListで取得
     	List<User> users = reviewService.getUsers(communityId, apiId);
     	System.out.println("[ShopDetailAction.java]: users "+ users);

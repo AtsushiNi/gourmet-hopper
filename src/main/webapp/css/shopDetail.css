@@ -48,6 +48,10 @@
 	margin-right: 5px;
 }
 
+#myChart {
+	height: 150px !important;
+}
+
 #map {
 	margin-top: 40px;
 }
