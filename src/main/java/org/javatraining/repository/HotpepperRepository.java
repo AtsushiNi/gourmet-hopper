@@ -95,6 +95,7 @@ public class HotpepperRepository {
         shop.setApiId(json.getString("id"));
         shop.setLat(json.getDouble("lat"));
         shop.setLng(json.getDouble("lng"));
+        shop.setCatchMessage(json.getString("catch"));
         shop.setPhoto(json.getJSONObject("photo").getJSONObject("pc").getString("l"));
         shop.setBudgetAve(json.getJSONObject("budget").getString("average"));
         return shop;
