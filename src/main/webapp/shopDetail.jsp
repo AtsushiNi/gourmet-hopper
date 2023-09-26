@@ -42,7 +42,7 @@
                         </li>
 					</ul>
 					<!--左タブ-->
-					<div class="tab-content" style="border: 1px solid #dee2e6; border-radius: 0 10px;">
+					<div class="tab-content" style="border: 1px solid #dee2e6; border-radius: 0 10px; background: #FAFAFA;">
 						<div class="tab-pane fade show active" id="item1" role="tabpanel"
 							aria-labelledby="item1-tab">
 							<div class="container mt-3" style="height: 400px;">
@@ -84,7 +84,7 @@
 						<!--右タブ-->
 						<div class="tab-pane fade" id="item2" role="tabpanel"
 							aria-labelledby="item2-tab">
-							<div data-spy="scroll" style="height: 400px; overflow: auto;">
+							<div data-spy="scroll" style="height: 400px; overflow: auto; background: #EAEAEA;">
 								<!--ここにレビュー入れる-->
 									<%
 										for(int i = 0; i < reviews.size(); i++){ 
@@ -159,7 +159,7 @@
 				</div>
 
 			</div>
-            <div class="row">
+            <div class="row mt-4">
   				<a class="btn btn-secondary ml-auto" href="control?action_name=review_new&apiId=${requestScope.shopDetail.apiId }&shopName=${requestScope.shopDetail.name}">新規レビューを投稿</a>
             </div>
         </div>
