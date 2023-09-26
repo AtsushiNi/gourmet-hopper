@@ -91,7 +91,7 @@
                                           <%=reviews.get(i).getTitle()%>
                                           <div style="font-size: 14px;">
                                             <img src= "image/icons/<%=reviews.get(i).getUserId()%>.png" class="rounded-circle" height="40px">
-                                            ユーザー名
+                                            <%= users.get(i).getUserName() %>
                                           </div>
                                         </div>
                                         <hr>
