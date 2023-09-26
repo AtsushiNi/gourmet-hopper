@@ -1,3 +1,11 @@
+.tab-content {
+	background: #EAEAEA;
+}
+
+.nav-link.active {
+	background-color: #EAEAEA !important;
+	border-color: #EAEAEA !important;
+}
 .rate {
 	position: relative;
 	display: inline-block;
@@ -38,4 +46,8 @@
 
 .fa-comment {
 	margin-right: 5px;
+}
+
+#map {
+	margin-top: 40px;
 }
