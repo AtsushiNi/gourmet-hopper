@@ -2,7 +2,9 @@ package org.javatraining.action;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
@@ -31,8 +33,15 @@ public class ShopsWithTeamAction extends Action {
         request.setAttribute("team", team);
         
         // お店の検索
-        String smallAreaCode = "X175";
-        String shopName = request.getParameter("shopName");
+		String middleAreaCode = request.getParameter("middleAreaCode");
+		String smallAreaCode = request.getParameter("smallAreaCode");
+		if(smallAreaCode == null && middleAreaCode == null) smallAreaCode = "X175";
+		
+		Map<String, String> areaCodes = new HashMap();
+		areaCodes.put("smallAreaCode", smallAreaCode);
+		areaCodes.put("middleAreaCode", middleAreaCode);
+
+		String shopName = request.getParameter("shopName");
         request.setAttribute("shopName", shopName);
         
     	//CommunityIdをsessionから取得
@@ -43,7 +52,7 @@ public class ShopsWithTeamAction extends Action {
 
         List<Shop> shops = null;
 		try {
-			shops = shopService.getShops(smallAreaCode,shopName, communityId);
+			shops = shopService.getShops(areaCodes,shopName, communityId);
 		} catch (SQLException | NamingException | IOException | InterruptedException e) {
 			e.printStackTrace();
 		}

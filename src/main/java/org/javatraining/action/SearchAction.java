@@ -2,7 +2,9 @@ package org.javatraining.action;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
@@ -23,7 +25,26 @@ public class SearchAction extends Action {
 		System.out.println("[ShopShowAction.java]: Start");
 		System.out.println("[ShopShowAction.java]: ShopService:getShopsメソッドを呼び出し");
 
-		String smallAreaCode = "X175";
+		// エリア検索
+		String middleAreaCode = request.getParameter("middleAreaCode");
+		String smallAreaCode = request.getParameter("smallAreaCode");
+		
+		if(smallAreaCode == null && middleAreaCode == null) {
+			smallAreaCode = "X175";
+		}
+
+		String areaName = "";
+		if(smallAreaCode != null || middleAreaCode == null) {
+			areaName = "中野";
+		} else {
+			areaName = request.getParameter("areaName");
+		}
+		request.setAttribute("areaName", areaName);
+		
+		Map<String, String> areaCodes = new HashMap();
+		areaCodes.put("smallAreaCode", smallAreaCode);
+		areaCodes.put("middleAreaCode", middleAreaCode);
+
 		String shopName = request.getParameter("shopName");
 		request.setAttribute("shopName", shopName);
 		
@@ -35,7 +56,7 @@ public class SearchAction extends Action {
 
 		List<Shop> shops = null;
 		try {
-			shops = shopService.getShops(smallAreaCode, shopName, communityId);
+			shops = shopService.getShops(areaCodes, shopName, communityId);
 		} catch (SQLException | NamingException | IOException | InterruptedException e) {
 			e.printStackTrace();
 		}

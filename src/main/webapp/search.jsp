@@ -24,7 +24,7 @@
       <div class="container">
         <div class="row">
           <div class="col-3">
-            <div class="shadow p-3 mb-5 bg-white rounded">
+            <div class="shadow p-3 mb-5 bg-white rounded" style="margin-top: 30px;">
               <form action="control" method="post">
                 <input type="hidden" name="action_name" value="search" />
 
@@ -40,6 +40,35 @@
                     >
                     <button type="button" class="btn btn-secondary" style="border-top-left-radius: 0px; border-bottom-left-radius: 0px;"
                     ><i class="fa fa-search"></i></button>
+                  </div>
+                </div>
+                
+                <div class="accordion" id="select-areas">
+                  <div class="btn-group dropright my-3" id="drop-down" style="width: 100%; margin-bottom: 0 !important">
+                    <button type="button" id="dropdown-button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false" style="background: #EAEAEA">
+                      東京
+                    </button>
+                    <div class="dropdown-menu" style="width: 700px; font-size: 14px;">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col area-col ml-2" style="border-right: 1px solid silver;">
+                                </div>
+                                <div class="col area-col ml-2" style="border-right: 1px solid silver;">
+                                </div>
+                                <div class="col area-col ml-2">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                  <div class="btn-group dropright my-3" style="width: 100%;">
+                    <c:if test="${areaName != null}">
+                      <button type="button" id="area-dropdown-button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" style="background: #EAEAEA">
+                        ${areaName}
+                      </button>
+                    </c:if>
                   </div>
                 </div>
                 
@@ -98,7 +127,6 @@
     <!-- footer -->
     <%@ include file="template/footer.jsp"%>
   
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
     	let shopsJson = ${requestScope.shopsJson}
     </script>
