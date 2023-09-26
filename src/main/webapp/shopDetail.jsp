@@ -86,7 +86,7 @@
 									<%
 										for(int i = 0; i < reviews.size(); i++){ 
 									%>
-                                      <div class="shadow-sm p-3 mb-2 bg-white rounded" style="margin: 5px; margin-bottom: 10px;">
+                                      <div class="shadow-sm p-3 mb-2 bg-white rounded" style="margin: 5px; margin-bottom: 20px !important;">
                                         <div style="display: flex; line-height: 40px; justify-content: space-between;">
                                           <%=reviews.get(i).getTitle()%>
                                           <div style="font-size: 14px;">

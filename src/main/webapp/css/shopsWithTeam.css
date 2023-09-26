@@ -52,3 +52,15 @@
 .fa-comment {
 	margin-right: 5px;
 }
+
+.table-wrapper {
+	background-color: #EAEAEA !important;
+}
+
+.table td, .table th {
+	border-color: #878787;
+}
+
+.table thead th {
+	border-bottom: 2px solid #878787;
+}
