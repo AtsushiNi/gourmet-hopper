@@ -25,9 +25,21 @@ public class SearchAction extends Action {
 		System.out.println("[ShopShowAction.java]: Start");
 		System.out.println("[ShopShowAction.java]: ShopService:getShopsメソッドを呼び出し");
 
+		// エリア検索
 		String middleAreaCode = request.getParameter("middleAreaCode");
 		String smallAreaCode = request.getParameter("smallAreaCode");
-		if(smallAreaCode == null && middleAreaCode == null) smallAreaCode = "X175";
+		
+		if(smallAreaCode == null && middleAreaCode == null) {
+			smallAreaCode = "X175";
+		}
+
+		String areaName = "";
+		if(smallAreaCode != null || middleAreaCode == null) {
+			areaName = "中野";
+		} else {
+			areaName = request.getParameter("areaName");
+		}
+		request.setAttribute("areaName", areaName);
 		
 		Map<String, String> areaCodes = new HashMap();
 		areaCodes.put("smallAreaCode", smallAreaCode);
