@@ -4,3 +4,6 @@
 .deactive-item {
 	background: #F7F7F7 !important;
 }
+.active-item {
+	cursor: pointer;
+}
