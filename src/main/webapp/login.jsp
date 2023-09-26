@@ -8,9 +8,8 @@
 
   <body class="text-center">
     <form class="form-signin" action="control" method="post">
-      <img class="mb-4" src="image/GourmetHopper.png" height="72" />
+      <img class="mb-4" src="image/GourmetHopper.png" height="150" />
       <input type="hidden" name="action_name" value="login" />
-      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
 
       <label for="inputName" class="sr-only">User name</label>
       <input type="text" id="inputName" name="name" class="form-control" placeholder="User name" value="武井 凱" required autofocus>
