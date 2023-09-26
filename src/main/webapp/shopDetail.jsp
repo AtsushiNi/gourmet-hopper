@@ -6,6 +6,8 @@
 	type="java.util.List<org.javatraining.entity.Review>" />
 <jsp:useBean id="shopDetail" scope="request"
 	type="org.javatraining.entity.Shop" />
+<jsp:useBean id="users" scope="request"
+	type="java.util.List<org.javatraining.entity.User>" />
 
 
 <html lang="ja">
@@ -113,6 +115,7 @@
 											予約可
 										<%} %>
 										<input type="image" src= "image/icons/<%=reviews.get(i).getUserId()%>.png" class="rounded-circle" id="avatar" height="40px">
+										<%=users.get(i).getUserName()%>さんのレビュー
 										<hr>
 										
 									<%} %>
