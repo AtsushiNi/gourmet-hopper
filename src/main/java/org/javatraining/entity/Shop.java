@@ -164,6 +164,7 @@ public class Shop implements Serializable {
                 "shopId=" + shopId +
                 ", name='" + name + '\'' +
                 ", apiId'" + apiId + '\'' +
+                ", lat'" + lat + '\'' +
                 '}';
     }
 }

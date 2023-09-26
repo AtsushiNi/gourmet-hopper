@@ -47,8 +47,11 @@ public class ShopService {
 				dbShop.setPhoto(apiShop.getPhoto());
 				dbShop.setCatchMessage(apiShop.getCatchMessage());
 				dbShop.setBudgetAve(apiShop.getBudgetAve());
+				dbShop.setLat(apiShop.getLat());
+				dbShop.setLng(apiShop.getLng());
 		    }
 		}
+		System.out.println("allShops: " + allShops);
 		
 		return allShops;
 	}
