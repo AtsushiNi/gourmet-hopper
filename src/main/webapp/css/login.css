@@ -13,6 +13,12 @@ body {
   background-color: #f5f5f5;
 }
 
+body {
+	background-image: url("../image/login-background.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
 .form-signin {
   width: 100%;
   max-width: 330px;
