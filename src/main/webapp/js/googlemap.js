@@ -36,15 +36,15 @@ $(document).ready(function() {
 				window.location.hash = target.attr('id')
 			})
 			
-			$("#shop-list div").removeClass("active-item")
-			$("#shop-list div").addClass("deactive-item")
+			$(".shops").removeClass("active-item")
+			$(".shops").addClass("deactive-item")
 			$(target).addClass("active-item")
 			$(target).removeClass("deactive-item")
 		})
 	});
 	
 	$("#map").on("mouseleave", function() {
-			$("#shop-list div").removeClass("deactive-item")
-			$("#shop-list div").addClass("active-item")		
+			$(".shops").removeClass("deactive-item")
+			$(".shops").addClass("active-item")		
 	})
 })

@@ -11,6 +11,7 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 import org.javatraining.entity.Review;
+import org.javatraining.entity.User;
 
 
 // reviewsテーブルへのアクセスを行うクラス
@@ -156,6 +157,56 @@ public class ReviewDAO {
             }
         }
     }
+    
+    // reviewsテーブルをcommunityIdとshopIdで検索する
+    public List<User> findUsers(int communityId, String apiId) throws SQLException, NamingException {
+
+        System.out.println("[ReviewDAO.java]:findUsers Start");
+    	// USERが所属しているCOMMUNITYにREVIEWがあるUSER達を検索する SQL 文
+        String sql = "SELECT * FROM COMMUNITIES_USERS "
+        		+ "INNER JOIN USERS ON COMMUNITIES_USERS.USER_ID = USERS.ID "
+        		+ "INNER JOIN REVIEWS ON USERS.ID = REVIEWS.USER_ID "
+        		+ "INNER JOIN SHOPS ON REVIEWS.SHOP_ID = SHOPS.ID "
+        		+ "WHERE COMMUNITIES_USERS.COMMUNITY_ID = ? AND SHOPS.API_ID = ?";
+
+        // データソースを取得
+        DataSource ds = DataSourceSupplier.getDataSource();
+        try (Connection con = ds.getConnection();
+                PreparedStatement ps = con.prepareStatement(sql);) {
+        	System.out.println("[ReviewDAO.java]:findUsers communityId="+communityId);
+        	ps.setInt(1, communityId);
+        	System.out.println("[ReviewDAO.java]:findUsers apiId="+apiId);
+        	ps.setString(2, apiId);
+            ResultSet rs = ps.executeQuery();
+            // Userオブジェクトの List を生成
+            List<User> users = new ArrayList<>();
+            
+            // 検索結果をループしてReviewオブジェクトの List に格納
+            while (rs.next()) {
+                // Userオブジェクトを生成
+            	User user = new User();
+            	//　UserオブジェクトにSQLの結果を格納
+            	user.setUserId(rs.getInt("USERS.ID"));
+            	user.setUserName(rs.getString("USERS.NAME"));
+            	user.setPassword(rs.getString("USERS.PASSWORD"));
+            	user.setEmail(rs.getString("USERS.EMAIL"));
+            	user.setLikeFood(rs.getString("USERS.LIKE_FOOD"));
+            	user.setDislikeFood(rs.getString("USERS.DISLIKE_FOOD"));
+            	
+                // Userオブジェクトの List に格納
+            	users.add(user);
+            	
+            	//デバッグ用
+            	System.out.println("[ReviewDAO.java]:findUsers SQL途中 USER_ID ="+rs.getInt("USERS.ID"));
+            	System.out.println("[ReviewDAO.java]:findUsers SQL途中 USER_ID ="+rs.getString("USERS.NAME"));
+            }
+            // Userオブジェクトの List を返す
+            System.out.println("[ReviewDAO.java]:findUsers SQL実行結果: "+ users);
+            System.out.println("[ReviewDAO.java]:findUsers End");
+            return users;
+        }
+    }
+    
     // REVIEWSテーブルにreviewを新規登録する
     public boolean create(Review review) throws SQLException, NamingException {
 

@@ -7,6 +7,7 @@ import javax.naming.NamingException;
 
 import org.javatraining.dao.ReviewDAO;
 import org.javatraining.entity.Review;
+import org.javatraining.entity.User;
 
 public class ReviewService {
 	
@@ -20,6 +21,11 @@ public class ReviewService {
 	public List<Review> getReviewsByCommunityIdAndApiId(int communityId, String apiId) throws SQLException, NamingException{
 		System.out.println("[ReviewService.java:getReviewsByCommunityIdAndApiId Start");
 		return dao.findByCommunityIdAndApiId(communityId, apiId);
+	}
+	
+	public List<User> getUsers(int communityId, String apiId) throws SQLException, NamingException{
+		System.out.println("[ReviewService.java:getUsers Start");
+		return dao.findUsers(communityId, apiId);
 	}
 	
     // review情報を登録する
