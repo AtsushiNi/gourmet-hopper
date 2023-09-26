@@ -8,7 +8,9 @@ import java.util.Map;
 
 import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
+import org.javatraining.entity.Community;
 import org.javatraining.entity.Shop;
 import org.javatraining.service.ShopService;
 import org.json.JSONArray;
@@ -33,10 +35,16 @@ public class SearchAction extends Action {
 
 		String shopName = request.getParameter("shopName");
 		request.setAttribute("shopName", shopName);
+		
+    	//CommunityIdをsessionから取得
+        HttpSession session = request.getSession(true);
+    	Community community = (Community)session.getAttribute("community");
+    	int communityId = community.getCommunityId();
+    	System.out.println("[ShopDetailAction.java]:community.getCommunityId() "+ communityId);
 
 		List<Shop> shops = null;
 		try {
-			shops = shopService.getShops(areaCodes, shopName);
+			shops = shopService.getShops(areaCodes, shopName, communityId);
 		} catch (SQLException | NamingException | IOException | InterruptedException e) {
 			e.printStackTrace();
 		}

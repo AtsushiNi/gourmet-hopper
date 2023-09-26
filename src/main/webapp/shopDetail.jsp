@@ -157,7 +157,7 @@
 
 			</div>
             <div class="row">
-  				<a class="btn btn-secondary ml-auto" href="control?action_name=review_new&apiId=${requestScope.shopDetail.apiId }">新規レビューを投稿</a>
+  				<a class="btn btn-secondary ml-auto" href="control?action_name=review_new&apiId=${requestScope.shopDetail.apiId }&shopName=${requestScope.shopDetail.name}">新規レビューを投稿</a>
             </div>
         </div>
 	</main>

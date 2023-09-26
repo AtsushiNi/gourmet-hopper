@@ -17,15 +17,17 @@ import org.javatraining.entity.Shop;
 public class ShopDAO {
 
 	// SHOPSテーブルで入力された名前に関してあいまい検索する
-	public List<Shop> search(Map<String, String> areaCodes, String shopName) throws SQLException, NamingException {
+	public List<Shop> search(Map<String, String> areaCodes, String shopName, int communityId) throws SQLException, NamingException {
 		System.out.println("[ShopDAO.java]:search Start");
 		String sql = "SELECT SHOPS.*, COUNT(REVIEWS.ID) AS REVIEW_COUNT, AVG(REVIEWS.RATING) AS AVERAGE_RATING"
 				+ " FROM SHOPS"
-				+ " LEFT JOIN REVIEWS ON SHOPS.ID = REVIEWS.SHOP_ID";
+				+ " LEFT JOIN REVIEWS ON SHOPS.ID = REVIEWS.SHOP_ID"
+				+ " INNER JOIN COMMUNITIES_USERS ON REVIEWS.USER_ID = COMMUNITIES_USERS.USER_ID"
+				+ " WHERE COMMUNITIES_USERS.COMMUNITY_ID = ?";
 
 		// 名前検索
 		if (shopName != null) {
-			sql = sql + " WHERE SHOPS.NAME LIKE ?";
+			sql = sql + " AND SHOPS.NAME LIKE ?";
 		}
 
 		// エリアコード
@@ -49,11 +51,16 @@ public class ShopDAO {
 		try (Connection con = ds.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
 			// プレースホルダに値をセット
 			if (shopName != null) {
+				ps.setInt(3, communityId);
 				ps.setString(1, "%" + shopName + "%");
 				ps.setString(2, areaCodes.get("smallAreaCode"));
+				System.out.println("[ShopDAO.java]:search communityId "+ communityId);
 			}else {
+				ps.setInt(2, communityId);
 				ps.setString(1, areaCodes.get("smallAreaCode"));
+				System.out.println("[ShopDAO.java]:search communityId "+ communityId);
 			}
+
 			// 実行
 			ResultSet rs = ps.executeQuery();
 			// Shopオブジェクトの List を生成
@@ -63,6 +70,13 @@ public class ShopDAO {
 				// Shopオブジェクトを生成
 				Shop shop = createShop(rs);
 				// Shopオブジェクトの List に格納
+				shop.setShopId(rs.getInt("SHOPS.ID"));
+				shop.setReviewCount(rs.getInt("REVIEW_COUNT"));
+				shop.setRatingAve(rs.getDouble("AVERAGE_RATING"));
+				shop.setName(rs.getString("SHOPS.NAME"));
+				shop.setSmallAreaCode(rs.getString("SHOPS.SMALL_AREA_CODE"));
+				shop.setApiId(rs.getString("SHOPS.API_ID"));
+				
 				shops.add(shop);
 			}
 			// Shopオブジェクトの List を返す

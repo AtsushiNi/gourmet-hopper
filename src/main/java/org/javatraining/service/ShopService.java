@@ -20,7 +20,7 @@ public class ShopService {
 	private HotpepperRepository repository = new HotpepperRepository();
 
 	// Shopリストを取得する
-	public List<Shop> getShops(Map<String, String> areaCodes, String shopName)
+	public List<Shop> getShops(Map<String, String> areaCodes, String shopName, int communityId)
 			throws SQLException, NamingException, IOException, InterruptedException {
 		System.out.println("[ShopService.java]:getShops Start");
 
@@ -28,7 +28,7 @@ public class ShopService {
 		// apiから情報を取得
 		HotpepperRepository repository = new HotpepperRepository();
 		List<Shop> apiShops = repository.getShops(areaCodes, shopName);
-		List<Shop> dbShops = shopDao.search(areaCodes, shopName);
+		List<Shop> dbShops = shopDao.search(areaCodes, shopName, communityId);
 		List<Shop> allShops = new ArrayList<>();
 		allShops.addAll(dbShops);
 		
