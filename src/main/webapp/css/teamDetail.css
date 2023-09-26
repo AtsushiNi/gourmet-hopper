@@ -1,0 +1,7 @@
+.table td, .table th {
+	border-color: #878787;
+}
+
+.table thead th {
+	border-bottom: 2px solid #878787;
+}

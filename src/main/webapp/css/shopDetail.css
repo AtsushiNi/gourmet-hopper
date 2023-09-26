@@ -1,15 +1,11 @@
-.active-item {
-	background: #FFF !important;
+.tab-content {
+	background: #EAEAEA;
 }
 
-.deactive-item {
-	background: #EAEAEA !important;
+.nav-link.active {
+	background-color: #EAEAEA !important;
+	border-color: #EAEAEA !important;
 }
-
-.active-item {
-	cursor: pointer;
-}
-
 .rate {
 	position: relative;
 	display: inline-block;
@@ -38,7 +34,6 @@
 .rate-wrap {
 	display: flex;
 	align-items: center;
-	margin: 20px auto 0;
 	line-height: 30px;
 }
 
@@ -51,4 +46,8 @@
 
 .fa-comment {
 	margin-right: 5px;
+}
+
+#map {
+	margin-top: 40px;
 }

@@ -12,7 +12,7 @@
 <html lang="ja">
   <!-- head -->
   <jsp:include page="template/head.jsp">
-  	<jsp:param name="page" value="search" />
+  	<jsp:param name="page" value="shopsWithTeam" />
   </jsp:include>
   
   <body>
@@ -23,9 +23,9 @@
     <main id="main">
       <div class="container">
         <div class="row">
-          <div class="col-3">
+          <div class="col-3" style="margin-left: -80px; min-width: 350px;">
             <div class="row">
-              <div class="shadow p-3 mb-5 bg-white rounded">
+              <div class="shadow p-3 mb-5 bg-white rounded" style="min-width: 340px;">
                 <form action="control" method="post">
                   <input type="hidden" name="action_name" value="shops_with_team" />
                   <input type="hidden" name="teamId" value="${team.id}" />

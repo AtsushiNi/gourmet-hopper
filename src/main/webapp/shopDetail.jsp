@@ -6,12 +6,14 @@
 	type="java.util.List<org.javatraining.entity.Review>" />
 <jsp:useBean id="shopDetail" scope="request"
 	type="org.javatraining.entity.Shop" />
+<jsp:useBean id="users" scope="request"
+	type="java.util.List<org.javatraining.entity.User>" />
 
 
 <html lang="ja">
 <!-- head -->
 <jsp:include page="template/head.jsp">
-	<jsp:param name="page" value="shop_detail" />
+	<jsp:param name="page" value="shopDetail" />
 </jsp:include>
 
 <body>
@@ -81,42 +83,66 @@
 							aria-labelledby="item2-tab">
 							<div data-spy="scroll" style="height: 400px; overflow: auto;">
 								<!--ここにレビュー入れる-->
-								<h4><%=shopDetail.getName() %></h4>
 									<%
 										for(int i = 0; i < reviews.size(); i++){ 
 									%>
-										<b><%=reviews.get(i).getTitle()%></b><br>
-										[評価]<%=reviews.get(i).getRating() %><br>
-										[コメント]<br>
-										<%=reviews.get(i).getComment() %><br>
-										[予算]<%=reviews.get(i).getBudget() %><br>
-										[お店の雰囲気]<br>
-										<%if(reviews.get(i).isForParty()){%>
-											〇宴会向け
-										<%}%>
-										<%if(reviews.get(i).isForReception()){ %>
-											〇接待向け
-										<%} %>
-										<%if(reviews.get(i).isForDate()){ %>
-											〇デート向け
-										<%} %><br><br>
-										
-										[お店の詳細]<br>
-										<%if(reviews.get(i).isTabaco()){ %>
-											喫煙可
-										<%}%>
-										<%if(reviews.get(i).isFree()){ %>
-											食べ放題あり
-										<%} %>
-										<%if(reviews.get(i).isPartySpace()){ %>
-											宴会場あり
-										<%} %>
-										<%if(reviews.get(i).isReservation()){ %>
-											予約可
-										<%} %>
-										<input type="image" src= "image/icons/<%=reviews.get(i).getUserId()%>.png" class="rounded-circle" id="avatar" height="40px">
+                                      <div class="shadow-sm p-3 mb-2 bg-white rounded" style="margin: 5px; margin-bottom: 20px !important;">
+                                        <div style="display: flex; line-height: 40px; justify-content: space-between;">
+                                          <%=reviews.get(i).getTitle()%>
+                                          <div style="font-size: 14px;">
+                                            <img src= "image/icons/<%=reviews.get(i).getUserId()%>.png" class="rounded-circle" height="40px">
+                                            <%= users.get(i).getUserName() %>
+                                          </div>
+                                        </div>
+                                        <hr>
+                                        <div style="display: flex;">
+                                          <span class="rate-wrap">
+                                            <span class="rate" style="--score: ${shop.ratingAve}"></span>
+                                            <span class="rate-num">
+                                              <%= reviews.get(i).getRating() %>
+                                            </span>
+                                          </span>
+                                          <span class="budget" style="line-height: 30px; margin-left: 30px; font-size: 14px;">
+                                            <%=reviews.get(i).getBudget() %> / 1人
+                                          </span>
+                                        </div>
+
+                                        <div class="row">
+                                          <div class="col">
+      										<h6 class="h6">お店の雰囲気</h6>
+      										<%if(reviews.get(i).isForParty()){%>
+                                                  <span class="badge badge-pill badge-secondary">宴会向け</span>
+      										<%}%>
+      										<%if(reviews.get(i).isForReception()){ %>
+                                                  <span class="badge badge-pill badge-secondary">接待向け</span>
+      										<%} %>
+      										<%if(reviews.get(i).isForDate()){ %>
+                                                  <span class="badge badge-pill badge-secondary">デート向け</span>
+      										<%} %>
+                                          </div>
+  										
+                                          <div class="col">
+      										<h6 class="h6">お店の詳細</h6>
+      										<%if(reviews.get(i).isTabaco()){ %>
+                                                  <span class="badge badge-pill badge-secondary">喫煙可</span>
+      										<%}%>
+      										<%if(reviews.get(i).isFree()){ %>
+                                                  <span class="badge badge-pill badge-secondary">食べ放題あり</span>
+      										<%} %>
+      										<%if(reviews.get(i).isPartySpace()){ %>
+                                                  <span class="badge badge-pill badge-secondary">宴会場あり</span>
+      										<%} %>
+      										<%if(reviews.get(i).isReservation()){ %>
+                                                  <span class="badge badge-pill badge-secondary">予約可</span>
+      										<%} %>
+                                          </div>
+                                        </div>
 										<hr>
-										
+
+                                        <div>
+                                          <%=reviews.get(i).getComment() %>
+                                        </div>
+								      </div>
 									<%} %>
 
 								<!--ここまでレビュー-->
@@ -131,7 +157,7 @@
 
 			</div>
             <div class="row">
-  				<a class="btn btn-secondary ml-auto" href="control?action_name=review_new&apiId=${requestScope.shopDetail.apiId }&shopName=${requestScope.shopDetail.name}">新規レビューを投稿</a>
+  				<a class="btn btn-secondary ml-auto" href="control?action_name=review_new&apiId=${requestScope.shopDetail.apiId }">新規レビューを投稿</a>
             </div>
         </div>
 	</main>
