@@ -33,6 +33,7 @@ public class ShopService {
 		
 		for (Shop apiShop : apiShops) {
 		    Shop dbShop = null;
+		    // apiShopがDBに存在するかを調べる
 		    for (Shop inDbShop : dbShops) {
 		        if (apiShop.getApiId().equals(inDbShop.getApiId())) {
 		            dbShop = inDbShop;
@@ -40,9 +41,10 @@ public class ShopService {
 		        }
 		    }
 		    if (dbShop == null) {
-		        allShops.add(apiShop);
-		    }else {
+		        allShops.add(apiShop); // DBになければリストの最後に加える
+		    }else { // DBにあれば情報をマージする
 				dbShop.setPhoto(apiShop.getPhoto());
+				dbShop.setCatchMessage(apiShop.getCatchMessage());
 				dbShop.setBudgetAve(apiShop.getBudgetAve());
 		    }
 		}
