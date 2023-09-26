@@ -106,7 +106,7 @@ public class ShopDAO {
                     return null;
                 }
                 // Shopオブジェクトを生成
-                Shop shop = createShop(rs);
+                Shop shop = createShopObj(rs);
                 
                 // Shopを返す
                 System.out.println("[ShopDAO.java]:findById SQL実行結果: "+ shop);
@@ -153,6 +153,16 @@ public class ShopDAO {
 		shop.setApiId(rs.getString("API_ID"));
 		shop.setReviewCount(rs.getInt("REVIEW_COUNT"));
 		shop.setRatingAve(rs.getDouble("AVERAGE_RATING"));
+		return shop;
+	}
+	
+	// ResultSetからShopオブジェクトを生成する
+	private Shop createShopObj(ResultSet rs) throws SQLException {
+		Shop shop = new Shop();
+
+		shop.setShopId(rs.getInt("ID"));
+		shop.setName(rs.getString("NAME"));
+		shop.setApiId(rs.getString("API_ID"));
 		return shop;
 	}
 }
