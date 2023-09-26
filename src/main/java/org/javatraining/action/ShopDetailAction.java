@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.javatraining.entity.Community;
 import org.javatraining.entity.Review;
 import org.javatraining.entity.Shop;
+import org.javatraining.entity.User;
 import org.javatraining.service.ReviewService;
 import org.javatraining.service.ShopService;
 import org.json.JSONArray;
@@ -57,6 +58,13 @@ public class ShopDetailAction extends Action {
     	
     	//取得したReview型のListをRequestに格納
     	request.setAttribute("reviews", reviews);
+    	
+    	//communityIdとapiIdでDBからReviewをListで取得
+    	List<User> users = reviewService.getUsers(communityId, apiId);
+    	System.out.println("[ShopDetailAction.java]: users "+ users);
+    	
+    	//取得したReview型のListをRequestに格納
+    	request.setAttribute("users", users);
     	System.out.println("[ShopDetailAction.java]: processRequest(HttpServletRequest request) END");
 
         // 遷移先のページを返す

@@ -6,6 +6,8 @@
 	type="java.util.List<org.javatraining.entity.Review>" />
 <jsp:useBean id="shopDetail" scope="request"
 	type="org.javatraining.entity.Shop" />
+<jsp:useBean id="users" scope="request"
+	type="java.util.List<org.javatraining.entity.User>" />
 
 
 <html lang="ja">
