@@ -74,6 +74,9 @@
                                     <div class="mt-3">
                                       <a class="btn btn-secondary" style="font-size: 14px;" href="<%=shopDetail.getUrl()%>" target="_blank">お店のHP</a>
                                     </div>
+                                    <div>
+                                      <canvas id="myChart"></canvas>
+                                    </div>
                                   </div>
                                 </div>
 							</div>
@@ -170,5 +173,47 @@
     </script>
 	<script src="http://maps.google.com/maps/api/js?key=AIzaSyBYxzFJkG_P15cNs_NQzwCw9QktNHTIlvU&language=ja"></script>
 	<script src="js/googlemap.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+  	const reviewsJson = ${reviewsJson}
+  	console.log(reviewsJson)
+  	const reviewNums = [0,0,0,0,0]
+  	reviewsJson.forEach(json => {
+  		const rating = json.rating
+  		reviewNums[rating-1]++
+  	})
+  	console.log(reviewNums)
+  	
+    const ctx = document.getElementById('myChart');
+  
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: ['★☆☆☆☆', '★★☆☆☆', '★★★☆☆', '★★★★☆', '★★★★★'],
+        datasets: [{
+          data: reviewNums,
+          borderWidth: 1
+        }]
+      },
+      options: {
+    	indexAxis: 'y',
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        },
+    	plugins: {
+        	title: {
+        		display: true,
+        		text: "レビュー数"
+        	},
+	        legend: {
+	        	display: false
+        	}
+        }
+      }
+    });
+  </script>
 </body>
 </html>
