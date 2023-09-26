@@ -2,7 +2,6 @@ package org.javatraining.action;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.Objects;
 
 import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
@@ -47,24 +46,25 @@ public class ReviewCreateAction extends Action {
 		
 		
 		String forParty = request.getParameter("forParty");
-		review.setForParty(Objects.isNull(forParty));
+		review.setForParty(checkNull(forParty));
 		
 		String forReception = request.getParameter("forReception");
-		review.setForParty(Objects.isNull(forReception));
+		review.setForReception(checkNull(forReception));
 		
 		String forDate = request.getParameter("forDate");
-		review.setForDate(Objects.isNull(forDate));
+		review.setForDate(checkNull(forDate));
 		
 		String tabaco = request.getParameter("tabaco");
-		review.setTabaco(Objects.isNull(tabaco));
-		String free = request.getParameter("free");
-		review.setFree(Objects.isNull(free));
+		review.setTabaco(checkNull(tabaco));
 		
-		String partySpace = request.getParameter("patrySpace");
-		review.setPartySpace(Objects.isNull(partySpace));
+		String free = request.getParameter("free");
+		review.setFree(checkNull(free));
+		
+		String partySpace = request.getParameter("partySpace");
+		review.setPartySpace(checkNull(partySpace));
 		
 		String reservation = request.getParameter("reservation");
-		review.setReservation(Objects.isNull(reservation));
+		review.setReservation(checkNull(reservation));
 		
 		String comment = request.getParameter("comment");
 		review.setComment(comment);
@@ -79,6 +79,9 @@ public class ReviewCreateAction extends Action {
 		return review;
 	}
 	
+	private boolean checkNull(String str) {
+		return str!= null;
+	}
 	
     protected Shop getOrCreateShop(HttpServletRequest request) throws SQLException, NamingException{
 
