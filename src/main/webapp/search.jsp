@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 
 <jsp:useBean
@@ -70,6 +71,16 @@
                       <div style="font-size: 18px;">${shop.name}</div>
                       <div>${shop.catchMessage}</div>
                       <div>${shop.budgetAve}</div>
+                      <div>
+                        <span class="rate-wrap">
+                          <span class="rate" style="--score: ${shop.ratingAve}"></span>
+                            <c:if test="${shop.reviewCount > 0}">
+                              <span class="rate-num">
+                                <fmt:formatNumber value="${shop.ratingAve}" pattern="#.##" />
+                              </span><i class="fa-solid fa-comment"></i>${shop.reviewCount}人
+                            </c:if>
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>

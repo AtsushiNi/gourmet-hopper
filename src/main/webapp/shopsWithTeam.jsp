@@ -98,6 +98,16 @@
                       <div style="font-size: 18px;">${shop.name}</div>
                       <div>${shop.catchMessage}</div>
                       <div>${shop.budgetAve}</div>
+                      <div>
+                        <span class="rate-wrap">
+                          <span class="rate" style="--score: ${shop.ratingAve}"></span>
+                            <c:if test="${shop.reviewCount > 0}">
+                              <span class="rate-num">
+                                <fmt:formatNumber value="${shop.ratingAve}" pattern="#.##" />
+                              </span><i class="fa-solid fa-comment"></i>${shop.reviewCount}人
+                            </c:if>
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
