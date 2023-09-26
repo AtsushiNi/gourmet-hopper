@@ -4,7 +4,7 @@
 <html lang="ja">
   <!-- head -->
   <jsp:include page="template/head.jsp">
-    <jsp:param name="page" value="home" />
+    <jsp:param name="page" value="teamDetail" />
   </jsp:include>
 
   <body>
@@ -19,24 +19,28 @@
             <h4 class="h4 ml-4">${requestScope.team.name}</h4>
           </div>
           <div class="col-sm">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>名前</th>
-                  <th>好きなもの</th>
-                  <th>苦手なもの</th>
-                </tr>
-              </thead>
-              <tbody>
-                <c:forEach var="user" items="${users}">
+            <div class="table-wrapper" style="max-height: 440px; margin-bottom: 20px; overflow-y: scroll;">
+              <table class="table">
+                <thead>
                   <tr>
-                    <td>${user.userName}</td>
-                    <td>${user.likeFood}</td>
-                    <td>${user.dislikeFood}</td>
+                  　　<th></th>
+                    <th>名前</th>
+                    <th>好きなもの</th>
+                    <th>苦手なもの</th>
                   </tr>
-                </c:forEach>
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  <c:forEach var="user" items="${users}">
+                    <tr>
+                      <td><input type="image" src= "image/icons/${user.userId}.png" class="rounded-circle" id="avatar" height="40px"></td>
+                      <td>${user.userName}</td>
+                      <td>${user.likeFood}</td>
+                      <td>${user.dislikeFood}</td>
+                    </tr>
+                  </c:forEach>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
         <div class="row">

@@ -10,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.javatraining.entity.Community;
 import org.javatraining.entity.Review;
 import org.javatraining.entity.Shop;
+import org.javatraining.entity.User;
 import org.javatraining.service.ReviewService;
 import org.javatraining.service.ShopService;
 import org.json.JSONArray;
@@ -42,7 +43,7 @@ public class ShopDetailAction extends Action {
         // Shopオブジェクトの List (要素は1つ)をjson形式でリクエストに設定
         JSONArray jsonArray = new JSONArray();
     	JSONObject json = new JSONObject();
-    	json.put("id", shopDetail.getId());
+    	json.put("id", shopDetail.getShopId());
     	json.put("name", shopDetail.getName());
     	json.put("apiId", shopDetail.getApiId());
     	json.put("lat", shopDetail.getLat());
@@ -57,6 +58,13 @@ public class ShopDetailAction extends Action {
     	
     	//取得したReview型のListをRequestに格納
     	request.setAttribute("reviews", reviews);
+    	
+    	//communityIdとapiIdでDBからReviewをListで取得
+    	List<User> users = reviewService.getUsers(communityId, apiId);
+    	System.out.println("[ShopDetailAction.java]: users "+ users);
+    	
+    	//取得したReview型のListをRequestに格納
+    	request.setAttribute("users", users);
     	System.out.println("[ShopDetailAction.java]: processRequest(HttpServletRequest request) END");
 
         // 遷移先のページを返す
