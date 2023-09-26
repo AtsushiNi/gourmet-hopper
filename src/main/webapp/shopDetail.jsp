@@ -84,7 +84,9 @@
 										for(int i = 0; i < reviews.size(); i++){ 
 									%>
 										<b><%=reviews.get(i).getTitle()%></b><br>
-										[評価]<%=reviews.get(i).getComment() %><br>
+										[評価]<%=reviews.get(i).getRating() %><br>
+										[コメント]<br>
+										<%=reviews.get(i).getComment() %><br>
 										[予算]<%=reviews.get(i).getBudget() %><br>
 										[お店の雰囲気]<br>
 										<%if(reviews.get(i).isForParty()){%>
@@ -126,7 +128,7 @@
 
 			</div>
             <div class="row">
-  				<a class="btn btn-secondary ml-auto" href="control?action_name=review_new&apiId=${requestScope.shopDetail.apiId }">新規レビューを投稿</a>
+  				<a class="btn btn-secondary ml-auto" href="control?action_name=review_new&apiId=${requestScope.shopDetail.apiId }&shopName=${requestScope.shopDetail.name}">新規レビューを投稿</a>
             </div>
         </div>
 	</main>

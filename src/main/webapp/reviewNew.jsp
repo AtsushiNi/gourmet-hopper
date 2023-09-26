@@ -13,7 +13,10 @@
     <main id="main">
       <div class="container">
         <div class="row my-5">
-          <h4 class="h4">レビューを新規作成</h4>
+          <h4 class="h4">${shopName }</h4>
+        </div>
+        <div class="row my-5">
+          <h5 class="h5">レビューを新規作成</h5>
         </div>
         <form action="control" method="post">
           <input type="hidden" name="action_name" value="review_create" />
