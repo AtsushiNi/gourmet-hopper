@@ -46,18 +46,23 @@ public class ShopDAO {
 		
 		sql = sql + " GROUP BY SHOPS.ID, SHOPS.NAME";
 		
+		System.out.println("SQL: " + sql);
+		System.out.println("communityId: " + communityId);
+		System.out.println("smallAreaCode: " + areaCodes.get("smallAreaCode"));
+		System.out.println("middleAreaCode: " + areaCodes.get("middleAreaCode"));
+		
 		// データソースを取得
 		DataSource ds = DataSourceSupplier.getDataSource();
 		try (Connection con = ds.getConnection(); PreparedStatement ps = con.prepareStatement(sql)) {
 			// プレースホルダに値をセット
 			if (shopName != null) {
-				ps.setInt(3, communityId);
-				ps.setString(1, "%" + shopName + "%");
-				ps.setString(2, areaCodes.get("smallAreaCode"));
+				ps.setInt(1, communityId);
+				ps.setString(2, "%" + shopName + "%");
+				ps.setString(3, areaCodes.get("smallAreaCode"));
 				System.out.println("[ShopDAO.java]:search communityId "+ communityId);
 			}else {
-				ps.setInt(2, communityId);
-				ps.setString(1, areaCodes.get("smallAreaCode"));
+				ps.setInt(1, communityId);
+				ps.setString(2, areaCodes.get("smallAreaCode"));
 				System.out.println("[ShopDAO.java]:search communityId "+ communityId);
 			}
 
