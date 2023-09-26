@@ -16,7 +16,7 @@
       <div class="container" style="width: 80%;">
         <div class="row mt-5">
           <div class="col-sm-3">
-          	<input type="image" src= "image/icons/${user.userId}.png" class="rounded-circle shadow" id="avatar" height="200px">
+          	<img src= "image/icons/${user.userId}.png" class="rounded-circle shadow" id="avatar" height="200px">
           </div>
           <div class="col-sm">
             <div style="margin-top: 100px;">
