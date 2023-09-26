@@ -39,6 +39,7 @@
                             </a>
                         </li>
 					</ul>
+					<!--左タブ-->
 					<div class="tab-content" style="border: 1px solid #dee2e6; border-radius: 0 10px;">
 						<div class="tab-pane fade show active" id="item1" role="tabpanel"
 							aria-labelledby="item1-tab">
@@ -75,6 +76,7 @@
                                 </div>
 							</div>
 						</div>
+						<!--右タブ-->
 						<div class="tab-pane fade" id="item2" role="tabpanel"
 							aria-labelledby="item2-tab">
 							<div data-spy="scroll" style="height: 400px; overflow: auto;">
@@ -112,6 +114,7 @@
 										<%if(reviews.get(i).isReservation()){ %>
 											予約可
 										<%} %>
+										<input type="image" src= "image/icons/<%=reviews.get(i).getUserId()%>.png" class="rounded-circle" id="avatar" height="40px">
 										<hr>
 										
 									<%} %>

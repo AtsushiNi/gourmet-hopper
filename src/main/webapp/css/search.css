@@ -1,6 +1,54 @@
 .active-item {
 	background: #FFF !important;
 }
+
 .deactive-item {
 	background: #F7F7F7 !important;
+}
+
+.active-item {
+	cursor: pointer;
+}
+
+.rate {
+	position: relative;
+	display: inline-block;
+	width: 150px;
+	height: 30px;
+	font-size: 30px;
+}
+.rate::before , .rate::after { 
+ position : absolute;
+	display: inline-block;
+	height: 30px;
+	content: '★★★★★';
+	line-height: 30px;
+}
+
+.rate::before {
+	color: #c4c4c4;
+}
+
+.rate::after {
+	overflow: hidden;
+	width: calc(var(--score) * 30px);
+	color:#ffb906;
+}
+
+.rate-wrap {
+	display: flex;
+	align-items: center;
+	margin: 20px auto 0;
+	line-height: 30px;
+}
+
+.rate-num {
+	font-size: 20px;
+	font-weight: bold;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.fa-comment {
+	margin-right: 5px;
 }
