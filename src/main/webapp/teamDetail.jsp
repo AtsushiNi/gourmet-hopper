@@ -22,6 +22,7 @@
             <table class="table">
               <thead>
                 <tr>
+                　　<th></th>
                   <th>名前</th>
                   <th>好きなもの</th>
                   <th>苦手なもの</th>
@@ -30,6 +31,7 @@
               <tbody>
                 <c:forEach var="user" items="${users}">
                   <tr>
+                    <td><input type="image" src= "image/icons/${user.userId}.png" class="rounded-circle" id="avatar" height="40px"></td>
                     <td>${user.userName}</td>
                     <td>${user.likeFood}</td>
                     <td>${user.dislikeFood}</td>
