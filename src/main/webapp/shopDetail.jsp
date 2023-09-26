@@ -97,7 +97,7 @@
                                         <hr>
                                         <div style="display: flex;">
                                           <span class="rate-wrap">
-                                            <span class="rate" style="--score: ${shop.ratingAve}"></span>
+                                            <span class="rate" style="--score: <%= reviews.get(i).getRating() %>"></span>
                                             <span class="rate-num">
                                               <%= reviews.get(i).getRating() %>
                                             </span>
