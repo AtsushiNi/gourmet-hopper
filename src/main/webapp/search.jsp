@@ -44,23 +44,25 @@
                 </div>
                 
                 <div class="accordion" id="select-areas">
-                  <div class="card">
-                    <div class="card-header" id="large-area">
-                      <h5 class="mb-0">
-                        <button class="btn btn-link" id="large-area-button" type="button" data-toggle="collapse" data-target="#middle-areas" aria-expanded="false" aria-controls="midde-areas">
-                          東京
-                        </button>
-                      </h5>
-                    </div>
-                    <div id="middle-areas" class="collapse" aria-labelledby="large-area" data-parent="#select-areas">
-                      <div class="card-body" id="middle-area-list">
-                      </div>
+                  <div class="btn-group dropright my-3" id="drop-down" style="width: 100%;">
+                    <button type="button" id="dropdown-button" class="btn btn-light dropdown-toggle" data-toggle="dropdown"
+                      aria-haspopup="true" aria-expanded="false">
+                      東京
+                    </button>
+                    <div class="dropdown-menu" style="width: 700px; font-size: 14px;">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col area-col ml-2" style="border-right: 1px solid silver;">
+                                </div>
+                                <div class="col area-col ml-2" style="border-right: 1px solid silver;">
+                                </div>
+                                <div class="col area-col ml-2">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                   </div>
                 </div>
-                <button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="right" data-content="<div id='middle-areas'></div>">
-                  東京
-                </button>
                 
                 <label for="tabaco">喫煙可</label>
                 <input type="checkbox" id="tabaco" name="tag" value="tabaco"><br>
@@ -117,7 +119,6 @@
     <!-- footer -->
     <%@ include file="template/footer.jsp"%>
   
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
     	let shopsJson = ${requestScope.shopsJson}
     </script>
