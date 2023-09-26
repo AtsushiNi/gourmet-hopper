@@ -16,20 +16,22 @@ import org.javatraining.entity.Shop;
 public class ShopDAO {
 
 	// SHOPSテーブルで入力された名前に関してあいまい検索する
-	public List<Shop> search(String smallAreaCode, String shopName) throws SQLException, NamingException {
+	public List<Shop> search(String smallAreaCode, String shopName, int communityId) throws SQLException, NamingException {
 		System.out.println("[ShopDAO.java]:search Start");
 		String sql = null;
 		if (shopName != null) {
 			sql = "SELECT SHOPS.*, COUNT(REVIEWS.ID) AS REVIEW_COUNT, AVG(REVIEWS.RATING) AS AVERAGE_RATING"
 					+ " FROM SHOPS"
 					+ " LEFT JOIN REVIEWS ON SHOPS.ID = REVIEWS.SHOP_ID"
-					+ " WHERE SHOPS.NAME LIKE ? AND SHOPS.SMALL_AREA_CODE = ?"
+					+ " INNER JOIN COMMUNITIES_USERS ON REVIEWS.USER_ID = COMMUNITIES_USERS.USER_ID"
+					+ " WHERE SHOPS.NAME LIKE ? AND SHOPS.SMALL_AREA_CODE = ? AND COMMUNITIES_USERS.COMMUNITY_ID = ?"
 					+ " GROUP BY SHOPS.ID, SHOPS.NAME";
 		} else {
 			sql = "SELECT SHOPS.*, COUNT(REVIEWS.ID) AS REVIEW_COUNT, AVG(REVIEWS.RATING) AS AVERAGE_RATING"
 					+ " FROM SHOPS"
 					+ " LEFT JOIN REVIEWS ON SHOPS.ID = REVIEWS.SHOP_ID"
-					+ " WHERE SHOPS.SMALL_AREA_CODE = ?"
+					+ " INNER JOIN COMMUNITIES_USERS ON REVIEWS.USER_ID = COMMUNITIES_USERS.USER_ID"
+					+ " WHERE SHOPS.SMALL_AREA_CODE = ? AND COMMUNITIES_USERS.COMMUNITY_ID = ?"
 					+ " GROUP BY SHOPS.ID, SHOPS.NAME";
 		}
 		
@@ -40,8 +42,12 @@ public class ShopDAO {
 			if (shopName != null) {
 				ps.setString(1, "%" + shopName + "%");
 				ps.setString(2, smallAreaCode);
+				ps.setInt(3, communityId);
+				System.out.println("[ShopDAO.java]:search communityId "+ communityId);
 			}else {
 				ps.setString(1, smallAreaCode);
+				ps.setInt(2, communityId);
+				System.out.println("[ShopDAO.java]:search communityId "+ communityId);
 			}
 			// 実行
 			ResultSet rs = ps.executeQuery();
@@ -52,6 +58,13 @@ public class ShopDAO {
 				// Shopオブジェクトを生成
 				Shop shop = createShop(rs);
 				// Shopオブジェクトの List に格納
+				shop.setShopId(rs.getInt("SHOPS.ID"));
+				shop.setReviewCount(rs.getInt("REVIEW_COUNT"));
+				shop.setRatingAve(rs.getDouble("AVERAGE_RATING"));
+				shop.setName(rs.getString("SHOPS.NAME"));
+				shop.setSmallAreaCode(rs.getString("SHOPS.SMALL_AREA_CODE"));
+				shop.setApiId(rs.getString("SHOPS.API_ID"));
+				
 				shops.add(shop);
 			}
 			// Shopオブジェクトの List を返す
