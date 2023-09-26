@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
@@ -19,15 +20,15 @@ public class ShopService {
 	private HotpepperRepository repository = new HotpepperRepository();
 
 	// Shopリストを取得する
-	public List<Shop> getShops(String smallAreaCode, String shopName)
+	public List<Shop> getShops(Map<String, String> areaCodes, String shopName)
 			throws SQLException, NamingException, IOException, InterruptedException {
 		System.out.println("[ShopService.java]:getShops Start");
 
 
 		// apiから情報を取得
 		HotpepperRepository repository = new HotpepperRepository();
-		List<Shop> apiShops = repository.getShops(smallAreaCode, shopName);
-		List<Shop> dbShops = shopDao.search(smallAreaCode, shopName);
+		List<Shop> apiShops = repository.getShops(areaCodes, shopName);
+		List<Shop> dbShops = shopDao.search(areaCodes, shopName);
 		List<Shop> allShops = new ArrayList<>();
 		allShops.addAll(dbShops);
 		

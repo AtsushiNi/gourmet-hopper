@@ -47,7 +47,10 @@ public class AreaServlet extends HttpServlet {
             	JSONObject area = new JSONObject(middleArea);
             	array.put(area);
             }
-            String json = array.toString();
+            
+            JSONObject responseJSON = new JSONObject();
+            responseJSON.put("data", array);
+            String json = responseJSON.toString();
             
             PrintWriter out = response.getWriter();
             out.print(json);

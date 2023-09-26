@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.naming.NamingException;
 import javax.sql.DataSource;
@@ -16,22 +17,32 @@ import org.javatraining.entity.Shop;
 public class ShopDAO {
 
 	// SHOPSテーブルで入力された名前に関してあいまい検索する
-	public List<Shop> search(String smallAreaCode, String shopName) throws SQLException, NamingException {
+	public List<Shop> search(Map<String, String> areaCodes, String shopName) throws SQLException, NamingException {
 		System.out.println("[ShopDAO.java]:search Start");
-		String sql = null;
+		String sql = "SELECT SHOPS.*, COUNT(REVIEWS.ID) AS REVIEW_COUNT, AVG(REVIEWS.RATING) AS AVERAGE_RATING"
+				+ " FROM SHOPS"
+				+ " LEFT JOIN REVIEWS ON SHOPS.ID = REVIEWS.SHOP_ID";
+
+		// 名前検索
 		if (shopName != null) {
-			sql = "SELECT SHOPS.*, COUNT(REVIEWS.ID) AS REVIEW_COUNT, AVG(REVIEWS.RATING) AS AVERAGE_RATING"
-					+ " FROM SHOPS"
-					+ " LEFT JOIN REVIEWS ON SHOPS.ID = REVIEWS.SHOP_ID"
-					+ " WHERE SHOPS.NAME LIKE ? AND SHOPS.SMALL_AREA_CODE = ?"
-					+ " GROUP BY SHOPS.ID, SHOPS.NAME";
-		} else {
-			sql = "SELECT SHOPS.*, COUNT(REVIEWS.ID) AS REVIEW_COUNT, AVG(REVIEWS.RATING) AS AVERAGE_RATING"
-					+ " FROM SHOPS"
-					+ " LEFT JOIN REVIEWS ON SHOPS.ID = REVIEWS.SHOP_ID"
-					+ " WHERE SHOPS.SMALL_AREA_CODE = ?"
-					+ " GROUP BY SHOPS.ID, SHOPS.NAME";
+			sql = sql + " WHERE SHOPS.NAME LIKE ?";
 		}
+
+		// エリアコード
+		if(areaCodes.get("smallAreaCode") != null) {
+			sql = sql + " AND SHOPS.SMALL_AREA_CODE = ?";
+		}
+		/**
+		if(areaCodes.get("middleAreaCode") != null) {
+			sql = sql + " AND SHOPS.MIDDLE_AREA_CODE = ?";
+		}
+		**/
+		// TODO
+		if(areaCodes.get("smallAreaCode") == null) {
+			return new ArrayList<>();
+		}
+		
+		sql = sql + " GROUP BY SHOPS.ID, SHOPS.NAME";
 		
 		// データソースを取得
 		DataSource ds = DataSourceSupplier.getDataSource();
@@ -39,9 +50,9 @@ public class ShopDAO {
 			// プレースホルダに値をセット
 			if (shopName != null) {
 				ps.setString(1, "%" + shopName + "%");
-				ps.setString(2, smallAreaCode);
+				ps.setString(2, areaCodes.get("smallAreaCode"));
 			}else {
-				ps.setString(1, smallAreaCode);
+				ps.setString(1, areaCodes.get("smallAreaCode"));
 			}
 			// 実行
 			ResultSet rs = ps.executeQuery();

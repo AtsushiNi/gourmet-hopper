@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import org.javatraining.entity.Shop;
 import org.json.JSONArray;
@@ -27,17 +28,33 @@ public class HotpepperRepository {
 	}
 	
 	//お店の一覧返す
-	public ArrayList<Shop> getShops(String smallAreaCode, String shopName) throws IOException, InterruptedException {
+	public ArrayList<Shop> getShops(Map<String, String> areaCodes, String shopName) throws IOException, InterruptedException {
 		// URLを組み立て
 		String baseURL = "https://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=7eaca5563e5d7d8e";
-		URL url = null;
+
+		// エリアコード
+		Set<String> keys = areaCodes.keySet();
+		for(String key : keys) {
+			if(key.equals("smallAreaCode") && areaCodes.get(key) != null) {
+				baseURL = baseURL + "&small_area=" + areaCodes.get(key);
+			}
+			if(key.equals("middleAreaCode") && areaCodes.get(key) != null) {
+				baseURL = baseURL + "&middle_area=" + areaCodes.get(key);				
+			}
+		}
+		
+		// 名前検索
 		if(shopName != null) {
 			@SuppressWarnings("deprecation")
 			String encodedSearchName = URLEncoder.encode(shopName, "UTF-8");
-			url = new URL(baseURL + "&small_area=" + smallAreaCode +"&name=" + encodedSearchName +"&count=10&format=json");
-		} else {
-			url = new URL(baseURL + "&small_area=" + smallAreaCode +"&count=10&format=json");			
+			baseURL = baseURL + "&name=" + encodedSearchName;
 		}
+
+		baseURL = baseURL + "&count=10&format=json";
+		URL url = new URL(baseURL);		
+
+		System.out.println("-----------------");
+		System.out.println(url);
 
 		// リクエスト実行
         String response = sendRequest(url);
