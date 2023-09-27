@@ -40,8 +40,8 @@
   <nav class="my-2 my-md-0 mr-md-3">
     <a class="p-2 text-dark header-links" href="control?action_name=home">Home</a>
     <a class="p-2 text-dark header-links" href="control?action_name=search">Search</a>
-    <a class="p-2 text-dark header-links" href="control?action_name=user_list">Users</a>
-    <a class="p-2 text-dark header-links" href="control?action_name=group_list">Groups</a>
+    <a class="p-2 text-dark header-links" href="#">Users</a>
+    <a class="p-2 text-dark header-links" href="#">Groups</a>
   </nav>
   <div class="header-overlay"></div>
 
