@@ -12,10 +12,10 @@
     </header>
     <main id="main">
       <div class="container">
-        <div class="row my-5">
+        <div class="row mt-5 mb-2">
           <h4 class="h4">${shopName }</h4>
         </div>
-        <form action="control" method="post">
+        <form action="control" method="post" class="shadow-sm p-3 mb-2 bg-white rounded">
           <input type="hidden" name="action_name" value="review_create" />
           <div class="row">
             <div class="col">
