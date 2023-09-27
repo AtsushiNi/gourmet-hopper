@@ -35,7 +35,7 @@
                       name="shopName"
                       class="form-control"
                       style="border-top-right-radius: 0px; border-bottom-right-radius: 0px;"
-                      placeholder="検索キーワードを入力"
+                      placeholder="キーワードを入力"
                       value=${(requestScope.shopName == null) ? "" : requestScope.shopName}
                     >
                     <button type="button" class="btn btn-secondary" style="border-top-left-radius: 0px; border-bottom-left-radius: 0px;"
