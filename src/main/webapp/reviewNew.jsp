@@ -3,7 +3,7 @@
 <html lang="ja">
   <!-- head -->
   <jsp:include page="template/head.jsp">
-    <jsp:param name="page" value="delete" />
+    <jsp:param name="page" value="reviewNew" />
   </jsp:include>
 
   <body>
@@ -14,9 +14,6 @@
       <div class="container">
         <div class="row my-5">
           <h4 class="h4">${shopName }</h4>
-        </div>
-        <div class="row my-5">
-          <h5 class="h5">新規レビュー</h5>
         </div>
         <form action="control" method="post">
           <input type="hidden" name="action_name" value="review_create" />
@@ -34,30 +31,21 @@
 
             <div class="col">
               <div class="form-group">
-                <label for="rating">評価：　</label>
-                <div id="rating">
-                  <div class="form-check form-check-inline">
-                    <input type="radio" class="form-check-input" id="check-5" name="rating" value="5" checked>
-                    <label class="form-check-label" for="check-5">5.最高</label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <input type="radio" class="form-check-input" id="check-4" name="rating" value="4">　
-                    <label class="form-check-label" for="check-5">4.とても良い</label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <input type="radio" class="form-check-input" id="check-3" name="rating" value="3">　 
-                    <label class="form-check-label" for="check-5">3.良い</label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <input type="radio" class="form-check-input" id="check-2" name="rating" value="2">　
-                    <label class="form-check-label" for="check-5">2.普通</label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                   <input type="radio" class="form-check-input" id="check-1" name="rating" value="1"> 
-                    <label class="form-check-label" for="check-5">1.良くない</label>
-                  </div>
+                <label for="rating" style="display: block;">評価：　</label>
+                <div class="stars" id="rating">
+                  <input class="star star-5" id="star-5" type="radio" name="rating" value="5" />
+                  <label class="star star-5" for="star-5"></label>
+                  <input class="star star-4" id="star-4" type="radio" name="rating" value="4" />
+                  <label class="star star-4" for="star-4"></label>
+                  <input class="star star-3" id="star-3" type="radio" name="rating" value="3" />
+                  <label class="star star-3" for="star-3"></label>
+                  <input class="star star-2" id="star-2" type="radio" name="rating" value="2" />
+                  <label class="star star-2" for="star-2"></label>
+                  <input class="star star-1" id="star-1" type="radio" name="rating" value="1" />
+                  <label class="star star-1" for="star-1"></label>
                 </div>
               </div>
+                            
               <div class="form-group">
                 <label for="budget">1人当たりの予算</label>
                 <select name="budget" class="form-control">
